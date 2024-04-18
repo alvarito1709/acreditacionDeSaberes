@@ -1,0 +1,58 @@
+plugins {
+	id 'java'
+	id 'war'
+	id 'org.springframework.boot' version '2.7.2'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.agencia'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'com.google.code.gson:gson:2.8.9'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-mail', version: '2.7.1'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'junit:junit:4.13.1'
+
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'mysql:mysql-connector-java'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+//	Dependencias de Excel
+	implementation group: 'org.apache.poi', name: 'poi', version: '5.2.2'
+
+	implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.2'
+	implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: '3.0.4.RELEASE'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.7.0'
+	implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
+//MAIL
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'javax.mail:javax.mail-api'
+	implementation 'com.sun.mail:javax.mail:1.6.2'
+	implementation 'org.apache.commons:commons-compress:1.21'
+//	Automatizar
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-quartz'
+}
+
+
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+

@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+#pageHeader{
+    padding: 10px;
+    position: relative;
+    background-color: #686ddc;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#loguearse{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#logoCiudadContainer{
+
+}
+
+#logoCiudadContainer img{
+    width: 200px;
+}

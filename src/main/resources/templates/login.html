@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+
+    <div id="loginContainer">
+        <div id="iconContainer">
+            <img th:src="@{/img/user-128.png}" id="userIcon">
+        </div>
+
+        <form  th:action="@{/login}" method="POST">
+
+            <label for="username">DOCUMENTO</label>
+            <input type="text" name="username" id="username" />
+            <br>
+            <label for="password">CONTRASEÑA</label>
+            <input type="password" name="password" id="password" />
+            <br>
+            <input type="submit" value="LOGIN">
+        </form>
+
+    </div>
+
+</body>
+</html>

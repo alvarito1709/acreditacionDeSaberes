@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <title>Acreditacion de Saberes</title>
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</head>
+<body>
+
+    <header id="pageHeader" th:fragment="header">
+
+        <div id="logoCiudadContainer">
+            <img th:src="@{/img/logoAgencia.png}" alt="logo Ciudad BA">
+        </div>
+
+        <div id="loguearse" >
+            <form method="POST" th:action="@{/logout}">
+                <a  href="#" onclick="this.parentNode.submit()"><iconify-icon icon="material-symbols:logout-sharp" style="color: #333;" width="35" height="35"></iconify-icon></a>
+            </form>
+        </div>
+    </header>
+
+</body>
+</html>

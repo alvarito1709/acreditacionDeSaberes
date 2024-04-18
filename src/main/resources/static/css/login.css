@@ -1,0 +1,38 @@
+#loginContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-items: center;
+    padding: 10px;
+}
+
+#loginContainer form{
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-around;
+}
+
+form input{
+    border: 1px solid black;
+    width: 200px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+#iconContainer{
+    background-color: #c5c3c2;
+    border-radius: 100%;
+    margin: auto;
+}
+
+#userIcon{
+    width: 100px;
+    height: 100px;
+    fill: whitesmoke;
+}
