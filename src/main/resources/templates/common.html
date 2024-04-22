@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" th:href="@{/css/header.css}">
     <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}" >
     <title>Acreditacion de Saberes</title>
 
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
@@ -24,6 +25,23 @@
             </form>
         </div>
     </header>
+
+    <div id="menuContainer" th:fragment="menu">
+        <div id="adminPanel">
+            <img th:src="@{/img/user-128.png}" id="userIcon">
+            <span>ADMIN</span>
+        </div>
+    </div>
+
+
+
+    <footer th:fragment="footer">
+
+        <div id="footerContainer">
+            <h3>Agencia de Aprendizaje a Lo Largo de la Vida</h3>
+        </div>
+
+    </footer>
 
 </body>
 </html>

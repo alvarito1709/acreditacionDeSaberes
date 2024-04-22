@@ -6,6 +6,8 @@ import com.agencia.acs.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
 
@@ -13,6 +15,10 @@ public class UserService {
     UserRepository userRepository;
 
     public User guardarUsuario(User user){
-        return userRepository.save(user);
+      return  userRepository.save(user);
+    }
+
+    public User buscarUsuario(Long id){
+        return userRepository.findById(id);
     }
 }

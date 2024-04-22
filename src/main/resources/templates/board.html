@@ -4,10 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Acreditacion de Saberes</title>
+
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/board.css}">
 </head>
 <body>
 
-<h1>Bienvenido</h1>
+<th:block th:replace="common :: header"></th:block>
+
+<div id="boardContainer"></div>
+
+<th:block th:replace="common :: footer"></th:block>
 
 </body>
 </html>

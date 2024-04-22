@@ -1,0 +1,30 @@
+
+
+#formContainer{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+#form{
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+
+    padding: 20px;
+    width: 400px;
+    height: 400px;
+
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#form input, select{
+    width: 250px;
+    height: 20px;
+}

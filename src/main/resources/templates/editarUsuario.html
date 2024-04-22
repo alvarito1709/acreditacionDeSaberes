@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Usuario</title>
+
+    <link rel="stylesheet" th:href="@{/css/agregarUsuario.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}" >
+</head>
+<body>
+
+    <th:block th:replace="common :: header"></th:block>
+
+    <div id="formContainer" th:fragment="editar(${usuario})">
+
+        <div id="form" th:each="datosusuario : ${usuario}">
+            <input id="idUsuarioEditar" hidden type="number" th:value="${datosusuario.id}">
+            <input id="nombreUsuarioEditar" type="text" placeholder="NOMBRE" th:value="${datosusuario.nombre}" >
+            <input id="correoUsuarioEditar" type="email" placeholder="EMAIL" th:value="${datosusuario.mail}">
+            <input id="dniEditar" type="text" PLACEHOLDER="DNI" th:value="${datosusuario.DNI}">
+            <input id="usernameUsuarioEditar" type="text" placeholder="USERNAME" th:value="${datosusuario.username}">
+            <input id="passwordUsuarioEditar" type="password" placeholder="PASSWORD" th:value="${datosusuario.password}">
+            <select id="tipoDeUsuarioEditar">
+                <option th:value="${datosusuario.rol}">TIPO DE USUARIO</option>
+                <option value="ROLE_ADMIN">ADMIN</option>
+                <option value="ROLE_USER">USUARIO</option>
+            </select>
+
+            <button onclick="editarUsuario()">
+                EDITAR USUARIO</button>
+        </div>
+
+    </div>
+
+    <th:block th:replace="common :: footer"></th:block>
+
+    <script th:src="@{/javaScript/editarUsuario.js}"></script>
+</body>
+</html>
