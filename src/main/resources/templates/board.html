@@ -9,12 +9,19 @@
     <link rel="stylesheet" th:href="@{/css/footer.css}">
     <link rel="stylesheet" th:href="@{/css/common.css}">
     <link rel="stylesheet" th:href="@{/css/board.css}">
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
 <body>
 
 <th:block th:replace="common :: header"></th:block>
 
-<div id="boardContainer"></div>
+<th:block th:replace="common :: menu"></th:block>
+
+<div id="tableContainer">
+    
+</div>
+
 
 <th:block th:replace="common :: footer"></th:block>
 

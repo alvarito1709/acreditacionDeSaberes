@@ -21,15 +21,52 @@
 
         <div id="loguearse" >
             <form method="POST" th:action="@{/logout}">
-                <a  href="#" onclick="this.parentNode.submit()"><iconify-icon icon="material-symbols:logout-sharp" style="color: #333;" width="35" height="35"></iconify-icon></a>
+                <a  href="#" onclick="this.parentNode.submit()"><iconify-icon icon="mdi:location-exit" width="28" height="28" style="color:rgba(0, 0, 0, 0.44)"></iconify-icon></a>
             </form>
         </div>
     </header>
 
     <div id="menuContainer" th:fragment="menu">
         <div id="adminPanel">
-            <img th:src="@{/img/user-128.png}" id="userIcon">
+            <img th:src="@{/img/ei--user.png}" id="userIcon">
             <span>ADMIN</span>
+        </div>
+        <div id="userBottomBorder"></div>
+
+        <div id="displayContainer">
+            <div class="itemContainer hover">
+                <iconify-icon icon="fluent:people-28-regular" width="28" height="28" class="menuIcon">
+                </iconify-icon>
+                <span>Postulantes</span>
+            </div>
+            <div class="itemContainer hover">
+                <iconify-icon icon="ion:calendar" width="20" height="20" class="menuIcon"></iconify-icon>
+                <span>Turno Entrevista</span>
+            </div>
+            <div class="itemContainer hover">
+                <iconify-icon icon="ion:calendar" width="20" height="20" class="menuIcon"></iconify-icon>
+                <span>Turno Acreditación</span>
+            </div>
+            <div class="itemContainer hover" id="desplegarEditables">
+                <iconify-icon icon="ic:sharp-school" width="21" height="21" class="menuIcon"></iconify-icon>
+                <span>Maestros</span>
+                <iconify-icon icon="lucide:list-end" width="21" height="21" id="desplegarLista" onclick="desplegarLista()"></iconify-icon>
+            </div>
+
+            <div class="listContainer">
+                <ul id="listaEditables">
+                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Centros</span></li>
+                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Trayectos</span></li>
+                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Sectores</span></li>
+                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Modulos</span></li>
+                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Usuarios</span></li>
+                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Orientadores</span></li>
+                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Entrevistadores</span></li>
+                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Evaluadores</span></li>
+                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Probador de Modulos</span></li>
+                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Usuario de Modulos</span></li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -42,6 +79,8 @@
         </div>
 
     </footer>
+
+<script th:src="@{/javaScript/common.js}"></script>
 
 </body>
 </html>
