@@ -9,5 +9,52 @@
 </head>
 <body>
 
+        <div th:fragment="tablaQueCargo (${tabla})">
+
+            <table id="tablaGestionDePostulantes" >
+                <thead class="headerTabla">
+                <tr class="titulosTabla">
+                    <th class="itemTitulo">#</th>
+                    <th class="itemTitulo">Fecha <i class="bi bi-arrow-down-up"></i></th>
+                    <th class="itemTitulo">Sector <i class="bi bi-arrow-down-up"></i></th>
+                    <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
+                    <th class="itemTitulo">Postulante <i class="bi bi-arrow-down-up"></i></th>
+                    <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
+                    <th class="itemTitulo">Acción <i class="bi bi-arrow-down-up"></i></th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>125	</td>
+                    <td>16/11/2023</td>
+                    <td>Gastronomia</td>
+                    <td>Panadero</td>
+                    <td>postulante1</td>
+                    <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
+                    <td><i class="bi bi-pencil-square"></i>
+                        <i class="bi bi-trash"></i>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>125	</td>
+                    <td>16/11/2023</td>
+                    <td>Gastronomia</td>
+                    <td>Panadero</td>
+                    <td>postulante1</td>
+                    <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
+                    <td><i class="bi bi-pencil-square"></i>
+                        <i class="bi bi-trash"></i>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+
+
+
 </body>
 </html>

@@ -18,11 +18,19 @@ function desplegarLista(){
 
 
 //FALTA TERMINAR ESTA API PARA HACER EL MODELANDVIEW EN EL CONTROLADOR
-function mostrarTablas(){
+function mostrarTablas(tabla){
 
     const urlTablas = url+"/tablas"
 
     $.ajax({
+        type:'POST',
+        url: urlTablas,
+        data:{
+            tabla:tabla
+        },
+        success: [function (respuesta){
+            $("#tableContainer").html(respuesta);
+        }]
 
     })
 
