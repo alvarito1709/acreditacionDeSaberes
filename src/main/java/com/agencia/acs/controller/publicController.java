@@ -49,7 +49,7 @@ public class publicController {
     @PostMapping("/tablas")
     public ModelAndView tablas(Model model, @RequestParam (value = "tabla") String tabla){
 
-        model.addAttribute(tabla);
+        model.addAttribute("tabla",tabla);
 
        return  new ModelAndView("tablas :: tablaQueCargo");
 

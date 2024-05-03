@@ -9,6 +9,8 @@
     <link rel="stylesheet" th:href="@{/css/footer.css}" >
     <title>Acreditacion de Saberes</title>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
 <body>
@@ -34,16 +36,16 @@
         <div id="userBottomBorder"></div>
 
         <div id="displayContainer">
-            <div class="itemContainer hover" onclick="mostrarTablas('Postulantes')">
+            <div class="itemContainer hover puedeSeleccionarse" onclick="mostrarTablas('Postulantes')">
                 <iconify-icon icon="fluent:people-28-regular" width="28" height="28" class="menuIcon">
                 </iconify-icon>
                 <span>Postulantes</span>
             </div>
-            <div class="itemContainer hover">
+            <div class="itemContainer hover puedeSeleccionarse" onclick="mostrarTablas('Entrevistas')">
                 <iconify-icon icon="ion:calendar" width="20" height="20" class="menuIcon"></iconify-icon>
                 <span>Turno Entrevista</span>
             </div>
-            <div class="itemContainer hover">
+            <div class="itemContainer hover puedeSeleccionarse" onclick="mostrarTablas('Acreditacion')">
                 <iconify-icon icon="ion:calendar" width="20" height="20" class="menuIcon"></iconify-icon>
                 <span>Turno Acreditación</span>
             </div>
@@ -55,16 +57,16 @@
 
             <div class="listContainer">
                 <ul id="listaEditables">
-                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Centros</span></li>
-                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Trayectos</span></li>
-                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Sectores</span></li>
-                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Modulos</span></li>
-                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Usuarios</span></li>
-                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Orientadores</span></li>
-                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Entrevistadores</span></li>
-                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Evaluadores</span></li>
-                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Probador de Modulos</span></li>
-                    <li class="hover listItem"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Usuario de Modulos</span></li>
+                    <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Centros')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Centros</span></li>
+                    <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Trayectos')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Trayectos</span></li>
+                    <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Sectores')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Sectores</span></li>
+                    <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Modulos')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Modulos</span></li>
+                    <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Usuarios</span></li>
+                    <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Orientadores')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Orientadores</span></li>
+                    <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Entrevistadores')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Entrevistadores</span></li>
+                    <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Evaluadores')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Evaluadores</span></li>
+                    <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Probador de Modulos')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Probador de Modulos</span></li>
+                    <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios Postulantes')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Usuario de Modulos</span></li>
                 </ul>
             </div>
         </div>

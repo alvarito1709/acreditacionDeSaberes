@@ -5,54 +5,236 @@
     <meta charset="UTF-8">
     <title>Tablas</title>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <link rel="stylesheet" th:href="@{/css/tablas.css}">
 </head>
 <body>
 
-        <div th:fragment="tablaQueCargo (${tabla})">
+        <div th:fragment="tablaQueCargo (${tabla})" class="contenedorBodyTabla">
 
-            <table id="tablaGestionDePostulantes" >
-                <thead class="headerTabla">
-                <tr class="titulosTabla">
-                    <th class="itemTitulo">#</th>
-                    <th class="itemTitulo">Fecha <i class="bi bi-arrow-down-up"></i></th>
-                    <th class="itemTitulo">Sector <i class="bi bi-arrow-down-up"></i></th>
-                    <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
-                    <th class="itemTitulo">Postulante <i class="bi bi-arrow-down-up"></i></th>
-                    <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
-                    <th class="itemTitulo">Acción <i class="bi bi-arrow-down-up"></i></th>
-                </tr>
-                </thead>
+            <div th:if="${tabla == 'Postulantes'}">
 
-                <tbody>
-                <tr>
-                    <td>125	</td>
-                    <td>16/11/2023</td>
-                    <td>Gastronomia</td>
-                    <td>Panadero</td>
-                    <td>postulante1</td>
-                    <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
-                    <td><i class="bi bi-pencil-square"></i>
-                        <i class="bi bi-trash"></i>
-                    </td>
-                </tr>
+                <h1 class="tituloTabla">Gestión Postulantes</h1>
 
-                <tr>
-                    <td>125	</td>
-                    <td>16/11/2023</td>
-                    <td>Gastronomia</td>
-                    <td>Panadero</td>
-                    <td>postulante1</td>
-                    <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
-                    <td><i class="bi bi-pencil-square"></i>
-                        <i class="bi bi-trash"></i>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                <table id="tablaGestionDePostulantes" >
+                    <thead class="headerTabla">
+                    <tr>
+                        <th class="itemTitulo">#</th>
+                        <th class="itemTitulo">Fecha <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Sector <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Postulante <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Acción <i class="bi bi-arrow-down-up"></i></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>125	</td>
+                        <td>16/11/2023</td>
+                        <td>Gastronomia</td>
+                        <td>Panadero</td>
+                        <td>postulante1</td>
+                        <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
+                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                            <i class="bi bi-trash iconoAcciones"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>125	</td>
+                        <td>16/11/2023</td>
+                        <td>Gastronomia</td>
+                        <td>Panadero</td>
+                        <td>postulante1</td>
+                        <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
+                        <td><i class="bi bi-pencil-square"></i>
+                            <i class="bi bi-trash"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>125	</td>
+                        <td>16/11/2023</td>
+                        <td>Gastronomia</td>
+                        <td>Panadero</td>
+                        <td>postulante1</td>
+                        <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
+                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                            <i class="bi bi-trash iconoAcciones"></i>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
 
-        </div>
+            <div th:if="${tabla == 'Entrevistas'}">
+
+                <h1 class="tituloTabla">Gestión de Entrevistas</h1>
+
+                <table id="tablaGestionDeEntrevistas" >
+                    <thead class="headerTabla">
+                    <tr>
+                        <th class="itemTitulo">#</th>
+                        <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Entrevistador <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Aspirante <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Turno <i class="bi bi-arrow-down-up"></i></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>125	</td>
+                        <td>16/11/2023</td>
+                        <td>Gastronomia</td>
+                        <td>Panadero</td>
+                        <td>postulante1</td>
+                        <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
+                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                            <i class="bi bi-trash iconoAcciones"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>125	</td>
+                        <td>16/11/2023</td>
+                        <td>Gastronomia</td>
+                        <td>Panadero</td>
+                        <td>postulante1</td>
+                        <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
+                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                            <i class="bi bi-trash iconoAcciones"></i>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+
+            </div>
+
+            <div th:if="${tabla == 'Acreditacion'}">
+
+                <h1 class="tituloTabla">Gestión de Acreditacion</h1>
+
+                <table id="tablaGestionDeAcreditacion" >
+                    <thead class="headerTabla">
+                    <tr>
+                        <th class="itemTitulo">#</th>
+                        <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Evaluador <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Aspirante <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Turno<i class="bi bi-arrow-down-up"></i></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>125	</td>
+                        <td>C.F.P. N° 02 (Barracas)</td>
+                        <td>Castro Lucas E</td>
+                        <td>postulante1</td>
+                        <td>Cocinero</td>
+                        <td>CON TURNO EVALUACIÓN</td>
+                        <td>05/12/2023 11:53</td>
+                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                            <i class="bi bi-trash iconoAcciones"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>125	</td>
+                        <td>C.F.P. N° 02 (Barracas)</td>
+                        <td>Castro Lucas E</td>
+                        <td>postulante1</td>
+                        <td>Cocinero</td>
+                        <td>CON TURNO EVALUACIÓN</td>
+                        <td>05/12/2023 11:53</td>
+                        <td><i class="bi bi-pencil-square iconoAcciones" ></i>
+                            <i class="bi bi-trash iconoAcciones"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>125	</td>
+                        <td>C.F.P. N° 02 (Barracas)</td>
+                        <td>Castro Lucas E</td>
+                        <td>postulante1</td>
+                        <td>Cocinero</td>
+                        <td>CON TURNO EVALUACIÓN</td>
+                        <td>05/12/2023 11:53</td>
+                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                            <i class="bi bi-trash iconoAcciones"></i>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+
+            <div th:if="${tabla == 'Centros'}">
+
+                <h1 class="tituloTabla">Gestión de Centros</h1>
+
+                <table id="tablaGestionDeCentros" >
+                    <thead class="headerTabla">
+                    <tr>
+                        <th class="itemTitulo">#</th>
+                        <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Direccion <i class="bi bi-arrow-down-up"></i></th>
+                        <th class="itemTitulo">Teléfono <i class="bi bi-arrow-down-up"></i></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>125	</td>
+                        <td>C.F.P. N° 02 (Barracas)</td>
+                        <td>Brandsen 2570</td>
+                        <td>4301-3655/ 4304-7061</td>
+                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                            <i class="bi bi-trash iconoAcciones"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>125	</td>
+                        <td>C.F.P. N° 02 (Barracas)</td>
+                        <td>Brandsen 2570</td>
+                        <td>4301-3655/ 4304-7061</td>
+                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                            <i class="bi bi-trash iconoAcciones"></i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>125	</td>
+                        <td>C.F.P. N° 02 (Barracas)</td>
+                        <td>Brandsen 2570</td>
+                        <td>4301-3655/ 4304-7061</td>
+                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                            <i class="bi bi-trash iconoAcciones"></i>
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+
+            </div>
+
 
 
 

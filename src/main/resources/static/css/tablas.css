@@ -4,16 +4,23 @@
     box-sizing: border-box;
 }
 
+table{
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 800px;
+}
+
 #tablaGestionDePostulantes{
 
     padding: 10px;
-    border-top: 1px  solid #808080FF;
-    border-bottom: 2px  solid #808080FF;
-
 }
 
-thead{
-    border-bottom: 2px solid #808080FF;
+tr{
+    border-bottom: 1px solid #dedddd;
+}
+
+tbody tr:nth-child(odd){
+    background-color: #dadada;
 }
 
 .titulosTabla{
@@ -31,9 +38,25 @@ thead{
 
 tbody td{
     text-align: center;
-    padding: 5px;
+    padding: 10px;
 }
 
 th .bi{
     font-size: .8rem;
 }
+
+.contenedorBodyTabla{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.tituloTabla{
+    margin-bottom: 50px;
+}
+
+.iconoAcciones{
+    cursor: pointer;
+}
+

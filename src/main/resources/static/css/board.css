@@ -1,5 +1,11 @@
 
 
+#bodyContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
 #boardContainer{
     height: 100vh;
 }

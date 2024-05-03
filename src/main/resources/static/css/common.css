@@ -5,7 +5,8 @@
 }
 
 #menuContainer{
-    height: 120vh;
+    height: auto;
+    min-height: 100vh;
     width: 300px;
     background-color: #8b86e3;
 
@@ -15,6 +16,10 @@
 
     border-top: 1px solid rgba(0, 0, 0, 0.44);
     padding: 5px;
+
+    overflow-y: auto;
+    scrollbar-width: thin;
+
 }
 
 #adminPanel{
@@ -54,6 +59,8 @@
     padding: 10px;
     align-items: center;
     width: 70%;
+
+    cursor:pointer;
 }
 
 .listContainer{
@@ -62,7 +69,7 @@
     flex-wrap: nowrap;
     padding: 10px;
     align-items: center;
-    width: 70%;
+    width: 100%;
 
 }
 
@@ -78,6 +85,13 @@
 
  #listaEditables{
      display: block;
+     width: 100%;
+ }
+
+ .listItem{
+     height: 40px;
+     padding: 5px;
+     cursor: pointer;
  }
 
 .menuIcon{
@@ -99,4 +113,13 @@ li{
 
 .selected{
    background-color: #cac6f6;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+
+.hover:hover{
+    background-color: #bdb8f8;
+    width: 100%;
+    border-radius: 5px;
 }

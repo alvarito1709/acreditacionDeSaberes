@@ -2,8 +2,7 @@ const url = "http://localhost:8080"
 
 
 const listaDesplegable = document.getElementById("listaEditables");
-const contenedores = document.getElementsByClassName("itemContainer");
-const lista = document.getElementsByClassName("listItem");
+const elementosSeleccionables = document.getElementsByClassName("puedeSeleccionarse");
 
 function desplegarLista(){
 
@@ -35,4 +34,17 @@ function mostrarTablas(tabla){
     })
 
 }
+
+    for (let i = 0; i < elementosSeleccionables.length; i++ ){
+
+        elementosSeleccionables[i].addEventListener('click', function (){
+
+            for (let i = 0; i < elementosSeleccionables.length; i ++){
+                elementosSeleccionables[i].classList.remove('selected');
+            }
+
+            elementosSeleccionables[i].classList.add('selected');
+
+        })
+    }
 
