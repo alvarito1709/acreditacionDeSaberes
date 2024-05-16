@@ -8,6 +8,7 @@ table{
     border-collapse: collapse;
     width: 100%;
     min-width: 800px;
+    border-radius: 10px;
 }
 
 #tablaGestionDePostulantes{
@@ -15,8 +16,18 @@ table{
     padding: 10px;
 }
 
+thead{
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 10px;
+}
+
 tr{
     border-bottom: 1px solid #dedddd;
+}
+
+tr:last-child{
+    border-radius: 10px;
 }
 
 tbody tr:nth-child(odd){
@@ -32,7 +43,6 @@ tbody tr:nth-child(odd){
     text-align: center;
 
     padding: 5px;
-
 
 }
 
@@ -53,7 +63,8 @@ th .bi{
 }
 
 .tituloTabla{
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 i{
