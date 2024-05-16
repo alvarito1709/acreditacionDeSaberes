@@ -18,7 +18,7 @@
     <header id="pageHeader" th:fragment="header">
 
         <div id="logoCiudadContainer">
-            <img th:src="@{/img/logoAgencia.png}" alt="logo Ciudad BA">
+            <img th:src="@{/img/Logo_Original.png}" alt="logo Ciudad BA" id="logoAgencia">
         </div>
 
         <div id="loguearse" >
@@ -66,7 +66,7 @@
                     <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Entrevistadores')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Entrevistadores</span></li>
                     <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Evaluadores')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Evaluadores</span></li>
                     <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Probador de Modulos')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Probador de Modulos</span></li>
-                    <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios Postulantes')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Usuario de Modulos</span></li>
+                    <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios Postulantes')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Usuarios Postulantes</span></li>
                 </ul>
             </div>
         </div>
@@ -77,7 +77,8 @@
     <footer th:fragment="footer">
 
         <div id="footerContainer">
-            <h3>Agencia de Aprendizaje a Lo Largo de la Vida</h3>
+            <h3>Agencia de Habilidades para el Futuro</h3>
+            <h4>Acreditación de Saberes</h4>
         </div>
 
     </footer>

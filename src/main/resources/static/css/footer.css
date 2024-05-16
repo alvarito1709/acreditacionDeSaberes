@@ -2,12 +2,14 @@ footer{
     padding: 60px;
     display: flex;
     flex-wrap: wrap;
-    background-color: #686ddc;
+    background: linear-gradient(90deg,#390e8c, #7f1bbf);
 }
 
 #footerContainer{
     margin: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
+    text-align: center;
 }

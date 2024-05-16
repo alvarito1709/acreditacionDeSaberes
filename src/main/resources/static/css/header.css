@@ -7,7 +7,7 @@
 #pageHeader{
     padding: 10px;
     position: relative;
-    background-color: #686ddc;
+    background: linear-gradient(90deg,#390e8c, #7f1bbf);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -26,5 +26,6 @@
 }
 
 #logoCiudadContainer img{
-    width: 200px;
+    border-radius: 10px;
+    width: 100px;
 }
