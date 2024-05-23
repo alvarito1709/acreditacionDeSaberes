@@ -1,0 +1,58 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Archivo', sans-serif;
+}
+
+:root{
+     --gris : #DEDDD8;
+}
+
+.bodyContainer{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#textoBienvenida{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+}
+
+#textoBienvenida p{
+    font-weight: 600;
+}
+
+#contenedorBotones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 70px auto 150px;
+    flex-wrap: wrap;
+    min-width: 100vw;
+}
+
+.botonAcreditacion{
+
+    padding:10px 25px;
+    border: none;
+
+    border-radius:20px;
+
+    background-color: var(--gris);
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+#logoBienvenidaContainer{
+   display: flex;
+    justify-content: center;
+}

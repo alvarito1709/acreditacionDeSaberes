@@ -3,6 +3,8 @@ package com.agencia.acs.controller;
 
 import com.agencia.acs.entities.User;
 
+import com.agencia.acs.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,10 +14,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
+import java.util.Objects;
 
 @Controller
 @RequestMapping("")
 public class publicController {
+
+    @Autowired
+    UserRepository userRepository;
 
     @GetMapping("/login")
     public String login(){
@@ -51,13 +58,14 @@ public class publicController {
 
         model.addAttribute("tabla",tabla);
 
+        //if (tabla == "Postulantes"){
+          //  List<User> listaPostulantes = userRepository.findByRol("Postulantes");
+            //model.addAttribute("postulantes", listaPostulantes);
+        //}
+
        return  new ModelAndView("tablas :: tablaQueCargo");
 
 
     }
 
-    @GetMapping("/tabla")
-    public String tabla(){
-        return "tablas";
-    }
 }

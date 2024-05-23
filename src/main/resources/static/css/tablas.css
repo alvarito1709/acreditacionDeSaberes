@@ -71,3 +71,11 @@ i{
     cursor: pointer;
 }
 
+.backgroundTabla{
+    padding: 30px;
+    background-color: whitesmoke;
+    border: 1px solid rgba(197, 195, 195, 0.78);
+    border-radius: 10px;
+}
+
+

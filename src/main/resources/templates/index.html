@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Acreditación de Saberes</title>
+
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<th:block th:replace="common :: header"></th:block>
+
+    <div class="bodyContainer">
+
+        <div id="logoBienvenidaContainer">
+            <img th:src="@{/img/logo_ACS.png}">
+        </div>
+
+        <div id="textoBienvenida">
+            <h3>¿Eres experto en un oficio? ¡Obtén tu certificado oficial!</h3>
+            <br>
+            <br>
+            <p>El programa Acreditación de Saberes de la Ciudad te permite acreditar tus habilidades y conocimientos en un oficio. </p>
+        </div>
+
+        <div id="contenedorBotones">
+            <button class="botonAcreditacion">¡REGISTRARME!</button>
+            <button class="botonAcreditacion">INICIAR SESIÓN</button>
+        </div>
+    </div>
+
+<th:block th:replace="common :: footer"></th:block>
+</body>
+</html>

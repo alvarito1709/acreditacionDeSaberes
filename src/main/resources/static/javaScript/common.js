@@ -16,7 +16,7 @@ function desplegarLista(){
 }
 
 
-//FALTA TERMINAR ESTA API PARA HACER EL MODELANDVIEW EN EL CONTROLADOR
+
 function mostrarTablas(tabla){
 
     const urlTablas = url+"/tablas"

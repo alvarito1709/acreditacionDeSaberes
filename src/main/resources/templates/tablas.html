@@ -13,61 +13,66 @@
 
         <div th:fragment="tablaQueCargo (${tabla})" class="contenedorBodyTabla">
 
+
             <div th:if="${tabla == 'Postulantes'}">
 
                 <h1 class="tituloTabla">Gestión Postulantes</h1>
 
-                <table id="tablaGestionDePostulantes" >
-                    <thead class="headerTabla">
-                    <tr>
-                        <th class="itemTitulo">#</th>
-                        <th class="itemTitulo">Fecha <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Sector <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Postulante <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo"></th>
-                    </tr>
-                    </thead>
+                <div class="backgroundTabla">
+                    <table id="tablaGestionDePostulantes" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Fecha <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Sector <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Postulante <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"></th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr>
-                        <td>125	</td>
-                        <td>16/11/2023</td>
-                        <td>Gastronomia</td>
-                        <td>Panadero</td>
-                        <td>postulante1</td>
-                        <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
+                        <tbody >
+                        <tr>
+                            <td >125	</td>
+                            <td>16/11/2023</td>
+                            <td>Gastronomia</td>
+                            <td>Panadero</td>
+                            <td>postulante1</td>
+                            <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td>125	</td>
-                        <td>16/11/2023</td>
-                        <td>Gastronomia</td>
-                        <td>Panadero</td>
-                        <td>postulante1</td>
-                        <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
-                        <td><i class="bi bi-pencil-square"></i>
-                            <i class="bi bi-trash"></i>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>16/11/2023</td>
+                            <td>Gastronomia</td>
+                            <td>Panadero</td>
+                            <td>postulante1</td>
+                            <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
+                            <td><i class="bi bi-pencil-square"></i>
+                                <i class="bi bi-trash"></i>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td>125	</td>
-                        <td>16/11/2023</td>
-                        <td>Gastronomia</td>
-                        <td>Panadero</td>
-                        <td>postulante1</td>
-                        <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                        <tr>
+                            <td>125	</td>
+                            <td>16/11/2023</td>
+                            <td>Gastronomia</td>
+                            <td>Panadero</td>
+                            <td>postulante1</td>
+                            <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
             </div>
 
 
@@ -75,44 +80,49 @@
 
                 <h1 class="tituloTabla">Gestión de Entrevistas</h1>
 
-                <table id="tablaGestionDeEntrevistas" >
-                    <thead class="headerTabla">
-                    <tr>
-                        <th class="itemTitulo">#</th>
-                        <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Entrevistador <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Aspirante <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Turno</th>
-                    </tr>
-                    </thead>
+                <div class="backgroundTabla">
+                    <table id="tablaGestionDeEntrevistas" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Entrevistador <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Aspirante <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Turno</th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr>
-                        <td>125	</td>
-                        <td>16/11/2023</td>
-                        <td>Gastronomia</td>
-                        <td>Panadero</td>
-                        <td>postulante1</td>
-                        <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
-                        <td>
-                        </td>
-                    </tr>
+                        <tbody>
+                        <tr>
+                            <td>125	</td>
+                            <td>16/11/2023</td>
+                            <td>Gastronomia</td>
+                            <td>Panadero</td>
+                            <td>postulante1</td>
+                            <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
+                            <td>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td>125	</td>
-                        <td>16/11/2023</td>
-                        <td>Gastronomia</td>
-                        <td>Panadero</td>
-                        <td>postulante1</td>
-                        <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
-                        <td>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>16/11/2023</td>
+                            <td>Gastronomia</td>
+                            <td>Panadero</td>
+                            <td>postulante1</td>
+                            <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
+                            <td>
+                            </td>
+                        </tr>
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
 
 
             </div>
@@ -121,58 +131,62 @@
 
                 <h1 class="tituloTabla">Gestión de Acreditacion</h1>
 
-                <table id="tablaGestionDeAcreditacion" >
-                    <thead class="headerTabla">
-                    <tr>
-                        <th class="itemTitulo">#</th>
-                        <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Evaluador <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Aspirante <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Turno<i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo"></th>
-                    </tr>
-                    </thead>
+                <div class="backgroundTabla">
+                    <table id="tablaGestionDeAcreditacion" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Evaluador <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Aspirante <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Turno<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"></th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Castro Lucas E</td>
-                        <td>postulante1</td>
-                        <td>Cocinero</td>
-                        <td>CON TURNO EVALUACIÓN</td>
-                        <td>05/12/2023 11:53</td>
-                        <td><i class="bi bi-calendar-event"></i>
-                        </td>
-                    </tr>
+                        <tbody>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Castro Lucas E</td>
+                            <td>postulante1</td>
+                            <td>Cocinero</td>
+                            <td>CON TURNO EVALUACIÓN</td>
+                            <td>05/12/2023 11:53</td>
+                            <td><i class="bi bi-calendar-event"></i>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Castro Lucas E</td>
-                        <td>postulante1</td>
-                        <td>Cocinero</td>
-                        <td>CON TURNO EVALUACIÓN</td>
-                        <td>05/12/2023 11:53</td>
-                        <td><i class="bi bi-calendar-event"></i>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Castro Lucas E</td>
+                            <td>postulante1</td>
+                            <td>Cocinero</td>
+                            <td>CON TURNO EVALUACIÓN</td>
+                            <td>05/12/2023 11:53</td>
+                            <td><i class="bi bi-calendar-event"></i>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Castro Lucas E</td>
-                        <td>postulante1</td>
-                        <td>Cocinero</td>
-                        <td>CON TURNO EVALUACIÓN</td>
-                        <td>05/12/2023 11:53</td>
-                        <td><i class="bi bi-calendar-event"></i>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Castro Lucas E</td>
+                            <td>postulante1</td>
+                            <td>Cocinero</td>
+                            <td>CON TURNO EVALUACIÓN</td>
+                            <td>05/12/2023 11:53</td>
+                            <td><i class="bi bi-calendar-event"></i>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
 
 
             </div>
@@ -182,50 +196,55 @@
 
                 <h1 class="tituloTabla">Gestión de Centros</h1>
 
-                <table id="tablaGestionDeCentros" >
-                    <thead class="headerTabla">
-                    <tr>
-                        <th class="itemTitulo">#</th>
-                        <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Direccion <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Teléfono <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo"></th>
-                    </tr>
-                    </thead>
+                <div class="backgroundTabla">
+                    <table id="tablaGestionDeCentros" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Direccion <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Teléfono <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"></th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
+                        <tbody>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
 
 
             </div>
@@ -234,50 +253,56 @@
 
                 <h1 class="tituloTabla">Gestión de Trayectos</h1>
 
-                <table id="tablaGestionDeTrayectos" >
-                    <thead class="headerTabla">
-                    <tr>
-                        <th class="itemTitulo">#</th>
-                        <th class="itemTitulo">Sector <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Condiciones <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo"></th>
-                    </tr>
-                    </thead>
+                <div class="backgroundTabla">
 
-                    <tbody>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
+                    <table id="tablaGestionDeTrayectos" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Sector <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Condiciones <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"></th>
+                        </tr>
+                        </thead>
 
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
+                        <tbody>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
 
 
             </div>
@@ -286,50 +311,55 @@
 
                 <h1 class="tituloTabla">Gestión de Sectores</h1>
 
-                <table id="tablaGestionDeSectores" >
-                    <thead class="headerTabla">
-                    <tr>
-                        <th class="itemTitulo">#</th>
-                        <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Descripción <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo"></th>
-                    </tr>
-                    </thead>
+                <div class="backgroundTabla">
+                    <table id="tablaGestionDeSectores" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Descripción <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"></th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
+                        <tbody>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
 
 
             </div>
@@ -338,47 +368,51 @@
 
                 <h1 class="tituloTabla">Gestión de Modulos</h1>
 
-                <table id="tablaGestionDeModulos" >
-                    <thead class="headerTabla">
-                    <tr>
-                        <th class="itemTitulo">#</th>
-                        <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Modulo <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Descripción <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo"></th>
-                    </tr>
-                    </thead>
+                <div class="backgroundTabla">
+                    <table id="tablaGestionDeModulos" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Modulo <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Descripción <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"></th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-list-check"></i></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-list-check"></i></i>
-                        </td>
-                    </tr>
+                        <tbody>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-list-check"></i></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-list-check"></i></i>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-list-check"></i></i>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-list-check"></i></i>
+                            </td>
+                        </tr>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
+
+
 
 
             </div>
@@ -387,50 +421,56 @@
 
                 <h1 class="tituloTabla">Gestión de Usuarios</h1>
 
-                <table id="tablaGestionDeUsuarios" >
-                    <thead class="headerTabla">
-                    <tr>
-                        <th class="itemTitulo">#</th>
-                        <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Tipo <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo"></th>
-                    </tr>
-                    </thead>
+                <div class="backgroundTabla">
 
-                    <tbody>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
+                    <table id="tablaGestionDeUsuarios" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Tipo <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"></th>
+                        </tr>
+                        </thead>
 
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
+                        <tbody>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
 
 
             </div>
@@ -441,43 +481,49 @@
 
                 <h1 class="tituloTabla">Gestión de Orientadores</h1>
 
-                <table id="tablaGestionDeOrientadores" >
-                    <thead class="headerTabla">
-                    <tr>
-                        <th class="itemTitulo">#</th>
-                        <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo"></th>
-                    </tr>
-                    </thead>
+                <div class="backgroundTabla">
+                    <table id="tablaGestionDeOrientadores" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"></th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td><i class="bi bi-plus-circle"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td><i class="bi bi-plus-circle"></i>
-                        </td>
-                    </tr>
+                        <tbody>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td><i class="bi bi-plus-circle"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td><i class="bi bi-plus-circle"></i>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td><i class="bi bi-plus-circle"></i>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td><i class="bi bi-plus-circle"></i>
+                            </td>
+                        </tr>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+
 
 
             </div>
@@ -488,43 +534,49 @@
 
                 <h1 class="tituloTabla">Gestión de Entrevistadores</h1>
 
-                <table id="tablaGestionDeEntrevistadores" >
-                    <thead class="headerTabla">
-                    <tr>
-                        <th class="itemTitulo">#</th>
-                        <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo"></th>
-                    </tr>
-                    </thead>
+                <div class="backgroundTabla">
 
-                    <tbody>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td><i class="bi bi-plus-circle"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td><i class="bi bi-plus-circle"></i>
-                        </td>
-                    </tr>
+                    <table id="tablaGestionDeEntrevistadores" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"></th>
+                        </tr>
+                        </thead>
 
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td><i class="bi bi-plus-circle"></i>
-                        </td>
-                    </tr>
+                        <tbody>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td><i class="bi bi-plus-circle"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td><i class="bi bi-plus-circle"></i>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td><i class="bi bi-plus-circle"></i>
+                            </td>
+                        </tr>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
 
 
             </div>
@@ -535,43 +587,49 @@
 
                 <h1 class="tituloTabla">Gestión de Evaluadores</h1>
 
-                <table id="tablaGestionDeEvaluadores" >
-                    <thead class="headerTabla">
-                    <tr>
-                        <th class="itemTitulo">#</th>
-                        <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo"></th>
-                    </tr>
-                    </thead>
+                <div class="backgroundTabla">
 
-                    <tbody>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td><i class="bi bi-plus-circle"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td><i class="bi bi-plus-circle"></i>
-                        </td>
-                    </tr>
+                    <table id="tablaGestionDeEvaluadores" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"></th>
+                        </tr>
+                        </thead>
 
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td><i class="bi bi-plus-circle"></i>
-                        </td>
-                    </tr>
+                        <tbody>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td><i class="bi bi-plus-circle"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td><i class="bi bi-plus-circle"></i>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td><i class="bi bi-plus-circle"></i>
+                            </td>
+                        </tr>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
 
 
             </div>
@@ -580,47 +638,53 @@
 
                 <h1 class="tituloTabla">Probador de Modulos</h1>
 
-                <table id="tablaProbadorDeModulos" >
-                    <thead class="headerTabla">
-                    <tr>
-                        <th class="itemTitulo">#</th>
-                        <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Modulo <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Descripción <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo"></th>
-                    </tr>
-                    </thead>
+                <div class="backgroundTabla">
 
-                    <tbody>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-arrow-right-square"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-arrow-right-square"></i>
-                        </td>
-                    </tr>
+                    <table id="tablaProbadorDeModulos" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Modulo <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Descripción <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"></th>
+                        </tr>
+                        </thead>
 
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td><i class="bi bi-arrow-right-square"></i>
-                        </td>
-                    </tr>
+                        <tbody>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-arrow-right-square"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-arrow-right-square"></i>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td><i class="bi bi-arrow-right-square"></i>
+                            </td>
+                        </tr>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
 
 
             </div>
@@ -629,58 +693,63 @@
 
                 <h1 class="tituloTabla">Gestión de Usuarios Postulantes</h1>
 
-                <table id="tablaGestionUsuariosPostulantes" >
-                    <thead class="headerTabla">
-                    <tr>
-                        <th class="itemTitulo">#</th>
-                        <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Teléfono <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Fecha Alta <i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo">Activo<i class="bi bi-arrow-down-up"></i></th>
-                        <th class="itemTitulo"></th>
-                    </tr>
-                    </thead>
+                <div class="backgroundTabla">
+                    <table id="tablaGestionUsuariosPostulantes" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Teléfono <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Fecha Alta <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Activo<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"></th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td>ursula.portillo@bue.edu.ar</td>
-                        <td>10/11/2023</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td>ursula.portillo@bue.edu.ar</td>
-                        <td>10/11/2023</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
+                        <tbody>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td>ursula.portillo@bue.edu.ar</td>
+                            <td>10/11/2023</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td>ursula.portillo@bue.edu.ar</td>
+                            <td>10/11/2023</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td>125	</td>
-                        <td>C.F.P. N° 02 (Barracas)</td>
-                        <td>Brandsen 2570</td>
-                        <td>4301-3655/ 4304-7061</td>
-                        <td>ursula.portillo@bue.edu.ar</td>
-                        <td>10/11/2023</td>
-                        <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                            <i class="bi bi-trash iconoAcciones"></i>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>125	</td>
+                            <td>C.F.P. N° 02 (Barracas)</td>
+                            <td>Brandsen 2570</td>
+                            <td>4301-3655/ 4304-7061</td>
+                            <td>ursula.portillo@bue.edu.ar</td>
+                            <td>10/11/2023</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
 
 
             </div>
