@@ -29,6 +29,9 @@ public class publicController {
         return "login";
     }
 
+    @GetMapping("/info")
+    public String info(){ return "info";}
+
     @GetMapping("/board")
     public String board(){
         return "board";
