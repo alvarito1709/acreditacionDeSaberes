@@ -1,10 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Acreditacion de Saberes</title>
+
+    <link rel="stylesheet" th:href="@{/css/info.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
 </head>
 <body>
+
+<th:block th:replace=" common :: header"></th:block>
+
+<div id="bodyContainer">
+    <h3 class="tituloInfo">¡Reconoce tus habilidades y obtén tu certificado oficial!</h3>
+
+    <br>
+    <br>
+
+    <p class="subtituloInfo">¿Tienes experiencia o conocimientos en un oficio y deseas que sean reconocidos?</p>
+    <br>
+    <p class="subtituloInfo">¡El programa Acreditación de Saberes de la Ciudad te brinda la oportunidad!</p>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h3 class="tituloInfo">¿Qué es?</h3>
+
+    <br>
+    <br>
+
+    <p>Es una iniciativa que te permite acreditar oficialmente los saberes que has adquirido a
+        través de tu experiencia laboral o formación, <span class="textoBold"> independientemente de si fue en un ámbito
+        formal o no formal.</span></p>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h3 class="tituloInfo">¿En qué oficios puedo acreditar mis saberes?</h3>
+
+    <br>
+    <br>
+
+    <p>Actualmente, el programa ofrece la posibilidad de acreditar saberes en los siguientes
+        oficios:</p>
+
+    <br>
+    <br>
+
+    <ul>
+        <li>Gas</li>
+        <li>Electricidad</li>
+        <li>Electricidad del automotor</li>
+        <li>Programación</li>
+        <li>Mecánica del automotor</li>
+        <li>Mecánica de sistemas de inyección diesel</li>
+        <li>Mecánica de motos</li>
+        <li>Mecánica de bicicletas</li>
+        <li>Panadería</li>
+        <li>Pastelería</li>
+        <li>Cocina</li>
+        <li>Climatización</li>
+        <li>Sanitarios</li>
+        <li>Modista</li>
+        <li>Operador de máquinas para la confección de indumentaria</li>
+        <li>Instalador y administrador de redes</li>
+        <li>Instalador y soporte de sistemas informáticos</li>
+    </ul>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h3 class="tituloInfo">¿Cuáles son los pasos a seguir?</h3>
+
+    <br>
+    <br>
+
+    <ol>
+        <li> <span class="textoBold"> Crea tu usuario: </span>Regístrate en el portal y recibirás un correo electrónico con tu
+            usuario y contraseña. Recuerda que debes ser mayor de 18 años y, según el oficio,
+            se te podrían solicitar requisitos adicionales. </li>
+
+        <li> <span class="textoBold"> Elige tu sector y oficio: </span> Una vez dentro del portal, selecciona el sector y el oficio en
+            el que deseas acreditar tus saberes. </li>
+
+        <li> <span class="textoBold"> Completa el cuestionario inicial: </span> Este cuestionario nos permitirá evaluar tu nivel de
+            conocimientos para brindarte la mejor asesoría. </li>
+
+        <li>
+            <span class="textoBold">¡Espera la comunicación! </span>Si la mayoría de tus respuestas son correctas, un Centro de Formación
+            Profesional se pondrá en contacto contigo para continuar el proceso.</li>
+
+        <li><span class="textoBold">¿No aprobaste el cuestionario? </span> ¡No te preocupes! Puedes inscribirte y comenzar a
+            estudiar el oficio desde cero.</li>
+    </ol>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h3 class="tituloInfo">¿Más información?</h3>
+
+    <br>
+    <br>
+
+    <p><span class="textoBold">Conoce todas las opciones de formación e inscríbete: </span>
+        <a href="https://agenciadeaprendizaje.bue.edu.ar/" target="_blank" >agenciadeaprendizaje.bue.edu.ar/</a></p>
+
+    <br>
+
+    <p><span class="textoBold">
+        Preguntas frecuentes:</span>
+        <a href="http://buenosaires.gob.ar/acreditacion-de-saberes/preguntas-frecuentes" target="_blank">
+            buenosaires.gob.ar/acreditacion-de-saberes/preguntas-frecuentes </a> </p>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <p class="centrarTexto textoBold">¡No pierdas esta oportunidad de reconocer tus habilidades y obtener un certificado oficial!</p>
+
+    <br>
+
+    <p class="centrarTexto textoBold">¡Inscríbete hoy mismo!</p>
+
+    <button id="botonRegistro"><a href="#">COMENZAR REGISTRO</a></button>
+</div>
+
+<th:block th:replace=" common :: footer"></th:block>
 
 </body>
 </html>

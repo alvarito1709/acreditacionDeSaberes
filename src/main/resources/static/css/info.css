@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    font-family: 'Archivo', sans-serif;
+}
+
+
+:root{
+    --gris : #DEDDD8;
+}
+
+#bodyContainer{
+
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+}
+
+.tituloInfo{
+    color: #7f1bbf;
+}
+
+.subtituloInfo{
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.textoBold{
+    font-weight: 600;
+}
+
+#bodyContainer p{
+    width: 70%;
+}
+
+#bodyContainer ul{
+    margin-left: 20px;
+}
+
+#bodyContainer ol{
+    margin-left: 20px;
+    width: 90%;
+}
+
+ol li{
+    margin-bottom: 40px;
+}
+
+p a {
+    color: #7f1bbf;
+    font-weight: 600;
+}
+
+.centrarTexto{
+    text-align: center;
+    margin: auto;
+}
+
+#botonRegistro{
+    background-color: var(--gris);
+    width: 280px;
+    padding: 20px 50px ;
+    border-radius: 30px;
+    border: none;
+    font-weight: 600;
+
+    margin: 80px auto;
+    cursor: pointer;
+}
+
+#botonRegistro a{
+    all: unset;
+}
+
+#botonRegistro:hover{
+    scale: 103%;
+}

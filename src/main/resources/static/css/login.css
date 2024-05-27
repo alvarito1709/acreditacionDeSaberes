@@ -1,15 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    font-family: 'Archivo', sans-serif;
+}
+
 #loginContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-items: center;
     padding: 10px;
-    margin: 30px 0 40px;
+
+    min-height: 80vh;
 }
 
 #loginContainer form{
-    width: 500px;
+    width: 40%;
     height: 300px;
     display: flex;
     flex-direction: column;
@@ -19,23 +25,49 @@
     justify-content: space-around;
 }
 
-form input{
-    border: 1px solid black;
-    width: 200px;
-    height: 20px;
-    border-radius: 5px;
+.datoIngreso{
 
-    padding: 5px;
+    border: 1px solid #7f1bbf;
+    color: #7f1bbf;
+    padding: 20px 25px;
+    border-radius: 30px;
+
+    font-weight: 600;
+    text-align: center;
 }
 
-#iconContainer{
-    background-color: #c5c3c2;
-    border-radius: 100%;
+.datoIngreso::placeholder{
+    color: #7f1bbf;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+}
+
+#inputSubmit{
+    padding: 20px 30px;
+    border: none;
+    background-color: #DEDDD8;
+    font-weight: 600;
+    border-radius: 30px;
+}
+
+
+#loginContainer img{
+    width: 60%;
     margin: auto;
 }
 
-#userIcon{
-    width: 100px;
-    height: 100px;
-    fill: whitesmoke;
+#perdioContraseñaContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    font-weight: 600;
+    width: 100%;
+}
+
+.recordarUsuarioContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
 }

@@ -14,19 +14,27 @@
 <th:block th:replace="common :: header"></th:block>
 
     <div id="loginContainer">
-        <div id="iconContainer">
-            <img th:src="@{/img/user-128.png}" id="userIcon">
-        </div>
+
+            <img th:src="@{/img/logo_ACS.png}" id="userIcon">
 
         <form  th:action="@{/login}" method="POST">
 
-            <label for="username">DOCUMENTO</label>
-            <input type="text" name="username" id="username" />
+
+            <input type="text" name="username" id="username" placeholder="Ingresá tu DNI" class="datoIngreso" />
             <br>
-            <label for="password">CONTRASEÑA</label>
-            <input type="password" name="password" id="password" />
+
+            <input type="password" name="password" id="password" placeholder="Contraseña"  class="datoIngreso" />
             <br>
-            <input type="submit" value="LOGIN">
+            <input type="submit" value="INGRESAR" id="inputSubmit">
+
+            <div id="perdioContraseñaContainer">
+                <div class="recordarUsuarioContainer">
+                    <input type="checkbox" id="recordarUsuario">
+                    <label for="recordarUsuario">Recordar</label>
+                </div>
+
+                <a>Olvidé mi contraseña</a>
+            </div>
         </form>
 
     </div>
