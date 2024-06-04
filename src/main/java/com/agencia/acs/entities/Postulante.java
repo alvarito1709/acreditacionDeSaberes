@@ -8,10 +8,9 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@PrimaryKeyJoinColumn(name = "postulanteId")
 public class Postulante extends User{
 
-    @OneToOne
-    private User user;
 
     @DateTimeFormat
    private Date fechaDeAlta;

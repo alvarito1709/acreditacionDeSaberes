@@ -1,8 +1,8 @@
 package com.agencia.acs.controller;
 
 
-import com.agencia.acs.entities.User;
-import com.agencia.acs.service.UserService;
+import com.agencia.acs.entities.*;
+import com.agencia.acs.service.*;
 import com.agencia.acs.util.passwordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +16,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.persistence.Id;
 import javax.transaction.Transactional;
 import java.net.URI;
+import java.util.Objects;
 import java.util.Optional;
 
 @Controller
@@ -24,6 +25,21 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    PostulanteService postulanteService;
+
+    @Autowired
+    ReferenteService referenteService;
+
+    @Autowired
+    OrientadorService orientadorService;
+
+    @Autowired
+    EvaluadorService evaluadorService;
+
+    @Autowired
+    EntrevistadorService entrevistadorService;
 
     @GetMapping("")
     public String formularioUsuario(){
@@ -40,6 +56,86 @@ public class UserController {
             userService.guardarUsuario(user);
             return ResponseEntity.ok().body("{\"message\": \"Usuario creado con éxito\"}");
 
+        }catch (Exception e){
+            return new ResponseEntity<>("Error al crear usuario", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+    @PostMapping("/agregar/postulante")
+    public ResponseEntity<String> nuevoPostulante(@RequestBody Postulante postulante){
+        try{
+            String passwordVieja = postulante.getPassword();
+            String passwordNueva = passwordEncoder.passwordEncrypt(passwordVieja);
+            postulante.setPassword(passwordNueva);
+
+            userService.guardarUsuario(postulante);
+            return ResponseEntity.ok().body("{\"message\": \"Usuario creado con éxito\"}");
+        }catch (Exception e){
+            return new ResponseEntity<>("Error al crear usuario", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping("/agregar/entrevistador")
+    public ResponseEntity<String> nuevoEntrevistador(@RequestBody Entrevistador entrevistador){
+        try{
+
+            String passwordVieja = entrevistador.getPassword();
+            String passwordNueva = passwordEncoder.passwordEncrypt(passwordVieja);
+            entrevistador.setPassword(passwordNueva);
+
+            userService.guardarUsuario(entrevistador);
+            return ResponseEntity.ok().body("{\"message\": \"Usuario creado con éxito\"}");
+
+        }catch (Exception e){
+
+            return new ResponseEntity<>("Error al crear usuario", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping("/agregar/evaluador")
+    public ResponseEntity<String> nuevoEvaluador(@RequestBody Evaluador evaluador){
+
+        try{
+            String passwordVieja = evaluador.getPassword();
+            String passwordNueva = passwordEncoder.passwordEncrypt(passwordVieja);
+            evaluador.setPassword(passwordNueva);
+
+            userService.guardarUsuario(evaluador);
+            return ResponseEntity.ok().body("{\"message\": \"Usuario creado con éxito\"}");
+        } catch (Exception e){
+            return new ResponseEntity<>("Error al crear usuario", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+    @PostMapping("/agregar/orientador")
+    public ResponseEntity<String> nuevoOrientador(@RequestBody Orientador orientador){
+
+        try{
+
+            String passwordVieja = orientador.getPassword();
+            String passwordNueva = passwordEncoder.passwordEncrypt(passwordVieja);
+            orientador.setPassword(passwordNueva);
+
+            userService.guardarUsuario(orientador);
+            return ResponseEntity.ok().body("{\"message\": \"Usuario creado con éxito\"}");
+
+        }catch (Exception e){
+            return new ResponseEntity<>("Error al crear usuario", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping("/agregar/referente")
+    public ResponseEntity<String> nuevoReferente(@RequestBody Referente referente){
+
+        try{
+            String passwordVieja = referente.getPassword();
+            String passwordNueva = passwordEncoder.passwordEncrypt(passwordVieja);
+            referente.setPassword(passwordNueva);
+
+            userService.guardarUsuario(referente);
+            return ResponseEntity.ok().body("{\"message\": \"Usuario creado con éxito\"}");
         }catch (Exception e){
             return new ResponseEntity<>("Error al crear usuario", HttpStatus.INTERNAL_SERVER_ERROR);
         }

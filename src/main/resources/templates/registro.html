@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Acreditación de Saberes</title>
+
+    <link rel="stylesheet" th:href="@{/css/registro.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+
+</head>
+<body>
+
+<th:block th:replace="common :: header"></th:block>
+
+<div id="bodyContainer">
+    <div id="formContainer">
+        <h3>REGISTRO</h3>
+        <input type="text" id="nombreUsuarioNuevo" placeholder="Nombre y Apellido">
+        <input type="email" id="emailUsuarioNuevo" placeholder="Email">
+        <input type="text" id="dniUsuarioNuevo" placeholder="DNI (sin puntos)">
+        <input type="password" id="passwordUsuarioNuevo" placeholder="Password">
+        <button type="submit" id="registro" onclick="registrarPostulante()">REGISTRARME</button>
+    </div>
+</div>
+
+<th:block th:replace="common :: footer"></th:block>
+
+<script th:src="@{/javascript/registro.js}"></script>
+
+</body>
+</html>

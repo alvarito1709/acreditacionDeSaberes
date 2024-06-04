@@ -52,6 +52,10 @@
     cursor: pointer;
 }
 
+.botonAcreditacion:hover{
+    scale: 103%;
+}
+
 #logoBienvenidaContainer{
    display: flex;
     justify-content: center;

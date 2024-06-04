@@ -8,7 +8,40 @@ const password = document.getElementById("passwordUsuarioNuevo");
 const tipoDeUsuario = document.getElementById("tipoDeUsuario");
 
 function crearUsuario(){
-    const urlCrear = url+"/user/agregar"
+    let urlCrear = url+"/user/agregar"
+
+    switch (tipoDeUsuario.value){
+
+        case "ROLE_ADMIN":
+            urlCrear = url+"/user/agregar"
+            break;
+
+        case "ROLE_POSTULANTE":
+            urlCrear = url+"/user/agregar/postulante"
+            break;
+
+        case "ROLE_USER":
+            urlCrear = url+"/user/agregar"
+            break;
+
+        case "ROLE_ENTREVISTADOR":
+            urlCrear = url + "/user/agregar/entrevistador"
+            break;
+
+        case "ROLE_ORIENTADOR":
+            urlCrear = url + "/user/agregar/orientador"
+            break;
+
+        case "ROLE_EVALUADOR":
+            urlCrear = url + "/user/agregar/evaluador"
+            break;
+
+        case "ROLE_REFERENTE":
+            urlCrear = url + "/user/agregar/referente"
+            break;
+    }
+
+
 
     console.log(nombreUsuario.value);
 
@@ -18,7 +51,7 @@ function crearUsuario(){
         dni:dniNUevo.value,
         username: userName.value,
         password:password.value,
-        rol:tipoDeUsuario.value
+        rol:tipoDeUsuario.value,
     }
 
     var jsonString = JSON.stringify(data);

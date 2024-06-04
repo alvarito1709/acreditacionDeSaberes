@@ -23,6 +23,7 @@ public class User {
     private String rol;
 
 
+
     public Long getId() {
         return id;
     }

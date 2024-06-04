@@ -32,6 +32,9 @@ public class publicController {
     @GetMapping("/info")
     public String info(){ return "info";}
 
+    @GetMapping("/registro")
+    public String regitro(){ return "registro";}
+
     @GetMapping("/board")
     public String board(){
         return "board";

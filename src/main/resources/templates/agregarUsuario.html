@@ -27,17 +27,19 @@
             <select id="tipoDeUsuario">
                 <option>TIPO DE USUARIO</option>
                 <option value="ROLE_ADMIN">ADMIN</option>
+                <option value="ROLE_POSTULANTE">POSTULANTE</option>
                 <option value="ROLE_USER">USUARIO</option>
-                <option value="ROLE_ASPIRANTE">ASPIRANTE</option>
                 <option value="ROLE_ENTREVISTADOR">ENTREVISTADOR</option>
                 <option value="ROLE_ORIENTADOR">ORIENTADOR</option>
                 <option value="ROLE_EVALUADOR">EVALUADOR</option>
                 <option value="ROLE_REFERENTE">REFERENTE</option>
             </select>
 
-            <button onclick="crearUsuario()">
+            <button class="botonCrearUsuario" onclick="crearUsuario()">
                 CREAR USUARIO</button>
         </div>
+
+        <img th:src="@{/img/logo_ACS.png}">
 
     </div>
 
