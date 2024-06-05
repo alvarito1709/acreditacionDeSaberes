@@ -16,6 +16,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.persistence.Id;
 import javax.transaction.Transactional;
 import java.net.URI;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -174,6 +175,18 @@ public class UserController {
         userService.guardarUsuario(user);
 
         return ResponseEntity.noContent().build();
+
+    }
+
+    @PostMapping("/listarUsuarios")
+    public ModelAndView listarUsuarios(Model model, @RequestParam (value = "tabla") String tabla){
+        List<User> usuarios = userService.listarUsuarios();
+
+        model.addAttribute("usuarios", usuarios);
+
+        model.addAttribute("tabla", tabla);
+
+        return new ModelAndView("tablas :: tablaQueCargo");
 
     }
 

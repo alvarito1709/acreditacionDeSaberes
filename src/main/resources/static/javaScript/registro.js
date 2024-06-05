@@ -16,7 +16,7 @@ function registrarPostulante(){
         dni:dniNuevo.value,
         username: dniNuevo.value,
         password:password.value,
-        rol:tipoDeUsuario.value,
+        rol:tipoDeUsuario
     }
 
     var jsonString = JSON.stringify(data);

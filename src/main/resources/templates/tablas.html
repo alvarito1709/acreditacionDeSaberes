@@ -11,7 +11,8 @@
 </head>
 <body>
 
-        <div th:fragment="tablaQueCargo (${tabla})" class="contenedorBodyTabla">
+        <div th:fragment="tablaQueCargo (${tabla} ,${usuarios}, ${postulantes}, ${entrevistadores}, ${evaluadores}, ${orientadores})"
+                class="contenedorBodyTabla">
 
 
             <div th:if="${tabla == 'Postulantes'}">
@@ -33,41 +34,18 @@
                         </thead>
 
                         <tbody >
-                        <tr>
-                            <td >125	</td>
-                            <td>16/11/2023</td>
-                            <td>Gastronomia</td>
-                            <td>Panadero</td>
-                            <td>postulante1</td>
-                            <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
+                        <tr th:each="postulante : ${postulantes}">
+                            <td th:text="${postulante.id}">125</td>
+                            <td th:text="${postulante.fechaDeAlta}">16/11/2023</td>
+                            <td th:text="${postulante.sector}">Gastronomia</td>
+                            <td th:text="${postulante.trayecto}">Panadero</td>
+                            <td th:text="${postulante.nombre}">postulante1</td>
+                            <td th:text="${postulante.estado}">NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
                             <td><i class="bi bi-pencil-square iconoAcciones"></i>
                                 <i class="bi bi-trash iconoAcciones"></i>
                             </td>
                         </tr>
 
-                        <tr>
-                            <td>125	</td>
-                            <td>16/11/2023</td>
-                            <td>Gastronomia</td>
-                            <td>Panadero</td>
-                            <td>postulante1</td>
-                            <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
-                            <td><i class="bi bi-pencil-square"></i>
-                                <i class="bi bi-trash"></i>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>125	</td>
-                            <td>16/11/2023</td>
-                            <td>Gastronomia</td>
-                            <td>Panadero</td>
-                            <td>postulante1</td>
-                            <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
-                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones"></i>
-                            </td>
-                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -423,7 +401,7 @@
 
                 <div class="backgroundTabla">
 
-                    <table id="tablaGestionDeUsuarios" >
+                    <table id="tablaGestionDeUsuarios">
                         <thead class="headerTabla">
                         <tr>
                             <th class="itemTitulo">#</th>
@@ -435,32 +413,13 @@
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td>4301-3655/ 4304-7061</td>
+                        <tr th:each=" users :${usuarios}">
+                            <td th:text="${users.id}">125	</td>
+                            <td th:text="${users.nombre}">C.F.P. N° 02 (Barracas)</td>
+                            <td th:text="${users.mail}">Brandsen 2570</td>
+                            <td th:text="${users.rol}" >4301-3655/ 4304-7061</td>
                             <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td>4301-3655/ 4304-7061</td>
-                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones"></i>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td>4301-3655/ 4304-7061</td>
-                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones" onclick="mostrarAdvertencia()"></i>
                             </td>
                         </tr>
 
@@ -493,29 +452,13 @@
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
+                        <tr  th:each="orientador: ${orientadores}">
+                            <td th:text="${orientador.id}">125	</td>
+                            <td th:text="${orientador.nombre}">C.F.P. N° 02 (Barracas)</td>
+                            <td th:text="${orientador.mail}">Brandsen 2570</td>
                             <td><i class="bi bi-plus-circle"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td><i class="bi bi-plus-circle"></i>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td><i class="bi bi-plus-circle"></i>
-                            </td>
-                        </tr>
-
 
                         </tbody>
                     </table>
@@ -547,29 +490,13 @@
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
+                        <tr th:each="entrevistador : ${entrevistadores}">
+                            <td th:text="${entrevistador.id}">125	</td>
+                            <td th:text="${entrevistador.nombre}">C.F.P. N° 02 (Barracas)</td>
+                            <td th:text="${entrevistador.mail}">Brandsen 2570</td>
                             <td><i class="bi bi-plus-circle"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td><i class="bi bi-plus-circle"></i>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td><i class="bi bi-plus-circle"></i>
-                            </td>
-                        </tr>
-
 
                         </tbody>
                     </table>
@@ -600,30 +527,13 @@
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
+                        <tr th:each="evaluador : ${evaluadores}">
+                            <td th:text="${evaluador.id}">125	</td>
+                            <td th:text="${evaluador.nombre}">C.F.P. N° 02 (Barracas)</td>
+                            <td th:text="${evaluador.mail}">Brandsen 2570</td>
                             <td><i class="bi bi-plus-circle"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td><i class="bi bi-plus-circle"></i>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td><i class="bi bi-plus-circle"></i>
-                            </td>
-                        </tr>
-
-
                         </tbody>
                     </table>
 

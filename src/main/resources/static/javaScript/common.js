@@ -19,7 +19,16 @@ function desplegarLista(){
 
 function mostrarTablas(tabla){
 
-    const urlTablas = url+"/tablas"
+    let urlTablas = url+"/tablas"
+
+    switch (tabla){
+        case 'Usuarios':
+            urlTablas = url+"/user/listarUsuarios"
+
+            break;
+
+    }
+
 
     $.ajax({
         type:'POST',
@@ -32,6 +41,21 @@ function mostrarTablas(tabla){
         }]
 
     })
+
+}
+
+function mostrarAdvertencia(){
+    const modal = document.getElementById("modalContainer");
+    modal.style.display = "flex";
+}
+
+function ocultarAdvertencia(){
+    const modal = document.getElementById("modalContainer");
+
+    modal.style.display="none";
+}
+
+function eliminarUsuario(){
 
 }
 

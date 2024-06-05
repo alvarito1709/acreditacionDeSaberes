@@ -1,9 +1,13 @@
 package com.agencia.acs.controller;
 
 
-import com.agencia.acs.entities.User;
+import com.agencia.acs.entities.*;
 
 import com.agencia.acs.repository.UserRepository;
+import com.agencia.acs.service.EntrevistadorService;
+import com.agencia.acs.service.EvaluadorService;
+import com.agencia.acs.service.OrientadorService;
+import com.agencia.acs.service.PostulanteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +27,18 @@ public class publicController {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    PostulanteService postulanteService;
+
+    @Autowired
+    EntrevistadorService entrevistadorService;
+
+    @Autowired
+    EvaluadorService evaluadorService;
+
+    @Autowired
+    OrientadorService orientadorService;
 
     @GetMapping("/login")
     public String login(){
@@ -64,10 +80,26 @@ public class publicController {
 
         model.addAttribute("tabla",tabla);
 
-        //if (tabla == "Postulantes"){
-          //  List<User> listaPostulantes = userRepository.findByRol("Postulantes");
-            //model.addAttribute("postulantes", listaPostulantes);
-        //}
+        if (Objects.equals(tabla, "Postulantes")){
+            List<Postulante> listaPostulantes = postulanteService.listarPostulantes();
+            model.addAttribute("postulantes", listaPostulantes);
+        }
+
+        if (Objects.equals(tabla, "Entrevistadores")){
+            List<Entrevistador> listaEntrevistadores = entrevistadorService.listarEntrevistadores();
+            model.addAttribute("entrevistadores", listaEntrevistadores);
+        }
+
+        if (Objects.equals(tabla, "Evaluadores")){
+            List<Evaluador> listaEvaluadores = evaluadorService.listarEvaluadores();
+            model.addAttribute("evaluadores", listaEvaluadores);
+        }
+
+        if (Objects.equals(tabla, "Orientadores")){
+            List<Orientador> listaOrientadores = orientadorService.listarOrientadores();
+            model.addAttribute("orientadores", listaOrientadores);
+        }
+
 
        return  new ModelAndView("tablas :: tablaQueCargo");
 
