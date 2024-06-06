@@ -24,4 +24,6 @@ public class UserService {
     }
 
     public List<User> listarUsuarios(){ return userRepository.findAll();}
+
+    public void borrarUsuario(Long id){ userRepository.deleteById(id);}
 }

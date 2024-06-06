@@ -47,22 +47,18 @@ function mostrarTablas(tabla){
 function mostrarAdvertencia(elemento){
     const modal = document.getElementById("modalContainer");
     modal.style.display = "flex";
-    let idUsuario = {
-        idUser:elemento.id
-    };
+    let tabla = elemento.getAttribute('data');
+    console.log(tabla);
 
     const urlEliminar = url+"/user/buscarUsuarioPorId/" +elemento.id;
 
-    var httpRequest = {
-        method:'POST',
-        headers:{
-            'content-type':'application/json'
-        }
-    }
 
     $.ajax({
         type:'POST',
         url: urlEliminar,
+        data: {
+            tabla: tabla
+        },
 
         success: [function (respuesta){
             $("#modalContainer").html(respuesta);
@@ -79,7 +75,21 @@ function ocultarAdvertencia(){
 
 function eliminarUsuario(elemento){
 
-    console.log(elemento.getAttribute("data"));
+    const idUsuario = elemento.getAttribute("data");
+    const tablas = elemento.getAttribute("data-value");
+    const urlEliminar = url+"/user/borrarUsuario/" + idUsuario;
+
+    $.ajax({
+        type:'DELETE',
+        url: urlEliminar,
+        data:{
+            tabla:tablas
+        },
+
+        success: function (respuesta){
+            $("#tableContainer").html(respuesta);
+        }
+    })
 
 }
 

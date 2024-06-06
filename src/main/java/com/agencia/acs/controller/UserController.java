@@ -191,10 +191,28 @@ public class UserController {
     }
 
     @PostMapping("/buscarUsuarioPorId/{id}")
-    public ModelAndView obtenerUsuarioParaEliminar(Model model, @PathVariable Long id){
+    public ModelAndView obtenerUsuarioParaEliminar(Model model, @PathVariable Long id, @RequestParam(value = "tabla") String tabla){
         User usuario = userService.buscarUsuario(id);
         model.addAttribute("usuario", usuario);
+        model.addAttribute("tabla", tabla);
         return new ModelAndView("board :: modalEliminar");
+    }
+
+    @DeleteMapping("/borrarUsuario/{id}")
+    @Transactional
+    public ModelAndView borrarUsuario(Model model, @PathVariable Long id, @RequestParam(value = "tabla")String tabla){
+
+        userService.borrarUsuario(id);
+
+        model.addAttribute("tabla", tabla);
+
+        List<User> usuarios = userService.listarUsuarios();
+
+        model.addAttribute("usuarios", usuarios);
+
+        return new ModelAndView("tablas :: tablaQueCargo");
+
+
     }
 
 }
