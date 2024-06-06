@@ -44,9 +44,31 @@ function mostrarTablas(tabla){
 
 }
 
-function mostrarAdvertencia(){
+function mostrarAdvertencia(elemento){
     const modal = document.getElementById("modalContainer");
     modal.style.display = "flex";
+    let idUsuario = {
+        idUser:elemento.id
+    };
+
+    const urlEliminar = url+"/user/buscarUsuarioPorId/" +elemento.id;
+
+    var httpRequest = {
+        method:'POST',
+        headers:{
+            'content-type':'application/json'
+        }
+    }
+
+    $.ajax({
+        type:'POST',
+        url: urlEliminar,
+
+        success: [function (respuesta){
+            $("#modalContainer").html(respuesta);
+        }]
+
+    })
 }
 
 function ocultarAdvertencia(){
@@ -55,10 +77,14 @@ function ocultarAdvertencia(){
     modal.style.display="none";
 }
 
-function eliminarUsuario(){
+function eliminarUsuario(elemento){
+
+    console.log(elemento.getAttribute("data"));
 
 }
 
+
+//FUNCION PARA CAMBIAR EL BACKGROUND COLOR DEL ELEMENTO SELECCIONADO EN LA LISTA
     for (let i = 0; i < elementosSeleccionables.length; i++ ){
 
         elementosSeleccionables[i].addEventListener('click', function (){

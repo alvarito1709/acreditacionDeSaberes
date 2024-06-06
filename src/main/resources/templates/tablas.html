@@ -414,12 +414,12 @@
 
                         <tbody>
                         <tr th:each=" users :${usuarios}">
-                            <td th:text="${users.id}">125	</td>
+                            <td th:text="${users.id}" >125	</td>
                             <td th:text="${users.nombre}">C.F.P. N° 02 (Barracas)</td>
                             <td th:text="${users.mail}">Brandsen 2570</td>
                             <td th:text="${users.rol}" >4301-3655/ 4304-7061</td>
                             <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones" onclick="mostrarAdvertencia()"></i>
+                                <i class="bi bi-trash iconoAcciones" th:id="${users.id}" onclick="mostrarAdvertencia(this)"></i>
                             </td>
                         </tr>
 
@@ -618,36 +618,13 @@
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td>4301-3655/ 4304-7061</td>
-                            <td>ursula.portillo@bue.edu.ar</td>
-                            <td>10/11/2023</td>
-                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td>4301-3655/ 4304-7061</td>
-                            <td>ursula.portillo@bue.edu.ar</td>
-                            <td>10/11/2023</td>
-                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones"></i>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td>4301-3655/ 4304-7061</td>
-                            <td>ursula.portillo@bue.edu.ar</td>
-                            <td>10/11/2023</td>
+                        <tr th:each="postulante :${postulantes}">
+                            <td th:text="${postulante.id}">125	</td>
+                            <td th:text="${postulante.nombre}">C.F.P. N° 02 (Barracas)</td>
+                            <td th:text="${postulante.telefono}">Brandsen 2570</td>
+                            <td th:text="${postulante.mail}">4301-3655/ 4304-7061</td>
+                            <td th:text="${postulante.fechaDeAlta}">ursula.portillo@bue.edu.ar</td>
+                            <td th:text="${postulante.estado}">10/11/2023</td>
                             <td><i class="bi bi-pencil-square iconoAcciones"></i>
                                 <i class="bi bi-trash iconoAcciones"></i>
                             </td>

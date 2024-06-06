@@ -31,10 +31,39 @@
 #advertenciaContainer{
     width: 300px;
     height: 200px;
+    padding: 20px;
     margin: auto auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
 
     border-radius: 10px;
-    border: 1px solid rgba(197, 195, 195, 0.78);;
+    border: 1px solid rgba(197, 195, 195, 0.78);
 
     background-color: #f4f4f4;
+    text-align: center;
+}
+
+#ContainerBotonesDelModal{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.botonModal{
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(197, 195, 195, 0.78);
+    font-weight: 600;
+}
+.aceptar{
+    background-color:  #7f1bbf;
+    color: whitesmoke;
+
+}
+.cancelar{
+    background-color: rgba(197, 195, 195, 0.78);
 }

@@ -190,4 +190,11 @@ public class UserController {
 
     }
 
+    @PostMapping("/buscarUsuarioPorId/{id}")
+    public ModelAndView obtenerUsuarioParaEliminar(Model model, @PathVariable Long id){
+        User usuario = userService.buscarUsuario(id);
+        model.addAttribute("usuario", usuario);
+        return new ModelAndView("board :: modalEliminar");
+    }
+
 }

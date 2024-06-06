@@ -80,7 +80,7 @@ public class publicController {
 
         model.addAttribute("tabla",tabla);
 
-        if (Objects.equals(tabla, "Postulantes")){
+        if (Objects.equals(tabla, "Postulantes") || Objects.equals(tabla, "Usuarios Postulantes")){
             List<Postulante> listaPostulantes = postulanteService.listarPostulantes();
             model.addAttribute("postulantes", listaPostulantes);
         }
