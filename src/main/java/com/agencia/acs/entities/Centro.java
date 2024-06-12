@@ -19,6 +19,18 @@ public class Centro {
 
     private Long telefono;
 
+    private Long numeroDeCentro;
+
+    private Long codigo;
+
+    private Long cue;
+
+    private String tipo;
+
+    private String area;
+
+    private String estado;
+
 
     public Long getId() {
         return id;
@@ -50,5 +62,53 @@ public class Centro {
 
     public void setTelefono(Long telefono) {
         this.telefono = telefono;
+    }
+
+    public Long getNumeroDeCentro() {
+        return numeroDeCentro;
+    }
+
+    public void setNumeroDeCentro(Long numeroDeCentro) {
+        this.numeroDeCentro = numeroDeCentro;
+    }
+
+    public Long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
+    }
+
+    public Long getCue() {
+        return cue;
+    }
+
+    public void setCue(Long cue) {
+        this.cue = cue;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }

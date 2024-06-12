@@ -27,6 +27,11 @@ function mostrarTablas(tabla){
 
             break;
 
+            case 'Centros':
+            urlTablas = url+"/centros/listarCentros"
+
+            break;
+
     }
 
 
@@ -71,6 +76,12 @@ function ocultarAdvertencia(){
     const modal = document.getElementById("modalContainer");
 
     modal.style.display="none";
+}
+
+function ocultarModalAgregar(){
+    const modal = document.getElementById("modalesParaAgregarContainer");
+
+    modal.style.display = "none";
 }
 
 function eliminarUsuario(elemento){

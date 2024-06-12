@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Acreditacion de Saberes</title>
+    <link rel="stylesheet" th:href="@{/css/modal.css}">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div id="modalContainerCentros" th:fragment="modalesDeAgregar">
+        <div class="modal" id="modalCentros">
+
+            <h3 onclick="ocultarModalAgregar()"><i class="bi bi-x-square"></i></h3>
+
+            <h2>Alta de Centros</h2>
+
+            <div class="divisorInternoDelModal">
+                <label for="nombreCentro">Nombre<input type="text" id="nombreCentro"></label>
+                <label for="direccionCentro">Dirección<input type="text" id="direccionCentro"></label>
+            </div>
+
+            <div class="divisorInternoDelModal">
+                <label for="telefonoCentro">Teléfono<input type="text" id="telefonoCentro"></label>
+                <label for="numeroDeCentro">Número de Centro<input type="text" id="numeroDeCentro"></label>
+            </div>
+
+            <div class="divisorInternoDelModal">
+                <label for="codigoCentro">Código de Centro<input type="text" id="codigoCentro"></label>
+                <label for="cueCentro">CUE<input type="text" id="cueCentro"></label>
+            </div>
+
+            <div class="divisorInternoDelModal">
+                <label for="tipoCentro">Tipo<input type="text" id="tipoCentro"></label>
+             <label for="areaCentro">Area<input type="text" id="areaCentro"></label>
+            </div>
+
+            <div class="divisorInternoDelModal">
+                <label for="estadoCentro">Estado<input type="text" id="estadoCentro"></label>
+                <button class="botonAcreditacion" onclick="crearCentro()">GUARDAR</button>
+            </div>
+        </div>
+    </div>
+
+
+<script th:src="@{/javaScript/modalCentros.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+
+
+#modalContainerCentros{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.modal{
+    min-width: 400px;
+    min-height: 400px;
+    width: fit-content;
+    height: fit-content;
+    padding: 30px;
+    background-color: #DEDDD8;
+    margin: auto;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    justify-content: space-evenly;
+}
+.modal h3{
+    align-self: flex-end;
+}
+
+.modal input{
+    margin-bottom: 20px;
+    width: 170px;
+    height: 30px;
+    border-radius: 30px;
+    border: 1px solid rgba(197, 195, 195, 0.78);
+}
+
+.divisorInternoDelModal{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.divisorInternoDelModal label{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.botonAcreditacion{
+
+    width: 170px;
+    padding:10px 35px;
+    border: none;
+
+    border-radius:20px;
+
+    background-color: #f4f4f4;
+    font-weight: 400;
+
+    cursor: pointer;
+}
+
+.botonAcreditacion:hover{
+    scale: 103%;
+}
