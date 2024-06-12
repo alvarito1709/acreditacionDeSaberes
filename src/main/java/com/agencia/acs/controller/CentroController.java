@@ -11,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/centros")
@@ -60,6 +62,35 @@ public class CentroController {
         model.addAttribute("tabla", tabla);
 
         return new ModelAndView("tablas :: tablaQueCargo");
+    }
+
+    @PostMapping("/buscarCentroPorId/{id}")
+    public ModelAndView buscarCentroParaEliminar(@PathVariable Long id, @RequestParam(value = "tabla") String tabla,
+                                                 Model model){
+
+       Centro centroOptional = centroService.buscarCentroPorId(id);
+
+       model.addAttribute("tabla", tabla);
+
+       model.addAttribute("centros", centroOptional);
+
+       return new ModelAndView("board :: modalEliminar");
+    }
+
+    @DeleteMapping("/borrarCentro/{id}")
+    @Transactional
+    public ModelAndView borrarCentro(@PathVariable Long id, Model model, @RequestParam(value = "tabla") String tabla){
+
+        centroService.borrarCentro(id);
+
+        model.addAttribute("tabla", tabla);
+
+        List<Centro> centros = centroService.listarCentros();
+
+        model.addAttribute("centros", centros);
+
+        return new ModelAndView("tablas :: tablaQueCargo");
+
     }
 
 }

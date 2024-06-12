@@ -194,7 +194,7 @@
                             <td th:text="${centro.direccion}">Brandsen 2570</td>
                             <td th:text="${centro.telefono}">4301-3655/ 4304-7061</td>
                             <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones" th:id="${centro.id}" th:data="${tabla}" onclick="mostrarAdvertencia(this)"></i>
                             </td>
                         </tr>
 

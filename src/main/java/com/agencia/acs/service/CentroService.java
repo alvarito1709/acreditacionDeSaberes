@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CentroService {
@@ -17,4 +18,8 @@ public class CentroService {
     public Centro guardarNuevoCentro(Centro centro){return centroRepository.save(centro);}
 
     public List<Centro> listarCentros(){return centroRepository.findAll();}
+
+    public Centro buscarCentroPorId(Long id){return  centroRepository.findById(id);}
+
+    public void borrarCentro(Long id){ centroRepository.deleteById(id);}
 }

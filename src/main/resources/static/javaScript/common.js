@@ -53,9 +53,24 @@ function mostrarAdvertencia(elemento){
     const modal = document.getElementById("modalContainer");
     modal.style.display = "flex";
     let tabla = elemento.getAttribute('data');
+
+    let  urlEliminar =''
     console.log(tabla);
 
-    const urlEliminar = url+"/user/buscarUsuarioPorId/" +elemento.id;
+    switch (tabla){
+        case 'Usuarios':
+           urlEliminar = url+"/user/buscarUsuarioPorId/" +elemento.id;
+          break;
+
+        case 'Centros':
+
+            urlEliminar = url + '/centros/buscarCentroPorId/' + elemento.id;
+
+            break;
+
+    }
+
+
 
 
     $.ajax({
@@ -84,11 +99,21 @@ function ocultarModalAgregar(){
     modal.style.display = "none";
 }
 
-function eliminarUsuario(elemento){
+function eliminarElemento(elemento){
 
-    const idUsuario = elemento.getAttribute("data");
+    const idElemento = elemento.getAttribute("data");
     const tablas = elemento.getAttribute("data-value");
-    const urlEliminar = url+"/user/borrarUsuario/" + idUsuario;
+    let urlEliminar = "";
+
+    switch (tablas){
+        case 'Usuarios':
+            urlEliminar = url+"/user/borrarUsuario/" + idElemento;
+            break;
+
+        case 'Centros':
+            urlEliminar = url+"/centros/borrarCentro/" + idElemento;
+            break;
+    }
 
     $.ajax({
         type:'DELETE',
