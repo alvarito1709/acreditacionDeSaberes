@@ -66,17 +66,130 @@ function cerrarModal(){
 }
 
 
-function mostrarAgregarCentro(){
-    let urlMostrarModalCentro = urlBase + "centros";
+function mostrarAgregarModal(elemento){
+    let urlMostrarModal = "";
+
+    switch (elemento){
+        case 'Centros':
+            urlMostrarModal = urlBase + "centros";
+            break;
+
+        case 'Trayectos':
+            urlMostrarModal = urlBase + "trayectos";
+            break;
+
+            case 'Sectores':
+            urlMostrarModal = urlBase + "sectores";
+            break;
+    }
+
 
     const modalContainer = document.getElementById("modalesParaAgregarContainer");
 
     $.ajax({
         tipe:'GET',
-        url:urlMostrarModalCentro,
+        url:urlMostrarModal,
         success: function (respuesta){
             $("#modalesParaAgregarContainer").html(respuesta);
             modalContainer.style.display = "flex";
         }
     })
+}
+
+async function crearTrayecto() {
+    const urlCrearCentro = urlBase + "trayectos/crear";
+
+    const nombreNuevo = document.getElementById("nombreTrayecto");
+    const condicionesNuevas = document.getElementById("condicionesTrayecto");
+    const sectorNuevo = document.getElementById("sectorTrayecto");
+    const estadoNuevo = document.getElementById("estadoTrayecto");
+    const inputCentros = document.querySelectorAll('input[name="inputCentros"]');
+
+    var centrosNuevos = [];
+
+    for (let i = 0; i < inputCentros.length; i++) {
+        let centroId = parseInt(inputCentros[i].value);
+        if (inputCentros[i].checked) {
+            // Fetch the actual Centro object using the centroId
+            fetch(urlBase + "centros/verCentro/" + centroId)
+                .then((response) => response.json())
+                .then((centro) => {
+                    centrosNuevos.push(centro);
+                });
+        }
+    }
+
+    // Wait for all Centro objects to be fetched before sending the data
+    Promise.allSettled(centrosNuevos).then(() => {
+        const botonEnviar = document.getElementsByClassName("botonAcreditacion")[0];
+
+        botonEnviar.addEventListener('click', ev => {
+            ev.preventDefault();
+        });
+
+        var data = {
+            nombre: nombreNuevo.value,
+            condiciones: condicionesNuevas.value,
+            sector: { id: sectorNuevo.value },
+            estado: estadoNuevo.value,
+            centros: centrosNuevos,
+        };
+
+        let dataString = JSON.stringify(data);
+
+        $.ajax({
+            type: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            url: urlCrearCentro,
+            data: dataString,
+            success: [function (respuesta) {
+                $("#tableContainer").html(respuesta);
+                cerrarModal();
+            }]
+        });
+    });
+}
+
+function crearSector(){
+    const urlCrearSector = urlBase+"sectores/crearSector"
+
+
+    const nombreSector = document.getElementById("nombreSector");
+    const descripcionSector = document.getElementById("descripcionSector");
+    const estadoSector = document.getElementById("estadoSector");
+
+
+    const botonEnviar = document.getElementsByClassName("botonAcreditacion")
+
+    botonEnviar[0].addEventListener('click', ev => {
+        ev.preventDefault();
+    })
+
+
+
+    var data = {
+        nombre:nombreSector.value,
+        descripcion:descripcionSector.value,
+        estado:estadoSector.value
+    }
+
+    let dataString = JSON.stringify(data);
+
+
+
+    $.ajax({
+        type:'POST',
+        headers:{
+            'content-type':'application/json'
+        },
+        url: urlCrearSector,
+        data: dataString,
+        success: [function (respuesta){
+            $("#tableContainer").html(respuesta);
+            cerrarModal();
+        }]
+    })
+
 }

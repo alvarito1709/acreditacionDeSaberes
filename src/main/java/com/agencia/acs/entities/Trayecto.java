@@ -2,6 +2,9 @@ package com.agencia.acs.entities;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Trayecto {
@@ -15,8 +18,20 @@ public class Trayecto {
     private String condiciones;
 
 
-    @OneToOne
+    @ManyToOne
     private Sector sector;
+
+    private String estado;
+
+    @ManyToMany(fetch = FetchType.LAZY ,cascade = {CascadeType.MERGE})
+    @JoinTable(
+            name = "trayecto_centro",
+            joinColumns = {@JoinColumn(name = "trayecto_id")},
+            inverseJoinColumns = {@JoinColumn(name = "centro_id")}
+    )
+    List<Centro> centros;
+
+
 
     public Long getId() {
         return id;
@@ -48,5 +63,21 @@ public class Trayecto {
 
     public void setSector(Sector sector) {
         this.sector = sector;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String activo) {
+        this.estado = estado;
+    }
+
+    public List<Centro> getCentros() {
+        return centros;
+    }
+
+    public void setCentros(List<Centro> centros) {
+        this.centros = centros;
     }
 }

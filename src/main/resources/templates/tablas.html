@@ -11,7 +11,7 @@
 </head>
 <body>
 
-        <div th:fragment="tablaQueCargo (${tabla} ,${usuarios}, ${postulantes}, ${entrevistadores}, ${evaluadores}, ${orientadores}, ${centros})"
+        <div th:fragment="tablaQueCargo (${tabla} ,${usuarios}, ${postulantes}, ${entrevistadores}, ${evaluadores}, ${orientadores}, ${centros}, ${trayectos}, ${sectores})"
                 class="contenedorBodyTabla">
 
 
@@ -175,7 +175,7 @@
                 <h1 class="tituloTabla">Gestión de Centros</h1>
 
                 <div class="backgroundTabla">
-                   <h2 onclick="mostrarAgregarCentro()"> <i class="bi bi-plus-square "></i></h2>
+                   <h2 onclick="mostrarAgregarModal('Centros')"> <i class="bi bi-plus-square "></i></h2>
                     <table id="tablaGestionDeCentros" >
                         <thead class="headerTabla">
                         <tr>
@@ -213,6 +213,7 @@
                 <h1 class="tituloTabla">Gestión de Trayectos</h1>
 
                 <div class="backgroundTabla">
+                    <h2 onclick="mostrarAgregarModal('Trayectos')"> <i class="bi bi-plus-square "></i></h2>
 
                     <table id="tablaGestionDeTrayectos" >
                         <thead class="headerTabla">
@@ -226,11 +227,11 @@
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td>4301-3655/ 4304-7061</td>
+                        <tr th:each="trayecto : ${trayectos}">
+                            <td th:text="${trayecto.id}">125	</td>
+                            <td th:text="${trayecto.sector}">C.F.P. N° 02 (Barracas)</td>
+                            <td th:text="${trayecto.nombre}">Brandsen 2570</td>
+                            <td th:text="${trayecto.condiciones}">4301-3655/ 4304-7061</td>
                             <td><i class="bi bi-pencil-square iconoAcciones"></i>
                                 <i class="bi bi-trash iconoAcciones"></i>
                             </td>
@@ -271,6 +272,7 @@
                 <h1 class="tituloTabla">Gestión de Sectores</h1>
 
                 <div class="backgroundTabla">
+                    <h2 onclick="mostrarAgregarModal('Sectores')"> <i class="bi bi-plus-square "></i></h2>
                     <table id="tablaGestionDeSectores" >
                         <thead class="headerTabla">
                         <tr>
@@ -283,35 +285,15 @@
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td>4301-3655/ 4304-7061</td>
+                        <tr th:each=" sector : ${sectores}">
+                            <td th:text="${sector.id}">125	</td>
+                            <td th:text="${sector.nombre}">C.F.P. N° 02 (Barracas)</td>
+                            <td th:text="${sector.descripcion}">Brandsen 2570</td>
+                            <td th:text="${sector.estado}">4301-3655/ 4304-7061</td>
                             <td><i class="bi bi-pencil-square iconoAcciones"></i>
                                 <i class="bi bi-trash iconoAcciones"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td>4301-3655/ 4304-7061</td>
-                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones"></i>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td>4301-3655/ 4304-7061</td>
-                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones"></i>
-                            </td>
-                        </tr>
-
 
                         </tbody>
                     </table>

@@ -1,6 +1,6 @@
 
 
-#modalContainerCentros{
+.modalContainerCentros{
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -12,7 +12,7 @@
     min-width: 400px;
     min-height: 400px;
     width: fit-content;
-    height: fit-content;
+    max-height: 550px;
     padding: 30px;
     background-color: #DEDDD8;
     margin: auto;
@@ -21,19 +21,33 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-
     justify-content: space-evenly;
+
+    overflow-y: auto;
 }
 .modal h3{
     align-self: flex-end;
 }
 
-.modal input{
+.modal input:not([type="checkbox"]), select{
     margin-bottom: 20px;
+    padding: 4px;
     width: 170px;
     height: 30px;
-    border-radius: 30px;
+    border-radius: 5px;
     border: 1px solid rgba(197, 195, 195, 0.78);
+}
+
+.modal textarea{
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(197, 195, 195, 0.78);
+}
+
+.labelTextArea{
+    width: 100%;
 }
 
 .divisorInternoDelModal{
@@ -67,3 +81,20 @@
 .botonAcreditacion:hover{
     scale: 103%;
 }
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+fieldset input{
+    margin-bottom: 10px;
+}
+
+fieldset span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+

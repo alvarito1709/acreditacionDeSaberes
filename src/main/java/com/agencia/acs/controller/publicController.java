@@ -4,10 +4,7 @@ package com.agencia.acs.controller;
 import com.agencia.acs.entities.*;
 
 import com.agencia.acs.repository.UserRepository;
-import com.agencia.acs.service.EntrevistadorService;
-import com.agencia.acs.service.EvaluadorService;
-import com.agencia.acs.service.OrientadorService;
-import com.agencia.acs.service.PostulanteService;
+import com.agencia.acs.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,6 +36,9 @@ public class publicController {
 
     @Autowired
     OrientadorService orientadorService;
+
+    @Autowired
+    TrayectoService trayectoService;
 
     @GetMapping("/login")
     public String login(){
@@ -98,6 +98,11 @@ public class publicController {
         if (Objects.equals(tabla, "Orientadores")){
             List<Orientador> listaOrientadores = orientadorService.listarOrientadores();
             model.addAttribute("orientadores", listaOrientadores);
+        }
+
+        if (Objects.equals(tabla, "Trayectos")){
+            List<Trayecto> listarTrayectos = trayectoService.listarTrayectos();
+            model.addAttribute("trayectos", listarTrayectos);
         }
 
 

@@ -32,6 +32,11 @@ function mostrarTablas(tabla){
 
             break;
 
+            case 'Sectores':
+            urlTablas = url+"/sectores/listarSectores"
+
+            break;
+
     }
 
 

@@ -26,7 +26,7 @@ public class CentroController {
     public ModelAndView modalCentros(Model model){
 
 
-        return new ModelAndView("modalCentros :: modalesDeAgregar");
+        return new ModelAndView("modalCentros :: modalAgregarCentro");
 
     }
 
@@ -91,6 +91,13 @@ public class CentroController {
 
         return new ModelAndView("tablas :: tablaQueCargo");
 
+    }
+
+    @GetMapping("/verCentro/{id}")
+    @ResponseBody
+    public Centro buscarCentroPorId(@PathVariable Long id){
+
+        return centroService.buscarCentroPorId(id);
     }
 
 }

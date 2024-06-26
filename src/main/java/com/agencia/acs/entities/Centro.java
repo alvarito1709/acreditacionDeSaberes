@@ -1,10 +1,12 @@
 package com.agencia.acs.entities;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import net.minidev.json.annotate.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Centro {
@@ -30,6 +32,10 @@ public class Centro {
     private String area;
 
     private String estado;
+
+
+    @ManyToMany(mappedBy = "centros")
+    private List<Trayecto> trayectos;
 
 
     public Long getId() {
@@ -110,5 +116,13 @@ public class Centro {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public List<Trayecto> getTrayectos() {
+        return trayectos;
+    }
+
+    public void setTrayectos(List<Trayecto> trayectos) {
+        this.trayectos = trayectos;
     }
 }
