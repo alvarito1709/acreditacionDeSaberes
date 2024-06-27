@@ -37,6 +37,11 @@ function mostrarTablas(tabla){
 
             break;
 
+            case 'Modulos':
+            urlTablas = url+"/modulos/listarModulos"
+
+            break;
+
     }
 
 

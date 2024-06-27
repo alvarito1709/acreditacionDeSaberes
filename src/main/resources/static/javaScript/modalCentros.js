@@ -81,6 +81,10 @@ function mostrarAgregarModal(elemento){
             case 'Sectores':
             urlMostrarModal = urlBase + "sectores";
             break;
+
+            case 'Modulos':
+            urlMostrarModal = urlBase + "modulos";
+            break;
     }
 
 
@@ -192,4 +196,48 @@ function crearSector(){
         }]
     })
 
+}
+
+function crearModulo(){
+
+    const urlCrearSector = urlBase+"modulos/crearModulo"
+
+    const nombreModulo = document.getElementById("nombreModulo");
+    const descripcionModulo = document.getElementById("descripcionModulo");
+    const estadoModulo = document.getElementById("estadoModulo");
+    const trayectoModulo = document.getElementById("trayectoModulo");
+
+
+
+    const botonEnviar = document.getElementsByClassName("botonAcreditacion")
+
+    botonEnviar[0].addEventListener('click', ev => {
+        ev.preventDefault();
+    })
+
+
+
+    var data = {
+        modulo: nombreModulo.value,
+        descripcion: descripcionModulo.value,
+        estado: estadoModulo.value,
+        trayecto: { id: trayectoModulo.value}
+    }
+
+    let dataString = JSON.stringify(data);
+
+
+
+    $.ajax({
+        type:'POST',
+        headers:{
+            'content-type':'application/json'
+        },
+        url: urlCrearSector,
+        data: dataString,
+        success: [function (respuesta){
+            $("#tableContainer").html(respuesta);
+            cerrarModal();
+        }]
+    })
 }

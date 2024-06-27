@@ -110,6 +110,41 @@
         </div>
     </div>
 
+    <div class="modalContainerCentros" th:fragment="modalAgregarModulos(${trayectos})">
+        <div class="modal" id="modalModulos">
+
+            <h3 onclick="ocultarModalAgregar()"><i class="bi bi-x-square"></i></h3>
+
+            <h2>Alta de Modulo</h2>
+
+            <div class="divisorInternoDelModal">
+                <label for="nombreModulo">Nombre<input type="text" id="nombreModulo"></label>
+                <label for="descripcionModulo" class="labelTextArea">Descripción<input type="text" id="descripcionModulo"></label>
+            </div>
+
+
+            <div class="divisorInternoDelModal">
+                <label for="estadoModulo">Estado<select id="estadoModulo">
+                    <option value="ACTIVO">ACTIVO</option>
+                    <option value="INACTIVO">INACTIVO</option>
+                </select></label>
+
+                <label for="trayectoModulo">Trayecto<select id="trayectoModulo">
+                    <option th:each="trayecto : ${trayectos}" th:text="${trayecto.nombre}" th:value="${trayecto.id}">ACTIVO</option>
+
+                </select></label>
+
+
+
+            </div>
+
+            <div class="divisorInternoDelModal">
+                <button class="botonAcreditacion" onclick="crearModulo()">GUARDAR</button>
+            </div>
+
+        </div>
+    </div>
+
 
 <script th:src="@{/javaScript/modalCentros.js}"></script>
 

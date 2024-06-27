@@ -11,7 +11,7 @@
 </head>
 <body>
 
-        <div th:fragment="tablaQueCargo (${tabla} ,${usuarios}, ${postulantes}, ${entrevistadores}, ${evaluadores}, ${orientadores}, ${centros}, ${trayectos}, ${sectores})"
+        <div th:fragment="tablaQueCargo (${tabla} ,${usuarios}, ${postulantes}, ${entrevistadores}, ${evaluadores}, ${orientadores}, ${centros}, ${trayectos}, ${sectores}, ${modulos})"
                 class="contenedorBodyTabla">
 
 
@@ -310,6 +310,7 @@
                 <h1 class="tituloTabla">Gestión de Modulos</h1>
 
                 <div class="backgroundTabla">
+                    <h2 onclick="mostrarAgregarModal('Modulos')"> <i class="bi bi-plus-square "></i></h2>
                     <table id="tablaGestionDeModulos" >
                         <thead class="headerTabla">
                         <tr>
@@ -322,11 +323,11 @@
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td>4301-3655/ 4304-7061</td>
+                        <tr th:each="modulo : ${modulos}">
+                            <td th:text="${modulo.id}">125	</td>
+                            <td th:text="${modulo.trayecto}">C.F.P. N° 02 (Barracas)</td>
+                            <td th:text="${modulo.modulo}">Brandsen 2570</td>
+                            <td th:text="${modulo.descripcion}">4301-3655/ 4304-7061</td>
                             <td><i class="bi bi-list-check"></i></i>
                             </td>
                         </tr>

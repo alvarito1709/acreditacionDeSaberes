@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TrayectoService {
@@ -15,5 +16,7 @@ public class TrayectoService {
     public List<Trayecto> listarTrayectos(){ return trayectoRepository.findAll();}
 
     public Trayecto guardarTrayectoNuevo(Trayecto trayecto){return trayectoRepository.save(trayecto);}
+
+    public Optional<Trayecto> buscarTrayectoPorId(Long id){return trayectoRepository.findById(id);}
 
 }
