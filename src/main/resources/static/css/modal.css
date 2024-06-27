@@ -8,6 +8,19 @@
     flex-wrap: nowrap;
 }
 
+::-webkit-scrollbar {
+    width: 5px; /* Ancho de la barra */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #737373; /* Color del pulsor */
+}
+
+::-webkit-scrollbar-track {
+    background: #bdbdbd; /* Color de la pista */
+    border-radius: 5px 5px 0 0;
+}
+
 .modal{
     min-width: 400px;
     min-height: 400px;

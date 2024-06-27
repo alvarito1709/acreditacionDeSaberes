@@ -13,7 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/sectores")
@@ -83,6 +85,36 @@ public class SectorController {
             new ResponseEntity<>("Error al crear sector", HttpStatus.INTERNAL_SERVER_ERROR);
             return new ModelAndView("tablas :: tablaQueCargo");
         }
+    }
+
+    @PostMapping("/buscarSectorPorId/{id}")
+    public ModelAndView buscarSectorPorId(@PathVariable Long id, @RequestParam(value = "tabla") String tabla, Model model){
+
+
+        Sector sectorOptional = sectorService.buscarSectorPorId(id);
+
+        model.addAttribute("sectores", sectorOptional);
+
+        model.addAttribute("tabla", tabla);
+
+        return new ModelAndView("board :: modalEliminar");
+    }
+
+    @DeleteMapping("/borrarCentro/{id}")
+    @Transactional
+    public ModelAndView borrarCentro(@PathVariable Long id, @RequestParam(value = "tabla") String tabla, Model model){
+
+        sectorService.borrarSector(id);
+
+        model.addAttribute("tabla", tabla);
+
+        List<Sector> sectores = sectorService.listarSectores();
+
+        model.addAttribute("sectores", sectores);
+
+        return new ModelAndView("tablas :: tablaQueCargo");
+
+
     }
 
 }

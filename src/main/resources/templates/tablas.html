@@ -291,7 +291,7 @@
                             <td th:text="${sector.descripcion}">Brandsen 2570</td>
                             <td th:text="${sector.estado}">4301-3655/ 4304-7061</td>
                             <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones" th:id="${sector.id}" th:data="${tabla}" onclick="mostrarAdvertencia(this)"></i>
                             </td>
                         </tr>
 
@@ -331,23 +331,6 @@
                             <td><i class="bi bi-list-check"></i></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td>4301-3655/ 4304-7061</td>
-                            <td><i class="bi bi-list-check"></i></i>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td>4301-3655/ 4304-7061</td>
-                            <td><i class="bi bi-list-check"></i></i>
-                            </td>
-                        </tr>
 
 
                         </tbody>
@@ -364,6 +347,8 @@
                 <h1 class="tituloTabla">Gestión de Usuarios</h1>
 
                 <div class="backgroundTabla">
+
+                    <a th:href="@{/user}"><h2 > <i class="bi bi-plus-square "></i></h2></a>
 
                     <table id="tablaGestionDeUsuarios">
                         <thead class="headerTabla">

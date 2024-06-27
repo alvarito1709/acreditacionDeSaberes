@@ -78,6 +78,10 @@ function mostrarAdvertencia(elemento){
 
             break;
 
+        case 'Sectores':
+            urlEliminar = url+"/sectores/buscarSectorPorId/" +elemento.id;
+            break
+
     }
 
 
@@ -122,6 +126,11 @@ function eliminarElemento(elemento){
 
         case 'Centros':
             urlEliminar = url+"/centros/borrarCentro/" + idElemento;
+            break;
+
+        case 'Sectores':
+            urlEliminar = url+"/sectores/borrarCentro/" + idElemento;
+
             break;
     }
 
