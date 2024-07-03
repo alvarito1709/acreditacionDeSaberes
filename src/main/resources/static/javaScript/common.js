@@ -149,6 +149,8 @@ function eliminarElemento(elemento){
 }
 
 
+
+
 //FUNCION PARA CAMBIAR EL BACKGROUND COLOR DEL ELEMENTO SELECCIONADO EN LA LISTA
     for (let i = 0; i < elementosSeleccionables.length; i++ ){
 

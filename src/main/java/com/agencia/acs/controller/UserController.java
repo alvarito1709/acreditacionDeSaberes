@@ -42,6 +42,12 @@ public class UserController {
     @Autowired
     EntrevistadorService entrevistadorService;
 
+    @Autowired
+    CentroService centroService;
+
+    @Autowired
+    SectorService sectorService;
+
     @GetMapping("")
     public String formularioUsuario(){
         return "agregarUsuario";
@@ -212,6 +218,25 @@ public class UserController {
 
         return new ModelAndView("tablas :: tablaQueCargo");
 
+
+    }
+
+    @PostMapping("/mostrarModalParaAgregarCentro/{id}")
+    public ModelAndView buscarUsuarioParaAgregarCentro(@PathVariable Long id, Model model){
+
+        User usuario = userService.buscarUsuario(id);
+
+        model.addAttribute("usuario", usuario);
+
+        List<Centro> centros = centroService.listarCentros();
+
+        model.addAttribute("centros", centros);
+
+        List<Sector> sectores = sectorService.listarSectores();
+
+        model.addAttribute("sectores", sectores);
+
+        return new ModelAndView("modalCentros :: modalAgregarCentrosAUsuarios");
 
     }
 

@@ -149,6 +149,43 @@
         </div>
     </div>
 
+    <div class="modalContainerCentros" th:fragment="modalAgregarCentrosAUsuarios(${usuario}, ${centros}, ${sectores})">
+        <div class="modal" id="modalModulos">
+
+            <h3 onclick="ocultarModalAgregar()"><i class="bi bi-x-square"></i></h3>
+
+            <h2>Agregar Sector</h2>
+
+
+
+            <div class="divisorInternoDelModal" th:each="user : ${usuario}">
+                <label for="nombreUsuario" th:text="${user.nombre}">Nombre<input type="text" id="nombreUsuario"></label>
+            </div>
+
+
+            <div class="divisorInternoDelModal">
+                <label for="centrosParaUsuario">CENTROS<select id="centrosParaUsuario">
+                    <option th:each="centro : ${centros}" th:text="${centro.nombre}" th:value="${centro.id}">ACTIVO</option>
+                </select></label>
+
+                <label for="sectoresParaUsuario">Sectores<select id="sectoresParaUsuario">
+                    <option th:each="sector : ${sectores}" th:text="${sector.nombre}" th:value="${sector.id}">ACTIVO</option>
+
+                </select></label>
+
+
+
+            </div>
+
+            <div class="divisorInternoDelModal">
+                <button class="botonAcreditacion" onclick="crearModulo()">GUARDAR</button>
+            </div>
+
+
+
+        </div>
+    </div>
+
 
 <script th:src="@{/javaScript/modalCentros.js}"></script>
 

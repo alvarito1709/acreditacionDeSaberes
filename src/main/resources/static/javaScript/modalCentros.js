@@ -66,6 +66,8 @@ function cerrarModal(){
 }
 
 
+//FUNCION PARA AGREGAR A LA BD DISTINTOS ENTIDADES
+
 function mostrarAgregarModal(elemento){
     let urlMostrarModal = "";
 
@@ -100,6 +102,46 @@ function mostrarAgregarModal(elemento){
     })
 }
 
+
+//ESTA API NO ESTÁ LISTA, ES PARA MOSTRAR EL MODAL Y AGREGAR CENTROS A USUARIOS;
+
+// ESTA FUNCION ES PARA HACER APARECER EL MODAL PARA AGREGAR CENTROS Y SECTORES A UN USUARIO
+
+function mostrarModalParaAgregarCentrosAUsuario(usuario, elemento){
+    const urlMostrarModal = url + '/user/mostrarModalParaAgregarCentro/' + elemento.id;
+
+    const modalContainer = document.getElementById("modalesParaAgregarContainer");
+
+    const elementoHtml = elemento;
+
+    switch (usuario){
+        case 'Orientador':
+
+            break;
+
+        case 'Entrevistador':
+
+            break;
+
+        case 'Evaluador':
+
+            break;
+    }
+
+    $.ajax({
+        type:'POST',
+        url: urlMostrarModal,
+
+
+        success: function (respuesta){
+            $("#modalesParaAgregarContainer").html(respuesta);
+            modalContainer.style.display = "flex";
+        }
+    })
+}
+
+
+//PARA CREAR EL TRAYECTO ESTA FUNCION HACE UN FETCH PARA TRAER UNO A UNO LA LISTA DE CENTROS QUE EL USUARIO SELECCIONO; PARA PODER CREAR UN NUEVO TRAYECTO ASOCIADO A ESTOS.
 async function crearTrayecto() {
     const urlCrearCentro = urlBase + "trayectos/crear";
 

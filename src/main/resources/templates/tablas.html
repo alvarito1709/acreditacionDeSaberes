@@ -385,7 +385,7 @@
                             <td th:text="${orientador.id}">125	</td>
                             <td th:text="${orientador.nombre}">C.F.P. N° 02 (Barracas)</td>
                             <td th:text="${orientador.mail}">Brandsen 2570</td>
-                            <td><i class="bi bi-plus-circle"></i>
+                            <td th:id="${orientador.id}" onclick="mostrarModalParaAgregarCentrosAUsuario('Orientador', this)"><i class="bi bi-plus-circle"></i>
                             </td>
                         </tr>
 
