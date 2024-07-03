@@ -40,6 +40,9 @@ public class publicController {
     @Autowired
     TrayectoService trayectoService;
 
+    @Autowired
+    CentroService centroService;
+
     @GetMapping("/login")
     public String login(){
         return "login";
@@ -102,6 +105,8 @@ public class publicController {
 
         if (Objects.equals(tabla, "Trayectos")){
             List<Trayecto> listarTrayectos = trayectoService.listarTrayectos();
+            List<Centro> listaCentros = centroService.listarCentros();
+            model.addAttribute("centros", listaCentros);
             model.addAttribute("trayectos", listarTrayectos);
         }
 

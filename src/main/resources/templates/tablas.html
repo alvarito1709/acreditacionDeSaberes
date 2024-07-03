@@ -227,35 +227,15 @@
                         </thead>
 
                         <tbody>
-                        <tr th:each="trayecto : ${trayectos}">
+                        <tr th:each="trayecto : ${trayectos}" >
                             <td th:text="${trayecto.id}">125	</td>
-                            <td th:text="${trayecto.sector}">C.F.P. N° 02 (Barracas)</td>
+                            <td th:text="${trayecto.sector.nombre}">C.F.P. N° 02 (Barracas)</td>
                             <td th:text="${trayecto.nombre}">Brandsen 2570</td>
                             <td th:text="${trayecto.condiciones}">4301-3655/ 4304-7061</td>
                             <td><i class="bi bi-pencil-square iconoAcciones"></i>
                                 <i class="bi bi-trash iconoAcciones"></i>
                             </td>
                         </tr>
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td>4301-3655/ 4304-7061</td>
-                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones"></i>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>125	</td>
-                            <td>C.F.P. N° 02 (Barracas)</td>
-                            <td>Brandsen 2570</td>
-                            <td>4301-3655/ 4304-7061</td>
-                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones"></i>
-                            </td>
-                        </tr>
-
 
                         </tbody>
                     </table>
@@ -325,7 +305,7 @@
                         <tbody>
                         <tr th:each="modulo : ${modulos}">
                             <td th:text="${modulo.id}">125	</td>
-                            <td th:text="${modulo.trayecto}">C.F.P. N° 02 (Barracas)</td>
+                            <td th:text="${modulo.trayecto.nombre}">C.F.P. N° 02 (Barracas)</td>
                             <td th:text="${modulo.modulo}">Brandsen 2570</td>
                             <td th:text="${modulo.descripcion}">4301-3655/ 4304-7061</td>
                             <td><i class="bi bi-list-check"></i></i>

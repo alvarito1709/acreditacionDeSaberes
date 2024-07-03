@@ -58,7 +58,7 @@ public class ModuloController {
     @PostMapping("/crearModulo")
     public ModelAndView crearModulo(@RequestBody Modulo modulo, Model model){
 
-        Optional<Trayecto> trayectoOptional = trayectoService.buscarTrayectoPorId(modulo.getTrayecto().getId().toString());
+        Optional<Trayecto> trayectoOptional = trayectoService.buscarTrayectoPorId(modulo.getTrayecto().getId());
 
         if (trayectoOptional.isPresent()){
             modulo.setTrayecto(trayectoOptional.get());

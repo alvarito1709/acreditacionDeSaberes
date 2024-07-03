@@ -17,7 +17,7 @@ public class TrayectoService {
 
     public Trayecto guardarTrayectoNuevo(Trayecto trayecto){return trayectoRepository.save(trayecto);}
 
-    public Optional<Trayecto> buscarTrayectoPorId(String id){return trayectoRepository.findById(id);}
+    public Optional<Trayecto> buscarTrayectoPorId(Long id){return trayectoRepository.findById(id);}
 
 
 }
