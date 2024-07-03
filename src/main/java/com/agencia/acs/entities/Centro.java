@@ -34,7 +34,8 @@ public class Centro {
     private String estado;
 
 
-    @ManyToMany(mappedBy = "centros")
+    @JsonIgnore
+    @ManyToMany(mappedBy = "centros", fetch = FetchType.LAZY)
     private List<Trayecto> trayectos;
 
 

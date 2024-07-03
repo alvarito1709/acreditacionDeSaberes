@@ -109,22 +109,31 @@ async function crearTrayecto() {
     const estadoNuevo = document.getElementById("estadoTrayecto");
     const inputCentros = document.querySelectorAll('input[name="inputCentros"]');
 
-    var centrosNuevos = [];
+    let centrosNuevos = [];
+
+
+    var httpConfig = {
+        method:'GET',
+        accept: 'application/json'
+    }
 
     for (let i = 0; i < inputCentros.length; i++) {
-        let centroId = parseInt(inputCentros[i].value);
+        let centroId = inputCentros[i].id;
         if (inputCentros[i].checked) {
-            // Fetch the actual Centro object using the centroId
-            fetch(urlBase + "centros/verCentro/" + centroId)
-                .then((response) => response.json())
-                .then((centro) => {
-                    centrosNuevos.push(centro);
-                });
+          const centro =await fetch(urlBase + "centros/verCentro/" + centroId, httpConfig)
+               .then(response => response.json())
+               .catch(error => console.log("hubo un error",  error));
+          centrosNuevos.push(centro);
         }
     }
 
+
+
+
     // Wait for all Centro objects to be fetched before sending the data
     Promise.allSettled(centrosNuevos).then(() => {
+
+        console.log(centrosNuevos);
         const botonEnviar = document.getElementsByClassName("botonAcreditacion")[0];
 
         botonEnviar.addEventListener('click', ev => {
@@ -136,7 +145,7 @@ async function crearTrayecto() {
             condiciones: condicionesNuevas.value,
             sector: { id: sectorNuevo.value },
             estado: estadoNuevo.value,
-            centros: centrosNuevos,
+            centros: centrosNuevos
         };
 
         let dataString = JSON.stringify(data);

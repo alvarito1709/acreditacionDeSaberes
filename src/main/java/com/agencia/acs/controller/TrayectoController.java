@@ -11,10 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -44,6 +41,8 @@ public class TrayectoController {
         List<Sector> sectores = sectorService.listarSectores();
         model.addAttribute("sectores", sectores);
 
+        model.addAttribute("nuevoTrayecto", new Trayecto());
+
 
         return new ModelAndView("modalCentros :: modalAgregarTrayecto");
 
@@ -52,15 +51,7 @@ public class TrayectoController {
     @PostMapping("/crear")
     public ModelAndView crearTrayecto(@RequestBody Trayecto trayecto, Model model){
 
-        List<Centro> centroSet = new ArrayList<>();
 
-        for(int i = 0;i < trayecto.getCentros().size(); i ++){
-            List<Centro> centros = trayecto.getCentros();
-
-            centroSet.add(centroService.buscarCentroPorId(centros.get(i).getId()));
-        }
-
-        trayecto.setCentros(centroSet);
 
         Trayecto nuevoTrayecto = trayectoService.guardarTrayectoNuevo(trayecto);
         ResponseEntity.created(URI.create("/trayectos/" + nuevoTrayecto.getId())).body(nuevoTrayecto);

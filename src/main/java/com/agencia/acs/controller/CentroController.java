@@ -1,11 +1,15 @@
 package com.agencia.acs.controller;
 
+import com.agencia.acs.DTO.CentroDTO;
 import com.agencia.acs.entities.Centro;
 import com.agencia.acs.service.CentroService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -95,9 +99,14 @@ public class CentroController {
 
     @GetMapping("/verCentro/{id}")
     @ResponseBody
-    public Centro buscarCentroPorId(@PathVariable Long id){
+    public String buscarCentroDtoPorId(@PathVariable Long id) throws JsonProcessingException {
 
-        return centroService.buscarCentroPorId(id);
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        CentroDTO centroDTO =centroService.buscarCentroDTO(id);
+
+
+        return objectMapper.writeValueAsString(centroDTO) ;
     }
 
 }

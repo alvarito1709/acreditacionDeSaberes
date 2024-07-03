@@ -1,6 +1,8 @@
 package com.agencia.acs.entities;
 
 
+import net.minidev.json.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.List;
@@ -23,13 +25,14 @@ public class Trayecto {
 
     private String estado;
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY ,cascade = {CascadeType.MERGE})
     @JoinTable(
             name = "trayecto_centro",
             joinColumns = {@JoinColumn(name = "trayecto_id")},
             inverseJoinColumns = {@JoinColumn(name = "centro_id")}
     )
-    List<Centro> centros;
+    private Set<Centro> centros;
 
 
 
@@ -73,11 +76,11 @@ public class Trayecto {
         this.estado = estado;
     }
 
-    public List<Centro> getCentros() {
+    public Set<Centro> getCentros() {
         return centros;
     }
 
-    public void setCentros(List<Centro> centros) {
+    public void setCentros(Set<Centro> centros) {
         this.centros = centros;
     }
 }
