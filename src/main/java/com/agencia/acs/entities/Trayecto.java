@@ -1,6 +1,7 @@
 package com.agencia.acs.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
@@ -32,6 +33,7 @@ public class Trayecto {
             joinColumns = {@JoinColumn(name = "trayecto_id")},
             inverseJoinColumns = {@JoinColumn(name = "centro_id")}
     )
+    @JsonIgnoreProperties("trayectos")
     private Set<Centro> centros;
 
 

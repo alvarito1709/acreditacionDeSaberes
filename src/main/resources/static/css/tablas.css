@@ -82,7 +82,15 @@ i{
     align-items: flex-end;
 }
 
+.dobleTabla{
+    display: flex;
+    flex-direction: row;
 
+}
+
+.dobleTabla table{
+    min-width: 300px !important;
+}
 
 
 

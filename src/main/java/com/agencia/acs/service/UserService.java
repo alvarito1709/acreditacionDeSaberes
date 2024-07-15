@@ -1,6 +1,7 @@
 package com.agencia.acs.service;
 
 
+import com.agencia.acs.entities.Centro;
 import com.agencia.acs.entities.User;
 import com.agencia.acs.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +27,5 @@ public class UserService {
     public List<User> listarUsuarios(){ return userRepository.findAll();}
 
     public void borrarUsuario(Long id){ userRepository.deleteById(id);}
+
 }

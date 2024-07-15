@@ -4,6 +4,8 @@ package com.agencia.acs.controller;
 import com.agencia.acs.entities.Centro;
 import com.agencia.acs.entities.Sector;
 import com.agencia.acs.service.SectorService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.http.HttpStatus;
@@ -116,5 +118,16 @@ public class SectorController {
 
 
     }
+
+    @GetMapping("/verSector/{id}")
+    @ResponseBody
+    public String verSectorParaEditar(@PathVariable Long id) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        Sector sector = sectorService.buscarSectorDTO(id);
+
+        return objectMapper.writeValueAsString(sector);
+    }
+
 
 }

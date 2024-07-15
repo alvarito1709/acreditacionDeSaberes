@@ -369,6 +369,8 @@
 
                 <h1 class="tituloTabla">Gestión de Orientadores</h1>
 
+                <div class="dobleTabla">
+
                 <div class="backgroundTabla">
                     <table id="tablaGestionDeOrientadores" >
                         <thead class="headerTabla">
@@ -395,6 +397,32 @@
 
                 </div>
 
+                <div class="backgroundTabla">
+
+                    <table id="tablaGestionDeOrientadores" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"></th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr  th:each="centro: ${centros}">
+                            <td th:text="${orientador.centros.id}">125	</td>
+                            <td th:text="${orientador.centros.nombre}">C.F.P. N° 02 (Barracas)</td>
+                            <td th:id="${orientador.centros.id}" onclick="mostrarModalParaAgregarCentrosAUsuario('Orientador', this)"><i class="bi bi-plus-circle"></i>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+                </div>
 
 
 

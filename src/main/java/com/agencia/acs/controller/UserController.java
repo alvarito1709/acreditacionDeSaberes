@@ -1,14 +1,18 @@
 package com.agencia.acs.controller;
 
 
+import com.agencia.acs.DTO.OrientadorDTO;
 import com.agencia.acs.entities.*;
 import com.agencia.acs.service.*;
 import com.agencia.acs.util.passwordEncoder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -19,6 +23,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/user")
@@ -237,6 +242,70 @@ public class UserController {
         model.addAttribute("sectores", sectores);
 
         return new ModelAndView("modalCentros :: modalAgregarCentrosAUsuarios");
+
+    }
+
+    @PutMapping("/agregarCentro/{centroid}/{sectorid}")
+    @Transactional
+    public ModelAndView agregarCentroAUsuario(Model model ,@RequestBody Orientador orientador,
+                                              @PathVariable Long centroid,
+                                              @PathVariable Long sectorid) throws JsonProcessingException {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        System.out.println(objectMapper.writeValueAsString(orientador));
+
+        Optional<Orientador> orientadorOptional = orientadorService.buscarOrientadorPorId(orientador.getId());
+
+
+        orientadorOptional.ifPresent(value -> orientador.setId(value.getId()));
+
+        Set<Centro> centrosDelOrientador = orientadorService.buscarOrientadorPorId(orientador.getId()).get().getCentros();
+        Set<Sector> sectoresDelOrientador = orientadorService.buscarOrientadorPorId(orientador.getId()).get().getSectores();
+
+
+        System.out.println(objectMapper.writeValueAsString(centroService.buscarCentroDTO(centroid)));
+        System.out.println(objectMapper.writeValueAsString(sectorService.buscarSectorDTO(sectorid)));
+
+        centrosDelOrientador.add(centroService.buscarCentroPorId(centroid));
+        sectoresDelOrientador.add(sectorService.buscarSectorPorId(sectorid));
+
+        orientador.setCentros(centrosDelOrientador);
+        orientador.setSectores(sectoresDelOrientador);
+
+        orientadorService.guardarOrientador(orientador);
+
+           List<Orientador> orientadores = orientadorService.listarOrientadores();
+            model.addAttribute("orientadores", orientadores);
+
+            String tabla = "Orientadores";
+
+        model.addAttribute("tabla", tabla);
+
+        return new ModelAndView("tablas :: tablaQueCargo");
+    }
+
+    @GetMapping("/buscarUsuarioParaEditar/{id}")
+    @ResponseBody
+    public String buscarUsuarioParaEditar(@PathVariable Long id) throws JsonProcessingException {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        User usuario = userService.buscarUsuario(id);
+
+        return objectMapper.writeValueAsString(usuario);
+
+    }
+
+    @GetMapping("/buscarOrientadorParaEditar/{id}")
+    @ResponseBody
+    public String buscarOrientadorParaEditar(@PathVariable Long id) throws JsonProcessingException {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        Optional<Orientador> orientador = Optional.ofNullable(orientadorService.buscarOrientadorDTO(id));
+
+        return objectMapper.writeValueAsString(orientador.get());
 
     }
 

@@ -49,4 +49,6 @@ public class CentroService {
         }
         return centroRepository.findAllById(ids);
     }
+
+    public Centro buscarCentroFull(Long id){return centroRepository.findfullCentro(id);}
 }

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@NamedEntityGraph(name = "Centro.detail", attributeNodes = {@NamedAttributeNode("trayectos"), @NamedAttributeNode("orientadores")})
 public class Centro {
 
     @Id
@@ -37,6 +38,10 @@ public class Centro {
     @JsonIgnore
     @ManyToMany(mappedBy = "centros", fetch = FetchType.LAZY)
     private List<Trayecto> trayectos;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "centros", fetch = FetchType.LAZY)
+    private List<Orientador> orientadores;
 
 
     public Long getId() {
@@ -125,5 +130,13 @@ public class Centro {
 
     public void setTrayectos(List<Trayecto> trayectos) {
         this.trayectos = trayectos;
+    }
+
+    public List<Orientador> getOrientadores() {
+        return orientadores;
+    }
+
+    public void setOrientadores(List<Orientador> orientadores) {
+        this.orientadores = orientadores;
     }
 }

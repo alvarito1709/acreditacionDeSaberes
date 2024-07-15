@@ -154,12 +154,13 @@
 
             <h3 onclick="ocultarModalAgregar()"><i class="bi bi-x-square"></i></h3>
 
-            <h2>Agregar Sector</h2>
+            <h2>Agregar Centro</h2>
 
 
 
             <div class="divisorInternoDelModal" th:each="user : ${usuario}">
-                <label for="nombreUsuario" th:text="${user.nombre}">Nombre<input type="text" id="nombreUsuario"></label>
+                <label for="nombreUsuario" th:text="${user.nombre}">Nombre</label>
+                <input type="text" id="nombreUsuario" th:value="${user.id}" hidden>
             </div>
 
 
@@ -178,7 +179,7 @@
             </div>
 
             <div class="divisorInternoDelModal">
-                <button class="botonAcreditacion" onclick="crearModulo()">GUARDAR</button>
+                <button class="botonAcreditacion" onclick="agregarCentroAUsuario()">GUARDAR</button>
             </div>
 
 

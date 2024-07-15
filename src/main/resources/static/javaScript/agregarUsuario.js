@@ -43,7 +43,7 @@ function crearUsuario(){
 
 
 
-    console.log(nombreUsuario.value);
+
 
     var data = {
         nombre: nombreUsuario.value,
@@ -55,6 +55,8 @@ function crearUsuario(){
     }
 
     var jsonString = JSON.stringify(data);
+
+    console.log(jsonString);
 
     var httpConfig = {
         method:'POST',

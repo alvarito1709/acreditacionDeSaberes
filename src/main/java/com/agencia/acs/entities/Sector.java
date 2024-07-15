@@ -1,9 +1,9 @@
 package com.agencia.acs.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import net.minidev.json.annotate.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Sector {
@@ -17,6 +17,10 @@ public class Sector {
     private String descripcion;
 
     private String estado;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "sectores", fetch = FetchType.LAZY)
+    private List<Orientador> orientadores;
 
     public Long getId() {
         return id;
@@ -48,5 +52,13 @@ public class Sector {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public List<Orientador> getOrientadores() {
+        return orientadores;
+    }
+
+    public void setOrientadores(List<Orientador> orientadores) {
+        this.orientadores = orientadores;
     }
 }

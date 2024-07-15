@@ -292,3 +292,72 @@ function crearModulo(){
         }]
     })
 }
+
+
+async function agregarCentroAUsuario(){
+const urlAgregarCentro = urlBase + "user/agregarCentro";
+
+
+const usuario = document.getElementById("nombreUsuario");
+const centroNuevo = document.getElementById("centrosParaUsuario");
+const sectorNuevo = document.getElementById("sectoresParaUsuario");
+
+const promesas = [
+    fetch(urlBase+"user/buscarOrientadorParaEditar/"+usuario.value)
+        .then(response => response.json()),
+    fetch(urlBase+"centros/verCentro/"+centroNuevo.value)
+        .then(response =>response.json()),
+    fetch(urlBase+"sectores/verSector/"+sectorNuevo.value)
+        .then(response =>response.json())
+];
+
+
+
+
+    Promise.all(promesas).then(resultados =>{
+
+        const entidadUsuario = resultados[0];
+        const entidadCentro = resultados[1];
+        const entidadSector = resultados[2];
+
+
+
+        console.log(JSON.stringify(entidadUsuario));
+
+        var data = {
+
+        }
+
+
+
+        let dataString = JSON.stringify(data);
+
+        var requestOptions = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(entidadUsuario)
+
+
+        };
+
+        console.log(dataString);
+
+        $.ajax({
+            type:'PUT',
+            headers:{
+                'content-type':'application/json'
+            },
+            url: urlAgregarCentro +"/" + entidadCentro.id + "/" + entidadSector.id,
+            data: JSON.stringify(entidadUsuario),
+            success: [function (respuesta){
+                $("#tableContainer").html(respuesta);
+                cerrarModal();
+            }]
+        })
+
+    })
+
+
+}
