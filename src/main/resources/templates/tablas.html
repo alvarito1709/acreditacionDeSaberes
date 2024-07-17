@@ -308,7 +308,7 @@
                             <td th:text="${modulo.trayecto.nombre}">C.F.P. N° 02 (Barracas)</td>
                             <td th:text="${modulo.modulo}">Brandsen 2570</td>
                             <td th:text="${modulo.descripcion}">4301-3655/ 4304-7061</td>
-                            <td><i class="bi bi-list-check"></i></i>
+                            <td><i class="bi bi-list-check"></i>
                             </td>
                         </tr>
 
@@ -363,7 +363,6 @@
 
             </div>
 
-            <!-- FALTA HACER LA OTRA TABLA QUE AGREGA ORIENTADORES A CENTROS -->
 
             <div th:if="${tabla == 'Orientadores'}">
 
@@ -387,7 +386,8 @@
                             <td th:text="${orientador.id}">125	</td>
                             <td th:text="${orientador.nombre}">C.F.P. N° 02 (Barracas)</td>
                             <td th:text="${orientador.mail}">Brandsen 2570</td>
-                            <td th:id="${orientador.id}" onclick="mostrarModalParaAgregarCentrosAUsuario('Orientador', this)"><i class="bi bi-plus-circle"></i>
+                            <td  ><i class="bi bi-plus-circle" th:id="${orientador.id}" onclick="mostrarModalParaAgregarCentrosAUsuario('Orientador', this)"></i>
+                                <i class="bi bi-list-check" th:id="${orientador.id}" onclick="buscarCentrosOSectorDeUsuario(this.id, 'Orientadores' )"></i>
                             </td>
                         </tr>
 
@@ -410,9 +410,9 @@
 
                         <tbody>
                         <tr  th:each="centro: ${centros}">
-                            <td th:text="${orientador.centros.id}">125	</td>
-                            <td th:text="${orientador.centros.nombre}">C.F.P. N° 02 (Barracas)</td>
-                            <td th:id="${orientador.centros.id}" onclick="mostrarModalParaAgregarCentrosAUsuario('Orientador', this)"><i class="bi bi-plus-circle"></i>
+                            <td th:text="${centro.id}">125	</td>
+                            <td th:text="${centro.nombre}">C.F.P. N° 02 (Barracas)</td>
+                            <td th:id="${centro.id}" onclick="mostrarModalParaAgregarCentrosAUsuario('Orientador', this)"><i class="bi bi-plus-circle"></i>
                             </td>
                         </tr>
 

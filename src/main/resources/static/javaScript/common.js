@@ -149,6 +149,29 @@ function eliminarElemento(elemento){
 }
 
 
+function buscarCentrosOSectorDeUsuario(id, tipoDeUsuario){
+    var urlFetch = url + "/user/buscarCentrosPorUsuario"
+
+    const userId = id;
+    const tabla = tipoDeUsuario;
+
+
+
+    $.ajax({
+        type:'GET',
+        url: urlFetch,
+        data:{
+            idUsuario: userId,
+            tabla:tabla
+        },
+
+        success: function (respuesta){
+            $("#tableContainer").html(respuesta);
+        }
+    })
+}
+
+
 
 
 //FUNCION PARA CAMBIAR EL BACKGROUND COLOR DEL ELEMENTO SELECCIONADO EN LA LISTA

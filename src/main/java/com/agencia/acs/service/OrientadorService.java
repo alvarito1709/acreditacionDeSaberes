@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class OrientadorService {
@@ -36,5 +37,11 @@ public class OrientadorService {
         final Orientador orientador = orientadorOptional.get();
 
         return new OrientadorDTO(orientador.getId(), orientador.getNombre(), orientador.getMail(), orientador.getDNI(), orientador.getUsername(), orientador.getRol());
+    }
+
+    public Optional<Set<Centro>> buscarCentrosPorOrientador(Long id){
+        Optional<Orientador> orientadorOptional = orientadorRepository.findById(id);
+
+        return Optional.ofNullable(orientadorOptional.get().getCentros());
     }
 }

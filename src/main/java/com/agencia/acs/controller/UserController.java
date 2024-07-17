@@ -309,4 +309,27 @@ public class UserController {
 
     }
 
+
+    @GetMapping("/buscarCentrosPorUsuario")
+    public ModelAndView buscarCentrosDeUsuario(@RequestParam (value = "idUsuario")Long idUsuario,
+                                               @RequestParam(value = "tabla") String tabla ,Model model){
+
+        Optional<Set<Centro>> centroOptional = orientadorService.buscarCentrosPorOrientador(idUsuario);
+
+        List<Orientador> orientadores = orientadorService.listarOrientadores();
+
+        if(centroOptional.isPresent()){
+            Set<Centro> centroSet = centroOptional.get();
+
+            model.addAttribute("centros", centroSet);
+        }
+
+        model.addAttribute("orientadores", orientadores);
+
+        model.addAttribute("tabla", tabla);
+
+        return new ModelAndView("tablas :: tablaQueCargo");
+
+    }
+
 }
