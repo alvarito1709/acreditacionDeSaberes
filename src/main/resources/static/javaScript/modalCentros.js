@@ -103,42 +103,8 @@ function mostrarAgregarModal(elemento){
 }
 
 
-//ESTA API NO ESTÁ LISTA, ES PARA MOSTRAR EL MODAL Y AGREGAR CENTROS A USUARIOS;
-
-// ESTA FUNCION ES PARA HACER APARECER EL MODAL PARA AGREGAR CENTROS Y SECTORES A UN USUARIO
-
-function mostrarModalParaAgregarCentrosAUsuario(usuario, elemento){
-    const urlMostrarModal = url + '/user/mostrarModalParaAgregarCentro/' + elemento.id;
-
-    const modalContainer = document.getElementById("modalesParaAgregarContainer");
-
-    const elementoHtml = elemento;
-
-    switch (usuario){
-        case 'Orientador':
-
-            break;
-
-        case 'Entrevistador':
-
-            break;
-
-        case 'Evaluador':
-
-            break;
-    }
-
-    $.ajax({
-        type:'POST',
-        url: urlMostrarModal,
 
 
-        success: function (respuesta){
-            $("#modalesParaAgregarContainer").html(respuesta);
-            modalContainer.style.display = "flex";
-        }
-    })
-}
 
 
 //PARA CREAR EL TRAYECTO ESTA FUNCION HACE UN FETCH PARA TRAER UNO A UNO LA LISTA DE CENTROS QUE EL USUARIO SELECCIONO; PARA PODER CREAR UN NUEVO TRAYECTO ASOCIADO A ESTOS.
@@ -294,22 +260,62 @@ function crearModulo(){
 }
 
 
-async function agregarCentroAUsuario(){
-const urlAgregarCentro = urlBase + "user/agregarCentro";
+async function agregarCentroAUsuario(elemento){
+let urlAgregarCentro = urlBase + "user/agregarCentro";
 
+const rol = elemento.getAttribute("data");
 
 const usuario = document.getElementById("nombreUsuario");
 const centroNuevo = document.getElementById("centrosParaUsuario");
 const sectorNuevo = document.getElementById("sectoresParaUsuario");
 
-const promesas = [
-    fetch(urlBase+"user/buscarOrientadorParaEditar/"+usuario.value)
-        .then(response => response.json()),
-    fetch(urlBase+"centros/verCentro/"+centroNuevo.value)
-        .then(response =>response.json()),
-    fetch(urlBase+"sectores/verSector/"+sectorNuevo.value)
-        .then(response =>response.json())
-];
+let promesas = [];
+
+switch (rol){
+    case 'ROLE_ORIENTADOR':
+
+        urlAgregarCentro = urlBase + "user/agregarCentroAOrientador";
+
+        promesas = [
+            fetch(urlBase+"user/buscarOrientadorParaEditar/"+usuario.value)
+                .then(response => response.json()),
+            fetch(urlBase+"centros/verCentro/"+centroNuevo.value)
+                .then(response =>response.json()),
+            fetch(urlBase+"sectores/verSector/"+sectorNuevo.value)
+                .then(response =>response.json())
+        ]
+        break;
+
+    case 'ROLE_ENTREVISTADOR':
+
+        urlAgregarCentro = urlBase + "user/agregarCentroAEntrevistador";
+
+        promesas = [
+            fetch(urlBase+"user/buscarEntrevistadorParaEditar/"+usuario.value)
+                .then(response => response.json()),
+            fetch(urlBase+"centros/verCentro/"+centroNuevo.value)
+                .then(response =>response.json()),
+            fetch(urlBase+"sectores/verSector/"+sectorNuevo.value)
+                .then(response =>response.json())
+        ]
+
+        break;
+
+        case 'ROLE_EVALUADOR':
+
+            urlAgregarCentro = urlBase + "user/agregarCentroAEvaluador";
+
+        promesas = [
+            fetch(urlBase+"user/buscarEvaluadorParaEditar/"+usuario.value)
+                .then(response => response.json()),
+            fetch(urlBase+"centros/verCentro/"+centroNuevo.value)
+                .then(response =>response.json()),
+            fetch(urlBase+"sectores/verSector/"+sectorNuevo.value)
+                .then(response =>response.json())
+        ]
+
+        break;
+}
 
 
 
@@ -320,30 +326,7 @@ const promesas = [
         const entidadCentro = resultados[1];
         const entidadSector = resultados[2];
 
-
-
-        console.log(JSON.stringify(entidadUsuario));
-
-        var data = {
-
-        }
-
-
-
-        let dataString = JSON.stringify(data);
-
-        var requestOptions = {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(entidadUsuario)
-
-
-        };
-
-        console.log(dataString);
-
+        
         $.ajax({
             type:'PUT',
             headers:{

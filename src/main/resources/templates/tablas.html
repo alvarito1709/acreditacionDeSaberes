@@ -399,7 +399,7 @@
 
                 <div class="backgroundTabla">
 
-                    <table id="tablaGestionDeOrientadores" >
+                    <table id="tablaGestionDeOrientadoresACentros" >
                         <thead class="headerTabla">
                         <tr>
                             <th class="itemTitulo">#</th>
@@ -412,8 +412,6 @@
                         <tr  th:each="centro: ${centros}">
                             <td th:text="${centro.id}">125	</td>
                             <td th:text="${centro.nombre}">C.F.P. N° 02 (Barracas)</td>
-                            <td th:id="${centro.id}" onclick="mostrarModalParaAgregarCentrosAUsuario('Orientador', this)"><i class="bi bi-plus-circle"></i>
-                            </td>
                         </tr>
 
                         </tbody>
@@ -434,29 +432,57 @@
 
                 <h1 class="tituloTabla">Gestión de Entrevistadores</h1>
 
-                <div class="backgroundTabla">
+                <div class="dobleTabla">
 
-                    <table id="tablaGestionDeEntrevistadores" >
-                        <thead class="headerTabla">
-                        <tr>
-                            <th class="itemTitulo">#</th>
-                            <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo"></th>
-                        </tr>
-                        </thead>
+                    <div class="backgroundTabla">
 
-                        <tbody>
-                        <tr th:each="entrevistador : ${entrevistadores}">
-                            <td th:text="${entrevistador.id}">125	</td>
-                            <td th:text="${entrevistador.nombre}">C.F.P. N° 02 (Barracas)</td>
-                            <td th:text="${entrevistador.mail}">Brandsen 2570</td>
-                            <td><i class="bi bi-plus-circle"></i>
-                            </td>
-                        </tr>
+                        <table id="tablaGestionDeEntrevistadores" >
+                            <thead class="headerTabla">
+                            <tr>
+                                <th class="itemTitulo">#</th>
+                                <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
+                                <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
+                                <th class="itemTitulo"></th>
+                            </tr>
+                            </thead>
 
-                        </tbody>
-                    </table>
+                            <tbody>
+                            <tr th:each="entrevistador : ${entrevistadores}">
+                                <td th:text="${entrevistador.id}">125	</td>
+                                <td th:text="${entrevistador.nombre}">C.F.P. N° 02 (Barracas)</td>
+                                <td th:text="${entrevistador.mail}">Brandsen 2570</td>
+                                <td><i class="bi bi-plus-circle" th:id="${entrevistador.id}" onclick="mostrarModalParaAgregarCentrosAUsuario('Entrevistador', this)"></i>
+                                    <i class="bi bi-list-check" th:id="${entrevistador.id}" onclick="buscarCentrosOSectorDeUsuario(this.id, 'Entrevistadores' )"></i>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="backgroundTabla">
+
+                        <table id="tablaGestionDeEntrevistadoresACentros" >
+                            <thead class="headerTabla">
+                            <tr>
+                                <th class="itemTitulo">#</th>
+                                <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
+                                <th class="itemTitulo"></th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr  th:each="centro: ${centros}">
+                                <td th:text="${centro.id}">125	</td>
+                                <td th:text="${centro.nombre}">C.F.P. N° 02 (Barracas)</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
 
                 </div>
 
@@ -471,28 +497,56 @@
 
                 <h1 class="tituloTabla">Gestión de Evaluadores</h1>
 
-                <div class="backgroundTabla">
+                <div class="dobleTabla">
 
-                    <table id="tablaGestionDeEvaluadores" >
-                        <thead class="headerTabla">
-                        <tr>
-                            <th class="itemTitulo">#</th>
-                            <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo"></th>
-                        </tr>
-                        </thead>
+                    <div class="backgroundTabla">
 
-                        <tbody>
-                        <tr th:each="evaluador : ${evaluadores}">
-                            <td th:text="${evaluador.id}">125	</td>
-                            <td th:text="${evaluador.nombre}">C.F.P. N° 02 (Barracas)</td>
-                            <td th:text="${evaluador.mail}">Brandsen 2570</td>
-                            <td><i class="bi bi-plus-circle"></i>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                        <table id="tablaGestionDeEvaluadores" >
+                            <thead class="headerTabla">
+                            <tr>
+                                <th class="itemTitulo">#</th>
+                                <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
+                                <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
+                                <th class="itemTitulo"></th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr th:each="evaluador : ${evaluadores}">
+                                <td th:text="${evaluador.id}">125	</td>
+                                <td th:text="${evaluador.nombre}">C.F.P. N° 02 (Barracas)</td>
+                                <td th:text="${evaluador.mail}">Brandsen 2570</td>
+                                <td><i class="bi bi-plus-circle" th:id="${evaluador.id}" onclick="mostrarModalParaAgregarCentrosAUsuario('Evaluador', this)"></i>
+                                    <i class="bi bi-list-check" th:id="${evaluador.id}" onclick="buscarCentrosOSectorDeUsuario(this.id, 'Evaluadores' )"></i>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="backgroundTabla">
+
+                        <table id="tablaGestionDeEvaluadoresACentros" >
+                            <thead class="headerTabla">
+                            <tr>
+                                <th class="itemTitulo">#</th>
+                                <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
+                                <th class="itemTitulo"></th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr  th:each="centro: ${centros}">
+                                <td th:text="${centro.id}">125	</td>
+                                <td th:text="${centro.nombre}">C.F.P. N° 02 (Barracas)</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
 
                 </div>
 

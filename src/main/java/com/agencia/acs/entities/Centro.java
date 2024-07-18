@@ -43,6 +43,10 @@ public class Centro {
     @ManyToMany(mappedBy = "centros", fetch = FetchType.LAZY)
     private List<Orientador> orientadores;
 
+    @JsonIgnore
+    @ManyToMany(mappedBy = "centros", fetch = FetchType.LAZY)
+    private List<Entrevistador> entrevistadores;
+
 
     public Long getId() {
         return id;
@@ -138,5 +142,13 @@ public class Centro {
 
     public void setOrientadores(List<Orientador> orientadores) {
         this.orientadores = orientadores;
+    }
+
+    public List<Entrevistador> getEntrevistadores() {
+        return entrevistadores;
+    }
+
+    public void setEntrevistadores(List<Entrevistador> entrevistadores) {
+        this.entrevistadores = entrevistadores;
     }
 }

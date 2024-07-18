@@ -22,6 +22,14 @@ public class Sector {
     @ManyToMany(mappedBy = "sectores", fetch = FetchType.LAZY)
     private List<Orientador> orientadores;
 
+    @JsonIgnore
+    @ManyToMany(mappedBy = "sectores", fetch = FetchType.LAZY)
+    private List<Entrevistador> entrevistadores;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "sectores", fetch = FetchType.LAZY)
+    private List<Evaluador> evaluadores;
+
     public Long getId() {
         return id;
     }
@@ -60,5 +68,21 @@ public class Sector {
 
     public void setOrientadores(List<Orientador> orientadores) {
         this.orientadores = orientadores;
+    }
+
+    public List<Entrevistador> getEntrevistadores() {
+        return entrevistadores;
+    }
+
+    public void setEntrevistadores(List<Entrevistador> entrevistadores) {
+        this.entrevistadores = entrevistadores;
+    }
+
+    public List<Evaluador> getEvaluadores() {
+        return evaluadores;
+    }
+
+    public void setEvaluadores(List<Evaluador> evaluadores) {
+        this.evaluadores = evaluadores;
     }
 }

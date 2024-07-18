@@ -179,7 +179,7 @@
             </div>
 
             <div class="divisorInternoDelModal">
-                <button class="botonAcreditacion" onclick="agregarCentroAUsuario()">GUARDAR</button>
+                <button class="botonAcreditacion" th:each="user: ${usuario}" th:data="${user.rol}" onclick="agregarCentroAUsuario(this)">GUARDAR</button>
             </div>
 
 

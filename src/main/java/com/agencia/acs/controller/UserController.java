@@ -245,15 +245,13 @@ public class UserController {
 
     }
 
-    @PutMapping("/agregarCentro/{centroid}/{sectorid}")
+    @PutMapping("/agregarCentroAOrientador/{centroid}/{sectorid}")
     @Transactional
-    public ModelAndView agregarCentroAUsuario(Model model ,@RequestBody Orientador orientador,
+    public ModelAndView agregarCentroAOrientador(Model model ,
+                                              @RequestBody Orientador orientador,
                                               @PathVariable Long centroid,
-                                              @PathVariable Long sectorid) throws JsonProcessingException {
+                                              @PathVariable Long sectorid){
 
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        System.out.println(objectMapper.writeValueAsString(orientador));
 
         Optional<Orientador> orientadorOptional = orientadorService.buscarOrientadorPorId(orientador.getId());
 
@@ -263,9 +261,6 @@ public class UserController {
         Set<Centro> centrosDelOrientador = orientadorService.buscarOrientadorPorId(orientador.getId()).get().getCentros();
         Set<Sector> sectoresDelOrientador = orientadorService.buscarOrientadorPorId(orientador.getId()).get().getSectores();
 
-
-        System.out.println(objectMapper.writeValueAsString(centroService.buscarCentroDTO(centroid)));
-        System.out.println(objectMapper.writeValueAsString(sectorService.buscarSectorDTO(sectorid)));
 
         centrosDelOrientador.add(centroService.buscarCentroPorId(centroid));
         sectoresDelOrientador.add(sectorService.buscarSectorPorId(sectorid));
@@ -279,6 +274,76 @@ public class UserController {
             model.addAttribute("orientadores", orientadores);
 
             String tabla = "Orientadores";
+
+        model.addAttribute("tabla", tabla);
+
+        return new ModelAndView("tablas :: tablaQueCargo");
+    }
+
+    @PutMapping("/agregarCentroAEntrevistador/{centroid}/{sectorid}")
+    @Transactional
+    public ModelAndView agregarCentroAEntrevistador(Model model ,
+                                                    @RequestBody Entrevistador entrevistador,
+                                              @PathVariable Long centroid,
+                                              @PathVariable Long sectorid) {
+
+
+        Optional<Entrevistador> entrevistadorOptional = entrevistadorService.buscarEntrevistadorPorId(entrevistador.getId());
+
+
+        entrevistadorOptional.ifPresent(value -> entrevistador.setId(value.getId()));
+
+        Set<Centro> centrosDelEntrevistador = entrevistadorService.buscarEntrevistadorPorId(entrevistador.getId()).get().getCentros();
+        Set<Sector> sectoresDelEntrevistador = entrevistadorService.buscarEntrevistadorPorId(entrevistador.getId()).get().getSectores();
+
+
+        centrosDelEntrevistador.add(centroService.buscarCentroPorId(centroid));
+        sectoresDelEntrevistador.add(sectorService.buscarSectorPorId(sectorid));
+
+        entrevistador.setCentros(centrosDelEntrevistador);
+        entrevistador.setSectores(sectoresDelEntrevistador);
+
+        entrevistadorService.guardarEntrevistador(entrevistador);
+
+           List<Entrevistador> entrevistadores = entrevistadorService.listarEntrevistadores();
+            model.addAttribute("entrevistadores", entrevistadores);
+
+            String tabla = "Entrevistadores";
+
+        model.addAttribute("tabla", tabla);
+
+        return new ModelAndView("tablas :: tablaQueCargo");
+    }
+
+    @PutMapping("/agregarCentroAEvaluador/{centroid}/{sectorid}")
+    @Transactional
+    public ModelAndView agregarCentroAEvaluador(Model model ,
+                                                    @RequestBody Evaluador evaluador,
+                                              @PathVariable Long centroid,
+                                              @PathVariable Long sectorid) {
+
+
+        Optional<Evaluador> evaluadorOptional = evaluadorService.buscarEvaluadorPorId(evaluador.getId());
+
+
+        evaluadorOptional.ifPresent(value -> evaluador.setId(value.getId()));
+
+        Set<Centro> centrosDelEvaluador = evaluadorService.buscarEvaluadorPorId(evaluador.getId()).get().getCentros();
+        Set<Sector> sectoresDelEvaluador = evaluadorService.buscarEvaluadorPorId(evaluador.getId()).get().getSectores();
+
+
+        centrosDelEvaluador.add(centroService.buscarCentroPorId(centroid));
+        sectoresDelEvaluador.add(sectorService.buscarSectorPorId(sectorid));
+
+        evaluador.setCentros(centrosDelEvaluador);
+        evaluador.setSectores(sectoresDelEvaluador);
+
+        evaluadorService.guardarEvaluador(evaluador);
+
+           List<Evaluador> evaluadores = evaluadorService.listarEvaluadores();
+            model.addAttribute("evaluadores", evaluadores);
+
+            String tabla = "Evaluadores";
 
         model.addAttribute("tabla", tabla);
 
@@ -306,6 +371,30 @@ public class UserController {
         Optional<Orientador> orientador = Optional.ofNullable(orientadorService.buscarOrientadorDTO(id));
 
         return objectMapper.writeValueAsString(orientador.get());
+
+    }
+
+    @GetMapping("/buscarEntrevistadorParaEditar/{id}")
+    @ResponseBody
+    public String buscarEntrevistadorParaEditar(@PathVariable Long id) throws JsonProcessingException {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        Optional<Entrevistador> entrevistador = Optional.ofNullable(entrevistadorService.buscarEntrevistadorDTO(id));
+
+        return objectMapper.writeValueAsString(entrevistador.get());
+
+    }
+
+    @GetMapping("/buscarEvaluadorParaEditar/{id}")
+    @ResponseBody
+    public String buscarEvaluadorParaEditar(@PathVariable Long id) throws JsonProcessingException {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        Optional<Evaluador> evaluadorOptional = Optional.ofNullable(evaluadorService.buscarEvaluadorDTO(id));
+
+        return objectMapper.writeValueAsString(evaluadorOptional.get());
 
     }
 

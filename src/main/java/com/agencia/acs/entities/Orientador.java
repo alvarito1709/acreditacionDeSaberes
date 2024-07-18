@@ -21,9 +21,9 @@ public class Orientador extends User{
 
  @ManyToMany(fetch = FetchType.LAZY ,cascade = {CascadeType.MERGE})
  @JoinTable(
-         name = "orientador_trayectos",
+         name = "orientador_sectores",
          joinColumns = {@JoinColumn(name = "orientador_id")},
-         inverseJoinColumns = {@JoinColumn(name = "trayecto_id")}
+         inverseJoinColumns = {@JoinColumn(name = "sector_id")}
  )
  @JsonIgnoreProperties("orientadores")
  private Set<Sector> sectores;

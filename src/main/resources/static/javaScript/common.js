@@ -171,6 +171,41 @@ function buscarCentrosOSectorDeUsuario(id, tipoDeUsuario){
     })
 }
 
+// ESTA FUNCION ES PARA HACER APARECER EL MODAL PARA AGREGAR CENTROS Y SECTORES A UN USUARIO
+
+function mostrarModalParaAgregarCentrosAUsuario(usuario, elemento){
+    const urlMostrarModal = url + '/user/mostrarModalParaAgregarCentro/' + elemento.id;
+
+    const modalContainer = document.getElementById("modalesParaAgregarContainer");
+
+    const elementoHtml = elemento;
+
+    switch (usuario){
+        case 'Orientador':
+
+            break;
+
+        case 'Entrevistador':
+
+            break;
+
+        case 'Evaluador':
+
+            break;
+    }
+
+    $.ajax({
+        type:'POST',
+        url: urlMostrarModal,
+
+
+        success: function (respuesta){
+            $("#modalesParaAgregarContainer").html(respuesta);
+            modalContainer.style.display = "flex";
+        }
+    })
+}
+
 
 
 
