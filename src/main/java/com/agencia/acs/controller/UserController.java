@@ -401,19 +401,50 @@ public class UserController {
 
     @GetMapping("/buscarCentrosPorUsuario")
     public ModelAndView buscarCentrosDeUsuario(@RequestParam (value = "idUsuario")Long idUsuario,
-                                               @RequestParam(value = "tabla") String tabla ,Model model){
+                                               @RequestParam(value = "tabla") String tabla ,Model model) {
 
-        Optional<Set<Centro>> centroOptional = orientadorService.buscarCentrosPorOrientador(idUsuario);
 
-        List<Orientador> orientadores = orientadorService.listarOrientadores();
+        Optional<Set<Centro>> centroOptional = null;
+        Optional<Set<Sector>> sectorOptional = null;
 
-        if(centroOptional.isPresent()){
+        if (tabla.equals("Orientadores")) {
+            centroOptional = orientadorService.buscarCentrosPorOrientador(idUsuario);
+
+            List<Orientador> orientadores = orientadorService.listarOrientadores();
+
+            model.addAttribute("orientadores", orientadores);
+        }
+
+        if (tabla.equals("Entrevistadores")){
+            centroOptional = entrevistadorService.buscarCentrosPorEntrevistador(idUsuario);
+            sectorOptional = entrevistadorService.buscarSectoresPorEntrevistador(idUsuario);
+
+            List<Entrevistador> entrevistadores = entrevistadorService.listarEntrevistadores();
+
+            model.addAttribute("entrevistadores", entrevistadores);
+        }
+
+        if (tabla.equals("Evaluadores")){
+            centroOptional = evaluadorService.buscarCentroPorEvaluador(idUsuario);
+            sectorOptional = evaluadorService.buscarSectoresPorEvaluador(idUsuario);
+
+            List<Evaluador> evaluadores = evaluadorService.listarEvaluadores();
+
+            model.addAttribute("evaluadores", evaluadores);
+        }
+
+
+        if (centroOptional.isPresent()) {
             Set<Centro> centroSet = centroOptional.get();
 
             model.addAttribute("centros", centroSet);
         }
+        if (sectorOptional.isPresent()) {
+            Set<Sector> sectorSet = sectorOptional.get();
 
-        model.addAttribute("orientadores", orientadores);
+            model.addAttribute("sectores", sectorSet);
+        }
+
 
         model.addAttribute("tabla", tabla);
 

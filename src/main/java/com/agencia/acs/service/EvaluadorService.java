@@ -2,7 +2,9 @@ package com.agencia.acs.service;
 
 import com.agencia.acs.DTO.EvaluadorDTO;
 import com.agencia.acs.entities.Centro;
+import com.agencia.acs.entities.Entrevistador;
 import com.agencia.acs.entities.Evaluador;
+import com.agencia.acs.entities.Sector;
 import com.agencia.acs.repository.EvaluadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,5 +42,11 @@ public class EvaluadorService {
         Optional<Evaluador> evaluadorOptional = evaluadorRepository.findById(id);
 
         return Optional.ofNullable(evaluadorOptional.get().getCentros());
+    }
+
+    public Optional<Set<Sector>> buscarSectoresPorEvaluador(Long id){
+        Optional<Evaluador> evaluadorOptional = evaluadorRepository.findById(id);
+
+        return Optional.ofNullable(evaluadorOptional.get().getSectores());
     }
 }

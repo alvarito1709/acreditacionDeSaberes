@@ -404,7 +404,6 @@
                         <tr>
                             <th class="itemTitulo">#</th>
                             <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo"></th>
                         </tr>
                         </thead>
 
@@ -468,7 +467,7 @@
                             <tr>
                                 <th class="itemTitulo">#</th>
                                 <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
-                                <th class="itemTitulo"></th>
+                                <th class="itemTitulo">Sector</th>
                             </tr>
                             </thead>
 
@@ -476,6 +475,7 @@
                             <tr  th:each="centro: ${centros}">
                                 <td th:text="${centro.id}">125	</td>
                                 <td th:text="${centro.nombre}">C.F.P. N° 02 (Barracas)</td>
+                                <td th:each="sector : ${sectores}" th:text="${sector.nombre}">C.F.P. N° 02 (Barracas)</td>
                             </tr>
 
                             </tbody>
@@ -525,6 +525,8 @@
 
                     </div>
 
+                    <!-- FALTA HACER QUE SEA IGUAL LOS SECTORES A LOS SECTORES DEL USUARIO -->
+
                     <div class="backgroundTabla">
 
                         <table id="tablaGestionDeEvaluadoresACentros" >
@@ -532,7 +534,7 @@
                             <tr>
                                 <th class="itemTitulo">#</th>
                                 <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
-                                <th class="itemTitulo"></th>
+                                <th class="itemTitulo">Sector</th>
                             </tr>
                             </thead>
 
@@ -540,6 +542,7 @@
                             <tr  th:each="centro: ${centros}">
                                 <td th:text="${centro.id}">125	</td>
                                 <td th:text="${centro.nombre}">C.F.P. N° 02 (Barracas)</td>
+                                <td th:each="sector : ${sectores}" th:text="${sector.nombre}">C.F.P. N° 02 (Barracas)</td>
                             </tr>
 
                             </tbody>

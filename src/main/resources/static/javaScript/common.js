@@ -178,21 +178,6 @@ function mostrarModalParaAgregarCentrosAUsuario(usuario, elemento){
 
     const modalContainer = document.getElementById("modalesParaAgregarContainer");
 
-    const elementoHtml = elemento;
-
-    switch (usuario){
-        case 'Orientador':
-
-            break;
-
-        case 'Entrevistador':
-
-            break;
-
-        case 'Evaluador':
-
-            break;
-    }
 
     $.ajax({
         type:'POST',

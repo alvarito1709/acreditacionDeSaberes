@@ -3,11 +3,13 @@ package com.agencia.acs.service;
 import com.agencia.acs.DTO.EntrevistadorDTO;
 import com.agencia.acs.entities.Centro;
 import com.agencia.acs.entities.Entrevistador;
+import com.agencia.acs.entities.Sector;
 import com.agencia.acs.repository.EntrevistadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -39,5 +41,11 @@ public class EntrevistadorService {
         Optional<Entrevistador> entrevistadorOptional = entrevistadorRepository.findById(id);
 
         return Optional.ofNullable(entrevistadorOptional.get().getCentros());
+    }
+
+    public Optional<Set<Sector>> buscarSectoresPorEntrevistador(Long id){
+        Optional<Entrevistador> entrevistadorOptional = entrevistadorRepository.findById(id);
+
+        return Optional.ofNullable(entrevistadorOptional.get().getSectores());
     }
 }
