@@ -12,7 +12,7 @@ public class CentroDTO extends Centro implements Serializable{
     final String nombre;
 
     final String direccion;
-    final Long telefono;
+    final String telefono;
     final Long numeroDeCentro;
     final Long codigo;
     final Long cue;
@@ -23,7 +23,7 @@ public class CentroDTO extends Centro implements Serializable{
 
 
     public CentroDTO(Long id, String nombre, String direccion,
-                     Long telefono, Long numeroDeCentro, Long codigo, Long cue,
+                     String telefono, Long numeroDeCentro, Long codigo, Long cue,
                      String tipo, String area, String estado) {
         this.id = id;
         this.nombre = nombre;
@@ -53,7 +53,7 @@ public class CentroDTO extends Centro implements Serializable{
     }
 
     @Override
-    public Long getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 

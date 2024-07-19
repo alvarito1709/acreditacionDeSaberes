@@ -421,6 +421,12 @@ public class UserController {
 
             List<Entrevistador> entrevistadores = entrevistadorService.listarEntrevistadores();
 
+            if (sectorOptional.isPresent()) {
+                Set<Sector> sectorSet = sectorOptional.get();
+
+                model.addAttribute("sectores", sectorSet);
+            }
+
             model.addAttribute("entrevistadores", entrevistadores);
         }
 
@@ -431,6 +437,12 @@ public class UserController {
             List<Evaluador> evaluadores = evaluadorService.listarEvaluadores();
 
             model.addAttribute("evaluadores", evaluadores);
+
+            if (sectorOptional.isPresent()) {
+                Set<Sector> sectorSet = sectorOptional.get();
+
+                model.addAttribute("sectores", sectorSet);
+            }
         }
 
 
@@ -438,11 +450,6 @@ public class UserController {
             Set<Centro> centroSet = centroOptional.get();
 
             model.addAttribute("centros", centroSet);
-        }
-        if (sectorOptional.isPresent()) {
-            Set<Sector> sectorSet = sectorOptional.get();
-
-            model.addAttribute("sectores", sectorSet);
         }
 
 

@@ -20,7 +20,7 @@ public class Centro {
 
     private String direccion;
 
-    private Long telefono;
+    private String telefono;
 
     private Long numeroDeCentro;
 
@@ -72,11 +72,11 @@ public class Centro {
         this.direccion = direccion;
     }
 
-    public Long getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Long telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

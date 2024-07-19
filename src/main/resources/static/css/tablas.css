@@ -50,6 +50,11 @@ tbody tr:nth-child(odd){
 tbody td{
     text-align: center;
     padding: 10px;
+    max-width: 200px;
+    max-height: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 th .bi{
