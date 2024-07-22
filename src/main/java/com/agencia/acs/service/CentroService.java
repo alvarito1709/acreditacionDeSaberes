@@ -23,6 +23,7 @@ public class CentroService {
 
     public void  guardarNuevoCentro(Centro centro){ centroRepository.save(centro);}
 
+
     public List<Centro> listarCentros(){return centroRepository.findAll();}
 
     public Centro buscarCentroPorId(Long id){return  centroRepository.findById(id);}

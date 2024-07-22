@@ -1,4 +1,4 @@
-const url = "http://localhost:8080"
+const url = "http://localhost:8080/"
 
 
 const listaDesplegable = document.getElementById("listaEditables");
@@ -19,26 +19,26 @@ function desplegarLista(){
 
 function mostrarTablas(tabla){
 
-    let urlTablas = url+"/tablas"
+    let urlTablas = url+"tablas"
 
     switch (tabla){
         case 'Usuarios':
-            urlTablas = url+"/user/listarUsuarios"
+            urlTablas = url+"user/listarUsuarios"
 
             break;
 
             case 'Centros':
-            urlTablas = url+"/centros/listarCentros"
+            urlTablas = url+"centros/listarCentros"
 
             break;
 
             case 'Sectores':
-            urlTablas = url+"/sectores/listarSectores"
+            urlTablas = url+"sectores/listarSectores"
 
             break;
 
             case 'Modulos':
-            urlTablas = url+"/modulos/listarModulos"
+            urlTablas = url+"modulos/listarModulos"
 
             break;
 
@@ -69,17 +69,17 @@ function mostrarAdvertencia(elemento){
 
     switch (tabla){
         case 'Usuarios':
-           urlEliminar = url+"/user/buscarUsuarioPorId/" +elemento.id;
+           urlEliminar = url+"user/buscarUsuarioPorId/" +elemento.id;
           break;
 
         case 'Centros':
 
-            urlEliminar = url + '/centros/buscarCentroPorId/' + elemento.id;
+            urlEliminar = url + 'centros/buscarCentroPorId/' + elemento.id;
 
             break;
 
         case 'Sectores':
-            urlEliminar = url+"/sectores/buscarSectorPorId/" +elemento.id;
+            urlEliminar = url+"sectores/buscarSectorPorId/" +elemento.id;
             break
 
     }
@@ -121,15 +121,15 @@ function eliminarElemento(elemento){
 
     switch (tablas){
         case 'Usuarios':
-            urlEliminar = url+"/user/borrarUsuario/" + idElemento;
+            urlEliminar = url+"user/borrarUsuario/" + idElemento;
             break;
 
         case 'Centros':
-            urlEliminar = url+"/centros/borrarCentro/" + idElemento;
+            urlEliminar = url+"centros/borrarCentro/" + idElemento;
             break;
 
         case 'Sectores':
-            urlEliminar = url+"/sectores/borrarCentro/" + idElemento;
+            urlEliminar = url+"sectores/borrarCentro/" + idElemento;
 
             break;
     }
@@ -150,7 +150,7 @@ function eliminarElemento(elemento){
 
 
 function buscarCentrosOSectorDeUsuario(id, tipoDeUsuario){
-    var urlFetch = url + "/user/buscarCentrosPorUsuario"
+    var urlFetch = url + "user/buscarCentrosPorUsuario"
 
     const userId = id;
     const tabla = tipoDeUsuario;
@@ -174,7 +174,7 @@ function buscarCentrosOSectorDeUsuario(id, tipoDeUsuario){
 // ESTA FUNCION ES PARA HACER APARECER EL MODAL PARA AGREGAR CENTROS Y SECTORES A UN USUARIO
 
 function mostrarModalParaAgregarCentrosAUsuario(usuario, elemento){
-    const urlMostrarModal = url + '/user/mostrarModalParaAgregarCentro/' + elemento.id;
+    const urlMostrarModal = url + 'user/mostrarModalParaAgregarCentro/' + elemento.id;
 
     const modalContainer = document.getElementById("modalesParaAgregarContainer");
 
@@ -183,6 +183,40 @@ function mostrarModalParaAgregarCentrosAUsuario(usuario, elemento){
         type:'POST',
         url: urlMostrarModal,
 
+
+        success: function (respuesta){
+            $("#modalesParaAgregarContainer").html(respuesta);
+            modalContainer.style.display = "flex";
+        }
+    })
+}
+
+
+function mostrarModalParaEditar(elemento, tabla){
+    let urlEditar;
+
+    const modalContainer = document.getElementById("modalesParaAgregarContainer");
+
+
+    switch (tabla){
+        case 'Centros':
+
+            urlEditar = url + "centros/modalEdicionCentro/" + elemento.id;
+
+            break;
+
+        case 'Trayectos':
+            urlEditar = url + "modalEdicionTrayecto/" + elemento.id;
+            break;
+
+        case 'Sectores':
+            urlEditar = url + "modalEdicionSector/" + elemento.id;
+            break;
+    }
+
+    $.ajax({
+        type:'GET',
+        url:urlEditar,
 
         success: function (respuesta){
             $("#modalesParaAgregarContainer").html(respuesta);

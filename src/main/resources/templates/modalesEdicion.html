@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Acreditacion de Saberes</title>
+
+    <link rel="stylesheet" th:href="@{/css/modal.css}">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div class="modalContainerCentros" th:fragment="centros(${centro})">
+    <div class="modal" id="modalCentros">
+
+        <h3 onclick="ocultarModalAgregar()"><i class="bi bi-x-square"></i></h3>
+
+        <h2>Editar Centro</h2>
+
+        <input hidden th:value="${centro.id}" id="idCentroEdicion">
+        <div class="divisorInternoDelModal">
+            <label for="nombreCentroEdicion">Nombre<input type="text" th:value="${centro.nombre}" id="nombreCentroEdicion"></label>
+            <label for="direccionCentroEdicion">Dirección<input type="text" th:value="${centro.direccion}" id="direccionCentroEdicion"></label>
+        </div>
+
+        <div class="divisorInternoDelModal">
+            <label for="telefonoCentroEdicion">Teléfono<input type="text" th:value="${centro.telefono}" id="telefonoCentroEdicion"></label>
+            <label for="numeroDeCentroEdicion">Número de Centro<input type="text" th:value="${centro.numeroDeCentro}" id="numeroDeCentroEdicion"></label>
+        </div>
+
+        <div class="divisorInternoDelModal">
+            <label for="codigoCentroEdicion">Código de Centro<input type="text" th:value="${centro.codigo}" id="codigoCentroEdicion"></label>
+            <label for="cueCentroEdicion">CUE<input type="text" th:value="${centro.cue}" id="cueCentroEdicion"></label>
+        </div>
+
+        <div class="divisorInternoDelModal">
+            <label for="tipoCentroEdicion">Tipo<input type="text" th:value="${centro.tipo}" id="tipoCentroEdicion"></label>
+            <label for="areaCentroEdicion">Area<input type="text" th:value="${centro.area}" id="areaCentroEdicion"></label>
+        </div>
+
+        <div class="divisorInternoDelModal">
+            <label for="estadoCentroEdicion">Estado<input type="text" th:value="${centro.estado}" id="estadoCentroEdicion"></label>
+            <button class="botonAcreditacion" onclick="editarCentro()">GUARDAR</button>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/javaScript/modalEdicion.js}"></script>
+
+</body>
+</html>

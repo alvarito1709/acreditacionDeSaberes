@@ -1,4 +1,4 @@
-const url = "http://localhost:8080";
+const url = "http://localhost:8080/";
 
 const idUsuario = document.getElementById("idUsuarioEditar").value;
 const nombreUsuario = document.getElementById("nombreUsuarioEditar");
@@ -14,7 +14,7 @@ function editarUsuario(){
     console.log(idUsuario);
 
 
-    const urlEditar = url + "/user/guardarUsuario/"+idUsuario;
+    const urlEditar = url + "user/guardarUsuario/"+idUsuario;
 
     var data = {
         nombre: nombreUsuario.value,

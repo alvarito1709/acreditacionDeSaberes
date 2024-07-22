@@ -1,4 +1,4 @@
-const url = "http://localhost:8080"
+const url = "http://localhost:8080/"
 
 const nombreUsuario = document.getElementById("nombreUsuarioNuevo");
 const correoUsuario = document.getElementById("correoUsuarioNuevo");
@@ -8,36 +8,36 @@ const password = document.getElementById("passwordUsuarioNuevo");
 const tipoDeUsuario = document.getElementById("tipoDeUsuario");
 
 function crearUsuario(){
-    let urlCrear = url+"/user/agregar"
+    let urlCrear = url+"user/agregar"
 
     switch (tipoDeUsuario.value){
 
         case "ROLE_ADMIN":
-            urlCrear = url+"/user/agregar"
+            urlCrear = url+"user/agregar"
             break;
 
         case "ROLE_POSTULANTE":
-            urlCrear = url+"/user/agregar/postulante"
+            urlCrear = url+"user/agregar/postulante"
             break;
 
         case "ROLE_USER":
-            urlCrear = url+"/user/agregar"
+            urlCrear = url+"user/agregar"
             break;
 
         case "ROLE_ENTREVISTADOR":
-            urlCrear = url + "/user/agregar/entrevistador"
+            urlCrear = url + "user/agregar/entrevistador"
             break;
 
         case "ROLE_ORIENTADOR":
-            urlCrear = url + "/user/agregar/orientador"
+            urlCrear = url + "user/agregar/orientador"
             break;
 
         case "ROLE_EVALUADOR":
-            urlCrear = url + "/user/agregar/evaluador"
+            urlCrear = url + "user/agregar/evaluador"
             break;
 
         case "ROLE_REFERENTE":
-            urlCrear = url + "/user/agregar/referente"
+            urlCrear = url + "user/agregar/referente"
             break;
     }
 

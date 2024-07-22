@@ -109,4 +109,41 @@ public class CentroController {
         return objectMapper.writeValueAsString(centroDTO) ;
     }
 
+    @GetMapping("/modalEdicionCentro/{id}")
+    public ModelAndView mostrarModalParaEdicion(@PathVariable Long id, Model model){
+
+        Optional<Centro> centroOptional = Optional.ofNullable(centroService.buscarCentroPorId(id));
+
+        if (centroOptional.isEmpty()){
+            List<Centro> centros = centroService.listarCentros();
+            model.addAttribute("centros", centros);
+            model.addAttribute("tabla", "Centros");
+            return new ModelAndView("tablas :: tablaQueCargo");
+        }
+
+        else {
+            model.addAttribute("centro", centroOptional.get());
+
+            return new ModelAndView("modalesEdicion :: centros");
+        }
+
+    }
+
+    @PutMapping("/editarCentro/{id}")
+    @Transactional
+    public ModelAndView editarCentro(@RequestBody Centro centro,
+                                     @PathVariable Long id,
+                                     Model model){
+        centro.setId(id);
+
+        centroService.guardarNuevoCentro(centro);
+
+        List<Centro> centros = centroService.listarCentros();
+
+        model.addAttribute("centros", centros);
+        model.addAttribute("tabla", "Centros");
+
+        return new ModelAndView("tablas :: tablaQueCargo");
+    }
+
 }
