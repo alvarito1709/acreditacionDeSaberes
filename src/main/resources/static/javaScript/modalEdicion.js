@@ -2,40 +2,49 @@ const url1 = "http://localhost:8080/"
 
 function editarCentro(){
 
-    const idCentro = document.getElementById("idCentroEdicion");
-    const nombreNuevo = document.getElementById("nombreCentroEdicion");
-    const direccionNueva = document.getElementById("direccionCentroEdicion");
-    const telefonoNuevo = document.getElementById("telefonoCentroEdicion");
-    const numeroDeCentroNuevo = document.getElementById("numeroDeCentroEdicion");
-    const codigoNuevo = document.getElementById("codigoCentroEdicion");
-    const cueNuevo = document.getElementById("cueCentroEdicion");
-    const tipoNuevo = document.getElementById("tipoCentroEdicion");
-    const areaNueva = document.getElementById("areaCentroEdicion");
-    const estadoNuevo = document.getElementById("estadoCentroEdicion");
+    var idCentro = document.getElementById("idCentroEdicion");
 
-    const urlEditar = url1 + "centros/editarCentro" + idCentro;
+    var urlEditar = url1 + "centros/editarCentro/" + idCentro.value;
 
-    console.log("hasta aca llega");
+
+    var nombreNuevo = document.getElementById("nombreCentroEdicion");
+    var direccionNueva = document.getElementById("direccionCentroEdicion");
+    var telefonoNuevo = document.getElementById("telefonoCentroEdicion");
+    var numeroDeCentroNuevo = document.getElementById("numeroDeCentroEdicion");
+    var codigoNuevo = document.getElementById("codigoCentroEdicion");
+    var cueNuevo = document.getElementById("cueCentroEdicion");
+    var tipoNuevo = document.getElementById("tipoCentroEdicion");
+    var areaNueva = document.getElementById("areaCentroEdicion");
+    var estadoNuevo = document.getElementById("estadoCentroEdicion");
+
+    let data = {
+        id: idCentro.value,
+        nombre: nombreNuevo.value,
+        direccion: direccionNueva.value,
+        telefono: telefonoNuevo.value,
+        numeroDeCentro: numeroDeCentroNuevo.value,
+        codigo: codigoNuevo.value,
+        cue: cueNuevo.value,
+        tipo: tipoNuevo.value,
+        area: areaNueva.value,
+        estado: estadoNuevo.value
+    }
+
+    const dataString = JSON.stringify(data)
 
 
     $.ajax({
-        type:'PUT',
+        type:'POST',
         url: urlEditar,
-        data:{
-            id: idCentro.value,
-            nombre: nombreNuevo.value,
-            direccion: direccionNueva.value,
-            telefono: telefonoNuevo.value,
-            numeroDeCentro: numeroDeCentroNuevo.value,
-            codigo: codigoNuevo,
-            cue: cueNuevo,
-            tipo: tipoNuevo,
-            area: areaNueva,
-            estado: estadoNuevo
+        headers:{
+            'content-type':'application/json'
         },
+        data: dataString,
         success: [function (respuesta){
             $("#tableContainer").html(respuesta);
             cerrarModal();
         }]
     })
+
+    console.log("hasta aca llega");
 }

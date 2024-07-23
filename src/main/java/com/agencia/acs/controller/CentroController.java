@@ -129,7 +129,7 @@ public class CentroController {
 
     }
 
-    @PutMapping("/editarCentro/{id}")
+    @PostMapping("/editarCentro/{id}")
     @Transactional
     public ModelAndView editarCentro(@RequestBody Centro centro,
                                      @PathVariable Long id,
