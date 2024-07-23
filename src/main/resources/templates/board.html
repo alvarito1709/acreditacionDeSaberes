@@ -34,7 +34,7 @@
     </div>
 
 <div id="modalContainer" onclick="ocultarAdvertencia()">
-    <div id="advertenciaContainer" th:fragment="modalEliminar (${usuario}, ${tabla}, ${centros}, ${sectores})" >
+    <div id="advertenciaContainer" th:fragment="modalEliminar (${usuario}, ${tabla}, ${centros}, ${sectores}, ${trayectos})" >
 
           <div th:if="${tabla == 'Usuarios'}" th:each="user : ${usuario}">
             <h4>¿Quieres eliminar al usuario <span   th:text="${user.nombre}">nombre</span>?</h4>
@@ -56,6 +56,14 @@
             <h4>¿Quieres eliminar al sector <span   th:text="${sector.nombre}">nombre</span>?</h4>
             <div id="ContainerBotonesDelModal">
                 <button class="botonModal aceptar"  th:data="${sector.id}" th:data-value="${tabla}" onclick="eliminarElemento(this)">Aceptar</button>
+                <button class="botonModal cancelar" onclick="ocultarAdvertencia()">Cancelar</button>
+            </div>
+        </div>
+
+        <div th:if="${tabla == 'Trayectos'}" th:each="trayecto : ${trayectos}">
+            <h4>¿Quieres eliminar al trayecto <span   th:text="${trayecto.nombre}">nombre</span>?</h4>
+            <div id="ContainerBotonesDelModal">
+                <button class="botonModal aceptar"  th:data="${trayecto.id}" th:data-value="${tabla}" onclick="eliminarElemento(this)">Aceptar</button>
                 <button class="botonModal cancelar" onclick="ocultarAdvertencia()">Cancelar</button>
             </div>
         </div>

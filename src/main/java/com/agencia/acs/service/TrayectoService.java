@@ -19,5 +19,7 @@ public class TrayectoService {
 
     public Optional<Trayecto> buscarTrayectoPorId(Long id){return trayectoRepository.findById(id);}
 
+    public void borrarTrayecto(Long id){ trayectoRepository.delete(trayectoRepository.findById(id).get());}
+
 
 }

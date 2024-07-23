@@ -233,7 +233,7 @@
                             <td th:text="${trayecto.nombre}">Brandsen 2570</td>
                             <td th:text="${trayecto.condiciones}">4301-3655/ 4304-7061</td>
                             <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones" th:id="${trayecto.id}" th:data="${tabla}" onclick="mostrarAdvertencia(this)" ></i>
                             </td>
                         </tr>
 

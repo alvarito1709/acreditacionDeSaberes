@@ -82,6 +82,10 @@ function mostrarAdvertencia(elemento){
             urlEliminar = url+"sectores/buscarSectorPorId/" +elemento.id;
             break
 
+        case 'Trayectos':
+            urlEliminar = url+"trayectos/buscarTrayectoPorId/" +elemento.id;
+            break
+
     }
 
 
@@ -120,16 +124,21 @@ function eliminarElemento(elemento){
     let urlEliminar = "";
 
     switch (tablas){
-        case 'Usuarios':
-            urlEliminar = url+"user/borrarUsuario/" + idElemento;
-            break;
+            case 'Usuarios':
+                urlEliminar = url+"user/borrarUsuario/" + idElemento;
+                break;
 
-        case 'Centros':
-            urlEliminar = url+"centros/borrarCentro/" + idElemento;
-            break;
+            case 'Centros':
+                urlEliminar = url+"centros/borrarCentro/" + idElemento;
+                break;
 
-        case 'Sectores':
-            urlEliminar = url+"sectores/borrarCentro/" + idElemento;
+            case 'Sectores':
+                urlEliminar = url+"sectores/borrarCentro/" + idElemento;
+
+                break;
+
+            case 'Trayectos':
+            urlEliminar = url+"trayectos/borrarTrayectos/" + idElemento;
 
             break;
     }

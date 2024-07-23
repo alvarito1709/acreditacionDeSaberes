@@ -69,4 +69,35 @@ public class TrayectoController {
 
     }
 
+    @PostMapping("/buscarTrayectoPorId/{id}")
+    public ModelAndView buscarTrayectoPorId(@PathVariable Long id, @RequestParam(value = "tabla") String tabla,
+                                                 Model model){
+
+        Optional<Trayecto> trayectoOptional = trayectoService.buscarTrayectoPorId(id);
+
+        model.addAttribute("tabla", tabla);
+
+        model.addAttribute("trayectos", trayectoOptional.get());
+
+        return new ModelAndView("board :: modalEliminar");
+    }
+
+    @DeleteMapping("/borrarTrayectos/{id}")
+    @Transactional
+    public ModelAndView borrarTrayecto(@PathVariable Long id,
+                                       @RequestParam(value = "tabla") String tabla,
+                                       Model model){
+
+        trayectoService.borrarTrayecto(id);
+
+        model.addAttribute("tabla", tabla);
+
+        List<Trayecto> trayectos = trayectoService.listarTrayectos();
+
+        model.addAttribute("trayectos", trayectos);
+
+        return new ModelAndView("tablas :: tablaQueCargo");
+
+    }
+
 }
