@@ -6,6 +6,8 @@ import com.agencia.acs.entities.Trayecto;
 import com.agencia.acs.service.CentroService;
 import com.agencia.acs.service.SectorService;
 import com.agencia.acs.service.TrayectoService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -99,5 +101,58 @@ public class TrayectoController {
         return new ModelAndView("tablas :: tablaQueCargo");
 
     }
+
+    @GetMapping("/modalEdicionTrayecto/{id}")
+    public ModelAndView mostrarModalParaEdicion(@PathVariable Long id, Model model){
+
+        Optional<Trayecto> trayectoOptional = trayectoService.buscarTrayectoPorId(id);
+
+        if (trayectoOptional.isEmpty()){
+            List<Trayecto> trayectos = trayectoService.listarTrayectos();
+            model.addAttribute("trayectos", trayectos);
+            model.addAttribute("tabla", "Trayectos");
+            return new ModelAndView("tablas :: tablaQueCargo");
+        }
+
+        else {
+            model.addAttribute("trayectos", trayectoOptional.get());
+
+            List<Centro> centros = centroService.listarCentros();
+
+            List<Sector> sectores = sectorService.listarSectores();
+
+            model.addAttribute("centros", centros);
+            model.addAttribute("sectores", sectores);
+
+            return new ModelAndView("modalesEdicion :: trayectos");
+        }
+
+    }
+
+    @PutMapping("/editarTrayecto/{id}")
+    @Transactional
+    public ModelAndView editarTrayecto(@RequestBody Trayecto trayecto,
+                                       @PathVariable Long id,
+                                       Model model) throws JsonProcessingException {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        System.out.println(objectMapper.writeValueAsString(trayecto));
+
+
+        trayecto.setId(id);
+
+        trayectoService.guardarTrayectoNuevo(trayecto);
+
+        List <Trayecto> trayectos = trayectoService.listarTrayectos();
+
+        model.addAttribute("trayectos", trayectos);
+
+        model.addAttribute("tabla", "Trayectos");
+
+        return new ModelAndView("tablas :: tablaQueCargo");
+
+    }
+
 
 }

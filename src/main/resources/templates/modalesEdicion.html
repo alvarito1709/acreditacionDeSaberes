@@ -46,6 +46,51 @@
     </div>
 </div>
 
+<div class="modalContainerCentros" th:fragment="trayectos(${centros}, ${sectores}, ${trayectos})">
+    <div class="modal" id="modalTrayecto">
+
+        <h3 onclick="ocultarModalAgregar()"><i class="bi bi-x-square"></i></h3>
+
+        <h2>Editar Trayecto</h2>
+
+        <input th:value="${trayectos.id}" hidden  id="idTrayectoNuevo">
+
+        <div class="divisorInternoDelModal">
+            <label for="nombreTrayecto">Nombre<input type="text" id="nombreTrayecto" th:value="${trayectos.nombre}"></label>
+            <label for="sectorTrayecto">Sector<select  id="sectorTrayecto">
+                <option th:each="sector : ${sectores}" th:text="${sector.nombre}" th:value="${sector.id}">GASTRONOMIA</option>
+            </select></label>
+        </div>
+
+        <div class="divisorInternoDelModal">
+            <label for="condicionesTrayecto" class="labelTextArea">Condiciones<textarea type="text" id="condicionesTrayecto" th:text="${trayectos.condiciones}"> </textarea></label>
+        </div>
+
+        <div class="divisorInternoDelModal">
+            <label for="estadoTrayecto">Estado
+                <select id="estadoTrayecto">
+                    <option value="ACTIVO">ACTIVO</option>
+                    <option value="INACTIVO">INACTIVO</option>
+                </select>
+            </label>
+
+        </div>
+
+        <div class="divisorInternoDelModal">
+            <label for="centrosDelTrayecto" style="width: 100%">Centros Asignados<fieldset id="centrosDelTrayecto">
+                    <span th:each="centro: ${centros}">
+                    <input type="checkbox"  th:value="${centro.id}"  th:id="${centro.id}" name="inputCentros">
+                    <label th:for="${centro.id}" th:text="${centro.nombre}"></label>
+                        </span>
+            </fieldset></label>
+        </div>
+
+        <div class="divisorInternoDelModal">
+            <button class="botonAcreditacion" onclick="editarTrayecto()">GUARDAR</button>
+        </div>
+    </div>
+</div>
+
 <script th:src="@{/javaScript/modalEdicion.js}"></script>
 
 </body>

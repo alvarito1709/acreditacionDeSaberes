@@ -48,3 +48,69 @@ function editarCentro(){
 
     console.log("hasta aca llega");
 }
+
+async function editarTrayecto(){
+    const idTrayectoEditado = document.getElementById("idTrayectoNuevo");
+    const nombreTrayectoEditado = document.getElementById("nombreTrayecto");
+    const sectorTrayectoEditado = document.getElementById("sectorTrayecto");
+    const estadoTrayectoEditado = document.getElementById("estadoTrayecto");
+    const condicionesTrayectoEditado = document.getElementById("condicionesTrayecto");
+    const inputCentros = document.querySelectorAll('input[name="inputCentros"]');
+
+    const urlEditarTrayecto = url1 +"trayectos/editarTrayecto/"+ idTrayectoEditado.value;
+
+
+    let centrosNuevos = [];
+
+
+    var httpConfig = {
+        method:'GET',
+        accept: 'application/json'
+    }
+
+    for (let i = 0; i < inputCentros.length; i++) {
+        let centroId = inputCentros[i].id;
+        if (inputCentros[i].checked) {
+            const centro =await fetch(urlBase + "centros/verCentro/" + centroId, httpConfig)
+                .then(response => response.json())
+                .catch(error => console.log("hubo un error",  error));
+            centrosNuevos.push(centro);
+        }
+    }
+
+
+    Promise.allSettled(centrosNuevos).then(() => {
+
+        const botonEnviar = document.getElementsByClassName("botonAcreditacion")[0];
+
+        botonEnviar.addEventListener('click', ev => {
+            ev.preventDefault();
+        });
+
+        var data = {
+            id: idTrayectoEditado.value,
+            nombre: nombreTrayectoEditado.value,
+            estado: estadoTrayectoEditado.value,
+            condiciones: condicionesTrayectoEditado.value,
+            sector: { id: sectorTrayectoEditado.value },
+            centros: centrosNuevos
+        };
+
+        let dataString = JSON.stringify(data);
+
+        console.log(data);
+
+        $.ajax({
+            type: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            url: urlEditarTrayecto,
+            data: dataString,
+            success: [function (respuesta) {
+                $("#tableContainer").html(respuesta);
+                cerrarModal();
+            }]
+        });
+    });
+}

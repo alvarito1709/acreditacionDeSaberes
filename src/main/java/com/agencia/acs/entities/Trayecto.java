@@ -19,6 +19,8 @@ public class Trayecto {
 
     private String nombre;
 
+    private String estado;
+
 
     @Size(max = 1000)
     private String condiciones;
@@ -27,7 +29,6 @@ public class Trayecto {
     @ManyToOne
     private Sector sector;
 
-    private String estado;
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY ,cascade = {CascadeType.MERGE})
@@ -77,7 +78,7 @@ public class Trayecto {
         return estado;
     }
 
-    public void setEstado(String activo) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 

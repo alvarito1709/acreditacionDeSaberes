@@ -215,7 +215,7 @@ function mostrarModalParaEditar(elemento, tabla){
             break;
 
         case 'Trayectos':
-            urlEditar = url + "modalEdicionTrayecto/" + elemento.id;
+            urlEditar = url + "trayectos/modalEdicionTrayecto/" + elemento.id;
             break;
 
         case 'Sectores':
