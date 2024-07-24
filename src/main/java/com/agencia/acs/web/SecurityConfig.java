@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 
 @Configuration
 @EnableWebSecurity
@@ -23,6 +24,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+    @Bean
+    public SpringSecurityDialect securityDialect() {
+        return new SpringSecurityDialect();
+    }
+
     @Autowired
     public void configurerGlobal(AuthenticationManagerBuilder builder)throws Exception{
         builder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
@@ -35,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
                 .antMatchers("/board/**","/common/**", "/admin/**","/user")
-                .hasAnyRole("ADMIN", "USER", "POSTULANTE")
+                .hasAnyRole("ADMIN", "USER", "POSTULANTE", "REFERENTE", "ORIENTADOR", "EVALUADOR")
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()

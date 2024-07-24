@@ -1,6 +1,7 @@
 package com.agencia.acs.service;
 
 import com.agencia.acs.repository.UserRepository;
+import com.agencia.acs.web.CustomUserDetails;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -35,7 +36,8 @@ public class UserDetailsService implements org.springframework.security.core.use
         ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
         HttpSession session = attr.getRequest().getSession(true);
         session.setAttribute("usuariosession", user);
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), roles);
+        return new CustomUserDetails(user.getId(), user.getNombre(), user.getMail(), user.getDNI(),
+                user.getUsername(), user.getPassword(), roles);
     }
 
 

@@ -31,7 +31,7 @@
     <div id="menuContainer" th:fragment="menu">
         <div id="adminPanel">
             <img th:src="@{/img/ei--user.png}" id="userIcon">
-            <span>ADMIN</span>
+            <span th:text="${#authentication.principal.nombre}">ADMIN</span>
         </div>
         <div id="userBottomBorder"></div>
 
@@ -61,7 +61,7 @@
                     <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Trayectos')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Trayectos</span></li>
                     <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Sectores')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Sectores</span></li>
                     <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Modulos')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Modulos</span></li>
-                    <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Usuarios</span></li>
+                    <li th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Usuarios</span></li>
                     <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Orientadores')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Orientadores</span></li>
                     <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Entrevistadores')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Entrevistadores</span></li>
                     <li class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Evaluadores')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Evaluadores</span></li>
