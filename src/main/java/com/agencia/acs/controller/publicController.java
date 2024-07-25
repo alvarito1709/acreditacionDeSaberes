@@ -26,6 +26,9 @@ public class publicController {
     UserRepository userRepository;
 
     @Autowired
+    UserService userService;
+
+    @Autowired
     PostulanteService postulanteService;
 
     @Autowired
@@ -114,6 +117,12 @@ public class publicController {
        return  new ModelAndView("tablas :: tablaQueCargo");
 
 
+    }
+
+    @GetMapping("/iniciarProyecto")
+    public void iniciarProyecto(){
+
+        userService.crearPrimerUsuario();
     }
 
 
