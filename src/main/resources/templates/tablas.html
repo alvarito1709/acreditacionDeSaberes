@@ -651,9 +651,60 @@
 
             </div>
 
+            <div th:if="${tabla == 'Mis Datos'}">
+
+                <h1 class="tituloTabla">Mis Datos</h1>
+
+                <div class="backgroundTabla">
+
+                    <div class="formularioDatosPostulante">
+
+                        <input id="postulanteId" th:value="${postulantes.id}" hidden>
+
+                        <div class="divisorInternoDelModal">
+                        <label for="nombrePostulante">NOMBRE Y APELLIDO</label><input th:value="${postulantes.nombre}" id="nombrePostulante">
+                        <label for="dniPostulante">DNI</label><input th:value="${postulantes.DNI}" id="dniPostulante">
+                        </div>
+                        <div class="divisorInternoDelModal">
+                            <label for="generoPostulante">GENERO</label><input th:value="${postulantes.genero}" id="generoPostulante">
+                        <label for="telefonoPostulante">TELEFONO</label><input th:value="${postulantes.telefono}" id="telefonoPostulante">
+                        </div>
+
+                        <div class="divisorInternoDelModal">
+                        <label for="celularPostulante">CELULAR</label><input th:value="${postulantes.celular}" id="celularPostulante">
+                        <label for="emailPostulante">EMAIL</label><input th:value="${postulantes.email}" type="email" id="emailPostulante">
+                        </div>
+
+                        <div class="divisorInternoDelModal">
+                        <label for="cuilPostulante">CUIL-CUIT</label><input th:value="${postulantes.cuil}" id="cuilPostulante">
+                        <label for="nacionalidadDelPostulante">NACIONALIDAD</label><input th:value="${postulantes.nacionalidad}" id="nacionalidadDelPostulante">
+                        </div>
+
+                        <div class="divisorInternoDelModal">
+                        <label for="provinciaPostulante">PROVINCIA</label><input th:value="${postulantes.provincia}" id="provinciaPostulante">
+                        <label for="localidadPostulante">LOCALIDAD</label><input th:value="${postulantes.localidad}" id="localidadPostulante">
+                        </div>
+
+                        <div class="divisorInternoDelModal">
+                        <label for="callePostulante">CALLE</label><input th:value="${postulantes.calle}" id="callePostulante">
+                        <label for="numeroDeCallePostulante">NUMERACION</label><input th:value="${postulantes.numeroDeCalle}" id="numeroDeCallePostulante">
+                        </div>
+
+                        <div class="divisorInternoDelModal">
+                        <label for="pisoPostulante">PISO</label><input th:value="${postulantes.piso}" id="pisoPostulante">
+                            <button onclick="editarDatosPostulante()">GUARDAR</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
             </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
-
 
 </body>
 </html>

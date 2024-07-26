@@ -20,6 +20,7 @@ function desplegarLista(){
 function mostrarTablas(tabla){
 
     let urlTablas = url+"tablas"
+    let idUsuario;
 
     switch (tabla){
         case 'Usuarios':
@@ -42,14 +43,25 @@ function mostrarTablas(tabla){
 
             break;
 
+            case 'Mis Datos':
+
+                const listaDatosPostulantes = document.getElementById("mostrarDatosPostulante");
+
+                idUsuario = listaDatosPostulantes.getAttribute("data");
+
+                break
+
     }
+
+    console.log(idUsuario);
 
 
     $.ajax({
         type:'POST',
         url: urlTablas,
         data:{
-            tabla:tabla
+            tabla:tabla,
+            id:idUsuario
         },
         success: [function (respuesta){
             $("#tableContainer").html(respuesta);

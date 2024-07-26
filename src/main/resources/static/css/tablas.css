@@ -97,5 +97,13 @@ i{
     min-width: 300px !important;
 }
 
+.formularioDatosPostulante{
+    display: flex;
+    flex-direction: row;
+    max-width: 700px;
+    flex-wrap: wrap;
+}
+
+
 
 

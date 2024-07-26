@@ -459,4 +459,17 @@ public class UserController {
 
     }
 
+    @PostMapping("/editarDatosPostulantes")
+    @Transactional
+    public ModelAndView editarDatosPostulantes(@RequestBody Postulante postulante, Model model){
+        postulanteService.guardarPostulante(postulante);
+
+        Optional<Postulante> postulante1 = postulanteService.buscarPostulantePorId(postulante.getId());
+        model.addAttribute("postulantes", postulante1.get());
+
+        model.addAttribute("tabla", "Mis Datos");
+
+        return  new ModelAndView("tablas :: tablaQueCargo");
+    }
+
 }

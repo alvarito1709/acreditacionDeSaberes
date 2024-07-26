@@ -67,6 +67,8 @@
                     <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Evaluadores')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Evaluadores</span></li>
                     <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Probador de Modulos')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Probador de Modulos</span></li>
                     <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios Postulantes')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Usuarios Postulantes</span></li>
+                    <li th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" id="mostrarDatosPostulante" th:data="${#authentication.principal.id}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Mis Datos')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Mis Datos</span></li>
+                    <li th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios Postulantes')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Mis Trayectos</span></li>
                 </ul>
             </div>
         </div>

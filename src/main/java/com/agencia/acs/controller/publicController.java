@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("")
@@ -82,7 +83,7 @@ public class publicController {
 
 
     @PostMapping("/tablas")
-    public ModelAndView tablas(Model model, @RequestParam (value = "tabla") String tabla){
+    public ModelAndView tablas(Model model, @RequestParam (value = "tabla") String tabla, @RequestParam(value = "id", required = false)Long id){
 
         model.addAttribute("tabla",tabla);
 
@@ -111,6 +112,11 @@ public class publicController {
             List<Centro> listaCentros = centroService.listarCentros();
             model.addAttribute("centros", listaCentros);
             model.addAttribute("trayectos", listarTrayectos);
+        }
+
+        if (Objects.equals(tabla, "Mis Datos")){
+            Optional<Postulante> postulante = postulanteService.buscarPostulantePorId(id);
+            model.addAttribute("postulantes", postulante.get());
         }
 
 
