@@ -660,6 +660,10 @@
                     <div class="formularioDatosPostulante">
 
                         <input id="postulanteId" th:value="${postulantes.id}" hidden>
+                        <input id="postulanteRol" th:value="${postulantes.rol}" hidden>
+                        <input id="postulantePassword" th:value="${postulantes.password}" hidden>
+                        <input id="emailPostulante" th:value="${postulantes.email}" hidden>
+                        <input id="postulanteUsername" th:value="${postulantes.username}" hidden>
 
                         <div class="divisorInternoDelModal">
                         <label for="nombrePostulante">NOMBRE Y APELLIDO</label><input th:value="${postulantes.nombre}" id="nombrePostulante">
@@ -672,7 +676,6 @@
 
                         <div class="divisorInternoDelModal">
                         <label for="celularPostulante">CELULAR</label><input th:value="${postulantes.celular}" id="celularPostulante">
-                        <label for="emailPostulante">EMAIL</label><input th:value="${postulantes.email}" type="email" id="emailPostulante">
                         </div>
 
                         <div class="divisorInternoDelModal">

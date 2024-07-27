@@ -62,12 +62,16 @@ function editarDatosPostulante(){
     const callePostulante = document.getElementById("callePostulante");
     const numeroDeCallePostulante = document.getElementById("numeroDeCallePostulante");
     const pisoPostulante = document.getElementById("pisoPostulante");
+    const postulanteRol = document.getElementById("postulanteRol");
+    const postulantePassword = document.getElementById("postulantePassword");
+    const postulanteUsername = document.getElementById("postulanteUsername");
+
 
 
     let data = {
         id:idPostulante.value,
         nombre:nombrePostulante.value,
-        DNI:dniPostulante.value,
+        dni:dniPostulante.value,
         genero:generoPostulante.value,
         telefono:telefonoPostulante.value,
         celular:celularPostulante.value,
@@ -78,7 +82,10 @@ function editarDatosPostulante(){
         localidad: localidadPostulante.value,
         calle: callePostulante.value,
         numeroDeCalle: numeroDeCallePostulante.value,
-        piso: pisoPostulante.value
+        piso: pisoPostulante.value,
+        rol: postulanteRol.value,
+        password: postulantePassword.value,
+        username: postulanteUsername.value
     }
 
     const dataString = JSON.stringify(data);
