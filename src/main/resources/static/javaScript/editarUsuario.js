@@ -1,4 +1,5 @@
-const url2 = "http://localhost:8080/";
+//const url2 = "http://localhost:8080/";
+const url2 = "https://inscripcionesagencia.bue.edu.ar/acreditaciondesaberes/";
 
 
 

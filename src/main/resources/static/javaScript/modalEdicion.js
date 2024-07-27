@@ -1,4 +1,5 @@
-const url1 = "http://localhost:8080/"
+//const url1 = "http://localhost:8080/"
+const url1 = "https://inscripcionesagencia.bue.edu.ar/acreditaciondesaberes/"
 
 function editarCentro(){
 

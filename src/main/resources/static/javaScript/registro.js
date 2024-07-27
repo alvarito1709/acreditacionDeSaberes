@@ -1,4 +1,5 @@
-const urlBase = 'http://localhost:8080/';
+//const urlBase = 'http://localhost:8080/';
+const urlBase = 'https://inscripcionesagencia.bue.edu.ar/acreditaciondesaberes/';
 
 const nombreUsuario = document.getElementById("nombreUsuarioNuevo");
 const emailUsuario = document.getElementById("emailUsuarioNuevo");

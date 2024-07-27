@@ -1,4 +1,5 @@
-const url = "http://localhost:8080/"
+//const url = "http://localhost:8080/"
+const url = "https://inscripcionesagencia.bue.edu.ar/acreditaciondesaberes/"
 
 const nombreUsuario = document.getElementById("nombreUsuarioNuevo");
 const correoUsuario = document.getElementById("correoUsuarioNuevo");
