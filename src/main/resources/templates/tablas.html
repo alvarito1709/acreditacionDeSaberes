@@ -347,7 +347,7 @@
                             <td th:text="${users.nombre}">C.F.P. N° 02 (Barracas)</td>
                             <td th:text="${users.mail}">Brandsen 2570</td>
                             <td th:text="${users.rol}" >4301-3655/ 4304-7061</td>
-                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                            <td><i class="bi bi-pencil-square iconoAcciones" th:id="${users.id}" onclick="mostrarModalParaEditar(this,'Usuarios')"></i>
                                 <i class="bi bi-trash iconoAcciones" th:id="${users.id}" th:data="${tabla}" onclick="mostrarAdvertencia(this)"></i>
                             </td>
                         </tr>
@@ -662,7 +662,7 @@
                         <input id="postulanteId" th:value="${postulantes.id}" hidden>
                         <input id="postulanteRol" th:value="${postulantes.rol}" hidden>
                         <input id="postulantePassword" th:value="${postulantes.password}" hidden>
-                        <input id="emailPostulante" th:value="${postulantes.email}" hidden>
+                        <input id="emailPostulante" th:value="${postulantes.mail}" hidden>
                         <input id="postulanteUsername" th:value="${postulantes.username}" hidden>
 
                         <div class="divisorInternoDelModal">

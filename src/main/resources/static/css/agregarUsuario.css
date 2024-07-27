@@ -30,6 +30,14 @@
     border-radius: 10px;
 }
 
+.editarUser{
+    background-color: #DEDDD8;
+}
+
+.editarUser i{
+    float: right;
+}
+
 #form input, select{
     padding: 10px;
     border-radius: 10px;

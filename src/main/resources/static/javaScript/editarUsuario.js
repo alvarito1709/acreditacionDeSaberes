@@ -1,20 +1,22 @@
 const url2 = "http://localhost:8080/";
 
-const idUsuario = document.getElementById("idUsuarioEditar").value;
-const nombreUsuario = document.getElementById("nombreUsuarioEditar");
-const correoUsuario = document.getElementById("correoUsuarioEditar");
-const dniUsuario = document.getElementById("dniEditar");
-const usernameUsuario = document.getElementById("usernameUsuarioEditar");
-const passwordUsuario = document.getElementById("passwordUsuarioEditar");
-const tipoDeUsuario = document.getElementById("tipoDeUsuarioEditar");
+
 
 
 function editarUsuario(){
 
-    console.log(idUsuario);
+    const idUsuario = document.getElementById("idUsuarioEditar");
+    const nombreUsuario = document.getElementById("nombreUsuarioEditar");
+    const correoUsuario = document.getElementById("correoUsuarioEditar");
+    const dniUsuario = document.getElementById("dniEditar");
+    const usernameUsuario = document.getElementById("usernameUsuarioEditar");
+    const passwordUsuario = document.getElementById("passwordUsuarioEditar");
+    const tipoDeUsuario = document.getElementById("tipoDeUsuarioEditar");
+
+    console.log(idUsuario.value);
 
 
-    const urlEditar = url2 + "user/guardarUsuario/"+idUsuario;
+    const urlEditar = url2 + "user/guardarUsuario/"+idUsuario.value;
 
     var data = {
         nombre: nombreUsuario.value,
@@ -75,7 +77,7 @@ function editarDatosPostulante(){
         genero:generoPostulante.value,
         telefono:telefonoPostulante.value,
         celular:celularPostulante.value,
-        email:emailPostulante.value,
+        mail:emailPostulante.value,
         cuil:cuilPostulante.value,
         nacionalidad:nacionalidadDelPostulante.value,
         provincia: provinciaPostulante.value,

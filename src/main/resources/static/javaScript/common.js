@@ -53,7 +53,6 @@ function mostrarTablas(tabla){
 
     }
 
-    console.log(idUsuario);
 
 
     $.ajax({
@@ -232,6 +231,10 @@ function mostrarModalParaEditar(elemento, tabla){
 
         case 'Sectores':
             urlEditar = url + "modalEdicionSector/" + elemento.id;
+            break;
+
+            case 'Usuarios':
+            urlEditar = url + "user/editar/" + elemento.id;
             break;
     }
 

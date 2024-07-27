@@ -179,9 +179,9 @@ public class UserController {
             return ResponseEntity.unprocessableEntity().build();
         }
 
-        user.setId(usuarioOptional.get().getId());
 
         user.setPassword(passwordEncoder.passwordEncrypt(user.getPassword()));
+        user.setId(id);
 
         userService.guardarUsuario(user);
 
