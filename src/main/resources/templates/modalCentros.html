@@ -33,12 +33,20 @@
             </div>
 
             <div class="divisorInternoDelModal">
-                <label for="tipoCentro">Tipo<input type="text" id="tipoCentro"></label>
+                <label for="tipoCentro">Tipo<select id="tipoCentro">
+                    <option>TIPO DE CENTRO</option>
+                    <option value="CENTRO PROPIO">Centro Propio</option>
+                    <option value="CONVENIO CON FINANCIAMIENTO">Convenio con Financiamiento</option>
+                </select></label>
              <label for="areaCentro">Area<input type="text" id="areaCentro"></label>
             </div>
 
             <div class="divisorInternoDelModal">
-                <label for="estadoCentro">Estado<input type="text" id="estadoCentro"></label>
+                <label for="estadoCentro">Estado<select id="estadoCentro">
+                    <option value="">ESTADO DEL CENTRO</option>
+                    <option value="ACTIVO">ACTIVO</option>
+                    <option value="INACTIVO">INACTIVO</option>
+                </select></label>
                 <button class="botonAcreditacion" onclick="crearCentro()">GUARDAR</button>
             </div>
         </div>

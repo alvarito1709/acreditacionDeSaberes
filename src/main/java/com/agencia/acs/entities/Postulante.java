@@ -27,9 +27,9 @@ public class Postulante extends User{
 
     private String genero;
 
-    private Long telefono;
+    private String telefono;
 
-    private Long celular;
+    private String celular;
 
     private String email;
 
@@ -94,19 +94,19 @@ public class Postulante extends User{
         this.genero = genero;
     }
 
-    public Long getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(Long telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
-    public Long getCelular() {
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(Long celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
     }
 

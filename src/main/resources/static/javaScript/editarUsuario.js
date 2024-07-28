@@ -68,6 +68,7 @@ function editarDatosPostulante(){
     const postulanteRol = document.getElementById("postulanteRol");
     const postulantePassword = document.getElementById("postulantePassword");
     const postulanteUsername = document.getElementById("postulanteUsername");
+    const postulanteEstado = document.getElementById("postulanteEstado");
 
 
 
@@ -76,9 +77,11 @@ function editarDatosPostulante(){
         nombre:nombrePostulante.value,
         dni:dniPostulante.value,
         genero:generoPostulante.value,
+        estado:postulanteEstado.value,
         telefono:telefonoPostulante.value,
         celular:celularPostulante.value,
         mail:emailPostulante.value,
+        email:emailPostulante.value,
         cuil:cuilPostulante.value,
         nacionalidad:nacionalidadDelPostulante.value,
         provincia: provinciaPostulante.value,

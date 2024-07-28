@@ -35,12 +35,20 @@
         </div>
 
         <div class="divisorInternoDelModal">
-            <label for="tipoCentroEdicion">Tipo<input type="text" th:value="${centro.tipo}" id="tipoCentroEdicion"></label>
+            <label for="tipoCentroEdicion">Tipo<select  id="tipoCentroEdicion">
+                <option th:value="${centro.tipo}" th:text="${centro.tipo}"></option>
+                <option value="CENTRO PROPIO">Centro Propio</option>
+                <option value="CONVENIO CON FINANCIAMIENTO">Convenio con Financiamiento</option>
+            </select></label>
             <label for="areaCentroEdicion">Area<input type="text" th:value="${centro.area}" id="areaCentroEdicion"></label>
         </div>
 
         <div class="divisorInternoDelModal">
-            <label for="estadoCentroEdicion">Estado<input type="text" th:value="${centro.estado}" id="estadoCentroEdicion"></label>
+            <label for="estadoCentroEdicion">Estado<select  id="estadoCentroEdicion">
+                <option th:value="${centro.estado}" th:text="${centro.estado}"></option>
+                <option value="ACTIVO">ACTIVO</option>
+                <option value="INACTIVO">INACTIVO</option>
+            </select></label>
             <button class="botonAcreditacion" onclick="editarCentro()">GUARDAR</button>
         </div>
     </div>

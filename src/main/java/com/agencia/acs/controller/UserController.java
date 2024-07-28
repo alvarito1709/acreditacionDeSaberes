@@ -20,10 +20,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.persistence.Id;
 import javax.transaction.Transactional;
 import java.net.URI;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Controller
 @RequestMapping("/user")
@@ -462,6 +460,11 @@ public class UserController {
     @PostMapping("/editarDatosPostulantes")
     @Transactional
     public ModelAndView editarDatosPostulantes(@RequestBody Postulante postulante, Model model){
+
+        Date ahora = new Date();
+
+        postulante.setFechaDeAlta(ahora);
+
         postulanteService.guardarPostulante(postulante);
 
         Optional<Postulante> postulante1 = postulanteService.buscarPostulantePorId(postulante.getId());
