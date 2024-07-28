@@ -13,11 +13,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/hatch.js"></script>
 </head>
 <body>
+
+<div id="loaderContainer">
+    <l-hatch
+            size="28"
+            stroke="4"
+            speed="3.5"
+            color="black"
+    ></l-hatch>
+</div>
+
+<div id="bodyCargado">
 <th:block th:replace="common :: header"></th:block>
 
-    <div class="bodyContainer">
+
+    <div class="bodyContainer" >
 
         <div id="logoBienvenidaContainer">
             <img th:src="@{/img/logo_ACS.png}">
@@ -37,5 +51,9 @@
     </div>
 
 <th:block th:replace="common :: footer"></th:block>
+
+</div>
+
+<script th:src="@{/javascript/index.js}"></script>
 </body>
 </html>

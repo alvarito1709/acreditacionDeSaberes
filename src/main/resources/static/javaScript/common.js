@@ -2,6 +2,8 @@
 const url = "https://inscripcionesagencia.bue.edu.ar/acreditaciondesaberes/"
 
 
+
+
 const listaDesplegable = document.getElementById("listaEditables");
 const elementosSeleccionables = document.getElementsByClassName("puedeSeleccionarse");
 
