@@ -71,3 +71,16 @@
     align-items: center;
     flex-wrap: nowrap;
 }
+
+@media (max-width: 480px) {
+
+    #loginContainer{
+        flex-direction: column;
+    }
+
+    #loginContainer form{
+        width: auto !important;
+    }
+
+
+}
