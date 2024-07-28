@@ -176,6 +176,75 @@
             </div>
         </footer>
 
+
+    <footer class="footer-mobile" th:fragment="footer-mobile">
+        <!-- <link rel="stylesheet" href="/css footer/footer-mobile.css"> -->
+        <div class="footer-img-vamosba">
+            <img th:src="@{/img/logoBANegro.png}" alt="Logo Vamos Buenos Aires">
+        </div>
+
+        <div class="footer-telefonos-utiles">
+            <p>Teléfonos Utiles</p>
+            <div class="footer-telefonos-utiles-numeros">
+                <div class="footer-tel-item-num"> <a href="tel:102"><span>102</span></a>
+                    <p>Niñez y Adolescencia</p>
+                </div>
+                <div class="footer-tel-item-num"> <a href="tel:103"><span>103</span></a>
+                    <p>Emergencias</p>
+                </div>
+                <div class="footer-tel-item-num"> <a href="tel:107"><span>107</span></a>
+                    <p>SAME</p>
+                </div>
+                <div class="footer-tel-item-num"> <a href="tel:911"><span>911</span></a>
+                    <p>Policía</p>
+                </div>
+                <div class="footer-tel-item-num"> <a href="tel:147"><span>147</span></a>
+                    <p>Atención ciudadana</p>
+                </div>
+                <div class="footer-tel-item-num"> <a href="tel:144"><span>144</span></a>
+                    <p>Violencia de género</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-ver-todos-tel"> <a href="https://www.buenosaires.gob.ar/laciudad/telefonosutiles"><span>Ver
+                    todos los Teléfonos</span></a></div>
+        <div class="footer-redes">
+
+            <p>Redes de la Ciudad</p>
+            <div class="redes-iconos">
+                <a href="https://www.facebook.com/GCBA/" target="blank">
+                    <i class="iconify" id="face" data-icon="gg:facebook"
+                       style="color: black; width: 25px;height: 25px;"></i>
+                </a>
+                <a href="https://twitter.com/gcba" target="blank">
+                    <i class="iconify" data-icon="line-md:twitter-x-alt"
+                       style="color: black;width: 25px;height: 25px;"></i>
+                </a>
+                <a href="https://www.instagram.com/buenosaires/" target="blank">
+                    <i class="iconify" data-icon="bi:instagram"
+                       style="color: black;width: 25px;height: 25px;"></i>
+                </a>
+                <a href="https://www.youtube.com/user/GCBA" target="blank">
+                    <i class="iconify" data-icon="fa:youtube"
+                       style="color: black;width: 25px;height: 25px;"></i>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-legales">
+            <img th:src="@{/img/buenosAiresCiudadNegro.png}" class="logofo" alt="Logo Buenos Aires Ciudad">
+            <p>Los contenidos de buenosaires.gob.ar están licenciados bajo Creative Commons Reconocimiento 2.5 Argentina
+                License.</p>
+            <div class="footer-legales-items">
+                <a href="https://boletinoficial.buenosaires.gob.ar/"><span>Boletín Oficial</span></a>
+                <a href="https://www.buenosaires.gob.ar/innovacion/ciudadinteligente/terminos-y-condiciones"><span>Términos
+                        y condiciones</span></a>
+                <a href="https://www.buenosaires.gob.ar/privacidad"><span>Política de Privacidad</span></a>
+                <a href="https://www.buenosaires.gob.ar/oficiosjudiciales"><span>Oficios Judiciales</span></a>
+            </div>
+        </div>
+    </footer>
+
 <script th:src="@{/javaScript/common.js}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 </body>

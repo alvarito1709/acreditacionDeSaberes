@@ -24,7 +24,7 @@ html{
 
     .footer-mobile {
 
-        background-color: #333;
+        background-color: whitesmoke;
         min-width: 100%;
         min-height: max-content;
         height: fit-content;
@@ -59,6 +59,7 @@ html{
 
     .footer-img-vamosba img {
         display: flex;
+        width: 100px;
     }
 
     .footer-telefonos-utiles {
@@ -75,7 +76,7 @@ html{
     }
 
     .footer-telefonos-utiles p {
-        color: white;
+        color: black;
         font-size: 24px;
         font-weight: 300;
 
@@ -111,7 +112,7 @@ html{
         justify-content: center;
         flex-wrap: wrap;
         font-size: 0.8rem;
-        color:#c5c3c2 ;
+        color:black;
     }
 
     .footer-tel-item-num a {
@@ -121,7 +122,7 @@ html{
         display: flex;
         width: 95%;
         justify-content: center;
-        color: white !important;
+        color: black !important;
         font-size: 2em;
         font-weight: bold;
 
@@ -144,14 +145,14 @@ html{
     }
 
     .footer-ver-todos-tel a span {
-        color: white !important;
+        color: black !important;
         font-size: 24px;
         font-weight:  300;
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid black;
 
     }
     .footer-redes{
-        color: white;
+        color: black;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -164,13 +165,13 @@ html{
         text-align: center;
     }
     .footer-redes p{
-        color: white !important;
+        color: black !important;
         font-size: 24px;
         font-weight:  300;
     }
     .redes-iconos{
         width: 100%;
-        color: white;
+        color: black !important;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -204,7 +205,7 @@ html{
     }
     .footer-legales p{
         width: 90%;
-        color: #c5c3c2;
+        color: black;
         margin-bottom: 1em;
     }
     .footer-legales-items{
@@ -217,7 +218,7 @@ html{
 
     }
     .footer-legales-items a {
-        color: white !important;
+        color: black !important;
         width: 100px;
         overflow: hidden;
         margin: auto;
@@ -229,7 +230,7 @@ html{
         display: flex;
         flex-wrap: wrap;
         width: 100%;
-        color: white !important;
+        color: black !important;
         text-align: center;
     }
 
@@ -412,3 +413,4 @@ html{
 
     }
 }
+
