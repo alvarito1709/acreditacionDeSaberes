@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Acreditacion de Saberes</title>
+
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/test.css}">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</head>
+<body>
+
+<th:block th:replace="common :: header" th:id="menu"></th:block>
+
+<div id="testContainer">
+
+    <div class="modalBackground" th:fragment="panadero">
+         <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>Indique si la siguiente afirmación es verdadera o falsa: “En la harina 000 se genera más gluten que en la 0000”</span>
+        <select class="respuestaSelect">
+            <option value="VERDADERO">VERDADERO</option>
+            <option value="FALSO">FALSO</option>
+        </select>
+
+        <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>¿Qué tipo de batido es un bizcochuelo?</span>
+        <select class="respuestaSelect">
+            <option value="FALSO">Batido pesado</option>
+            <option value="VERDADERO">Batido liviano</option>
+            <option value="FALSO">Batido rápido</option>
+            <option value="FALSO">Ninguna de las anteriores</option>
+        </select>
+
+        <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>Los budines se elaboran partiendo de un:</span>
+        <select class="respuestaSelect">
+            <option value="VERDADERO">Batido de huevos con azúcar a punto letra</option>
+            <option value="FALSO">Cremado de manteca pomada con azúcar.</option>
+            <option value="FALSO">Arenado de manteca fría en cubos con harina.</option>
+            <option value="FALSO">Ninguna de las anteriores</option>
+        </select>
+
+        <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>¿En qué momentos debe lavarse las manos?</span>
+        <select class="respuestaSelect">
+            <option value="FALSO">Cada vez que se manipula un alimento elaborado o crudo.</option>
+            <option value="FALSO">Después de ir al baño.</option>
+            <option value="FALSO">Cada vez que se toca el rostro, o se estornuda.</option>
+            <option value="VERDADERO">Todas las anteriores son correctas.</option>
+        </select>
+
+        <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>¿En qué momentos debe lavarse las manos?</span>
+        <select class="respuestaSelect">
+            <option value="FALSO">Cada vez que se manipula un alimento elaborado o crudo.</option>
+            <option value="FALSO">Después de ir al baño.</option>
+            <option value="FALSO">Cada vez que se toca el rostro, o se estornuda.</option>
+            <option value="VERDADERO">Todas las anteriores son correctas.</option>
+        </select>
+    </div>
+
+</div>
+
+
+<th:block th:replace="common :: footer"></th:block>
+
+</body>
+</html>

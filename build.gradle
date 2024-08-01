@@ -65,6 +65,10 @@ dependencies {
 
 }
 
+bootWar {
+	archiveFileName = 'acreditaciondesaberes.war'
+}
+
 
 
 tasks.named('test') {
