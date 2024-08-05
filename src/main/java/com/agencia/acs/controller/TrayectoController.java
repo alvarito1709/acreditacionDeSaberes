@@ -154,5 +154,14 @@ public class TrayectoController {
 
     }
 
+    @PostMapping("/buscarTrayectosPorSector")
+    public ModelAndView buscarTrayectosPorSector(@RequestParam(value = "sectorId") Long sectorId, Model model){
+
+        List<Trayecto> trayectos = trayectoService.buscarTrayectosPorSector(sectorId);
+
+        model.addAttribute("trayectos", trayectos);
+        return new ModelAndView("inscripcionATrayectos::seleccionDeTrayecto");
+    }
+
 
 }

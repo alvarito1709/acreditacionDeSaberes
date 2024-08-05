@@ -69,6 +69,7 @@
                     <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios Postulantes')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Usuarios Postulantes</span></li>
                     <li th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" id="mostrarDatosPostulante" th:data="${#authentication.principal.id}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Mis Datos')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Mis Datos</span></li>
                     <li th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios Postulantes')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Mis Trayectos</span></li>
+                    <li th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTableroDeInscripcion()"><iconify-icon icon="ei:plus" width="20" height="20"  style="color: black; align-self: center"></iconify-icon> <span>Nuevo Trayecto</span></li>
                 </ul>
             </div>
         </div>
@@ -246,6 +247,7 @@
     </footer>
 
 <script th:src="@{/javaScript/common.js}"></script>
+<script th:src="@{/javaScript/inscripcion.js}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 </body>
 </html>

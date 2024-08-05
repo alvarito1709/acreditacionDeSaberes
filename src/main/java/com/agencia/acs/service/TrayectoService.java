@@ -21,5 +21,7 @@ public class TrayectoService {
 
     public void borrarTrayecto(Long id){ trayectoRepository.delete(trayectoRepository.findById(id).get());}
 
+    public List<Trayecto> buscarTrayectosPorSector(Long sectorId){return trayectoRepository.findAllBySectorId(sectorId);}
+
 
 }

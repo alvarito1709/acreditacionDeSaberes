@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Acreditacion De Saberes</title>
+
+    <link rel="stylesheet" th:href="@{/css/inscripciones.css}">
+</head>
+<body>
+
+    <div id="inscripcionContainer" class="inscripcionContainer" th:fragment="inscripcion(${sectores}, ${trayectos})">
+
+        <h1 class="tituloTabla"> Nuevo Trayecto </h1>
+        <div class="tableroDeInscripcion">
+
+            <div class="selectores">
+
+                <div class="sectorContainer">
+                    <div class="labelContainer">
+                      <label for="trayectoSeleccionado">Sector a postular</label>
+                    </div>
+                    <div class="selectContainer">
+                        <select id="sectorSeleccionado" th:onchange="buscarTrayectos()">
+                            <option value=""></option>
+                            <option th:each=" sector : ${sectores}" th:value="${sector.id}" th:text="${sector.nombre}" onclick="buscarTrayectos()"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="sectorContainer">
+                    <div class="labelContainer">
+                      <label for="trayectoSeleccionado">Sector a postular</label>
+                    </div>
+                    <div class="selectContainer">
+                        <select id="trayectoSeleccionado" th:fragment="seleccionDeTrayecto">
+                            <option value=""></option>
+                            <option th:each=" trayecto : ${trayectos}" th:value="${trayecto.id}" th:text="${trayecto.nombre}"></option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="buttonContainer">
+                <button id="botonSiguiente" onclick="ejecutar()">SIGUIENTE</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script th:src="@{/javaScript/inscripcion.js}"></script>
+</body>
+</html>

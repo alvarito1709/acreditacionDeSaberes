@@ -73,6 +73,21 @@ function mostrarTablas(tabla){
 
 }
 
+function mostrarTableroDeInscripcion(){
+
+    const urlTablas = url+"inscripcion"
+
+    $.ajax({
+        type:'GET',
+        url: urlTablas,
+        success: [function (respuesta){
+            $("#tableContainer").html(respuesta);
+        }]
+
+    })
+
+}
+
 function mostrarAdvertencia(elemento){
     const modal = document.getElementById("modalContainer");
     modal.style.display = "flex";

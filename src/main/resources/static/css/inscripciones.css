@@ -1,0 +1,82 @@
+.inscripcionContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.tableroDeInscripcion{
+    background-color: whitesmoke;
+    border: 1px solid rgba(197, 195, 195, 0.78);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    min-width: 750px;
+    min-height: 200px;
+
+    justify-content: space-around;
+
+}
+
+.selectores{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.tableroDeInscripcion select{
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+
+}
+
+.sectorContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+
+    width: fit-content;
+    height: fit-content;
+
+    border: 1px solid rgba(197, 195, 195, 0.78);
+}
+
+.labelContainer{
+    padding: 5px;
+}
+
+.selectContainer{
+    padding: 5px;
+}
+
+.selectContainer select{
+    background-color: whitesmoke;
+    min-width: 200px;
+    margin: auto;
+}
+
+#buttonContainer{
+    align-self: center;
+}
+
+#buttonContainer button{
+    padding: 10px;
+    border: 1px solid #7f1bbf;
+    border-radius: 5px;
+    background-color: #7f1bbf;
+    color: white;
+    font-weight: 400;
+
+    cursor: pointer;
+}
+
+
+#buttonContainer button:hover{
+    scale: 102%;
+    background-color: #6b18a1;
+}
