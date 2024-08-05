@@ -42,8 +42,29 @@
             </div>
 
             <div id="buttonContainer">
-                <button id="botonSiguiente" onclick="ejecutar()">SIGUIENTE</button>
+                <button id="botonSiguiente" onclick="mostrarModalInscripcion()">SIGUIENTE</button>
             </div>
+        </div>
+
+    </div>
+
+
+    <div th:fragment="modalDeInscripcion" id="modalDeInscripcion">
+
+        <h3>Condiciones Generales</h3>
+
+        <p>A continuación te pediremos que completes tus datos personales para contactarte.
+            Luego tendrás que completar un breve cuestionario inicial sobre el oficio elegido.
+            Servirá para identificar tu nivel de conocimientos y poder asesorarte mejor.
+            Consta de algunas preguntas básicas sobre el oficio, y tendrás 30 minutos para responderlo.
+            Recordá que una vez iniciado, no podrás pausar ni detener el tiempo,
+            y que al cerrar la página se enviarán las respuestas seleccionadas y finalizará el intento.
+            Por lo que te recomendamos continuar sólo si disponés de algo de tiempo y te encontrás en un lugar
+            tranquilo.</p>
+
+        <div id="buttonContainerModal">
+            <button id="botonAceptar" class="botonModalInscripcion">Aceptar</button>
+            <button id="botonCancelar" class="botonModalInscripcion" onclick="ocultarModalInscripcion()">Cancelar</button>
         </div>
 
     </div>

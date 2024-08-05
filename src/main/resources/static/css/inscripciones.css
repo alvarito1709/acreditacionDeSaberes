@@ -80,3 +80,51 @@
     scale: 102%;
     background-color: #6b18a1;
 }
+
+#modalDeInscripcion{
+    background-color: whitesmoke;
+    padding: 30px;
+    text-align: center;
+    font-weight: 500;
+    width: 600px;
+    height: 350px;
+    align-self: center;
+    margin: auto;
+    align-content: space-evenly;
+    justify-content: center;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#buttonContainerModal{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 40%;
+    justify-content: space-around;
+}
+
+.botonModalInscripcion{
+    font-weight: 600;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.botonModalInscripcion:hover{
+    cursor: pointer;
+    scale: 102%;
+}
+
+#botonAceptar{
+    background-color: #7f1bbf;
+    color: white;
+
+}
+
+#botonCancelar{
+    background-color: gray;
+    color: whitesmoke;
+}

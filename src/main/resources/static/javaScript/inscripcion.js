@@ -16,6 +16,25 @@ function buscarTrayectos(){
 
 }
 
+function mostrarModalInscripcion(){
+
+    const modalContainer = document.getElementById("modalesParaAgregarContainer");
+    $.ajax({
+        type:'GET',
+        url: url + "inscripcion/modal",
+        success: [function (response){
+            $("#modalesParaAgregarContainer").html(response);
+            modalContainer.style.display = "flex";
+        }]
+    })
+}
+
+function ocultarModalInscripcion(){
+    const modalContainer = document.getElementById("modalesParaAgregarContainer");
+
+    modalContainer.style.display = "none";
+}
+
 
 
 

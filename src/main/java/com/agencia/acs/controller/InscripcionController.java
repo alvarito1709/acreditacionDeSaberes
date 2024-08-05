@@ -26,4 +26,9 @@ public class InscripcionController {
 
         return new ModelAndView("inscripcionATrayectos::inscripcion");
     }
+
+    @GetMapping("/modal")
+    public ModelAndView modal(){
+        return new ModelAndView("inscripcionATrayectos::modalDeInscripcion");
+    }
 }
