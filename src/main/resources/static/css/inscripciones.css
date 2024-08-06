@@ -154,3 +154,16 @@
     cursor: pointer;
     scale: 102%;
 }
+
+.notas{
+    align-self: center;
+    justify-self: center;
+}
+
+.letrasVerdes{
+    color: #37c537;
+}
+
+.letrasRojas{
+    color: #e31212;
+}

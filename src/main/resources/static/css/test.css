@@ -58,3 +58,9 @@
     border: none;
 }
 
+.enviarTest:hover{
+    scale: 102%;
+    background-color: #4f1177;
+    cursor: pointer;
+}
+

@@ -1,0 +1,42 @@
+
+
+function validarTrayectoPanadero(){
+
+    const modalContainer = document.getElementById("modalesParaAgregarContainer");
+
+    const preguntas = document.getElementsByClassName("respuestaSelect");
+    let puntaje = 0;
+    let puntajeMinimo = preguntas.length/2;
+    let estado = "";
+
+       for(let i = 0; i < preguntas.length; i++){
+           let respuesta = preguntas[i].value;
+        if (respuesta === 'VERDADERO') {
+            puntaje++;
+        }
+       }
+
+       if (puntaje > puntajeMinimo){
+           estado = "Aprobado sin turno"
+       }else {
+           estado = "Desaprobado"
+       }
+
+
+       $.ajax({
+           type:'POST',
+           url: url+"inscripcion/enviarCuestionario",
+           data:{
+               nota:puntaje,
+               estado: estado,
+               puntajeMaximo:preguntas.length
+
+           },
+           success: [function (respuesta){
+               $("#tableContainer").html(respuesta);
+               modalContainer.style.display = "none";
+           }]
+
+       })
+
+}

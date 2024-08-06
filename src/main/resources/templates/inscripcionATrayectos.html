@@ -97,6 +97,32 @@
 
     </div>
 
+    <div class="inscripcionContainer" th:fragment="aprobado(${nota}, ${puntajeMaximo})">
+
+        <div class="tableroDeInscripcion">
+            <h3 class="notas">¡Felicidades! aprobaste el test evaluativo.</h3>
+            <h4 class="notas">Tu puntaje final fue <span th:text="${nota}" class="letrasVerdes">nota</span> de <span th:text="${puntajeMaximo}"></span></h4>
+
+            <div class="botonesCuestionarioContainer">
+                <button>Continuar</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="inscripcionContainer" th:fragment="desaprobado">
+        <div class="tableroDeInscripcion">
+            <h3 class="notas">No aprobaste el test evaluativo para tu trayecto.</h3>
+            <h4 class="notas">Tu puntaje final fue <span th:text="${nota}" class="letrasRojas">nota</span> de <span th:text="${puntajeMaximo}"></span></h4>
+
+            <div class="botonesCuestionarioContainer">
+
+                <button>Continuar</button>
+            </div>
+
+        </div>
+    </div>
+
 
     <script th:src="@{/javaScript/inscripcion.js}"></script>
 </body>
