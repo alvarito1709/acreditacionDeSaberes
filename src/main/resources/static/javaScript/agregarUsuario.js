@@ -67,8 +67,12 @@ function crearUsuario(){
         body:jsonString
     }
 
-    fetch(urlCrear, httpConfig).then(response =>response.json().then(result =>{
-        console.log("respuesta del servidor" + response);
-    }))
+    fetch(urlCrear, httpConfig).then(response =>{
+        if (response.ok){
+            alert("Usuario creado con éxito.");
+        }
+    }).catch(error =>{
+        alert("Hubo un error al crear el usuario, verifique los datos.")
+    })
 
 }
