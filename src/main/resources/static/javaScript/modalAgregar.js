@@ -1,5 +1,5 @@
-const urlBase = "http://localhost:8080/"
-//const urlBase = "https://inscripcionesagencia.bue.edu.ar/acreditaciondesaberes/"
+//const urlBase = "http://localhost:8080/"
+const urlBase = "https://inscripcionesagencia.bue.edu.ar/acreditaciondesaberes/"
 
 
 
