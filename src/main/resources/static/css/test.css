@@ -18,8 +18,11 @@
     border: none;
     padding: 20px;
 
-    width: 50vw;
-    height: auto;
+    margin: auto;
+    overflow-y: scroll;
+
+    width: 70vw;
+    max-height: 90vh;
 }
 
 .viñeta{
@@ -29,13 +32,15 @@
 .pregunta{
 
     display: flex;
+
+    margin-top: 50px;
 }
 
 .respuestaSelect{
     display: block;
     width: 50%;
-    height: 30px;
-    border: 1px solid black;
+    height: 35px;
+    border: 1px solid rgba(197, 195, 195, 0.78);
     margin: 15px auto;
 
     border-radius: 5px;
@@ -51,3 +56,4 @@
     color: whitesmoke;
     border: none;
 }
+

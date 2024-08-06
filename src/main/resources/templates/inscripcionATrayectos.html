@@ -23,7 +23,7 @@
                     <div class="selectContainer">
                         <select id="sectorSeleccionado" th:onchange="buscarTrayectos()">
                             <option value=""></option>
-                            <option th:each=" sector : ${sectores}" th:value="${sector.id}" th:text="${sector.nombre}" onclick="buscarTrayectos()"></option>
+                            <option th:each=" sector : ${sectores}" th:value="${sector.nombre}" th:text="${sector.nombre}" onclick="buscarTrayectos()"></option>
                         </select>
                     </div>
                 </div>
@@ -34,7 +34,19 @@
                     <div class="selectContainer">
                         <select id="trayectoSeleccionado" th:fragment="seleccionDeTrayecto">
                             <option value=""></option>
-                            <option th:each=" trayecto : ${trayectos}" th:value="${trayecto.id}" th:text="${trayecto.nombre}"></option>
+                            <option value="panadero" class="gastronomia" style="display: none">Panadero</option>
+                            <option value="cocinero" class="gastronomia" style="display: none">Cocinero</option>
+                            <option value="pastelero" class="gastronomia" style="display: none">Pastelero</option>
+                            <option value="montadorElectricistaDomiciliario" class="energiaElectrica" style="display: none">Montador electricista domiciliario</option>
+                            <option value="montadorDeEnergiasRenovables" class="energiaElectrica" style="display: none">Instalador de sistemas eléctricos de energías renovables</option>
+                            <option value="montadorDeInstalacionesSanitariasDomiciliarias" class="construcciones" style="display: none">Montador de instalaciones Sanitarias Domiciliares</option>
+                            <option value="montadorDeInstalacionesDomiciliariasDeGas" class="construcciones" style="display: none">Montador de instalaciones Domiciliarias de Gas</option>
+                            <option value="programador" class="informatica" style="display: none">Programador</option>
+                            <option value="mecanicoDeMotos" class="mecanicaDeMotos" style="display: none">Mecanico de Motos</option>
+                            <option value="mecanicoDeSistemasDeEncendidoYAlimentacion" class="mecanicaAutomotriz" style="display: none">Mecanico de Sistemas de Encendido y Alimentación</option>
+                            <option value="mecanicoDeSistemasDeInyeccionDiesel" class="mecanicaAutomotriz" style="display: none">Mecanico de Sistemas de Inyección Diesel</option>
+                            <option value="mecanicoDeBicicletas" class="mecanicaAutomotriz" style="display: none">Mecánico de Bicicletas</option>
+                            <option value="instaladorYReparadorDeEquiposDeClimatizacion" class="reparacionYMantenimientoDeMáquinasYEquiposElectricosElectronicos" style="display: none">Instalador y Reparador de Equipos de Climatización</option>
                         </select>
                     </div>
                 </div>
@@ -53,7 +65,7 @@
 
         <h3>Condiciones Generales</h3>
 
-        <p>A continuación te pediremos que completes tus datos personales para contactarte.
+        <p>Asegurate de tener tus datos actualizados.
             Luego tendrás que completar un breve cuestionario inicial sobre el oficio elegido.
             Servirá para identificar tu nivel de conocimientos y poder asesorarte mejor.
             Consta de algunas preguntas básicas sobre el oficio, y tendrás 30 minutos para responderlo.
@@ -63,8 +75,24 @@
             tranquilo.</p>
 
         <div id="buttonContainerModal">
-            <button id="botonAceptar" class="botonModalInscripcion">Aceptar</button>
+            <button id="botonAceptar" class="botonModalInscripcion" onclick="llevarAlCuestionario()">Aceptar</button>
             <button id="botonCancelar" class="botonModalInscripcion" onclick="ocultarModalInscripcion()">Cancelar</button>
+        </div>
+
+    </div>
+
+    <div class="inscripcionContainer" th:fragment="vistaCuestionario">
+
+        <h1 class="tituloTabla"> Iniciar Cuestionario </h1>
+
+        <div class="tableroDeInscripcion">
+            <h3 class="advertenciaTiempoCuestionario">El siguiente cuestionario tendrá una duracion de 30 minutos</h3>
+
+
+            <div class="botonesCuestionarioContainer">
+                <button onclick="mostrarTableroDeInscripcion()">Ir Atrás</button>
+                <button onclick="mostrarCuestionario()">Comenzar</button>
+            </div>
         </div>
 
     </div>
