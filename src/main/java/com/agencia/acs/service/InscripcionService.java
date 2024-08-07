@@ -6,6 +6,8 @@ import com.agencia.acs.repository.InscripcionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class InscripcionService {
     @Autowired
@@ -13,4 +15,6 @@ public class InscripcionService {
 
 
     public Inscripcion nuevaInscripcion(Inscripcion inscripcion){return inscripcionRepository.save(inscripcion);}
+
+    public List<Inscripcion> listarInscripciones(){return inscripcionRepository.findAll();}
 }

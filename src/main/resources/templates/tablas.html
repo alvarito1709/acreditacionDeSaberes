@@ -11,7 +11,7 @@
 </head>
 <body>
 
-        <div th:fragment="tablaQueCargo (${tabla} ,${usuarios}, ${postulantes}, ${entrevistadores}, ${evaluadores}, ${orientadores}, ${centros}, ${trayectos}, ${sectores}, ${modulos})"
+        <div th:fragment="tablaQueCargo (${tabla} ,${usuarios}, ${postulantes}, ${entrevistadores}, ${evaluadores}, ${orientadores}, ${centros}, ${trayectos}, ${sectores}, ${modulos}, ${inscripciones})"
                 class="contenedorBodyTabla">
 
 
@@ -64,33 +64,22 @@
                         <tr>
                             <th class="itemTitulo">#</th>
                             <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo">Entrevistador <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo">Aspirante <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Entrevistador<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Postulante<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Trayecto<i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Turno</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>125	</td>
-                            <td>16/11/2023</td>
-                            <td>Gastronomia</td>
-                            <td>Panadero</td>
-                            <td>postulante1</td>
-                            <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
-                            <td>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>125	</td>
-                            <td>16/11/2023</td>
-                            <td>Gastronomia</td>
-                            <td>Panadero</td>
-                            <td>postulante1</td>
-                            <td>NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
+                        <tr th:each="inscripcion : ${inscripciones}">
+                            <td th:text="${inscripcion.id}">id/td>
+                            <td >centro</td>
+                            <td >Entrevistador</td>
+                            <td th:text="${inscripcion.postulante.nombre}">postulante</td>
+                            <td th:text="${inscripcion.trayecto.nombre}">trayecto</td>
+                            <td th:text="${inscripcion.estado}">estado</td>
                             <td>
                             </td>
                         </tr>
@@ -425,7 +414,6 @@
 
             </div>
 
-            <!-- FALTA HACER LA OTRA TABLA QUE AGREGA ENTREVISTADORES A CENTROS -->
 
             <div th:if="${tabla == 'Entrevistadores'}">
 
@@ -489,7 +477,6 @@
 
             </div>
 
-            <!-- FALTA HACER LA OTRA TABLA QUE AGREGA EVALUADORES A CENTROS -->
 
             <div th:if="${tabla == 'Evaluadores'}">
 

@@ -47,6 +47,9 @@ public class publicController {
     @Autowired
     CentroService centroService;
 
+    @Autowired
+    InscripcionService inscripcionService;
+
     @GetMapping("/login")
     public String login(){
         return "login";
@@ -117,6 +120,11 @@ public class publicController {
         if (Objects.equals(tabla, "Mis Datos")){
             Optional<Postulante> postulante = postulanteService.buscarPostulantePorId(id);
             model.addAttribute("postulantes", postulante.get());
+        }
+
+        if (Objects.equals(tabla, "Entrevistas")){
+            Optional<List<Inscripcion>> inscripciones = Optional.ofNullable(inscripcionService.listarInscripciones());
+            model.addAttribute("inscripciones", inscripciones.get());
         }
 
 
