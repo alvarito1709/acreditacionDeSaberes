@@ -19,7 +19,7 @@
 
 <div id="testContainer">
 
-    <div class="modalBackground" th:fragment="Panadero">
+    <div class="modalBackground" th:fragment="panadero">
          <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>Indique si la siguiente afirmación es verdadera o falsa: “En la harina 000 se genera más gluten que en la 0000”</span>
         <select class="respuestaSelect">
             <option value="VERDADERO">VERDADERO</option>
@@ -98,10 +98,10 @@
             <option value="FALSO">FALSO</option>
         </select>
 
-        <button class="enviarTest" onclick="validarTrayectoPanadero()">ENVIAR</button>
+        <button class="enviarTest" onclick="validarTrayecto()">ENVIAR</button>
     </div>
 
-    <div class="modalBackground" th:fragment="Cocinero">
+    <div class="modalBackground" th:fragment="cocinero">
          <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2> Indique si la siguiente afirmación es verdadera o falsa: “En la harina 000 se genera más gluten que en la 0000”</span>
         <select class="respuestaSelect">
             <option value="VERDADERO">VERDADERO</option>
@@ -182,10 +182,10 @@
 
 
 
-        <button class="enviarTest">ENVIAR</button>
+        <button class="enviarTest" onclick="validarTrayecto()">ENVIAR</button>
     </div>
 
-    <div class="modalBackground" th:fragment="Pastelero">
+    <div class="modalBackground" th:fragment="pastelero">
          <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2> Indique si la siguiente afirmación es verdadera o falsa: “En la harina 000 se genera más gluten que en la 0000”</span>
         <select class="respuestaSelect">
             <option value="VERDADERO">VERDADERO</option>
@@ -266,11 +266,11 @@
 
 
 
-        <button class="enviarTest">ENVIAR</button>
+        <button class="enviarTest" onclick="validarTrayecto()">ENVIAR</button>
     </div>
 
 
-    <div class="modalBackground" th:fragment="MontadorElectricistaDomiciliario">
+    <div class="modalBackground" th:fragment="montadorelectricistadomiciliario">
          <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>¿Cuál de los siguientes NO es un tipo de empalme?</span>
         <select class="respuestaSelect">
             <option value="FALSO">Wester</option>
@@ -381,10 +381,10 @@
             <option value="FALSO">Ninguna de las anteriores</option>
         </select>
 
-        <button class="enviarTest">ENVIAR</button>
+        <button class="enviarTest" onclick="validarTrayecto()">ENVIAR</button>
     </div>
 
-    <div class="modalBackground" th:fragment="MontadorDeEnergiasRenovables">
+    <div class="modalBackground" th:fragment="montadordeenergiasrenovables">
          <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>¿Cuál de los siguientes NO es un tipo de empalme?</span>
         <select class="respuestaSelect">
             <option value="FALSO">Wester</option>
@@ -495,10 +495,10 @@
             <option value="FALSO">Ninguna de las anteriores</option>
         </select>
 
-        <button class="enviarTest">ENVIAR</button>
+        <button class="enviarTest" onclick="validarTrayecto()">ENVIAR</button>
     </div>
 
-    <div class="modalBackground" th:fragment="MontadorDeInstalacionesSanitariasDomiciliarias">
+    <div class="modalBackground" th:fragment="montadordeinstalacionessanitariasdomiciliarias">
          <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>¿Para qué se utiliza una terraja?</span>
         <select class="respuestaSelect">
             <option value="FALSO">Para el roscado manual de pernos y tornillos</option>
@@ -632,10 +632,10 @@
         </select>
 
 
-        <button class="enviarTest">ENVIAR</button>
+        <button class="enviarTest" onclick="validarTrayecto()">ENVIAR</button>
     </div>
 
-    <div class="modalBackground" th:fragment="MontadorDeInstalacionesDomiciliariasDeGas">
+    <div class="modalBackground" th:fragment="montadordeinstalacionesdomiciliariasdegas">
          <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>¿A qué se denomina gas tóxico venenoso?</span>
         <select class="respuestaSelect">
             <option value="VERDADERO">Monóxido de carbono</option>
@@ -768,11 +768,11 @@
         </select>
 
 
-        <button class="enviarTest">ENVIAR</button>
+        <button class="enviarTest" onclick="validarTrayecto()">ENVIAR</button>
     </div>
 
 
-    <div class="modalBackground" th:fragment="Programador">
+    <div class="modalBackground" th:fragment="programador">
          <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>¿Qué es un algoritmo?</span>
         <select class="respuestaSelect">
             <option value="VERDADERO">Un algoritmo es un conjunto de instrucciones definidas, ordenadas y acotadas para resolver un problema o realizar una tarea específica.</option>
@@ -850,11 +850,11 @@
 
 
 
-        <button class="enviarTest">ENVIAR</button>
+        <button class="enviarTest" onclick="validarTrayecto()">ENVIAR</button>
     </div>
 
 
-    <div class="modalBackground" th:fragment="MecanicoDeMotos">
+    <div class="modalBackground" th:fragment="mecanicodemotos">
          <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>¿Para qué se utiliza un manómetro?</span>
         <select class="respuestaSelect">
             <option value="VERDADERO">Para medir la presión</option>
@@ -918,11 +918,11 @@
         </select>
 
 
-        <button class="enviarTest">ENVIAR</button>
+        <button class="enviarTest" onclick="validarTrayecto()">ENVIAR</button>
     </div>
 
 
-    <div class="modalBackground" th:fragment="MecanicoDeSistemasDeEncendidoYAlimentacion">
+    <div class="modalBackground" th:fragment="mecanicodesistemasdeencendidoyalimentacion">
          <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>En un motor de 4 cilindros en línea ¿Cómo se forman las parejas de cilindros en una bobina de encendido DIS?</span>
         <select class="respuestaSelect">
             <option value="FALSO">1 y 3, 2 y 4</option>
@@ -1012,11 +1012,11 @@
 
 
 
-        <button class="enviarTest">ENVIAR</button>
+        <button class="enviarTest" onclick="validarTrayecto()">ENVIAR</button>
     </div>
 
 
-    <div class="modalBackground" th:fragment="MecanicoDeSistemasDeInyeccionDiesel">
+    <div class="modalBackground" th:fragment="mecanicodesistemasdeinyecciondiesel">
          <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>En un motor de 4 cilindros en línea, cómo forman las parejas de cilindros en una bobina de encendido DIS:</span>
         <select class="respuestaSelect">
             <option value="FALSO">1 y 3, 2 y 4</option>
@@ -1060,11 +1060,11 @@
 
 
 
-        <button class="enviarTest">ENVIAR</button>
+        <button class="enviarTest" onclick="validarTrayecto()">ENVIAR</button>
     </div>
 
 
-    <div class="modalBackground" th:fragment="MecanicoDeBicicletas">
+    <div class="modalBackground" th:fragment="mecanicodebicicletas">
          <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>¿A qué hace referencia el patrón de cruce en las llantas?</span>
         <select class="respuestaSelect">
             <option value="FALSO">Al intercambio de las llantas entre las ruedas delantera y trasera</option>
@@ -1143,11 +1143,11 @@
         </select>
 
 
-        <button class="enviarTest" onclick="">ENVIAR</button>
+        <button class="enviarTest" onclick="validarTrayecto()">ENVIAR</button>
     </div>
 
 
-    <div class="modalBackground" th:fragment="InstaladorYReparadorDeEquiposDeClimatizacion">
+    <div class="modalBackground" th:fragment="instaladoryreparadordeequiposdeclimatizacion">
          <span class="pregunta"><h2 class="viñeta"><i class="bi bi-arrow-right-short"></i></h2>¿Cómo se clasifican los equipos de climatización?</span>
         <select class="respuestaSelect">
             <option value="VERDADERO">Autocontenidos (ventana) y divididos (Split)</option>
@@ -1245,7 +1245,7 @@
 
 
 
-        <button class="enviarTest">ENVIAR</button>
+        <button class="enviarTest" onclick="validarTrayecto()">ENVIAR</button>
     </div>
 
 </div>

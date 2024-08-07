@@ -1,6 +1,6 @@
 
 
-function validarTrayectoPanadero(){
+function validarTrayecto(){
 
     const modalContainer = document.getElementById("modalesParaAgregarContainer");
 

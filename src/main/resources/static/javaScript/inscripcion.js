@@ -255,7 +255,7 @@ function mostrarCuestionario(){
     $.ajax({
         type:'GET',
         url: url + "inscripcion/iniciarCuestionario",
-        data: {trayecto:trayectoNombre},
+        data: {trayecto:trayectoNombre.toLowerCase().split(' ').join('')},
         success: [function (response){
             $("#modalesParaAgregarContainer").html(response);
             modalContainer.style.display = "flex";
