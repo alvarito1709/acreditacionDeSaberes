@@ -1,7 +1,8 @@
 //const url = "http://localhost:8080/";
 
 
-let trayectoId = "";
+let trayectoNombre = "";
+let trayectoId = 0;
 
 
 //ESTA FUNCION ESTA HARDCODEADA
@@ -9,7 +10,7 @@ function buscarTrayectos(){
 
     const selectSector = document.getElementById("sectorSeleccionado");
 
-  /*  $.ajax({
+   $.ajax({
         type:'POST',
         url: url + "trayectos/buscarTrayectosPorSector",
         data: {sectorId:selectSector.value},
@@ -18,8 +19,8 @@ function buscarTrayectos(){
         }]
     })
 
-   */
 
+/*
     switch (selectSector.value){
         case 'Gastronomia':
             $('.gastronomia').each(function() {
@@ -191,6 +192,8 @@ function buscarTrayectos(){
             break;
     }
 
+
+ */
 }
 
 function mostrarModalInscripcion(){
@@ -225,7 +228,14 @@ function llevarAlCuestionario(){
 
     const modalContainer = document.getElementById("modalesParaAgregarContainer");
 
-    trayectoId = document.getElementById("trayectoSeleccionado").value;
+    trayectoNombre = document.getElementById("trayectoSeleccionado").value;
+
+    var listaDesplegable = document.getElementById("trayectoSeleccionado");
+
+    var elementoSeleccionado = listaDesplegable.selectedOptions[0];
+
+    trayectoId = elementoSeleccionado.getAttribute("data-id");
+
 
     $.ajax({
         type:'GET',
@@ -245,7 +255,7 @@ function mostrarCuestionario(){
     $.ajax({
         type:'GET',
         url: url + "inscripcion/iniciarCuestionario",
-        data: {trayecto:trayectoId},
+        data: {trayecto:trayectoNombre},
         success: [function (response){
             $("#modalesParaAgregarContainer").html(response);
             modalContainer.style.display = "flex";

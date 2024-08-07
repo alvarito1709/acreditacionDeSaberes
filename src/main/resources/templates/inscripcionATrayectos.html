@@ -23,18 +23,19 @@
                     <div class="selectContainer">
                         <select id="sectorSeleccionado" th:onchange="buscarTrayectos()">
                             <option value=""></option>
-                            <option th:each=" sector : ${sectores}" th:value="${sector.nombre}" th:text="${sector.nombre}" onclick="buscarTrayectos()"></option>
+                            <option th:each=" sector : ${sectores}" th:value="${sector.id}" th:text="${sector.nombre}" onclick="buscarTrayectos()"></option>
                         </select>
                     </div>
                 </div>
                 <div class="sectorContainer">
                     <div class="labelContainer">
-                      <label for="trayectoSeleccionado">Sector a postular</label>
+                      <label for="trayectoSeleccionado">Trayecto a postular</label>
                     </div>
                     <div class="selectContainer">
-                        <select id="trayectoSeleccionado" th:fragment="seleccionDeTrayecto">
+                        <select id="trayectoSeleccionado" th:fragment="seleccionDeTrayecto(${trayectos})">
                             <option value=""></option>
-                            <option value="panadero" class="gastronomia" style="display: none">Panadero</option>
+                            <option th:each="trayecto : ${trayectos}" th:text="${trayecto.nombre}" th:value="${trayecto.nombre}" th:data-id="${trayecto.id}"></option>
+                 <!--           <option value="panadero" class="gastronomia" style="display: none">Panadero</option>
                             <option value="cocinero" class="gastronomia" style="display: none">Cocinero</option>
                             <option value="pastelero" class="gastronomia" style="display: none">Pastelero</option>
                             <option value="montadorElectricistaDomiciliario" class="energiaElectrica" style="display: none">Montador electricista domiciliario</option>
@@ -47,7 +48,7 @@
                             <option value="mecanicoDeSistemasDeInyeccionDiesel" class="mecanicaAutomotriz" style="display: none">Mecanico de Sistemas de Inyección Diesel</option>
                             <option value="mecanicoDeBicicletas" class="mecanicaAutomotriz" style="display: none">Mecánico de Bicicletas</option>
                             <option value="instaladorYReparadorDeEquiposDeClimatizacion" class="reparacionYMantenimientoDeMáquinasYEquiposElectricosElectronicos" style="display: none">Instalador y Reparador de Equipos de Climatización</option>
-                        </select>
+                       --> </select>
                     </div>
                 </div>
 

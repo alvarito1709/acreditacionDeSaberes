@@ -4,9 +4,11 @@ package com.agencia.acs.controller;
 import com.agencia.acs.entities.Inscripcion;
 import com.agencia.acs.entities.Postulante;
 import com.agencia.acs.entities.Sector;
+import com.agencia.acs.entities.Trayecto;
 import com.agencia.acs.service.InscripcionService;
 import com.agencia.acs.service.PostulanteService;
 import com.agencia.acs.service.SectorService;
+import com.agencia.acs.service.TrayectoService;
 import com.agencia.acs.web.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -36,6 +38,9 @@ public class InscripcionController {
 
     @Autowired
     PostulanteService postulanteService;
+
+    @Autowired
+    TrayectoService trayectoService;
 
     @GetMapping("")
     public ModelAndView inscripcion(Model model){
@@ -67,6 +72,7 @@ public class InscripcionController {
     public ModelAndView enviarCuestionario(@RequestParam(value = "nota")Long nota,
                                            @RequestParam(value = "estado") String estado,
                                            @RequestParam(value = "puntajeMaximo")Long puntajeMaximo,
+                                           @RequestParam(value = "trayectoId")Long trayectoId,
                                            Model model){
 
         model.addAttribute("nota", nota);
@@ -80,7 +86,10 @@ public class InscripcionController {
 
         Optional<Postulante> postulante = postulanteService.buscarPostulantePorId(userId);
 
+        Optional<Trayecto> trayecto = trayectoService.buscarTrayectoPorId(trayectoId);
+
         inscripcion.setPostulante(postulante.get());
+        inscripcion.setTrayecto(trayecto.get());
         inscripcion.setEstado(estado);
         inscripcion.setNota(String.valueOf(nota));
         inscripcion.setNotaMaximaDelExamen(String.valueOf(puntajeMaximo));

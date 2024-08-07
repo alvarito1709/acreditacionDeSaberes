@@ -29,7 +29,8 @@ function validarTrayectoPanadero(){
            data:{
                nota:puntaje,
                estado: estado,
-               puntajeMaximo:preguntas.length
+               puntajeMaximo:preguntas.length,
+               trayectoId:trayectoId
 
            },
            success: [function (respuesta){
