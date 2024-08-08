@@ -73,6 +73,11 @@ th .bi{
     margin-top: 30px;
 }
 
+.tituloDentroDeTabla{
+    margin: 5px 0 25px;
+    align-self: start;
+}
+
 i{
     cursor: pointer;
 }

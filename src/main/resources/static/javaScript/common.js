@@ -268,6 +268,31 @@ function mostrarModalParaEditar(elemento, tabla){
 }
 
 
+function mostrarModalParaAgregarTurnoAPostulante(id){
+
+
+
+    const urlModal = url+"inscripcion/modalAgregarTurnoEntrevista";
+    const modalContainer = document.getElementById("modalesParaAgregarContainer");
+
+    $.ajax({
+        type:'GET',
+        url:urlModal,
+        data:{
+            idInscripcion:id
+        },
+
+        success: function (respuesta){
+            $("#modalesParaAgregarContainer").html(respuesta);
+            modalContainer.style.display = "flex";
+        }
+    })
+
+
+
+}
+
+
 
 
 //FUNCION PARA CAMBIAR EL BACKGROUND COLOR DEL ELEMENTO SELECCIONADO EN LA LISTA

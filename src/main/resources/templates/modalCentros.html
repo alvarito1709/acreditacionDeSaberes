@@ -158,7 +158,7 @@
     </div>
 
     <div class="modalContainerCentros" th:fragment="modalAgregarCentrosAUsuarios(${usuario}, ${centros}, ${sectores})">
-        <div class="modal" id="modalModulos">
+        <div class="modal" id="modalCentrosAUsuarios">
 
             <h3 onclick="ocultarModalAgregar()"><i class="bi bi-x-square"></i></h3>
 
@@ -190,6 +190,40 @@
                 <button class="botonAcreditacion" th:each="user: ${usuario}" th:data="${user.rol}" onclick="agregarCentroAUsuario(this)">GUARDAR</button>
             </div>
 
+
+
+        </div>
+    </div>
+
+    <div class="modalContainerCentros" th:fragment="modalAgregarEntrevista(${inscripcion}, ${centros}, ${trayecto})">
+        <div class="modal" id="modalAgregarEntrevista">
+
+            <h3 onclick="ocultarModalAgregar()"><i class="bi bi-x-square"></i></h3>
+
+            <h2>Agregar Turno de Entrevista</h2>
+
+
+
+            <div class="divisorInternoDelModal" th:each="inscripcionData : ${inscripcion}">
+                <label for="nombrePostulante" th:text="${inscripcionData.postulante.nombre}">Nombre</label>
+                <input type="text" id="nombrePostulante" th:value="${inscripcionData.postulante.id}" hidden>
+
+                <label for="trayectoDePostulante" th:text="${trayecto.nombre}">TRAYECTO<input id="trayectoDePostulante" th:value="${trayecto}" hidden></label>
+            </div>
+
+
+            <div class="divisorInternoDelModal">
+
+                <label for="centrosParaEntrevista">CENTROS<select id="centrosParaEntrevista">
+                    <option value=""></option>
+                    <option th:each="centro : ${centros}" th:text="${centro.nombre}" th:value="${centro.id}">ACTIVO</option>
+
+                </select></label>
+
+
+                <button class="botonAcreditacion"  >GUARDAR</button>
+
+            </div>
 
 
         </div>

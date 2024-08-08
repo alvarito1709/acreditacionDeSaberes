@@ -1,15 +1,13 @@
 package com.agencia.acs.controller;
 
 
-import com.agencia.acs.entities.Inscripcion;
-import com.agencia.acs.entities.Postulante;
-import com.agencia.acs.entities.Sector;
-import com.agencia.acs.entities.Trayecto;
+import com.agencia.acs.entities.*;
 import com.agencia.acs.service.InscripcionService;
 import com.agencia.acs.service.PostulanteService;
 import com.agencia.acs.service.SectorService;
 import com.agencia.acs.service.TrayectoService;
 import com.agencia.acs.web.CustomUserDetails;
+import org.atteo.evo.inflector.English;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/inscripcion")
@@ -105,5 +104,24 @@ public class InscripcionController {
         }
 
 
+    }
+
+    @GetMapping("/modalAgregarTurnoEntrevista")
+    public ModelAndView mostrarModalParaAsignarTurnoEntrevista(@RequestParam(value = "idInscripcion") Long idInscripcion,
+                                                               Model model){
+
+        Optional<Inscripcion> inscripcion = inscripcionService.buscarInscripcionPorId(idInscripcion);
+
+        model.addAttribute("inscripcion", inscripcion.get());
+
+        Trayecto trayecto = inscripcion.get().getTrayecto();
+
+        model.addAttribute("trayecto", trayecto);
+
+        Set<Centro> centros =  trayecto.getCentros();
+
+        model.addAttribute("centros", centros);
+
+        return new ModelAndView("modalCentros::modalAgregarEntrevista");
     }
 }

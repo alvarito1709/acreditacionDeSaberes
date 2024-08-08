@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class InscripcionService {
@@ -19,4 +20,6 @@ public class InscripcionService {
     public List<Inscripcion> listarInscripciones(){return inscripcionRepository.findAll();}
 
     public List<Inscripcion> buscarInscripcionPorPostulante(Long id){return inscripcionRepository.findAllByPostulanteId(id);}
+
+    public Optional<Inscripcion> buscarInscripcionPorId(Long id){return inscripcionRepository.findById(id);}
 }

@@ -59,6 +59,7 @@
                 <h1 class="tituloTabla">Gestión de Entrevistas</h1>
 
                 <div class="backgroundTabla">
+                    <h4 class="tituloDentroDeTabla">Postulantes sin turno</h4>
                     <table id="tablaGestionDeEntrevistas" >
                         <thead class="headerTabla">
                         <tr>
@@ -73,15 +74,45 @@
                         </thead>
 
                         <tbody>
-                        <tr th:each="inscripcion : ${inscripciones}">
+                        <tr th:each="inscripcion : ${inscripciones}" th:if="${inscripcion.estado != 'Con Turno Entrevista'}">
                             <td th:text="${inscripcion.id}">id/td>
                             <td >centro</td>
                             <td >Entrevistador</td>
                             <td th:text="${inscripcion.postulante.nombre}">postulante</td>
                             <td th:text="${inscripcion.trayecto.nombre}">trayecto</td>
                             <td th:text="${inscripcion.estado}">estado</td>
-                            <td>
-                            </td>
+                            <td><i class="bi bi-calendar-plus" th:id="${inscripcion.id}" th:data="${inscripcion}" onclick="mostrarModalParaAgregarTurnoAPostulante(this.id)"></i></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="backgroundTabla">
+                    <h4 class="tituloDentroDeTabla">Postulantes con turno</h4>
+                    <table id="tablaPostulantesConEntrevista" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Entrevistador<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Postulante<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Trayecto<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Turno</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="inscripcion : ${inscripciones}" th:if="${inscripcion.estado == 'Con Turno Entrevista'}">
+                            <td th:text="${inscripcion.id}">id/td>
+                            <td >centro</td>
+                            <td >Entrevistador</td>
+                            <td th:text="${inscripcion.postulante.nombre}">postulante</td>
+                            <td th:text="${inscripcion.trayecto.nombre}">trayecto</td>
+                            <td th:text="${inscripcion.estado}">estado</td>
+                            <td><i class="bi bi-calendar-plus"></i></td>
                         </tr>
 
                         </tbody>
@@ -335,7 +366,15 @@
                             <td th:text="${users.id}" >125	</td>
                             <td th:text="${users.nombre}">C.F.P. N° 02 (Barracas)</td>
                             <td th:text="${users.mail}">Brandsen 2570</td>
-                            <td th:text="${users.rol}" >4301-3655/ 4304-7061</td>
+                            <td th:switch="${users.rol}" >
+                                <span th:case="'ROLE_ADMIN'">Administrador</span>
+                                <span th:case="'ROLE_POSTULANTE'">Postulante</span>
+                                <span th:case="'ROLE_USER'">Usuario</span>
+                                <span th:case="'ROLE_ORIENTADOR'">Orientador</span>
+                                <span th:case="'ROLE_ENTREVISTADOR'">Entrevistador</span>
+                                <span th:case="'ROLE_EVALUADOR'">Evaluador</span>
+                                <span th:case="'ROLE_REFERENTE'">Referente</span>
+                            </td>
                             <td><i class="bi bi-pencil-square iconoAcciones" th:id="${users.id}" onclick="mostrarModalParaEditar(this,'Usuarios')"></i>
                                 <i class="bi bi-trash iconoAcciones" th:id="${users.id}" th:data="${tabla}" onclick="mostrarAdvertencia(this)"></i>
                             </td>
