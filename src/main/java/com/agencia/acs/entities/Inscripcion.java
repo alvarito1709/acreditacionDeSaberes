@@ -2,6 +2,7 @@ package com.agencia.acs.entities;
 
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Inscripcion {
@@ -27,6 +28,8 @@ public class Inscripcion {
     private String nota;
 
     private String notaMaximaDelExamen;
+
+    private Date fechaEntrevista;
 
     public Long getId() {
         return id;
@@ -82,5 +85,13 @@ public class Inscripcion {
 
     public void setNotaMaximaDelExamen(String notaMaximaDelExamen) {
         this.notaMaximaDelExamen = notaMaximaDelExamen;
+    }
+
+    public Date getFechaEntrevista() {
+        return fechaEntrevista;
+    }
+
+    public void setFechaEntrevista(Date fechaEntrevista) {
+        this.fechaEntrevista = fechaEntrevista;
     }
 }

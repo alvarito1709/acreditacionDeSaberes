@@ -345,3 +345,46 @@ switch (rol){
 
 
 }
+
+function agregarEntrevista(){
+
+    const urlEntrevista = url + "inscripcion/agregarEntrevista";
+
+    const idInscripcion = document.getElementById("inscripcionId");
+    const centrosParaEntrevista = document.getElementById("centrosParaEntrevista");
+    const fechaDeEntrevista = document.getElementById("fechaDeEntrevista");
+
+
+    $.ajax({
+        type:'POST',
+        url: urlEntrevista,
+        data: {
+            inscripcionId:idInscripcion.value,
+            centroId:centrosParaEntrevista.value,
+            fechaEntrevista:fechaDeEntrevista.value
+        },
+        success: [function (respuesta){
+            $("#tableContainer").html(respuesta);
+            cerrarModal();
+        }]
+    })
+}
+
+function filtrarEntrevistadores(){
+
+    const urlFiltrarEntrevistadores = url+"inscripcion/buscarEntrevistadores"
+
+    const centrosParaEntrevista = document.getElementById("centrosParaEntrevista");
+
+
+    $.ajax({
+        type:'GET',
+        url: urlFiltrarEntrevistadores,
+        data: {
+            centroId:centrosParaEntrevista.value
+        },
+        success: [function (respuesta){
+            $("#entrevistador").html(respuesta);
+        }]
+    })
+}

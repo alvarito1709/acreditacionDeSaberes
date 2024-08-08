@@ -96,7 +96,7 @@
                         <tr>
                             <th class="itemTitulo">#</th>
                             <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo">Entrevistador<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Fecha<i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Postulante<i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Trayecto<i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
@@ -107,8 +107,8 @@
                         <tbody>
                         <tr th:each="inscripcion : ${inscripciones}" th:if="${inscripcion.estado == 'Con Turno Entrevista'}">
                             <td th:text="${inscripcion.id}">id/td>
-                            <td >centro</td>
-                            <td >Entrevistador</td>
+                            <td th:text="${inscripcion.centro.nombre}">CENTRO</td>
+                            <td th:text="${inscripcion.fechaEntrevista}">fecha</td>
                             <td th:text="${inscripcion.postulante.nombre}">postulante</td>
                             <td th:text="${inscripcion.trayecto.nombre}">trayecto</td>
                             <td th:text="${inscripcion.estado}">estado</td>

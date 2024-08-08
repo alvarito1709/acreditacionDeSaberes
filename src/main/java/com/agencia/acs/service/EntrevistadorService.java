@@ -48,4 +48,6 @@ public class EntrevistadorService {
 
         return Optional.ofNullable(entrevistadorOptional.get().getSectores());
     }
+
+    public List<Entrevistador> buscarEntrevistadoresPorCentro(Long idCentro){return entrevistadorRepository.findAllByCentrosId(idCentro);}
 }

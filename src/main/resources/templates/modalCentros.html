@@ -205,23 +205,35 @@
 
 
             <div class="divisorInternoDelModal" th:each="inscripcionData : ${inscripcion}">
-                <label for="nombrePostulante" th:text="${inscripcionData.postulante.nombre}">Nombre</label>
-                <input type="text" id="nombrePostulante" th:value="${inscripcionData.postulante.id}" hidden>
+                <label for="inscripcionId" th:text="${inscripcionData.postulante.nombre}">Nombre</label>
+                <input type="text" id="inscripcionId" th:value="${inscripcionData.id}" hidden>
 
                 <label for="trayectoDePostulante" th:text="${trayecto.nombre}">TRAYECTO<input id="trayectoDePostulante" th:value="${trayecto}" hidden></label>
+            </div>
+
+            <div class="divisorInternoDelModal">
+                <label for="fechaDeEntrevista">Fecha de Entrevista</label>
+                <input type="datetime-local" id="fechaDeEntrevista">
+
+                <label for="centrosParaEntrevista">CENTROS<select id="centrosParaEntrevista" th:onchange="filtrarEntrevistadores()">
+                    <option value=""></option>
+                    <option th:each="centro : ${centros}" th:text="${centro.nombre}" th:value="${centro.id}" >ACTIVO</option>
+
+                </select></label>
+
             </div>
 
 
             <div class="divisorInternoDelModal">
 
-                <label for="centrosParaEntrevista">CENTROS<select id="centrosParaEntrevista">
-                    <option value=""></option>
-                    <option th:each="centro : ${centros}" th:text="${centro.nombre}" th:value="${centro.id}">ACTIVO</option>
+                <label for="entrevistador">Entrevistador</label>
+                <select  id="entrevistador" th:fragment="entrevistadores(${entrevistadores})">
+                    <option></option>
+                    <option th:each="entrevistador : ${entrevistadores}" th:text="${entrevistador.nombre}"></option>
+                </select>
 
-                </select></label>
 
-
-                <button class="botonAcreditacion"  >GUARDAR</button>
+                <button class="botonAcreditacion"  onclick="agregarEntrevista()">GUARDAR</button>
 
             </div>
 

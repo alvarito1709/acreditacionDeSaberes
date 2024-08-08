@@ -2,13 +2,11 @@ package com.agencia.acs.controller;
 
 
 import com.agencia.acs.entities.*;
-import com.agencia.acs.service.InscripcionService;
-import com.agencia.acs.service.PostulanteService;
-import com.agencia.acs.service.SectorService;
-import com.agencia.acs.service.TrayectoService;
+import com.agencia.acs.service.*;
 import com.agencia.acs.web.CustomUserDetails;
 import org.atteo.evo.inflector.English;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -19,10 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 @RequestMapping("/inscripcion")
@@ -40,6 +35,12 @@ public class InscripcionController {
 
     @Autowired
     TrayectoService trayectoService;
+
+    @Autowired
+    CentroService centroService;
+
+    @Autowired
+    EntrevistadorService entrevistadorService;
 
     @GetMapping("")
     public ModelAndView inscripcion(Model model){
@@ -122,6 +123,47 @@ public class InscripcionController {
 
         model.addAttribute("centros", centros);
 
+
         return new ModelAndView("modalCentros::modalAgregarEntrevista");
+    }
+
+    @PostMapping("/agregarEntrevista")
+    public ModelAndView agregarEntrevista(@RequestParam(value = "inscripcionId") Long inscripcionId,
+                                          @RequestParam(value = "centroId") Long centroId,
+                                          @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") Date fechaEntrevista,
+                                          Model model){
+
+        Optional<Inscripcion> inscripcionOptional = inscripcionService.buscarInscripcionPorId(inscripcionId);
+
+        Optional<Centro> centroOptional = Optional.ofNullable(centroService.buscarCentroPorId(centroId));
+
+        if (inscripcionOptional.isPresent()){
+            Inscripcion inscripcion = inscripcionOptional.get();
+            Centro centro = centroOptional.get();
+
+            inscripcion.setCentro(centro);
+            inscripcion.setEstado("Con Turno Entrevista");
+            inscripcion.setFechaEntrevista(fechaEntrevista);
+
+            inscripcionService.nuevaInscripcion(inscripcion);
+        }
+
+        model.addAttribute("tabla", "Entrevistas");
+
+        List<Inscripcion> inscripciones = inscripcionService.listarInscripciones();
+        model.addAttribute("inscripciones", inscripciones);
+
+        return new ModelAndView("tablas :: tablaQueCargo");
+    }
+
+    @GetMapping("/buscarEntrevistadores")
+    public ModelAndView buscarEntrevistadores(@RequestParam(value = "centroId")Long centroId, Model model){
+
+        List<Entrevistador> entrevistadores = entrevistadorService.buscarEntrevistadoresPorCentro(centroId);
+
+        model.addAttribute("entrevistadores", entrevistadores);
+
+        return new ModelAndView("modalCentros::entrevistadores");
+
     }
 }
