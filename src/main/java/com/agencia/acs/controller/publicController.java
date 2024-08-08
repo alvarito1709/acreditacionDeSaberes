@@ -5,7 +5,10 @@ import com.agencia.acs.entities.*;
 
 import com.agencia.acs.repository.UserRepository;
 import com.agencia.acs.service.*;
+import com.agencia.acs.web.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -124,6 +127,16 @@ public class publicController {
 
         if (Objects.equals(tabla, "Entrevistas")){
             Optional<List<Inscripcion>> inscripciones = Optional.ofNullable(inscripcionService.listarInscripciones());
+            model.addAttribute("inscripciones", inscripciones.get());
+        }
+
+        if (Objects.equals(tabla, "Mis Trayectos")){
+
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            CustomUserDetails userDetails = (CustomUserDetails) auth.getPrincipal();
+            Long userId = userDetails.getId();
+
+            Optional<List<Inscripcion>> inscripciones = Optional.ofNullable(inscripcionService.buscarInscripcionPorPostulante(userId));
             model.addAttribute("inscripciones", inscripciones.get());
         }
 

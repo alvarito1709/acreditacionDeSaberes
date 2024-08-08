@@ -17,4 +17,6 @@ public class InscripcionService {
     public Inscripcion nuevaInscripcion(Inscripcion inscripcion){return inscripcionRepository.save(inscripcion);}
 
     public List<Inscripcion> listarInscripciones(){return inscripcionRepository.findAll();}
+
+    public List<Inscripcion> buscarInscripcionPorPostulante(Long id){return inscripcionRepository.findAllByPostulanteId(id);}
 }
