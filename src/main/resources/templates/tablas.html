@@ -24,7 +24,7 @@
                         <thead class="headerTabla">
                         <tr>
                             <th class="itemTitulo">#</th>
-                            <th class="itemTitulo">Fecha <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Fecha de alta <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Sector <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Postulante <i class="bi bi-arrow-down-up"></i></th>
@@ -36,7 +36,7 @@
                         <tbody >
                         <tr th:each="postulante : ${postulantes}">
                             <td th:text="${postulante.id}">125</td>
-                            <td th:text="${postulante.fechaDeAlta}">16/11/2023</td>
+                            <td th:text="${#dates.format(postulante.fechaDeAlta, 'dd/MM/yyyy')}">16/11/2023</td>
                             <td th:text="${postulante.sector}">Gastronomia</td>
                             <td th:text="${postulante.trayecto}">Panadero</td>
                             <td th:text="${postulante.nombre}">postulante1</td>
@@ -108,7 +108,7 @@
                         <tr th:each="inscripcion : ${inscripciones}" th:if="${inscripcion.estado == 'Con Turno Entrevista'}">
                             <td th:text="${inscripcion.id}">id/td>
                             <td th:text="${inscripcion.centro.nombre}">CENTRO</td>
-                            <td th:text="${inscripcion.fechaEntrevista}">fecha</td>
+                            <td th:text="${#dates.format(inscripcion.fechaEntrevista, 'dd/MM/yyyy-HH:MM')}">fecha</td>
                             <td th:text="${inscripcion.postulante.nombre}">postulante</td>
                             <td th:text="${inscripcion.trayecto.nombre}">trayecto</td>
                             <td th:text="${inscripcion.estado}">estado</td>
@@ -778,7 +778,8 @@
                             <td th:text="${inscripcion.id}">125	</td>
                             <td th:text="${inscripcion.trayecto.sector.nombre}">C.F.P. N° 02 (Barracas)</td>
                             <td th:text="${inscripcion.trayecto.nombre}">Brandsen 2570</td>
-                            <td>-</td>
+                            <td th:if="${inscripcion.centro}" th:text="${inscripcion.centro.nombre}">-</td>
+                            <td th:if="${inscripcion.centro == null}">-</td>
                             <td th:text="${inscripcion.nota}">-</td>
                             <td th:text="${inscripcion.notaMaximaDelExamen}">-</td>
                             <td th:text="${inscripcion.estado}">-</td>

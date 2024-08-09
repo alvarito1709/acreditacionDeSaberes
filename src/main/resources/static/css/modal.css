@@ -4,7 +4,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
 }
 
@@ -28,9 +28,9 @@
     max-height: 550px;
     padding: 30px;
     background-color: #DEDDD8;
-    margin: auto;
+    margin: 0 auto auto;
     border: none;
-    border-radius: 10px;
+    border-radius: 0 0 5px 5px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -77,18 +77,30 @@
     flex-direction: column;
 }
 
+#modalHeader{
+    padding: 10px;
+    margin: auto auto 0;
+    justify-content: space-between; !important;
+    background-color: #7f1bbf;
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+.modalYHeader{
+    max-width: fit-content;
+    margin: auto;
+}
+
 .botonAcreditacion{
 
-    width: 170px;
-    padding:10px 35px;
+    font-weight: 600;
+    padding: 10px;
     border: none;
+    border-radius: 5px;
+    background-color: #7f1bbf;
+    color: white;
 
-    border-radius:20px;
-
-    background-color: #f4f4f4;
-    font-weight: 400;
-
-    cursor: pointer;
+    width: 100px;
 }
 
 .botonAcreditacion:hover{

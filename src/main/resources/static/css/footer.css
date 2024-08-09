@@ -24,7 +24,7 @@ html{
 
     .footer-mobile {
 
-        background-color: whitesmoke;
+        background-color: white;
         min-width: 100%;
         min-height: max-content;
         height: fit-content;
@@ -248,7 +248,7 @@ html{
     }
 
     footer {
-        background-color: whitesmoke;
+        background-color: white;
         display: flex;
         width: 100vw;
         overflow: hidden;
