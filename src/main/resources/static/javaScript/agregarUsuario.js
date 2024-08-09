@@ -4,7 +4,7 @@ const url = "https://inscripcionesagencia.bue.edu.ar/acreditaciondesaberes/"
 const nombreUsuario = document.getElementById("nombreUsuarioNuevo");
 const correoUsuario = document.getElementById("correoUsuarioNuevo");
 const dniNUevo = document.getElementById("dniNuevo");
-const userName = document.getElementById("usernameUsuarioNuevo");
+const userName = document.getElementById("dniNuevo");
 const password = document.getElementById("passwordUsuarioNuevo");
 const tipoDeUsuario = document.getElementById("tipoDeUsuario");
 

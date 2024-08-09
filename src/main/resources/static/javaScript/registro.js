@@ -30,7 +30,11 @@ function registrarPostulante(){
         body:jsonString
     }
 
-    fetch(url, httpConfig).then(response =>response.json().then(result =>{
-        console.log("respuesta del servidor" + response);
-    }))
+    fetch(url, httpConfig).then(response => {
+        if (response.ok){
+            const modal = document.getElementById("modalContainer");
+
+            modal.style.display = "flex";
+        }
+    }).catch(error => alert("Hubo un error al crear tu usuario, verifica los datos ingresados. Cod:" + error))
 }

@@ -12,7 +12,21 @@
 </head>
 <body>
 
+<div th:fragment="modalRegistroExitoso" id="modalContainer" style="display: none">
+    <div id="modal">
+
+        <div id="textoDelModal">
+            <h3>¡Tu registro fue exitoso!</h3>
+            <h4>Inicia sesión para continuar tu inscripción</h4>
+        </div>
+
+        <a href="login"><button>Continuar</button></a>
+    </div>
+</div>
+
 <th:block th:replace="common :: header"></th:block>
+
+
 
 <div id="bodyContainer">
     <div id="formContainer">
@@ -25,9 +39,11 @@
     </div>
 </div>
 
+
+
 <th:block th:replace="common :: footer"></th:block>
 
-<script type="text/javascript" th:src="@{/javascript/registro.js}"></script>
+<script th:src="@{/javaScript/registro.js}"></script>
 
 </body>
 </html>
