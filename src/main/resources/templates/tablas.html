@@ -290,7 +290,7 @@
                             <td th:text="${sector.nombre}">C.F.P. N° 02 (Barracas)</td>
                             <td th:text="${sector.descripcion}">Brandsen 2570</td>
                             <td th:text="${sector.estado}">4301-3655/ 4304-7061</td>
-                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                            <td><i class="bi bi-pencil-square iconoAcciones" th:id="${sector.id}" onclick="mostrarModalParaEditar(this,'Sectores')"></i>
                                 <i class="bi bi-trash iconoAcciones" th:id="${sector.id}" th:data="${tabla}" onclick="mostrarAdvertencia(this)"></i>
                             </td>
                         </tr>

@@ -46,8 +46,6 @@ function editarCentro(){
             cerrarModal();
         }]
     })
-
-    console.log("hasta aca llega");
 }
 
 async function editarTrayecto(){
@@ -114,4 +112,39 @@ async function editarTrayecto(){
             }]
         });
     });
+}
+
+
+function editarSector(){
+
+    const idSector = document.getElementById("idSectorEdicion");
+
+    const urlEditar = url1+"sectores/editarSector/"+idSector.value;
+
+    const nombreSectorEdicion = document.getElementById("nombreSectorEdicion");
+    const descripcionSectorEdicion = document.getElementById("descripcionSectorEdicion");
+    const estadoSectorEdicion = document.getElementById("estadoSectorEdicion");
+
+    let data = {
+        id: idSector.value,
+        nombre: nombreSectorEdicion.value,
+        descripcion: descripcionSectorEdicion.value,
+        estado: estadoSectorEdicion.value,
+    }
+
+
+    const dataString = JSON.stringify(data);
+
+    $.ajax({
+        type:'POST',
+        url: urlEditar,
+        headers:{
+            'content-type':'application/json'
+        },
+        data: dataString,
+        success: [function (respuesta){
+            $("#tableContainer").html(respuesta);
+            cerrarModal();
+        }]
+    })
 }

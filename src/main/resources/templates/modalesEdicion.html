@@ -99,6 +99,35 @@
     </div>
 </div>
 
+
+<div class="modalContainerCentros" th:fragment="sector(${sector})">
+    <div class="modal" id="modalSector">
+
+        <h3 onclick="ocultarModalAgregar()"><i class="bi bi-x-square"></i></h3>
+
+        <h2>Editar Sector</h2>
+
+        <input hidden th:value="${sector.id}" id="idSectorEdicion">
+
+        <div class="divisorInternoDelModal">
+            <label for="nombreSectorEdicion">Nombre<input type="text" th:value="${sector.nombre}" id="nombreSectorEdicion"></label>
+            <label for="descripcionSectorEdicion">Descripcion<input type="text" th:value="${sector.descripcion}" id="descripcionSectorEdicion"></label>
+        </div>
+
+        <div class="divisorInternoDelModal">
+            <label for="estadoSectorEdicion">Estado<select th:value="${sector.estado}" id="estadoSectorEdicion">
+                <option></option>
+                <option value="ACTIVO">ACTIVO</option>
+                <option value="INACTIVO">INACTIVO</option>
+            </select>
+            </label>
+
+            <button class="botonAcreditacion" onclick="editarSector()">GUARDAR</button>
+
+        </div>
+    </div>
+</div>
+
 <script th:src="@{/javaScript/modalEdicion.js}"></script>
 
 </body>

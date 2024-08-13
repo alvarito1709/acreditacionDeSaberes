@@ -129,5 +129,45 @@ public class SectorController {
         return objectMapper.writeValueAsString(sector);
     }
 
+    @PostMapping("/editarSector/{id}")
+    @Transactional
+    public ModelAndView editarCentro(@RequestBody Sector sector,
+                                     @PathVariable Long id,
+                                     Model model){
+
+        sector.setId(id);
+
+        sectorService.guardarSector(sector);
+
+        List<Sector> sectores = sectorService.listarSectores();
+
+        model.addAttribute("sectores", sectores);
+        model.addAttribute("tabla", "Sectores");
+
+
+        return new ModelAndView("tablas :: tablaQueCargo");
+
+    }
+
+    @GetMapping("/modalEdicionSector/{id}")
+    public ModelAndView mostrarModalParaEdicion(@PathVariable Long id, Model model){
+
+        Optional<Sector> sectorOptional = Optional.ofNullable(sectorService.buscarSectorPorId(id));
+
+        if (sectorOptional.isEmpty()){
+            List<Sector> sectores = sectorService.listarSectores();
+            model.addAttribute("sectores", sectores);
+            model.addAttribute("tabla", "Sectores");
+            return new ModelAndView("tablas :: tablaQueCargo");
+        }
+
+        else {
+            model.addAttribute("sector", sectorOptional.get());
+
+            return new ModelAndView("modalesEdicion :: sector");
+        }
+
+    }
+
 
 }

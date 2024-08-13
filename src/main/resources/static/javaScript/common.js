@@ -181,6 +181,13 @@ function eliminarElemento(elemento){
 
         success: function (respuesta){
             $("#tableContainer").html(respuesta);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status === 500) {
+                alert("Por favor verifique que no exista ningún trayecto asociado.")
+            } else {
+                console.error('Ocurrió un error:', textStatus, errorThrown);
+            }
         }
     })
 
@@ -248,7 +255,7 @@ function mostrarModalParaEditar(elemento, tabla){
             break;
 
         case 'Sectores':
-            urlEditar = url + "modalEdicionSector/" + elemento.id;
+            urlEditar = url + "sectores/modalEdicionSector/" + elemento.id;
             break;
 
             case 'Usuarios':
