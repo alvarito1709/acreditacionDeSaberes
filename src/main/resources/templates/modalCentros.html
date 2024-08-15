@@ -256,7 +256,7 @@
                     <label for="entrevistador">Entrevistador
                     <select  id="entrevistador" th:fragment="entrevistadores(${entrevistadores})">
                         <option></option>
-                        <option th:each="entrevistador : ${entrevistadores}" th:text="${entrevistador.nombre}"></option>
+                        <option th:each="entrevistador : ${entrevistadores}" th:text="${entrevistador.nombre}" th:value="${entrevistador.id}"></option>
                     </select>
                     </label>
 

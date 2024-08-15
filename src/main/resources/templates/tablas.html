@@ -793,6 +793,49 @@
 
             </div>
 
+
+            <div th:if="${tabla == 'Mis Postulantes'}">
+
+                <h1 class="tituloTabla">Mis Usuarios Postulantes</h1>
+
+                <div class="backgroundTabla">
+                    <table id="tablaGestionMisPostulantes" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Teléfono <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Fecha Entrevista <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Activo<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"></th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="inscripcion :${inscripciones}">
+                            <td th:text="${inscripcion.id}">125	</td>
+                            <td th:text="${inscripcion.postulante.nombre}">C.F.P. N° 02 (Barracas)</td>
+                            <td th:text="${inscripcion.postulante.telefono}">Brandsen 2570</td>
+                            <td th:text="${inscripcion.postulante.mail}">4301-3655/ 4304-7061</td>
+                            <td th:text="${#dates.format(inscripcion.fechaEntrevista, 'dd/MM/yyyy-HH:MM')}">ursula.portillo@bue.edu.ar</td>
+                            <td th:text="${inscripcion.estado}">10/11/2023</td>
+                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
+                                <i class="bi bi-trash iconoAcciones"></i>
+                            </td>
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+
+
+            </div>
+
             </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 

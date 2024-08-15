@@ -15,6 +15,11 @@ public class Inscripcion {
     @JoinColumn(name = "postulante_id")
     private Postulante postulante;
 
+
+    @ManyToOne
+    @JoinColumn(name = "entrevistador_id")
+    private Entrevistador entrevistador;
+
     @ManyToOne
     @JoinColumn(name = "trayecto_id")
     private Trayecto trayecto;
@@ -93,5 +98,13 @@ public class Inscripcion {
 
     public void setFechaEntrevista(Date fechaEntrevista) {
         this.fechaEntrevista = fechaEntrevista;
+    }
+
+    public Entrevistador getEntrevistador() {
+        return entrevistador;
+    }
+
+    public void setEntrevistador(Entrevistador entrevistador) {
+        this.entrevistador = entrevistador;
     }
 }

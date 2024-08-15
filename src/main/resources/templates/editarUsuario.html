@@ -25,7 +25,7 @@
             <input id="nombreUsuarioEditar" type="text" placeholder="NOMBRE" th:value="${datosusuario.nombre}" >
             <input id="correoUsuarioEditar" type="email" placeholder="EMAIL" th:value="${datosusuario.mail}">
             <input id="dniEditar" type="text" PLACEHOLDER="DNI" th:value="${datosusuario.DNI}">
-            <input id="usernameUsuarioEditar" type="text" placeholder="USERNAME" th:value="${datosusuario.username}">
+            <input id="usernameUsuarioEditar" type="text" placeholder="USERNAME" th:value="${datosusuario.username}" hidden>
             <input id="passwordUsuarioEditar" type="password" placeholder="PASSWORD" th:value="${datosusuario.password}">
             <select id="tipoDeUsuarioEditar">
                 <option th:value="${datosusuario.rol}">TIPO DE USUARIO</option>

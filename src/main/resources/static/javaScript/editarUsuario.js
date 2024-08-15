@@ -1,4 +1,4 @@
-//const url2 = "http://localhost:8080/";
+//const url3 = "http://localhost:8080/";
 const url2 = "https://inscripcionesagencia.bue.edu.ar/acreditaciondesaberes/";
 
 
@@ -10,14 +10,14 @@ function editarUsuario(){
     const nombreUsuario = document.getElementById("nombreUsuarioEditar");
     const correoUsuario = document.getElementById("correoUsuarioEditar");
     const dniUsuario = document.getElementById("dniEditar");
-    const usernameUsuario = document.getElementById("usernameUsuarioEditar");
+    const usernameUsuario = document.getElementById("dniEditar");
     const passwordUsuario = document.getElementById("passwordUsuarioEditar");
     const tipoDeUsuario = document.getElementById("tipoDeUsuarioEditar");
 
     console.log(idUsuario.value);
 
 
-    const urlEditar = url2 + "user/guardarUsuario/"+idUsuario.value;
+    const urlEditar = url3 + "user/guardarUsuario/"+idUsuario.value;
 
     var data = {
         nombre: nombreUsuario.value,
@@ -49,7 +49,7 @@ function editarUsuario(){
 
 function editarDatosPostulante(){
 
-    const urlTablas = url2+"user/editarDatosPostulantes"
+    const urlTablas = url3+"user/editarDatosPostulantes"
 
     const idPostulante = document.getElementById("postulanteId");
     const nombrePostulante = document.getElementById("nombrePostulante");

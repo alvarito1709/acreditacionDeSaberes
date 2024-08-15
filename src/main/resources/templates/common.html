@@ -45,6 +45,10 @@
                 <iconify-icon icon="ion:calendar" width="20" height="20" class="menuIcon"></iconify-icon>
                 <span>Turno Entrevista</span>
             </div>
+            <div th:if="${#authorization.expression('hasAnyRole(''ROLE_REFERENTE'', ''ROLE_ENTREVISTADOR'', ''ROLE_ORIENTADOR'')')}" class="itemContainer hover puedeSeleccionarse" onclick="mostrarTablas('Mis Postulantes')">
+                <iconify-icon icon="ion:calendar" width="20" height="20" class="menuIcon"></iconify-icon>
+                <span>Mis Postulantes</span>
+            </div>
             <div th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'', ''ROLE_ENTREVISTADOR'', ''ROLE_EVALUADOR'')')}" class="itemContainer hover puedeSeleccionarse" onclick="mostrarTablas('Acreditacion')">
                 <iconify-icon icon="ion:calendar" width="20" height="20" class="menuIcon"></iconify-icon>
                 <span>Turno Acreditación</span>

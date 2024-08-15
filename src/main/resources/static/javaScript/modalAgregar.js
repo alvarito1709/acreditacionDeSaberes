@@ -353,6 +353,7 @@ function agregarEntrevista(){
     const idInscripcion = document.getElementById("inscripcionId");
     const centrosParaEntrevista = document.getElementById("centrosParaEntrevista");
     const fechaDeEntrevista = document.getElementById("fechaDeEntrevista");
+    const entrevistadorInscripcion = document.getElementById("entrevistador");
 
 
     $.ajax({
@@ -361,7 +362,8 @@ function agregarEntrevista(){
         data: {
             inscripcionId:idInscripcion.value,
             centroId:centrosParaEntrevista.value,
-            fechaEntrevista:fechaDeEntrevista.value
+            fechaEntrevista:fechaDeEntrevista.value,
+            entrevistadorId: entrevistadorInscripcion.value
         },
         success: [function (respuesta){
             $("#tableContainer").html(respuesta);

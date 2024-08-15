@@ -22,4 +22,6 @@ public class InscripcionService {
     public List<Inscripcion> buscarInscripcionPorPostulante(Long id){return inscripcionRepository.findAllByPostulanteId(id);}
 
     public Optional<Inscripcion> buscarInscripcionPorId(Long id){return inscripcionRepository.findById(id);}
+
+    public List<Inscripcion> buscarInscripcionesPorEntrevistador(Long entrevistadorId){return inscripcionRepository.findAllByEntrevistadorId(entrevistadorId);}
 }

@@ -252,10 +252,12 @@ function mostrarCuestionario(){
 
     const modalContainer = document.getElementById("modalesParaAgregarContainer");
 
+    const trayectoSinTildes = trayectoNombre.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+
     $.ajax({
         type:'GET',
         url: url + "inscripcion/iniciarCuestionario",
-        data: {trayecto:trayectoNombre.toLowerCase().split(' ').join('')},
+        data: {trayecto:trayectoSinTildes.toLowerCase().split(' ').join('')},
         success: [function (response){
             $("#modalesParaAgregarContainer").html(response);
             modalContainer.style.display = "flex";

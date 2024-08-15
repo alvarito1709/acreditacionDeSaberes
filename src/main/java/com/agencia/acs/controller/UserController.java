@@ -169,21 +169,33 @@ public class UserController {
 
     @PostMapping("/guardarUsuario/{id}")
     @Transactional
-    public ResponseEntity<User> editarUsuario(@RequestBody User user, @PathVariable Long id){
+    public ModelAndView editarUsuario(@RequestBody User user,
+                                      @PathVariable Long id,
+                                      Model model){
 
         Optional<User> usuarioOptional = Optional.ofNullable(userService.buscarUsuario(id));
 
         if (!usuarioOptional.isPresent()){
-            return ResponseEntity.unprocessableEntity().build();
+             ResponseEntity.unprocessableEntity().build();
+
+             model.addAttribute("tabla", "Usuarios");
+
+            return new ModelAndView("tablas :: tablaQueCargo");
+        }else {
+            user.setPassword(passwordEncoder.passwordEncrypt(user.getPassword()));
+            user.setId(id);
+
+            userService.guardarUsuario(user);
+
+            ResponseEntity.noContent().build();
+
+            model.addAttribute("tabla", "Usuarios");
+
+            return new ModelAndView("tablas :: tablaQueCargo");
         }
 
 
-        user.setPassword(passwordEncoder.passwordEncrypt(user.getPassword()));
-        user.setId(id);
 
-        userService.guardarUsuario(user);
-
-        return ResponseEntity.noContent().build();
 
     }
 

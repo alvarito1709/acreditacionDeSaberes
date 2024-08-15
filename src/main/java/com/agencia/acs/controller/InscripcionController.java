@@ -130,6 +130,7 @@ public class InscripcionController {
     @PostMapping("/agregarEntrevista")
     public ModelAndView agregarEntrevista(@RequestParam(value = "inscripcionId") Long inscripcionId,
                                           @RequestParam(value = "centroId") Long centroId,
+                                          @RequestParam(value = "entrevistadorId" )Long entrevistadorId,
                                           @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") Date fechaEntrevista,
                                           Model model){
 
@@ -137,11 +138,15 @@ public class InscripcionController {
 
         Optional<Centro> centroOptional = Optional.ofNullable(centroService.buscarCentroPorId(centroId));
 
+        Optional<Entrevistador> entrevistadorOptional = entrevistadorService.buscarEntrevistadorPorId(entrevistadorId);
+
         if (inscripcionOptional.isPresent()){
             Inscripcion inscripcion = inscripcionOptional.get();
             Centro centro = centroOptional.get();
+            Entrevistador entrevistador = entrevistadorOptional.get();
 
             inscripcion.setCentro(centro);
+            inscripcion.setEntrevistador(entrevistador);
             inscripcion.setEstado("Con Turno Entrevista");
             inscripcion.setFechaEntrevista(fechaEntrevista);
 
