@@ -150,6 +150,16 @@ public class publicController {
             model.addAttribute("inscripciones", inscripciones.get());
         }
 
+        if (Objects.equals(tabla, "Mis Postulantes")){
+
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            CustomUserDetails userDetails = (CustomUserDetails) auth.getPrincipal();
+            Long userId = userDetails.getId();
+
+            List<Postulante> postulantes = inscripcionService.buscarPostulantesPorEntrevistadorEnLaInscripcion(userId);
+            model.addAttribute("postulantes", postulantes);
+        }
+
 
        return  new ModelAndView("tablas :: tablaQueCargo");
 
