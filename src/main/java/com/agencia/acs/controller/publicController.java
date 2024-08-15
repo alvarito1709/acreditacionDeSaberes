@@ -140,7 +140,7 @@ public class publicController {
             model.addAttribute("inscripciones", inscripciones.get());
         }
 
-        if (Objects.equals(tabla, "Mis Postulantes")){
+        if (Objects.equals(tabla, "Mis Entrevistas")){
 
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             CustomUserDetails userDetails = (CustomUserDetails) auth.getPrincipal();

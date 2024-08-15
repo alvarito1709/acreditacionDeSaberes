@@ -793,13 +793,53 @@
 
             </div>
 
+            <div th:if="${tabla == 'Mis Entrevistas'}">
+
+                <h1 class="tituloTabla">Gestión de Entrevistas</h1>
+
+                <div class="backgroundTabla">
+                    <h4 class="tituloDentroDeTabla">Postulantes con turno</h4>
+                    <table id="tablasMisEntrevistas" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Fecha<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Postulante<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Trayecto<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Turno</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="inscripcion : ${inscripciones}">
+                            <td th:text="${inscripcion.id}">id/td>
+                            <td th:text="${inscripcion.centro.nombre}">CENTRO</td>
+                            <td th:text="${#dates.format(inscripcion.fechaEntrevista, 'dd/MM/yyyy-HH:MM')}">fecha</td>
+                            <td th:text="${inscripcion.postulante.nombre}">postulante</td>
+                            <td th:text="${inscripcion.trayecto.nombre}">trayecto</td>
+                            <td th:text="${inscripcion.estado}">estado</td>
+                            <td><i class="bi bi-calendar-plus"></i></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+
+
+            </div>
+
 
             <div th:if="${tabla == 'Mis Postulantes'}">
 
                 <h1 class="tituloTabla">Mis usuarios postulantes</h1>
 
                 <div class="backgroundTabla">
-                    <table id="tablaGestionDePostulantes" >
+                    <table id="tablaMisPostulantes" >
                         <thead class="headerTabla">
                         <tr>
                             <th class="itemTitulo">#</th>
