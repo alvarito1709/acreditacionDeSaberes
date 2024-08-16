@@ -700,7 +700,12 @@
                                 <label for="dniPostulante">DNI</label><input th:value="${postulantes.DNI}" id="dniPostulante">
                             </div>
                             <div class="contenedorLabelInput">
-                                <label for="generoPostulante">GENERO</label><input th:value="${postulantes.genero}" id="generoPostulante">
+                                <label for="generoPostulante">GENERO</label><select th:value="${postulantes.genero}" id="generoPostulante">
+                                <option th:text="${postulantes.genero}" th:value="${postulantes.genero}"></option>
+                                <option value="MASCULINO">MASCULINO</option>
+                                <option value="FEMENINO">FEMENINO</option>
+                                <option value="X">X</option>
+                            </select>
                             </div>
 
                             <div class="contenedorLabelInput">
@@ -718,14 +723,21 @@
 
                       <div class="divisorAlMedio">
                           <div class="contenedorLabelInput">
-                              <label for="nacionalidadDelPostulante">NACIONALIDAD</label><input th:value="${postulantes.nacionalidad}" id="nacionalidadDelPostulante">
+                              <label for="nacionalidadDelPostulante">NACIONALIDAD</label><select th:value="${postulantes.nacionalidad}" id="nacionalidadDelPostulante">
+                              <option th:value="${postulantes.nacionalidad}" th:text="${postulantes.nacionalidad}"></option>
+                          </select>
                           </div>
 
                           <div class="contenedorLabelInput">
-                              <label for="provinciaPostulante">PROVINCIA</label><input th:value="${postulantes.provincia}" id="provinciaPostulante">
+                              <label for="provinciaPostulante">PROVINCIA</label>
+                              <select th:value="${postulantes.provincia}" id="provinciaPostulante" th:onchange="listarMunicipios()">
+                                  <option th:value="${postulantes.provincia}"  th:text="${postulantes.provincia}"></option>
+                              </select>
                           </div>
                           <div class="contenedorLabelInput">
-                              <label for="localidadPostulante">LOCALIDAD</label><input th:value="${postulantes.localidad}" id="localidadPostulante">
+                              <label for="localidadPostulante">LOCALIDAD</label><select th:value="${postulantes.localidad}" id="localidadPostulante">
+                              <option th:value="${postulantes.localidad}" th:text="${postulantes.localidad}"></option>
+                          </select>
                           </div>
 
                           <div class="contenedorLabelInput">

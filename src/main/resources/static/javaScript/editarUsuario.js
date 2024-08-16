@@ -105,6 +105,7 @@ function editarDatosPostulante(){
         data:dataString,
         success: [function (respuesta){
             $("#tableContainer").html(respuesta);
+            alert("Datos editados con éxito");
         }]
 
     })

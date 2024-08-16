@@ -4,6 +4,7 @@ const url = "https://inscripcionesagencia.bue.edu.ar/acreditaciondesaberes/"
 
 
 
+
 const listaDesplegable = document.getElementById("listaEditables");
 const elementosSeleccionables = document.getElementsByClassName("puedeSeleccionarse");
 
@@ -314,5 +315,80 @@ function mostrarModalParaAgregarTurnoAPostulante(id){
             elementosSeleccionables[i].classList.add('selected');
 
         })
+    }
+
+
+    function buscarPaises(){
+        fetch('https://restcountries.com/v3.1/all')
+            .then(response => response.json())
+            .then(data => {
+
+                data.sort((a, b) => a.name.common.localeCompare(b.name.common))
+
+                // Para crear una lista desplegable en HTML, puedes iterar sobre los datos y crear opciones
+                const selectElement = document.getElementById('nacionalidadDelPostulante');
+                data.forEach(country => {
+                    const option = document.createElement('option');
+                    option.value = country.name.common; // Código ISO de 2 letras
+                    option.text = country.name.common; // Nombre común del país
+                    selectElement.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+
+
+
+async function obtenerProvincias() {
+    fetch('https://apis.datos.gob.ar/georef/api/provincias?campos=id,nombre')
+        .then(response => response.json())
+        .then(data => {
+
+            data.provincias.sort((a, b) => a.nombre.localeCompare(b.nombre))
+
+            // Para crear una lista desplegable en HTML, puedes iterar sobre los datos y crear opciones
+            const selectElement = document.getElementById('provinciaPostulante');
+            data.provincias.forEach(provincia => {
+                const option = document.createElement('option');
+                option.value = provincia.nombre; // Código ISO de 2 letras
+                option.text = provincia.nombre; // Nombre común del país
+                option.setAttribute('data', provincia.id);
+                selectElement.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+    function listarMunicipios(){
+        const selectedElement = document.getElementById('provinciaPostulante');
+        const optionIndex = selectedElement.selectedIndex;
+
+        const option = selectedElement.children[optionIndex];
+
+        const localidadSelect = document.getElementById('localidadPostulante');
+
+        while(localidadSelect.firstChild){
+            localidadSelect.removeChild(localidadSelect.firstChild);
+        }
+
+        fetch('https://apis.datos.gob.ar/georef/api/municipios?provincia=' + option.getAttribute('data') + '&campos=id,nombre&max=100')
+            .then(response => response.json())
+            .then(data => {
+
+                data.municipios.sort((a, b) => a.nombre.localeCompare(b.nombre))
+
+                // Para crear una lista desplegable en HTML, puedes iterar sobre los datos y crear opciones
+
+                data.municipios.forEach(municipio => {
+                    const elementoOption = document.createElement('option');
+                    elementoOption.value = municipio.nombre; // Código ISO de 2 letras
+                    elementoOption.text = municipio.nombre; // Nombre común del país
+                    localidadSelect.appendChild(elementoOption);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+
+
     }
 
