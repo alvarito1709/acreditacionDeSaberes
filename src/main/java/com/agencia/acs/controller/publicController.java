@@ -65,7 +65,14 @@ public class publicController {
     public String regitro(){ return "registro";}
 
     @GetMapping("/board")
-    public String board(){
+    public String board(HttpSession http, Model model){
+
+        User user = (User) http.getAttribute("usuariosession");
+
+        if (user != null) {
+            model.addAttribute("usuario", user);
+        }
+
         return "board";
     }
 

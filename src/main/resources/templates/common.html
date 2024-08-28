@@ -18,10 +18,17 @@
     <header id="pageHeader" th:fragment="header">
 
         <div id="logoCiudadContainer">
+            <img th:src="@{/img/logoBASoloNuevo.png}" alt="logo Buenos Aires Aprende" id="logoAgencia">
             <img th:src="@{/img/logoAgenciaNegro.png}" alt="logo Buenos Aires Aprende" id="logoAgencia">
         </div>
 
-        <div id="loguearse" >
+        <div class="contenedorBotonesDeSeccion"  th:unless="${usuario}">
+            <a href="/info">Información</a>
+            <a href="/registro">Registro</a>
+            <a href="login"><button class="botonIniciarSesion">  Ingresar</button></a>
+        </div>
+
+        <div id="loguearse" th:if="${usuario}">
             <form method="POST" th:action="@{/logout}">
                 <a  href="#" onclick="this.parentNode.submit()"><iconify-icon icon="mdi:location-exit" width="28" height="28" style="color:rgba(0, 0, 0, 0.44)"></iconify-icon></a>
             </form>

@@ -42,6 +42,9 @@ public class InscripcionController {
     @Autowired
     EntrevistadorService entrevistadorService;
 
+    @Autowired
+    OrientadorService orientadorService;
+
     @GetMapping("")
     public ModelAndView inscripcion(Model model){
         List<Sector> sectores = sectorService.listarSectores();
@@ -125,6 +128,21 @@ public class InscripcionController {
 
 
         return new ModelAndView("modalCentros::modalAgregarEntrevista");
+    }
+
+    @GetMapping("/modalAgregarTurnoAcreditacion")
+    public ModelAndView mostrarModalParaAgregarTurnoAcreditacion(@RequestParam(value = "idInscripcion") Long idInscripcion,
+                                                                 Model model){
+        Optional<Inscripcion> inscripcion = inscripcionService.buscarInscripcionPorId(idInscripcion);
+
+        model.addAttribute("inscripcion", inscripcion.get());
+
+        List<Orientador> orientadores = orientadorService.buscarOrientadoresPorCentro(inscripcion.get().getCentro().getId());
+
+        model.addAttribute("orientadores", orientadores);
+
+
+        return new ModelAndView("modalCentros::modalAgregarAcreditacion");
     }
 
     @PostMapping("/agregarEntrevista")

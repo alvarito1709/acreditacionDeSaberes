@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/hatch.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
 <body>
 
@@ -34,20 +35,72 @@
     <div class="bodyContainer" >
 
         <div id="logoBienvenidaContainer">
-            <img th:src="@{/img/logo_ACS.png}">
+
+            <img th:src="@{/img/logoACS_blanco.png}">
+
+            <div class="ladoDerechoBienvenida">
+
+                <div id="textoBienvenida">
+                    <h2>Bienvenido a Acreditación de Saberes</h2>
+                    <p>El programa Acreditación de Saberes de la Ciudad te permite acreditar tus habilidades y conocimientos en un oficio. </p>
+                </div>
+
+                <div id="contenedorBotones">
+                    <a href="info"><button class="botonAcreditacion">Mas Información</button></a>
+                </div>
+            </div>
+
         </div>
 
-        <div id="textoBienvenida">
-            <h3>¿Eres experto en un oficio? ¡Obtén tu certificado oficial!</h3>
-            <br>
-            <br>
-            <p>El programa Acreditación de Saberes de la Ciudad te permite acreditar tus habilidades y conocimientos en un oficio. </p>
+        <h2 class="inscribite">¡Inscribite y da un salto en tu vida profesional!</h2>
+
+        <div class="cardsContainer">
+
+            <div class="cardBody">
+                <div class="cardHeader">
+                    <iconify-icon icon="solar:diploma-verified-bold" width="55" height="55"  style="color: #153244"></iconify-icon>
+                    <h3>¿Tienes experiencia o conocimientos en un oficio y deseas que sean reconocidos?</h3>
+                </div>
+
+                <div class="cardText">
+                    <p>¡El programa Acreditación de Saberes de la Ciudad te brinda la oportunidad!</p>
+                    <p>¡Reconoce tus habilidades y obtén tu certificado oficial!</p>
+                </div>
+            </div>
+
+            <div class="cardBody">
+                <div class="cardHeader">
+                    <iconify-icon icon="ph:question-bold" width="55" height="55"  style="color: #153244"></iconify-icon>
+                    <h3>¿Qué es?</h3>
+                </div>
+
+                <div class="cardText">
+                    <p>Es una iniciativa que te permite acreditar oficialmente los
+                        saberes que has adquirido a través de tu experiencia laboral o formación,
+                        independientemente de si fue en un ámbito formal o no formal.</p>
+                </div>
+            </div>
+
+            <div class="cardBody">
+                <div class="cardHeader">
+                    <iconify-icon icon="mdi:university" width="55" height="55"  style="color: #153244"></iconify-icon>
+                    <h3>¿Cuáles son los pasos a seguir?</h3>
+                </div>
+
+                <div class="cardText">
+                    <p>Podés consultar los pasos a seguir, así como mas información acá</p>
+                    <a href="info"><button class="botonAcreditacion">Más Información <i class="bi bi-arrow-right-short"></i></button></a>
+                </div>
+            </div>
         </div>
 
-        <div id="contenedorBotones">
-            <a href="info"><button class="botonAcreditacion">¡REGISTRARME!</button></a>
-            <a href="login"><button class="botonAcreditacion">  INICIAR SESIÓN</button></a>
+        <div class="contactoContainer">
+            <h2>¿Querés que te contactemos?</h2>
+            <div class="contacto">
+                <input type="email" placeholder="Ingresá tu email" class="inputContacto"> <button class="botonIniciarSesion">Enviar</button>
+            </div>
         </div>
+
     </div>
 
 <th:block th:replace="common :: footer"></th:block>

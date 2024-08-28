@@ -44,4 +44,6 @@ public class OrientadorService {
 
         return Optional.ofNullable(orientadorOptional.get().getCentros());
     }
+
+    public List<Orientador> buscarOrientadoresPorCentro(Long idCentro){return orientadorRepository.findAllByCentrosId(idCentro);}
 }

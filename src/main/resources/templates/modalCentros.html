@@ -273,6 +273,57 @@
 
     </div>
 
+    <div class="modalContainerCentros" th:fragment="modalAgregarAcreditacion(${inscripcion}, ${orientadores})">
+
+        <div class="modalYHeader">
+
+            <div class="divisorInternoDelModal" id="modalHeader">
+                <h4>Agregar Turno de Acreditacion</h4>
+                <h4 onclick="ocultarModalAgregar()"><i class="bi bi-x-square"></i></h4>
+            </div>
+
+            <div class="modal" id="modalAgregarAcreditacion" th:each="inscripcionData : ${inscripcion}">
+
+                <div class="divisorInternoDelModal">
+                    <label for="inscripcionId" th:text="${inscripcionData.postulante.nombre}">Nombre</label>
+                    <input type="text" id="inscripcionId" th:value="${inscripcionData.id}" hidden>
+
+                    <label for="trayectoDePostulante" th:text="${inscripcion.trayecto.nombre}">TRAYECTO<input id="trayectoDePostulante" th:value="${inscripcion.trayecto.id}" hidden></label>
+                </div>
+
+                <div class="divisorInternoDelModal">
+                    <label for="fechaDeAcreditacion">Fecha de Acreditacion
+                    <input type="datetime-local" id="fechaDeAcreditacion">
+                    </label>
+
+                    <label for="centroDeInscripcion" th:text="${inscripcion.centro.nombre}">CENTRO:<input id="centroDeInscripcion" th:value="${inscripcion.centro.id}" hidden>
+                    </label>
+
+                </div>
+
+
+                <div class="divisorInternoDelModal">
+
+                    <label for="orientador">Orientador
+                    <select  id="orientador">
+                        <option></option>
+                        <option th:each="orientador : ${orientadores}" th:text="${orientador.nombre}" th:value="${orientador.id}"></option>
+                    </select>
+                    </label>
+
+
+                    <button class="botonAcreditacion"  onclick="agregarAcreditacion()">GUARDAR</button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
 
 <script th:src="@{/javaScript/modalAgregar.js}"></script>
 

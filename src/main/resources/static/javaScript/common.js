@@ -392,3 +392,23 @@ async function obtenerProvincias() {
 
     }
 
+    function mostrarModalParaAgregarTurnoAcreditacion(id){
+
+        const urlModal = url+"inscripcion/modalAgregarTurnoAcreditacion";
+        const modalContainer = document.getElementById("modalesParaAgregarContainer");
+
+        $.ajax({
+            type:'GET',
+            url:urlModal,
+            data:{
+                idInscripcion:id
+            },
+
+            success: function (respuesta){
+                $("#modalesParaAgregarContainer").html(respuesta);
+                modalContainer.style.display = "flex";
+            }
+        })
+
+    }
+

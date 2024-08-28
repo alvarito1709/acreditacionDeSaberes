@@ -28,6 +28,10 @@ public class Inscripcion {
     @JoinColumn(name = "centro_id")
     private Centro centro;
 
+    @ManyToOne
+    @JoinColumn(name = "orientador_id")
+    private Orientador orientador;
+
     private String estado;
 
     private String nota;
@@ -106,5 +110,13 @@ public class Inscripcion {
 
     public void setEntrevistador(Entrevistador entrevistador) {
         this.entrevistador = entrevistador;
+    }
+
+    public Orientador getOrientador() {
+        return orientador;
+    }
+
+    public void setOrientador(Orientador orientador) {
+        this.orientador = orientador;
     }
 }

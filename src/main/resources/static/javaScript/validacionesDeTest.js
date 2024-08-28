@@ -6,7 +6,7 @@ function validarTrayecto(){
 
     const preguntas = document.getElementsByClassName("respuestaSelect");
     let puntaje = 0;
-    let puntajeMinimo = preguntas.length/2;
+    let puntajeMinimo = preguntas.length * 0.8;
     let estado = "";
 
        for(let i = 0; i < preguntas.length; i++){

@@ -17,7 +17,7 @@
 
             <div th:if="${tabla == 'Postulantes'}">
 
-                <h1 class="tituloTabla">Gestión Postulantes</h1>
+                <h1 class="tituloTabla">Gestión de Postulantes</h1>
 
                 <div class="backgroundTabla">
                     <table id="tablaGestionDePostulantes" >
@@ -29,7 +29,6 @@
                             <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Postulante <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo"></th>
                         </tr>
                         </thead>
 
@@ -41,9 +40,7 @@
                             <td th:text="${postulante.trayecto}">Panadero</td>
                             <td th:text="${postulante.nombre}">postulante1</td>
                             <td th:text="${postulante.estado}">NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
-                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones"></i>
-                            </td>
+
                         </tr>
 
                         </tbody>
@@ -661,8 +658,8 @@
                             <td th:text="${postulante.mail}">4301-3655/ 4304-7061</td>
                             <td th:text="${postulante.fechaDeAlta}">ursula.portillo@bue.edu.ar</td>
                             <td th:text="${postulante.estado}">10/11/2023</td>
-                            <td><i class="bi bi-pencil-square iconoAcciones"></i>
-                                <i class="bi bi-trash iconoAcciones"></i>
+                            <td><i class="bi bi-pencil-square iconoAcciones" th:id="${postulante.id}" onclick="mostrarModalParaEditar(this,'Usuarios')"></i>
+                                <i class="bi bi-trash iconoAcciones" th:id="${postulante.id}" th:data="${tabla}" onclick="mostrarAdvertencia(this)"></i>
                             </td>
                         </tr>
 
@@ -832,7 +829,7 @@
                             <td th:text="${inscripcion.postulante.nombre}">postulante</td>
                             <td th:text="${inscripcion.trayecto.nombre}">trayecto</td>
                             <td th:text="${inscripcion.estado}">estado</td>
-                            <td><i class="bi bi-calendar-plus"></i></td>
+                            <td><i class="bi bi-calendar-plus" th:id="${inscripcion.id}" th:data="${inscripcion}" onclick="mostrarModalParaAgregarTurnoAcreditacion(this.id)"></i></td>
                         </tr>
 
                         </tbody>
