@@ -41,7 +41,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: end;
     flex-wrap: wrap;
     width: 30%;
 }
@@ -67,4 +67,8 @@
 .botonIniciarSesion:hover{
     background-color: #341186;
     cursor: pointer;
+}
+
+.botonRegistro{
+    margin-right: 10px;
 }
