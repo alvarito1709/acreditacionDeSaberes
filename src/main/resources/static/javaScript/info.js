@@ -103,18 +103,118 @@ function ocultarListaOficios(sector){
 
     sectorId.style.display = "none";
     flechaQueAparece.style.display = "inline";
+    const tamanoElemento = parent.offsetHeight - calcularTamañoElemento(tipoDeOficio);
+
+    tipoDeOficio.style.display = "none";
 
 
-    gsap.to(tipoDeOficio,{
-        duration: 0.1,
-        ease:"circ.in",
-        display: "none",
-        onComplete: () => gsap.to(parent,{
-            duration: 0.3,
-            ease: "circ.in",
-            height: "fit-content"
+    gsap.to(parent,{
+        height:tamanoElemento,
+        ease: "circ.in",
+        duration: .3,
 
-        })
+        onComplete: () => gsap.set(parent,{height:"fit-content"})
     })
 
+}
+
+function desplegarListaPasosASeguir(elemento){
+
+    const elementoADesplegar = document.getElementById(elemento);
+    let arrow;
+    let arrowParaOcultar;
+    const elementoPadre = elementoADesplegar.parentElement;
+
+    switch (elemento){
+
+        case 'paso1':
+            arrow = document.getElementById("arrowPaso1Down");
+            arrowParaOcultar = document.getElementById("arrowPaso1");
+            break
+
+        case 'paso2':
+            arrow = document.getElementById("arrowPaso2Down");
+            arrowParaOcultar = document.getElementById("arrowPaso2");
+            break
+
+        case 'paso3':
+            arrow = document.getElementById("arrowPaso3Down");
+            arrowParaOcultar = document.getElementById("arrowPaso3");
+            break
+
+        case 'paso4':
+            arrow = document.getElementById("arrowPaso4Down");
+            arrowParaOcultar = document.getElementById("arrowPaso4");
+            break
+
+        case 'paso5':
+            arrow = document.getElementById("arrowPaso5Down");
+            arrowParaOcultar = document.getElementById("arrowPaso5");
+            break
+    }
+
+    arrowParaOcultar.style.display = "none";
+    arrow.style.display = "inline";
+
+    let tamanoElemento = calcularTamañoElemento(elementoADesplegar);
+
+    gsap.to(elementoPadre,{
+        height:elementoPadre.offsetHeight + tamanoElemento,
+        ease: "circ.out",
+        duration: .3,
+
+        onComplete: () => gsap.set(elementoADesplegar, {display:"block"})
+    })
+
+}
+
+function ocultarListaPasosASeguir(elemento){
+    const elementoAOcultar = document.getElementById(elemento);
+    let arrow;
+    let arrowParaOcultar;
+    const elementoPadre = elementoAOcultar.parentElement;
+
+    switch (elemento){
+
+        case 'paso1':
+            arrowParaOcultar = document.getElementById("arrowPaso1Down");
+            arrow = document.getElementById("arrowPaso1");
+            break
+
+        case 'paso2':
+            arrowParaOcultar = document.getElementById("arrowPaso2Down");
+            arrow = document.getElementById("arrowPaso2");
+            break
+
+        case 'paso3':
+            arrowParaOcultar = document.getElementById("arrowPaso3Down");
+            arrow = document.getElementById("arrowPaso3");
+            break
+
+        case 'paso4':
+            arrowParaOcultar = document.getElementById("arrowPaso4Down");
+            arrow = document.getElementById("arrowPaso4");
+            break
+
+        case 'paso5':
+            arrowParaOcultar = document.getElementById("arrowPaso5Down");
+            arrow = document.getElementById("arrowPaso5");
+            break
+    }
+
+    arrowParaOcultar.style.display = "none";
+    arrow.style.display = "inline";
+
+    let tamanoElemento = elementoPadre.offsetHeight - calcularTamañoElemento(elementoAOcultar);
+
+    gsap.to(elementoPadre,{
+        height: tamanoElemento ,
+        ease: "circ.in",
+        duration: .3,
+
+        onComplete: () => {
+            gsap.set(elementoAOcultar, {display: "none"})
+            gsap.set(elementoPadre,{height:"fit-content"})
+        }
+    })
 }
