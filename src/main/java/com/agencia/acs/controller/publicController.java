@@ -54,7 +54,19 @@ public class publicController {
     InscripcionService inscripcionService;
 
     @GetMapping("/login")
-    public String login(){
+    public String login(Model model,
+                        @RequestParam(value = "error", required = false) String error,
+                        @RequestParam(value = "errorType", required = false) String errorType) {
+        if (error != null) {
+            if ("username".equals(errorType)) {
+                model.addAttribute("usernameError", "Nombre de usuario inválido");
+            } else if ("credentials".equals(errorType)) {
+                model.addAttribute("passwordError", "Usuario o contraseña inválidos");
+                model.addAttribute("usernameError", "Usuario o contraseña inválidos");
+            } else {
+                model.addAttribute("loginError", "Credenciales inválidas");
+            }
+        }
         return "login";
     }
 

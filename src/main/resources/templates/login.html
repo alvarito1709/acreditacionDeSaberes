@@ -8,6 +8,8 @@
     <link rel="stylesheet" th:href="@{/css/login.css}">
     <link rel="stylesheet" th:href="@{/css/header.css}">
     <link rel="stylesheet" th:href="@{/css/footer.css}">
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
 <body>
 
@@ -15,27 +17,50 @@
 
     <div id="loginContainer">
 
-            <img th:src="@{/img/logo_ACS.png}" id="userIcon">
+        <div class="formContainer">
 
-        <form  th:action="@{/login}" method="POST">
+            <form  th:action="@{/login}" method="POST">
 
-
-            <input type="text" name="username" id="username" placeholder="Ingresá tu DNI" class="datoIngreso" />
-            <br>
-
-            <input type="password" name="password" id="password" placeholder="Contraseña"  class="datoIngreso" />
-            <br>
-            <input type="submit" value="INGRESAR" id="inputSubmit">
-
-            <div id="perdioContraseñaContainer">
-                <div class="recordarUsuarioContainer">
-                    <input type="checkbox" id="recordarUsuario">
-                    <label for="recordarUsuario">Recordar</label>
+                <div id="loginTextHeader">
+                    <h2>Iniciar Sesión</h2>
+                    <p>Ingresa a tu cuenta de Acreditación de Saberes</p>
                 </div>
 
-                <a>Olvidé mi contraseña</a>
-            </div>
-        </form>
+                <label for="username">Ingresa tu DNI</label>
+
+                <div class="inputEIcono">
+                    <iconify-icon icon="material-symbols:id-card-outline-rounded" width="28" height="28"  style="color: #655f5f"></iconify-icon>
+                    <input type="text" name="username" id="username" placeholder="Ingresá tu DNI" class="datoIngreso" />
+                </div>
+
+                <p class="advertenciaRoja" th:if="${usernameError}" th:text="${usernameError}"> Este campo solo acepta caracteres numericos</p>
+
+                <br>
+
+                <label for="password">Contraseña</label>
+
+                <div class="inputEIcono">
+                    <iconify-icon icon="mdi:password-outline" width="28" height="28"  style="color: #655f5f"></iconify-icon>
+                    <input type="password" name="password" id="password" placeholder="Contraseña"  class="datoIngreso" />
+                </div>
+
+                <p class="advertenciaRoja" th:if="${passwordError}" th:text="${passwordError}"> Revise su contraseña</p>
+
+                <div class="recordarUsuarioContainer">
+                    <input type="checkbox" id="recordarUsuario">
+                    <label for="recordarUsuario">Recordarme</label>
+                </div>
+
+                <input type="submit" value="Iniciar Sesión" id="inputSubmit">
+
+                <div id="perdioContraseñaContainer">
+
+                    <p><a>Olvidé mi contraseña</a></p>
+                    <p>¿No tienes cuenta?<a>Registrate aquí</a></p>
+                </div>
+            </form>
+        </div>
+
 
     </div>
 

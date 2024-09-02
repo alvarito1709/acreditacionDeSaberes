@@ -8,61 +8,103 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-items: center;
-    padding: 10px;
-
+    justify-content: center;
+    padding: 80px;
+    background-color: whitesmoke;
     min-height: 80vh;
 }
 
+.formContainer{
+    background-color: #FFFFFF;
+    width: 400px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    border: 1px solid #e5e3e3;
+    justify-content: space-evenly;
+    border-radius: 5px;
+}
+
+#loginTextHeader{
+    display: flex;
+    flex-direction: column;
+    color: #153244;
+    height: 15%;
+    justify-content: space-evenly;
+}
+
+#loginTextHeader p{
+    font-size: .8rem;
+    color: grey;
+}
+
 #loginContainer form{
-    width: 40%;
-    height: 300px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    height: 100%;
+    width: 90%;
+    justify-content: space-evenly;
+}
+
+form label:not:last-child{
+    font-size: .9rem;
+    font-weight: 400;
+    padding-left: 30px;
+}
+
+.inputEIcono{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     align-items: center;
-    justify-items: center;
-    justify-content: space-around;
 }
 
 .datoIngreso{
 
-    border: 1px solid #7f1bbf;
-    color: #7f1bbf;
-    padding: 20px 25px;
-    border-radius: 30px;
-
+    border: 1px solid #bbbaba;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
     font-weight: 600;
-    text-align: center;
+    flex: 1;
 }
 
 .datoIngreso::placeholder{
-    color: #7f1bbf;
+    color: #655f5f;
     font-family: 'Archivo', sans-serif;
     font-weight: 600;
 }
 
 #inputSubmit{
-    padding: 20px 30px;
-    border: none;
-    background-color: #DEDDD8;
-    font-weight: 600;
-    border-radius: 30px;
+    padding: 10px;
+    font-weight: 450;
+    border-radius: 5px;
+    border: 1px solid #bbbaba;
+    background-color: #153244;
+    color: white;
 }
 
-
-#loginContainer img{
-    width: 60%;
-    margin: auto;
-}
 
 #perdioContraseñaContainer{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-    font-weight: 600;
+    font-weight: 400;
     width: 100%;
+}
+
+#perdioContraseñaContainer p{
+    text-align: center;
+}
+
+#perdioContraseñaContainer a{
+    color: #153244;
+    text-decoration: none;
 }
 
 .recordarUsuarioContainer{
@@ -72,11 +114,16 @@
     flex-wrap: nowrap;
 }
 
+.recordarUsuarioContainer input{
+    margin-right: 10px;
+}
+
+.advertenciaRoja{
+    color: red;
+}
+
 @media (max-width: 480px) {
 
-    #loginContainer{
-        flex-direction: column;
-    }
 
     #loginContainer form{
         width: auto !important;
