@@ -142,6 +142,11 @@
     border-radius: 5px;
     width: 25%;
     height: max-content;
+    list-style-position: inside;
+}
+
+.sectoresContainer ul{
+    padding: 10px;
 }
 
 
@@ -246,4 +251,37 @@ p a {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+@media(max-width: 480px) {
+
+    #bannerInfoContainer{
+        width: unset;
+        height: 70vh;
+    }
+
+    #subtituloBanner{
+        flex-direction: column;
+    }
+
+    .contenedorBlanco{
+        width: unset;
+    }
+
+    .tituloInfoAzul{
+        text-align: center;
+    }
+
+    .oficiosContainer{
+        flex-direction: column;
+        align-content: unset;
+    }
+
+    .sectoresContainer{
+        width: unset;
+    }
+
+    .tituloInfo{
+        font-size: large;
+    }
 }

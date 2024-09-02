@@ -184,19 +184,48 @@
 }
 
 
-@media(max-width: 480px){
+@media(max-width: 688px){
 
     #logoBienvenidaContainer{
         justify-content: center;
         flex-direction: row;
-        align-content: space-around;
-        height: unset;
+        align-content: space-evenly;
+        height: 70vh;
     }
 
     #logoBienvenidaContainer img{
         width: 350px;
         height: auto;
         margin: auto;
+    }
+
+    #textoBienvenida{
+        text-align: center;
+    }
+
+    #contenedorBotones{
+        justify-content: center;
+    }
+
+    .inscribite{
+        text-align: center;
+    }
+
+    .cardsContainer{
+        height: 150vh;
+    }
+
+    .contactoContainer{
+        min-height: 20vh;
+        justify-content: space-around;
+    }
+
+    .contactoContainer h2{
+        text-align: center;
+    }
+
+    .inputContacto{
+        width: unset;
     }
 
     .botonAcreditacion{
@@ -212,4 +241,14 @@
         width: 100% !important;
     }
 
+}
+
+@media(max-width:1024px) and (min-width: 689px){
+    #logoBienvenidaContainer{
+        flex-direction: column;
+    }
+
+    #logoBienvenidaContainer img{
+        width: 500px;
+    }
 }
