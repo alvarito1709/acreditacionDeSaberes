@@ -184,7 +184,7 @@
 }
 
 
-@media(max-width: 688px){
+@media (max-width:990px){
 
     #logoBienvenidaContainer{
         justify-content: center;
@@ -194,9 +194,13 @@
     }
 
     #logoBienvenidaContainer img{
-        width: 350px;
+        width: 80vw;
         height: auto;
         margin: auto;
+    }
+
+    .cardBody{
+        height: unset;
     }
 
     #textoBienvenida{
@@ -212,7 +216,7 @@
     }
 
     .cardsContainer{
-        height: 150vh;
+        height: 80vh;
     }
 
     .contactoContainer{
@@ -243,12 +247,16 @@
 
 }
 
-@media(max-width:1024px) and (min-width: 689px){
+@media(min-width:991px){
     #logoBienvenidaContainer{
         flex-direction: column;
     }
 
     #logoBienvenidaContainer img{
         width: 500px;
+    }
+
+    .oficiosContainer{
+        height: 60vh;
     }
 }

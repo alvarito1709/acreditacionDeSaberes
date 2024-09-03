@@ -9,6 +9,7 @@
     <link rel="stylesheet" th:href="@{/css/header.css}">
     <link rel="stylesheet" th:href="@{/css/footer.css}">
 
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
 <body>
 
@@ -30,12 +31,62 @@
 
 <div id="bodyContainer">
     <div id="formContainer">
-        <h3>REGISTRO</h3>
-        <input type="text" id="nombreUsuarioNuevo" placeholder="Nombre y Apellido">
-        <input type="email" id="emailUsuarioNuevo" placeholder="Email">
-        <input type="text" id="dniUsuarioNuevo" placeholder="DNI (sin puntos)">
-        <input type="password" id="passwordUsuarioNuevo" placeholder="Password">
-        <button type="submit" id="registro" onclick="registrarPostulante()">REGISTRARME</button>
+        <div class="textHeader">
+            <h3 class="tituloRegistroAzul">REGISTRO</h3>
+            <p class="tituloRegistroAzul">Crea tu cuenta en Acreditación de Saberes</p>
+        </div>
+
+        <label for="nombreUsuarioNuevo">Nombre y Apellido</label>
+        <div class="icono-inputContainer">
+            <iconify-icon icon="mdi:user-outline" width="28" height="28"  style="color: #655f5f"></iconify-icon>
+            <input type="text" id="nombreUsuarioNuevo" placeholder="Tu nombre y apellido completo">
+        </div>
+
+        <p class="alertaRoja" id="alertaNombre" hidden>Este campo solo admite caracteres alfabéticos</p>
+
+        <label for="emailUsuarioNuevo">Email</label>
+        <div class="icono-inputContainer">
+            <iconify-icon icon="mdi:email-outline" width="28" height="28"  style="color: #655f5f"></iconify-icon>
+            <input type="email" id="emailUsuarioNuevo" placeholder="tu@mail.com">
+        </div>
+
+        <p class="alertaRoja" id="alertaEmail" hidden>Email invalido</p>
+
+
+        <label for="dniUsuarioNuevo">DNI</label>
+        <div class="icono-inputContainer">
+            <iconify-icon icon="mdi:id-card-outline" width="28" height="28"  style="color: #655f5f"></iconify-icon>
+            <input type="text" id="dniUsuarioNuevo" placeholder="DNI (sin puntos) Ejemp. 22333444">
+        </div>
+
+        <p class="alertaRoja" id="alertaDNI" hidden>DNI invalido</p>
+
+
+        <label for="passwordUsuarioNuevo">Contraseña</label>
+        <div class="icono-inputContainer">
+            <iconify-icon icon="mdi:password-outline" width="28" height="28"  style="color: #655f5f"></iconify-icon>
+            <input type="password" id="passwordUsuarioNuevo" placeholder="Contraseña">
+        </div>
+
+        <p class="alertaRoja" id="alertaPassword" hidden>Debe tener 8+ caracteres y ser alfanumerico</p>
+
+        <label for="repetirContraseña">Confirmar Contraseña</label>
+        <div class="icono-inputContainer">
+            <iconify-icon icon="mdi:password-outline" width="28" height="28"  style="color: #655f5f"></iconify-icon>
+            <input type="password" id="repetirContraseña" placeholder="Repetir Contraseña">
+        </div>
+
+        <p class="alertaRoja" id="alertaPasswordConfirmacion" hidden>Las contraseñas no coinciden</p>
+
+        <div class="terminosYCondicionesContainer">
+            <input type="checkbox" id="terminos">
+            <label for="terminos">Acepto Terminos y Condiciones</label>
+        </div>
+
+        <p class="alertaRoja" id="alertaTerminos" hidden >Debes aceptar los términos y condiciones</p>
+
+
+        <button type="submit" id="registro" onclick="validarDatosPostulantes()">REGISTRARME</button>
     </div>
 </div>
 

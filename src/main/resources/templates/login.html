@@ -30,7 +30,7 @@
 
                 <div class="inputEIcono">
                     <iconify-icon icon="material-symbols:id-card-outline-rounded" width="28" height="28"  style="color: #655f5f"></iconify-icon>
-                    <input type="text" name="username" id="username" placeholder="Ingresá tu DNI" class="datoIngreso" />
+                    <input type="text" name="username" id="username" placeholder="Ejemp. 22333444" class="datoIngreso" />
                 </div>
 
                 <p class="advertenciaRoja" th:if="${usernameError}" th:text="${usernameError}"> Este campo solo acepta caracteres numericos</p>
@@ -56,7 +56,7 @@
                 <div id="perdioContraseñaContainer">
 
                     <p><a>Olvidé mi contraseña</a></p>
-                    <p>¿No tienes cuenta?<a>Registrate aquí</a></p>
+                    <p>¿No tienes cuenta?<a href="registro">Registrate aquí</a></p>
                 </div>
             </form>
         </div>

@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     padding: 40px;
+    background-color: whitesmoke;
 
 }
 
@@ -19,88 +20,134 @@
     display: flex;
     flex-direction: column;
     padding: 30px;
-    min-width: 300px;
-    min-height: 400px;
+    min-width: 400px;
+    height: 85vh;
     border: 1px solid rgba(197, 195, 195, 0.78);
     border-radius: 10px;
     justify-content: space-evenly;
-
+    background-color: white;
     margin: auto;
 }
 
-#formContainer input{
-    margin: auto;
-    border-radius: 10px;
+.textHeader{
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.tituloRegistroAzul{
+    color: #153244;
+}
+
+#formContainer label{
+    font-weight: 450;
+    font-size: .9rem;
+}
+
+.icono-inputContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
     border: 1px solid rgba(197, 195, 195, 0.78);
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+#formContainer input[type="text"], #formContainer input[type="password"], #formContainer input[type="email"]{
+
+    border: none;
+    padding: 10px;
+    width: 100%;
+
+}
+
+.terminosYCondicionesContainer{
+    display: flex;
+    flex-direction: row;
     padding: 5px;
-    width: 65%;
-    height: 30px;
+    color: #7f1bbf;
+}
+
+#terminos{
+    margin-right: 10px;
+}
+
+.alertaRoja{
+    color: red;
 }
 
 #formContainer button{
-    padding:10px 25px;
-    border: none;
+padding:10px;
+border: none;
 
-    border-radius:20px;
+border-radius:5px;
 
-    background-color: var(--gris);
-    font-weight: 600;
-
-    cursor: pointer;
+background-color: #153244;
+font-weight: 600;
+color: #FFFFFF;
+cursor: pointer;
 }
 
 #modalContainer{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    z-index: 2;
-    position: fixed;
-    background-color: rgba(115, 115, 115, 0.38);
+width: 100vw;
+height: 100vh;
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+z-index: 2;
+position: fixed;
+background-color: rgba(115, 115, 115, 0.38);
 }
 
 #modal{
-    background-color: whitesmoke;
-    width: 400px;
-    height: 200px;
-    margin: auto;
+background-color: whitesmoke;
+width: 400px;
+height: 200px;
+margin: auto;
 
-    border: none;
-    border-radius: 5px;
+border: none;
+border-radius: 5px;
 
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+padding: 30px;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
 }
 
 #textoDelModal{
-    text-align: center;
-    height: 40%;
+text-align: center;
+height: 40%;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
 }
 
 #modal button{
-    align-self: end;
-    font-weight: 600;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #7f1bbf;
-    color: white;
+align-self: end;
+font-weight: 600;
+padding: 10px;
+border: none;
+border-radius: 5px;
+background-color: #7f1bbf;
+color: white;
 
-    width: 100px;
+width: 100px;
 }
 
 #modal a{
-    align-self: end;
+align-self: end;
 }
 
 button:hover{
-    cursor: pointer;
-    scale: 102%;
+cursor: pointer;
+scale: 102%;
+}
+
+@media (max-width:990px){
+    #formContainer{
+        height: 55vh;
+    }
 }

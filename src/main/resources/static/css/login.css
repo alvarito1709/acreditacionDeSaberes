@@ -50,10 +50,9 @@
     justify-content: space-evenly;
 }
 
-form label:not:last-child{
+form label{
     font-size: .9rem;
-    font-weight: 400;
-    padding-left: 30px;
+    font-weight: 450;
 }
 
 .inputEIcono{
@@ -61,11 +60,15 @@ form label:not:last-child{
     flex-direction: row;
     width: 100%;
     align-items: center;
+
+    border: 1px solid rgba(197, 195, 195, 0.78);
+    border-radius: 5px;
+    padding-left: 10px;
 }
 
 .datoIngreso{
 
-    border: 1px solid #bbbaba;
+    border: none;
     color: black;
     padding: 10px;
     border-radius: 5px;
@@ -122,12 +125,10 @@ form label:not:last-child{
     color: red;
 }
 
-@media (max-width: 480px) {
+@media (max-width:990px){
 
-
-    #loginContainer form{
-        width: auto !important;
+    .formContainer{
+        height: 45vh;
     }
-
 
 }
