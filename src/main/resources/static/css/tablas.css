@@ -152,6 +152,16 @@ i{
     flex-wrap: wrap;
 }
 
+@media(max-width: 990px){
+    tbody td{
+        white-space: pre-line;
+        max-width: unset;
 
+    }
+
+    .contenedorBodyTabla{
+        min-height: 70vh;
+    }
+}
 
 

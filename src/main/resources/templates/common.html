@@ -35,7 +35,7 @@
         </div>
     </header>
 
-    <div id="menuContainer" th:fragment="menu">
+    <div id="menuContainer" th:fragment="menu" class="menuWeb">
         <div id="adminPanel">
             <img th:src="@{/img/ei--user.png}" id="userIcon">
             <span th:text="${#authentication.principal.nombre}">ADMIN</span>
@@ -72,21 +72,78 @@
 
             <div class="listContainer">
                 <ul id="listaEditables">
-                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Centros')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Centros</span></li>
-                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Trayectos')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Oficios</span></li>
-                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Sectores')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Sectores</span></li>
-                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Modulos')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Modulos</span></li>
-                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Usuarios</span></li>
-                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Orientadores')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Orientadores</span></li>
-                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Entrevistadores')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Entrevistadores</span></li>
-                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Evaluadores')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Evaluadores</span></li>
-                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Probador de Modulos')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Probador de Modulos</span></li>
-                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios Postulantes')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Usuarios Postulantes</span></li>
+                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Centros')"><iconify-icon icon="tdesign:building" width="19" height="20" style="color: #655f5f" ></iconify-icon></iconify-icon> <span>Centros</span></li>
+                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Trayectos')"><iconify-icon icon="mdi:tools" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Oficios</span></li>
+                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Sectores')"><iconify-icon icon="formkit:file" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Sectores</span></li>
+                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Modulos')"><iconify-icon icon="tabler:edit" width="19" height="20" style="color: #655f5f"></iconify-icon> <span>Modulos</span></li>
+                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios')"><iconify-icon icon="solar:user-bold-duotone" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Usuarios</span></li>
+                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Orientadores')"><iconify-icon icon="solar:user-bold-duotone" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Orientadores</span></li>
+                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Entrevistadores')"><iconify-icon icon="solar:user-bold-duotone" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Entrevistadores</span></li>
+                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Evaluadores')"><iconify-icon icon="solar:user-bold-duotone" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Evaluadores</span></li>
+                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Probador de Modulos')"><iconify-icon icon="tabler:edit" width="19" height="20" style="color: #655f5f"></iconify-icon> <span>Probador de Modulos</span></li>
+                    <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios Postulantes')"><iconify-icon icon="solar:user-bold-duotone" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Usuarios Postulantes</span></li>
                     <li th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" id="mostrarDatosPostulante" th:data="${#authentication.principal.id}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Mis Datos'), buscarPaises(), obtenerProvincias()"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Mis Datos</span></li>
-                    <li th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Mis Trayectos')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Mis Cursos</span></li>
+                    <li th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Mis Trayectos')"><iconify-icon icon="mdi:university-outline" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Mis Cursos</span></li>
                     <li th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTableroDeInscripcion()"><iconify-icon icon="ei:plus" width="20" height="20"  style="color: black; align-self: center"></iconify-icon> <span>Nueva Inscripción</span></li>
                 </ul>
             </div>
+        </div>
+    </div>
+
+    <div id="mobileMenuContainer" th:fragment="menu" class="menuMobile">
+        <div id="displayContainerMobile">
+            <div th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="itemContainer hover puedeSeleccionarse" onclick="mostrarTablas('Postulantes')">
+                <iconify-icon icon="fluent:people-28-regular" width="28" height="28" class="menuIcon">
+                </iconify-icon>
+                <span>Postulantes</span>
+            </div>
+
+            <div th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'', ''ROLE_ORIENTADOR'')')}" class="itemContainer hover puedeSeleccionarse" onclick="mostrarTablas('Entrevistas')">
+                <iconify-icon icon="ion:calendar" width="20" height="20" class="menuIcon"></iconify-icon>
+                <span>Turno Entrevista</span>
+            </div>
+
+            <div th:if="${#authorization.expression('hasRole( ''ROLE_ENTREVISTADOR'')')}" class="itemContainer hover puedeSeleccionarse" onclick="mostrarTablas('Mis Entrevistas')">
+                <iconify-icon icon="ion:calendar" width="20" height="20" class="menuIcon"></iconify-icon>
+                <span>Mis Entrevistas</span>
+            </div>
+
+            <div th:if="${#authorization.expression('hasAnyRole(''ROLE_REFERENTE'', ''ROLE_ENTREVISTADOR'', ''ROLE_ORIENTADOR'')')}" class="itemContainer hover puedeSeleccionarse" onclick="mostrarTablas('Mis Postulantes')">
+                <iconify-icon icon="ion:calendar" width="20" height="20" class="menuIcon"></iconify-icon>
+                <span>Mis Postulantes</span>
+            </div>
+
+            <div th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'', ''ROLE_ENTREVISTADOR'', ''ROLE_EVALUADOR'')')}" class="itemContainer hover puedeSeleccionarse" onclick="mostrarTablas('Acreditacion')">
+                <iconify-icon icon="ion:calendar" width="20" height="20" class="menuIcon"></iconify-icon>
+                <span>Turno Acreditación</span>
+            </div>
+
+            <div th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="itemContainer hover listaMaestros" id="listaDesplegablesMaestros">
+
+                <div class="iconoMaestros">
+                    <span>Maestros</span>
+                    <iconify-icon icon="material-symbols:list" width="28" height="28"  style="color: white" onclick="desplegarListaMobile()"></iconify-icon>
+                </div>
+
+
+                <div id="listaDesplegableMobile" style="display: none">
+                    <span th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Centros')"><iconify-icon icon="tdesign:building" width="19" height="20" style="color: #655f5f" ></iconify-icon></iconify-icon> <span>Centros</span></span>
+                    <span th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Trayectos')"><iconify-icon icon="mdi:tools" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Oficios</span></span>
+                    <span th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Sectores')"><iconify-icon icon="formkit:file" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Sectores</span></span>
+                    <span th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Modulos')"><iconify-icon icon="tabler:edit" width="19" height="20" style="color: #655f5f"></iconify-icon> <span>Modulos</span></span>
+                    <span th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios')"><iconify-icon icon="solar:user-bold-duotone" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Usuarios</span></span>
+                    <span th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Orientadores')"><iconify-icon icon="solar:user-bold-duotone" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Orientadores</span></span>
+                    <span th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Entrevistadores')"><iconify-icon icon="solar:user-bold-duotone" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Entrevistadores</span></span>
+                    <span th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Evaluadores')"><iconify-icon icon="solar:user-bold-duotone" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Evaluadores</span></span>
+                    <span th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Probador de Modulos')"><iconify-icon icon="tabler:edit" width="19" height="20" style="color: #655f5f"></iconify-icon> <span>Probador de Modulos</span></span>
+                    <span th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios Postulantes')"><iconify-icon icon="solar:user-bold-duotone" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Usuarios Postulantes</span></span>
+                    <span th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" id="mostrarDatosPostulante" th:data="${#authentication.principal.id}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Mis Datos'), buscarPaises(), obtenerProvincias()"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Mis Datos</span></span>
+                    <span th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Mis Trayectos')"><iconify-icon icon="mdi:university-outline" width="19" height="20"  style="color: #655f5f"></iconify-icon> <span>Mis Cursos</span></span>
+                    <span th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTableroDeInscripcion()"><iconify-icon icon="ei:plus" width="20" height="20"  style="color: black; align-self: center"></iconify-icon> <span>Nueva Inscripción</span></span>
+                </div>
+            </div>
+
+
         </div>
     </div>
 

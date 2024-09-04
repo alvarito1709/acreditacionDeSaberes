@@ -76,6 +76,7 @@
 
 .alertaRoja{
     color: red;
+    font-size: .88rem;
 }
 
 #formContainer button{

@@ -92,6 +92,8 @@
      height: 40px;
      padding: 5px;
      cursor: pointer;
+     display: flex;
+     align-items: center;
  }
 
 .menuIcon{
@@ -122,4 +124,75 @@ li{
     background-color: #dcdada;
     width: 100%;
     border-radius: 5px;
+}
+
+@media(min-width:991px){
+    #bodyContainer .menuMobile{
+        display: none;
+    }
+}
+
+@media (max-width:990px) {
+
+
+    #bodyContainer .menuWeb{
+        display: none;
+    }
+
+    #displayContainerMobile{
+        width: 100%;
+        padding: 20px;
+        background-color: #153244;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        color: white;
+
+        font-weight: 350;
+
+        justify-content: space-around;
+    }
+
+    .itemContainer{
+        width: unset;
+    }
+
+    .hover:hover{
+        width: unset;
+        background-color: unset;
+    }
+
+    .hover{
+        width: unset;
+    }
+
+    .selected{
+        background-color: #245471;
+    }
+
+    #listaDesplegablesMaestros{
+        width: unset;
+    }
+
+    .listaMaestros{
+        flex-direction: column !important;
+    }
+
+    .iconoMaestros{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #listaDesplegableMobile{
+        z-index: 1;
+        background-color: white;
+        padding: 10px;
+        color: black;
+        width: fit-content;
+        border-radius: 5px;
+        position: fixed;
+        top: 11%;
+    }
+
 }

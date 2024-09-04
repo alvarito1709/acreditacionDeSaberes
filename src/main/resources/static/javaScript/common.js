@@ -21,6 +21,27 @@ function desplegarLista(){
 
 
 
+function desplegarListaMobile(){
+
+    const lista = document.getElementById("listaDesplegableMobile");
+    const pageHeader = document.getElementById("pageHeader");
+    const mobileMenuContainer = document.getElementById("mobileMenuContainer");
+
+    let altura = pageHeader.offsetHeight + mobileMenuContainer.offsetHeight;
+
+    if (lista.style.display === 'block' || lista.style.display === ''){
+        lista.style.transition = 'height 1s ease'
+        lista.style.display = 'none';
+    }else{
+        lista.style.transition = 'height 1s ease'
+        lista.style.top = altura + "px";
+        lista.style.display = 'block';
+    }
+
+}
+
+
+
 function mostrarTablas(tabla){
 
     let urlTablas = url+"tablas"
