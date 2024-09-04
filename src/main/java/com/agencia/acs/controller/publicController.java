@@ -53,6 +53,11 @@ public class publicController {
     @Autowired
     InscripcionService inscripcionService;
 
+    @GetMapping("/index")
+    public String index(){
+        return "index";
+    }
+
     @GetMapping("/login")
     public String login(Model model,
                         @RequestParam(value = "error", required = false) String error,

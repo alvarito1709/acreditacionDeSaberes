@@ -10,5 +10,5 @@ document.addEventListener("DOMContentLoaded", function() {
         // Oculta el loader y muestra el contenido
         document.getElementById("loaderContainer").style.display = "none";
         document.getElementById("bodyCargado").style.display = "block";
-    }, 3000);
+    }, 1500);
 });
