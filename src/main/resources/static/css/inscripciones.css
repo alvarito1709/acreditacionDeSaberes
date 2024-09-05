@@ -167,3 +167,9 @@
 .letrasRojas{
     color: #e31212;
 }
+
+.bold{
+    display: block;
+    font-weight: bold;
+    font-size: 1.05rem;
+}

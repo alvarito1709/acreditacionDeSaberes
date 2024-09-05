@@ -26,8 +26,7 @@ public class CustomAuthenticationFailureHandler implements AuthenticationFailure
             errorType = "credentials";
         }
 
-        response.sendRedirect("acreditaciondesaberes/login?error&errorType=" + errorType);
-        //response.sendRedirect("/login?error&errorType=" + errorType);
+        response.sendRedirect("login?error&errorType=" + errorType);
     }
 
 }

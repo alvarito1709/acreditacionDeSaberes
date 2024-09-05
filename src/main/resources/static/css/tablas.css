@@ -152,6 +152,10 @@ i{
     flex-wrap: wrap;
 }
 
+#divisorInternoMisDatos{
+    align-self: flex-start;
+}
+
 @media(max-width: 990px){
     tbody td{
         white-space: pre-line;

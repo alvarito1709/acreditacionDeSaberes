@@ -64,17 +64,24 @@
 
     <div th:fragment="modalDeInscripcion" id="modalDeInscripcion">
 
-        <h3>Condiciones Generales</h3>
+        <h2>Condiciones Generales</h2>
 
-        <p>Asegurate de tener tus datos actualizados.
-            Luego tendrás que completar un breve cuestionario inicial sobre el oficio elegido.
-            Servirá para identificar tu nivel de conocimientos y poder asesorarte mejor.
-            Consta de algunas preguntas básicas sobre el oficio, y tendrás 30 minutos para responderlo.
-            Recordá que una vez iniciado, no podrás pausar ni detener el tiempo,
-            y que al cerrar la página se enviarán las respuestas seleccionadas y finalizará el intento.
-            Por lo que te recomendamos continuar sólo si disponés de algo de tiempo y te encontrás en un lugar
-            tranquilo.</p>
+        <br>
 
+        <p class="bold">Asegurate de tener tus datos actualizados.</p>
+
+        <br>
+
+            <p>Comenzará un cuestionario inicial sobre el oficio elegido que cuenta con preguntas básicas del oficio.
+                (Esto nos servirá para identificar tu nivel de conocimientos y poder asesorarte mejor)
+            </p>
+
+        <h4>¡A partir de ahora, tendrás 30 minutos para responder!</h4>
+
+        <p>La página no se detendrá ni se va a pausar. Al terminar o cerrar la página, se enviarán las respuestas correctas.
+
+            Te recomendamos encontrar un lugar tranquilo y contar con tiempo para realizarlo.
+        </p>
         <div id="buttonContainerModal">
             <button id="botonAceptar" class="botonModalInscripcion" onclick="llevarAlCuestionario()">Aceptar</button>
             <button id="botonCancelar" class="botonModalInscripcion" onclick="ocultarModalInscripcion()">Cancelar</button>
