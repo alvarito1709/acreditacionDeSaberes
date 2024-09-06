@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div id="inscripcionContainer" class="inscripcionContainer" th:fragment="inscripcion(${sectores}, ${trayectos})">
+    <div id="inscripcionContainer" class="inscripcionContainer" th:fragment="inscripcion(${sectores}, ${trayectos}), ${postulante}">
 
         <h1 class="tituloTabla"> Nuevo Trayecto </h1>
         <div class="tableroDeInscripcion">
@@ -32,7 +32,7 @@
                       <label for="trayectoSeleccionado">Oficio a postular</label>
                     </div>
                     <div class="selectContainer">
-                        <select id="trayectoSeleccionado" th:fragment="seleccionDeTrayecto(${trayectos})">
+                        <select id="trayectoSeleccionado" th:fragment="seleccionDeTrayecto(${trayectos}, ${inscripciones}, ${postulante})">
                             <option value=""></option>
                             <option th:each="trayecto : ${trayectos}" th:text="${trayecto.nombre}" th:value="${trayecto.nombre}" th:data-id="${trayecto.id}"></option>
                  <!--           <option value="panadero" class="gastronomia" style="display: none">Panadero</option>

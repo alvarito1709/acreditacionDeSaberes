@@ -1,16 +1,20 @@
 package com.agencia.acs.controller;
 
 import com.agencia.acs.entities.Centro;
+import com.agencia.acs.entities.Inscripcion;
 import com.agencia.acs.entities.Sector;
 import com.agencia.acs.entities.Trayecto;
 import com.agencia.acs.service.CentroService;
+import com.agencia.acs.service.InscripcionService;
 import com.agencia.acs.service.SectorService;
 import com.agencia.acs.service.TrayectoService;
+import com.agencia.acs.web.CustomUserDetails;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +37,9 @@ public class TrayectoController {
 
     @Autowired
     TrayectoService trayectoService;
+
+    @Autowired
+    InscripcionService inscripcionService;
 
     @GetMapping("")
     public ModelAndView modalTrayectos(Model model){
@@ -155,9 +162,24 @@ public class TrayectoController {
     }
 
     @PostMapping("/buscarTrayectosPorSector")
-    public ModelAndView buscarTrayectosPorSector(@RequestParam(value = "sectorId") Long sectorId, Model model){
+    public ModelAndView buscarTrayectosPorSector(@RequestParam(value = "sectorId") Long sectorId, Model model,
+                                                 @AuthenticationPrincipal CustomUserDetails user){
 
         List<Trayecto> trayectos = trayectoService.buscarTrayectosPorSector(sectorId);
+
+        List<Inscripcion> inscripciones = inscripcionService.buscarInscripcionPorPostulante(user.getId());
+
+        List<Trayecto> trayectosDisponibles = new ArrayList<>();
+
+        for (Trayecto trayecto : trayectos){
+
+            for (Inscripcion inscripcion: inscripciones){
+                if (trayecto == inscripcion.getTrayecto()){
+                    trayectos.remove(trayecto);
+                }
+            }
+
+        }
 
         model.addAttribute("trayectos", trayectos);
         return new ModelAndView("inscripcionATrayectos::seleccionDeTrayecto");
