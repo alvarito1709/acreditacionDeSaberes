@@ -5,7 +5,7 @@
 }
 
 .tableroDeInscripcion{
-    background-color: whitesmoke;
+    background-color: white;
     border: 1px solid rgba(197, 195, 195, 0.78);
     padding: 10px;
     border-radius: 10px;
@@ -55,7 +55,6 @@
 }
 
 .selectContainer select{
-    background-color: whitesmoke;
     min-width: 200px;
     margin: auto;
 }

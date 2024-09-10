@@ -8,7 +8,7 @@
     height: auto;
     min-height: 100vh;
     width: 300px;
-    background-color: #f4f4f4;
+    background-color: white;
 
     display: flex;
     flex-direction: column;
@@ -20,6 +20,7 @@
     overflow-y: auto;
     scrollbar-width: thin;
 
+    color: #153244;
 }
 
 #adminPanel{
@@ -40,7 +41,7 @@
 #userBottomBorder{
     width: 95%;
     height: 1px;
-    background-color: rgba(0, 0, 0, 0.44);
+    background-color: #d3d3d3;
     align-self: center;
 }
 
@@ -88,6 +89,10 @@
      width: 100%;
  }
 
+ li span{
+     margin-left: 10px;
+ }
+
  .listItem{
      height: 40px;
      padding: 5px;
@@ -114,9 +119,20 @@ li{
 }
 
 .selected{
-    background-color: #dcdada;
+    background-color: #153244;
     border-radius: 5px;
     margin-bottom: 5px;
+    color: white;
+    font-weight: 400;
+}
+
+.selected:hover{
+    background-color: #153244 !important;
+    color: white !important;
+}
+
+.selected .iconify{
+    color: white;
 }
 
 
@@ -125,6 +141,8 @@ li{
     width: 100%;
     border-radius: 5px;
 }
+
+
 
 @media(min-width:991px){
     #bodyContainer .menuMobile{
