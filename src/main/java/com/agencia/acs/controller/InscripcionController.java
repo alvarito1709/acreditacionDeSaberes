@@ -12,12 +12,10 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.*;
 
 @Controller
@@ -47,11 +45,38 @@ public class InscripcionController {
     OrientadorService orientadorService;
 
     @GetMapping("")
-    public ModelAndView inscripcion(Model model){
+    public ModelAndView inscripcion(Model model,
+                                    @AuthenticationPrincipal CustomUserDetails user){
         List<Sector> sectores = sectorService.listarSectores();
         model.addAttribute("sectores", sectores );
 
-        return new ModelAndView("inscripcionATrayectos::inscripcion");
+
+
+        Postulante postulanteLogueado = (postulanteService.buscarPostulantePorId(user.getId())).get();
+
+        System.out.println(postulanteLogueado.getId());
+
+        //Verifica si el usuario tiene algun campo vacío y retorna la alerta para que complete sus datos
+
+        if (Objects.equals(postulanteLogueado.getGenero(), "") ||
+                Objects.equals(postulanteLogueado.getTelefono(), "") ||
+                Objects.equals(postulanteLogueado.getCelular(), "") ||
+                Objects.equals(postulanteLogueado.getCuil(), "") ||
+                Objects.equals(postulanteLogueado.getNacionalidad(), "") ||
+                Objects.equals(postulanteLogueado.getProvincia(), "")||
+                Objects.equals(postulanteLogueado.getLocalidad(), "") ||
+                Objects.equals(postulanteLogueado.getCalle(), "") ||
+                Objects.equals(postulanteLogueado.getNumeroDeCalle(), "") ||
+                Objects.equals(postulanteLogueado.getPiso(), "") ){
+
+
+            return new ModelAndView("inscripcionATrayectos::datosIncompletos");
+        }
+        else {
+            return new ModelAndView("inscripcionATrayectos::inscripcion");
+        }
+
+
     }
 
     @GetMapping("/modal")
@@ -189,5 +214,13 @@ public class InscripcionController {
 
         return new ModelAndView("modalCentros::entrevistadores");
 
+    }
+
+    @PostMapping("/agregarTurnoAcreditacion")
+    public ModelAndView agregarTurnoAcreditacion(@RequestBody Inscripcion inscripcion,
+                                                 @RequestParam(value = "inscripcionId") Long inscripcionId,
+                                                 Model model){
+
+        return null;
     }
 }

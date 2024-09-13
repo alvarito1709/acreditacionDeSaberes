@@ -17,7 +17,7 @@
 
             <div th:if="${tabla == 'Postulantes'}">
 
-                <h1 class="tituloTabla">Gestión de Postulantes</h1>
+                <h2 class="tituloTabla">Gestión de Postulantes</h2>
 
                 <div class="backgroundTabla">
                     <table id="tablaGestionDePostulantes" >
@@ -25,10 +25,10 @@
                         <tr>
                             <th class="itemTitulo">#</th>
                             <th class="itemTitulo">Fecha de alta <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo">Sector <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">DNI <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Mail <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Postulante <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Telefono <i class="bi bi-arrow-down-up"></i></th>
                         </tr>
                         </thead>
 
@@ -36,10 +36,10 @@
                         <tr th:each="postulante : ${postulantes}">
                             <td th:text="${postulante.id}">125</td>
                             <td th:text="${#dates.format(postulante.fechaDeAlta, 'dd/MM/yyyy')}">16/11/2023</td>
-                            <td th:text="${postulante.sector}">Gastronomia</td>
-                            <td th:text="${postulante.trayecto}">Panadero</td>
+                            <td th:text="${postulante.DNI}">Gastronomia</td>
+                            <td th:text="${postulante.mail}">Panadero</td>
                             <td th:text="${postulante.nombre}">postulante1</td>
-                            <td th:text="${postulante.estado}">NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
+                            <td th:text="${postulante.telefono}">NO QUIERE CONTINUAR EN LA EVALUACIÓN</td>
 
                         </tr>
 
@@ -53,7 +53,7 @@
 
             <div th:if="${tabla == 'Entrevistas'}">
 
-                <h1 class="tituloTabla">Gestión de Entrevistas</h1>
+                <h2 class="tituloTabla">Gestión de Entrevistas</h2>
 
                 <div class="backgroundTabla">
                     <h4 class="tituloDentroDeTabla">Postulantes sin turno</h4>
@@ -124,7 +124,7 @@
 
             <div th:if="${tabla == 'Acreditacion'}">
 
-                <h1 class="tituloTabla">Gestión de Acreditacion</h1>
+                <h2 class="tituloTabla">Gestión de Acreditacion</h2>
 
                 <div class="backgroundTabla">
                     <table id="tablaGestionDeAcreditacion" >
@@ -189,18 +189,20 @@
 
             <div th:if="${tabla == 'Centros'}">
 
-                <h1 class="tituloTabla">Gestión de Centros</h1>
+                <h2 class="tituloTabla">Gestión de Centros</h2>
 
                 <div class="backgroundTabla">
-                   <h2 onclick="mostrarAgregarModal('Centros')"> <i class="bi bi-plus-square "></i></h2>
                     <table id="tablaGestionDeCentros" >
                         <thead class="headerTabla">
                         <tr>
                             <th class="itemTitulo">#</th>
                             <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Direccion <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Numero de Centro <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Teléfono <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo"></th>
+                            <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Tipo <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"><i class="bi bi-plus-square plus" onclick="mostrarAgregarModal('Centros')"></i></th>
                         </tr>
                         </thead>
 
@@ -209,7 +211,13 @@
                             <td th:text="${centro.id}">125	</td>
                             <td th:text="${centro.nombre}">C.F.P. N° 02 (Barracas)</td>
                             <td th:text="${centro.direccion}">Brandsen 2570</td>
+                            <td th:text="${centro.numeroDeCentro}">Brandsen 2570</td>
                             <td th:text="${centro.telefono}">4301-3655/ 4304-7061</td>
+                            <td th:switch="${centro.estado}">
+                                <span th:case="'ACTIVO'" th:text="${centro.estado}" class="estadoActivo"> ACTIVO </span>
+                                <span th:case="'INACTIVO'" th:text="${centro.estado}" class="estadoInactivo"> INACTIVO </span>
+                            </td>
+                            <td th:text="${centro.tipo}">4301-3655/ 4304-7061</td>
                             <td><i class="bi bi-pencil-square iconoAcciones" th:id="${centro.id}" onclick="mostrarModalParaEditar(this,'Centros')"></i>
                                 <i class="bi bi-trash iconoAcciones" th:id="${centro.id}" th:data="${tabla}" onclick="mostrarAdvertencia(this)"></i>
                             </td>
@@ -227,10 +235,10 @@
 
             <div th:if="${tabla == 'Trayectos'}">
 
-                <h1 class="tituloTabla">Gestión de Trayectos</h1>
+                <h2 class="tituloTabla">Gestión de Trayectos</h2>
 
                 <div class="backgroundTabla">
-                    <h2 onclick="mostrarAgregarModal('Trayectos')"> <i class="bi bi-plus-square "></i></h2>
+
 
                     <table id="tablaGestionDeTrayectos" >
                         <thead class="headerTabla">
@@ -239,7 +247,8 @@
                             <th class="itemTitulo">Sector <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Condiciones <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo"></th>
+                            <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"> <i class="bi bi-plus-square plus" onclick="mostrarAgregarModal('Trayectos')"></i></th>
                         </tr>
                         </thead>
 
@@ -249,6 +258,10 @@
                             <td th:text="${trayecto.sector.nombre}">C.F.P. N° 02 (Barracas)</td>
                             <td th:text="${trayecto.nombre}">Brandsen 2570</td>
                             <td th:text="${trayecto.condiciones}">4301-3655/ 4304-7061</td>
+                            <td th:switch="${trayecto.estado}">
+                                <span th:case="'ACTIVO'" th:text="${trayecto.estado}" class="estadoActivo"> ACTIVO </span>
+                                <span th:case="'INACTIVO'" th:text="${trayecto.estado}" class="estadoInactivo"> INACTIVO </span>
+                            </td>
                             <td><i class="bi bi-pencil-square iconoAcciones" th:id="${trayecto.id}" onclick="mostrarModalParaEditar(this,'Trayectos')"></i>
                                 <i class="bi bi-trash iconoAcciones" th:id="${trayecto.id}" th:data="${tabla}" onclick="mostrarAdvertencia(this)" ></i>
                             </td>
@@ -266,10 +279,10 @@
 
             <div th:if="${tabla == 'Sectores'}">
 
-                <h1 class="tituloTabla">Gestión de Sectores</h1>
+                <h2 class="tituloTabla">Gestión de Sectores</h2>
 
                 <div class="backgroundTabla">
-                    <h2 onclick="mostrarAgregarModal('Sectores')"> <i class="bi bi-plus-square "></i></h2>
+
                     <table id="tablaGestionDeSectores" >
                         <thead class="headerTabla">
                         <tr>
@@ -277,7 +290,7 @@
                             <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Descripción <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo"></th>
+                            <th class="itemTitulo"><i class="bi bi-plus-square plus" onclick="mostrarAgregarModal('Sectores')"></i></th>
                         </tr>
                         </thead>
 
@@ -286,7 +299,10 @@
                             <td th:text="${sector.id}">125	</td>
                             <td th:text="${sector.nombre}">C.F.P. N° 02 (Barracas)</td>
                             <td th:text="${sector.descripcion}">Brandsen 2570</td>
-                            <td th:text="${sector.estado}">4301-3655/ 4304-7061</td>
+                            <td th:switch="${sector.estado}">
+                                <span th:case="'ACTIVO'" th:text="${sector.estado}" class="estadoActivo"> ACTIVO </span>
+                                <span th:case="'INACTIVO'" th:text="${sector.estado}" class="estadoInactivo"> INACTIVO </span>
+                            </td>
                             <td><i class="bi bi-pencil-square iconoAcciones" th:id="${sector.id}" onclick="mostrarModalParaEditar(this,'Sectores')"></i>
                                 <i class="bi bi-trash iconoAcciones" th:id="${sector.id}" th:data="${tabla}" onclick="mostrarAdvertencia(this)"></i>
                             </td>
@@ -304,10 +320,10 @@
 
             <div th:if="${tabla == 'Modulos'}">
 
-                <h1 class="tituloTabla">Gestión de Modulos</h1>
+                <h2 class="tituloTabla">Gestión de Modulos</h2>
 
                 <div class="backgroundTabla">
-                    <h2 onclick="mostrarAgregarModal('Modulos')"> <i class="bi bi-plus-square "></i></h2>
+
                     <table id="tablaGestionDeModulos" >
                         <thead class="headerTabla">
                         <tr>
@@ -315,7 +331,7 @@
                             <th class="itemTitulo">Trayecto <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Modulo <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Descripción <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo"></th>
+                            <th class="itemTitulo"> <i class="bi bi-plus-square plus" onclick="mostrarAgregarModal('Modulos')"></i></th>
                         </tr>
                         </thead>
 
@@ -341,11 +357,11 @@
 
             <div th:if="${tabla == 'Usuarios'}">
 
-                <h1 class="tituloTabla">Gestión de Usuarios</h1>
+                <h2 class="tituloTabla">Gestión de Usuarios</h2>
 
                 <div class="backgroundTabla">
 
-                    <a th:href="@{/user}"><h2 > <i class="bi bi-plus-square "></i></h2></a>
+
 
                     <table id="tablaGestionDeUsuarios">
                         <thead class="headerTabla">
@@ -354,7 +370,8 @@
                             <th class="itemTitulo">Nombre <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Email <i class="bi bi-arrow-down-up"></i></th>
                             <th class="itemTitulo">Tipo <i class="bi bi-arrow-down-up"></i></th>
-                            <th class="itemTitulo"></th>
+                            <th class="itemTitulo">Usuario <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo"><a th:href="@{/user}"> <i class="bi bi-plus-square plus"></i></a></th>
                         </tr>
                         </thead>
 
@@ -372,6 +389,7 @@
                                 <span th:case="'ROLE_EVALUADOR'">Evaluador</span>
                                 <span th:case="'ROLE_REFERENTE'">Referente</span>
                             </td>
+                            <td th:text="${users.username}">Brandsen 2570</td>
                             <td><i class="bi bi-pencil-square iconoAcciones" th:id="${users.id}" onclick="mostrarModalParaEditar(this,'Usuarios')"></i>
                                 <i class="bi bi-trash iconoAcciones" th:id="${users.id}" th:data="${tabla}" onclick="mostrarAdvertencia(this)"></i>
                             </td>
@@ -391,7 +409,7 @@
 
             <div th:if="${tabla == 'Orientadores'}">
 
-                <h1 class="tituloTabla">Gestión de Orientadores</h1>
+                <h2 class="tituloTabla">Gestión de Orientadores</h2>
 
                 <div class="dobleTabla">
 
@@ -453,7 +471,7 @@
 
             <div th:if="${tabla == 'Entrevistadores'}">
 
-                <h1 class="tituloTabla">Gestión de Entrevistadores</h1>
+                <h2 class="tituloTabla">Gestión de Entrevistadores</h2>
 
                 <div class="dobleTabla">
 
@@ -516,7 +534,7 @@
 
             <div th:if="${tabla == 'Evaluadores'}">
 
-                <h1 class="tituloTabla">Gestión de Evaluadores</h1>
+                <h2 class="tituloTabla">Gestión de Evaluadores</h2>
 
                 <div class="dobleTabla">
 
@@ -579,7 +597,7 @@
 
             <div th:if="${tabla == 'Probador de Modulos'}">
 
-                <h1 class="tituloTabla">Probador de Modulos</h1>
+                <h2 class="tituloTabla">Probador de Modulos</h2>
 
                 <div class="backgroundTabla">
 
@@ -634,7 +652,7 @@
 
             <div th:if="${tabla == 'Usuarios Postulantes'}">
 
-                <h1 class="tituloTabla">Gestión de Usuarios Postulantes</h1>
+                <h2 class="tituloTabla">Gestión de Usuarios Postulantes</h2>
 
                 <div class="backgroundTabla">
                     <table id="tablaGestionUsuariosPostulantes" >
@@ -676,7 +694,7 @@
 
             <div th:if="${tabla == 'Mis Datos'}">
 
-                <h1 class="tituloTabla">Mis Datos</h1>
+                <h2 class="tituloTabla">Mis Datos</h2>
 
                 <div class="backgroundTabla">
 
@@ -770,7 +788,7 @@
 
             <div th:if="${tabla == 'Mis Trayectos'}">
 
-                <h1 class="tituloTabla">Mis Inscripciones</h1>
+                <h2 class="tituloTabla">Mis Inscripciones</h2>
 
                 <div class="backgroundTabla">
                     <table id="tablasMisTrayectos" >
@@ -808,7 +826,7 @@
 
             <div th:if="${tabla == 'Mis Entrevistas'}">
 
-                <h1 class="tituloTabla">Gestión de Entrevistas</h1>
+                <h2 class="tituloTabla">Gestión de Entrevistas</h2>
 
                 <div class="backgroundTabla">
                     <h4 class="tituloDentroDeTabla">Postulantes con turno</h4>
@@ -849,7 +867,7 @@
 
             <div th:if="${tabla == 'Mis Postulantes'}">
 
-                <h1 class="tituloTabla">Mis usuarios postulantes</h1>
+                <h2 class="tituloTabla">Mis usuarios postulantes</h2>
 
                 <div class="backgroundTabla">
                     <table id="tablaMisPostulantes" >

@@ -390,3 +390,8 @@ function filtrarEntrevistadores(){
         }]
     })
 }
+
+function agregarAcreditacion(id){
+
+    const urlAgregar = urlBase + "/inscripcion/"
+}

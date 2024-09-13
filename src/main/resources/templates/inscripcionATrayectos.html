@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div id="inscripcionContainer" class="inscripcionContainer" th:fragment="inscripcion(${sectores}, ${trayectos}), ${postulante}">
+    <div id="inscripcionContainer" class="inscripcionContainer" th:fragment="inscripcion(${sectores}, ${trayectos}, ${postulante})">
 
         <h1 class="tituloTabla"> Nuevo Trayecto </h1>
         <div class="tableroDeInscripcion">
@@ -126,6 +126,22 @@
             <div class="botonesCuestionarioContainer">
 
                 <button onclick="mostrarTablas('Mis Trayectos')">Continuar</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="inscripcionContainer" th:fragment="datosIncompletos">
+        <div class="tableroDeInscripcion error">
+            <div class="mensajeError letrasRojas"><iconify-icon icon="mdi:error-outline" width="28" height="28" ></iconify-icon>Completa tus datos</div>
+            <div class="descripcionDelError">
+                <p>Para poder inscribirte, es necesario que completes todos los campos requeridos en tu perfil.
+                </p>
+            </div>
+
+            <div class="botonesCuestionarioContainer">
+
+                <button onclick="mostrarTablas('Mis Datos')">Continuar</button>
             </div>
 
         </div>

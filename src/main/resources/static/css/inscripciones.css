@@ -18,6 +18,28 @@
 
 }
 
+.error{
+    background-color: #ff484845;
+    border: 1px solid #ffa5a5;
+}
+
+.descripcionDelError{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #ff3333;
+}
+
+
+.mensajeError{
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    align-self: center;
+}
+
 .selectores{
     display: flex;
     flex-direction: row;

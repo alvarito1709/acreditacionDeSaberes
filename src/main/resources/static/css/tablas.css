@@ -17,9 +17,9 @@ table{
 }
 
 thead{
-    background-color: #f4f4f4;
-    padding: 10px;
-    border-radius: 10px;
+    color: #686666;
+    font-size: .9rem;
+
 }
 
 tr{
@@ -28,10 +28,6 @@ tr{
 
 tr:last-child{
     border-radius: 10px;
-}
-
-tbody tr:nth-child(odd){
-    background-color: #dadada;
 }
 
 
@@ -43,18 +39,22 @@ tbody tr:nth-child(odd){
 
     text-align: center;
 
-    padding: 5px;
+    padding: 20px;
 
 }
 
 tbody td{
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     max-width: 200px;
     max-height: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+tbody tr:nth-child(odd){
+    background-color: rgb(104 168 206 / 20%);
 }
 
 th .bi{
@@ -83,7 +83,6 @@ i{
 }
 
 .backgroundTabla{
-    padding: 30px;
     background-color: white;
     border: 1px solid rgba(197, 195, 195, 0.78);
     border-radius: 10px;
@@ -92,10 +91,23 @@ i{
     align-items: flex-end;
 }
 
+.backgroundTabla h4{
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.backgroundTabla h2{
+    margin: 10px 10px 0 0;
+}
+
 .dobleTabla{
     display: flex;
     flex-direction: row;
 
+}
+
+.dobleTabla .backgroundTabla{
+    flex: 1;
 }
 
 .dobleTabla table{
@@ -154,6 +166,30 @@ i{
 
 #divisorInternoMisDatos{
     align-self: flex-start;
+}
+
+.estadoActivo{
+    background-color: #9ae89a;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: .85rem;
+    font-weight: 550;
+}
+
+.estadoInactivo{
+    background-color: #f75c5c;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: .85rem;
+    font-weight: 550;
+}
+
+.plus{
+    font-size: 1.4rem !important;
 }
 
 @media(max-width: 990px){
