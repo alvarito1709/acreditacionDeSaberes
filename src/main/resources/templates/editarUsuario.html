@@ -19,15 +19,29 @@
 
         <div id="form" class="editarUser" th:each="datosusuario : ${usuario}">
 
-            <h3 onclick="ocultarModalAgregar()"><i class="bi bi-x-square"></i></h3>
+
+
+            <span class="modalHeader"><h3>Editar Usuario</h3><i class="bi bi-x-lg" onclick="ocultarModalAgregar()"></i></span>
 
             <input id="idUsuarioEditar" hidden type="number" th:value="${datosusuario.id}">
-            <input id="nombreUsuarioEditar" type="text" placeholder="NOMBRE" th:value="${datosusuario.nombre}" >
-            <input id="correoUsuarioEditar" type="email" placeholder="EMAIL" th:value="${datosusuario.mail}">
-            <input id="dniEditar" type="text" PLACEHOLDER="DNI" th:value="${datosusuario.DNI}">
-            <input id="usernameUsuarioEditar" type="text" placeholder="USERNAME" th:value="${datosusuario.username}" hidden>
-            <input id="passwordUsuarioEditar" type="password" placeholder="PASSWORD" th:value="${datosusuario.password}">
-            <select id="tipoDeUsuarioEditar">
+
+            <label for="nombreUsuarioEditar" class="labelUsuario">Nombre</label>
+            <input id="nombreUsuarioEditar" class="inputUsuario" type="text" placeholder="NOMBRE" th:value="${datosusuario.nombre}" >
+
+            <label for="correoUsuarioEditar" class="labelUsuario">Correo</label>
+            <input id="correoUsuarioEditar" class="inputUsuario" type="email" placeholder="EMAIL" th:value="${datosusuario.mail}">
+
+            <label for="dniEditar" class="labelUsuario">DNI</label>
+            <input id="dniEditar" class="inputUsuario" type="text" PLACEHOLDER="DNI" th:value="${datosusuario.DNI}">
+
+
+            <input id="usernameUsuarioEditar"  type="text" placeholder="USERNAME" th:value="${datosusuario.username}" hidden>
+
+            <label for="passwordUsuarioEditar" class="labelUsuario">Contraseña</label>
+            <input id="passwordUsuarioEditar" class="inputUsuario" type="password" placeholder="PASSWORD" th:value="${datosusuario.password}">
+
+            <label for="tipoDeUsuarioEditar" class="labelUsuario">Tipo</label>
+            <select id="tipoDeUsuarioEditar" class="inputUsuario">
                 <option th:value="${datosusuario.rol}">TIPO DE USUARIO</option>
                 <option>TIPO DE USUARIO</option>
                 <option value="ROLE_ADMIN">ADMIN</option>
@@ -39,7 +53,7 @@
                 <option value="ROLE_REFERENTE">REFERENTE</option>
             </select>
 
-            <button onclick="editarUsuario()">
+            <button class="botonCrearUsuario" onclick="editarUsuario()">
                 EDITAR USUARIO</button>
         </div>
 

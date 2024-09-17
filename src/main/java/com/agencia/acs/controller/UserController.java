@@ -52,8 +52,9 @@ public class UserController {
     SectorService sectorService;
 
     @GetMapping("")
-    public String formularioUsuario(){
-        return "agregarUsuario";
+    public ModelAndView formularioUsuario(){
+
+        return new ModelAndView("agregarUsuario::agregarUsuario");
     }
 
     @PostMapping("/agregar")

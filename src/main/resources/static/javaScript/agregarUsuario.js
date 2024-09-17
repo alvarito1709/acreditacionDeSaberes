@@ -1,19 +1,20 @@
-//const url = "http://localhost:8080/"
-const url = "https://inscripcionesagencia.bue.edu.ar/acreditaciondesaberes/"
 
-const nombreUsuario = document.getElementById("nombreUsuarioNuevo");
-const correoUsuario = document.getElementById("correoUsuarioNuevo");
-const dniNUevo = document.getElementById("dniNuevo");
-const userName = document.getElementById("dniNuevo");
-const password = document.getElementById("passwordUsuarioNuevo");
-const tipoDeUsuario = document.getElementById("tipoDeUsuario");
+
+
 
 function crearUsuario(){
     let urlCrear = url+"user/agregar"
 
+    const nombreUsuario = document.getElementById("nombreUsuarioNuevo");
+    const correoUsuario = document.getElementById("correoUsuarioNuevo");
+    const dniNUevo = document.getElementById("dniNuevo");
+    const userName = document.getElementById("dniNuevo");
+    const password = document.getElementById("passwordUsuarioNuevo");
+    const tipoDeUsuario = document.getElementById("tipoDeUsuario");
+
     const usuarioExistente = document.getElementById("usuarioExistente");
 
-    if (usuarioExistente){
+    if (usuarioExistente.style.display === "block"){
         alert("El usuario ya existe");
     }
 
@@ -78,6 +79,7 @@ function crearUsuario(){
         fetch(urlCrear, httpConfig).then(response =>{
             if (response.ok){
                 alert("Usuario creado con éxito.");
+                cerrarModal();
             }
         }).catch(error =>{
             alert("Hubo un error al crear el usuario, verifique los datos.")

@@ -18,16 +18,30 @@
 
 <th:block th:replace="common :: header"></th:block>
 
-    <div id="formContainer">
+    <div id="formContainer" th:fragment="agregarUsuario">
 
         <div id="form">
-            <input id="nombreUsuarioNuevo" type="text" placeholder="NOMBRE">
-            <input id="correoUsuarioNuevo" type="email" placeholder="EMAIL">
-            <input id="dniNuevo" type="text" PLACEHOLDER="DNI"  th:onchange="verificarUsuario()">
+
+            <span class="modalHeader"><h3>Alta de Usuario</h3><i class="bi bi-x-lg" onclick="ocultarModalAgregar()"></i></span>
+
+            <label for="nombreUsuarioNuevo" class="labelUsuario">Nombre</label>
+            <input id="nombreUsuarioNuevo" class="inputUsuario" type="text" placeholder="NOMBRE">
+
+            <label for="correoUsuarioNuevo" class="labelUsuario">Correo</label>
+            <input id="correoUsuarioNuevo" class="inputUsuario" type="email" placeholder="EMAIL">
+
+            <label for="dniNuevo" class="labelUsuario">DNI</label>
+            <input id="dniNuevo" type="text" class="inputUsuario" PLACEHOLDER="DNI"  th:onchange="verificarUsuario()">
+
+
             <input id="usernameUsuarioNuevo" type="text" placeholder="USERNAME" style="display: none">
             <p id="usuarioExistente" class="advertenciaUsuarioExistente" hidden>El usuario ya existe</p>
-            <input id="passwordUsuarioNuevo" type="password" placeholder="PASSWORD">
-            <select id="tipoDeUsuario">
+
+            <label for="passwordUsuarioNuevo" class="labelUsuario">Contraseña</label>
+            <input id="passwordUsuarioNuevo" class="inputUsuario" type="password" placeholder="PASSWORD">
+
+            <label for="tipoDeUsuario" class="labelUsuario">Tipo</label>
+            <select id="tipoDeUsuario" class="inputUsuario">
                 <option>TIPO DE USUARIO</option>
                 <option value="ROLE_ADMIN">ADMIN</option>
                 <option value="ROLE_POSTULANTE">POSTULANTE</option>
@@ -41,8 +55,6 @@
             <button class="botonCrearUsuario" onclick="crearUsuario()">
                 CREAR USUARIO</button>
         </div>
-
-        <img th:src="@{/img/logo_ACS.png}">
 
     </div>
 

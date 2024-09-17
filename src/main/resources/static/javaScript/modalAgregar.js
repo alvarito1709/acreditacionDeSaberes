@@ -88,6 +88,10 @@ function mostrarAgregarModal(elemento){
             case 'Modulos':
             urlMostrarModal = urlBase + "modulos";
             break;
+
+            case 'User':
+            urlMostrarModal = urlBase + "user";
+            break;
     }
 
 
