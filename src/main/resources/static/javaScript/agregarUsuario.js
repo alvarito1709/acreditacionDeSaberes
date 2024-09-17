@@ -11,68 +11,108 @@ const tipoDeUsuario = document.getElementById("tipoDeUsuario");
 function crearUsuario(){
     let urlCrear = url+"user/agregar"
 
-    switch (tipoDeUsuario.value){
+    const usuarioExistente = document.getElementById("usuarioExistente");
 
-        case "ROLE_ADMIN":
-            urlCrear = url+"user/agregar"
-            break;
-
-        case "ROLE_POSTULANTE":
-            urlCrear = url+"user/agregar/postulante"
-            break;
-
-        case "ROLE_USER":
-            urlCrear = url+"user/agregar"
-            break;
-
-        case "ROLE_ENTREVISTADOR":
-            urlCrear = url + "user/agregar/entrevistador"
-            break;
-
-        case "ROLE_ORIENTADOR":
-            urlCrear = url + "user/agregar/orientador"
-            break;
-
-        case "ROLE_EVALUADOR":
-            urlCrear = url + "user/agregar/evaluador"
-            break;
-
-        case "ROLE_REFERENTE":
-            urlCrear = url + "user/agregar/referente"
-            break;
+    if (usuarioExistente){
+        alert("El usuario ya existe");
     }
 
+    else {
 
+        switch (tipoDeUsuario.value){
 
+            case "ROLE_ADMIN":
+                urlCrear = url+"user/agregar"
+                break;
 
+            case "ROLE_POSTULANTE":
+                urlCrear = url+"user/agregar/postulante"
+                break;
 
-    var data = {
-        nombre: nombreUsuario.value,
-        mail: correoUsuario.value,
-        dni:dniNUevo.value,
-        username: userName.value,
-        password:password.value,
-        rol:tipoDeUsuario.value,
-    }
+            case "ROLE_USER":
+                urlCrear = url+"user/agregar"
+                break;
 
-    var jsonString = JSON.stringify(data);
+            case "ROLE_ENTREVISTADOR":
+                urlCrear = url + "user/agregar/entrevistador"
+                break;
 
-    console.log(jsonString);
+            case "ROLE_ORIENTADOR":
+                urlCrear = url + "user/agregar/orientador"
+                break;
 
-    var httpConfig = {
-        method:'POST',
-        headers:{
-            'content-type':'application/json'
-        },
-        body:jsonString
-    }
+            case "ROLE_EVALUADOR":
+                urlCrear = url + "user/agregar/evaluador"
+                break;
 
-    fetch(urlCrear, httpConfig).then(response =>{
-        if (response.ok){
-            alert("Usuario creado con éxito.");
+            case "ROLE_REFERENTE":
+                urlCrear = url + "user/agregar/referente"
+                break;
         }
-    }).catch(error =>{
-        alert("Hubo un error al crear el usuario, verifique los datos.")
+
+
+
+
+
+        var data = {
+            nombre: nombreUsuario.value,
+            mail: correoUsuario.value,
+            dni:dniNUevo.value,
+            username: userName.value,
+            password:password.value,
+            rol:tipoDeUsuario.value,
+        }
+
+        var jsonString = JSON.stringify(data);
+
+        console.log(jsonString);
+
+        var httpConfig = {
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:jsonString
+        }
+
+        fetch(urlCrear, httpConfig).then(response =>{
+            if (response.ok){
+                alert("Usuario creado con éxito.");
+            }
+        }).catch(error =>{
+            alert("Hubo un error al crear el usuario, verifique los datos.")
+        })
+
+    }
+
+
+
+}
+
+function verificarUsuario(){
+
+    const urlVerificar = url+"user/verificarUsuario"
+
+    const user = document.getElementById("dniNuevo");
+
+
+    $.ajax({
+        type:'POST',
+        url: urlVerificar,
+        data:{
+            username:user.value,
+        },
+        success: [function (respuesta){
+            console.log(respuesta)
+            if (respuesta === true){
+                document.getElementById("usuarioExistente").style.display = "block";
+            }
+            else {
+                document.getElementById("usuarioExistente").style.display = "none";
+            }
+        }]
+
     })
+
 
 }

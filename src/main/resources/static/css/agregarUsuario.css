@@ -68,3 +68,9 @@
     width: 55%;
     min-width: 400px;
 }
+
+.advertenciaUsuarioExistente{
+    color: #fe2525;
+    font-weight: 500;
+    font-size: .85rem;
+}

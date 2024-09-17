@@ -487,4 +487,20 @@ public class UserController {
         return  new ModelAndView("tablas :: tablaQueCargo");
     }
 
+    @PostMapping("/verificarUsuario")
+    @ResponseBody
+    public Boolean verificarUsuario(@RequestParam (value = "username")  String username) throws JsonProcessingException {
+
+        User user = userService.buscarUsuarioPorUsername(username);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        if (Objects.nonNull(user)){
+            return true;
+        }else {
+            return false;
+        }
+
+    }
+
 }

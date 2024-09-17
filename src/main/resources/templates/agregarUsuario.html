@@ -11,6 +11,8 @@
     <link rel="stylesheet" th:href="@{/css/footer.css}" >
 
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
@@ -21,8 +23,9 @@
         <div id="form">
             <input id="nombreUsuarioNuevo" type="text" placeholder="NOMBRE">
             <input id="correoUsuarioNuevo" type="email" placeholder="EMAIL">
-            <input id="dniNuevo" type="text" PLACEHOLDER="DNI">
+            <input id="dniNuevo" type="text" PLACEHOLDER="DNI"  th:onchange="verificarUsuario()">
             <input id="usernameUsuarioNuevo" type="text" placeholder="USERNAME" style="display: none">
+            <p id="usuarioExistente" class="advertenciaUsuarioExistente" hidden>El usuario ya existe</p>
             <input id="passwordUsuarioNuevo" type="password" placeholder="PASSWORD">
             <select id="tipoDeUsuario">
                 <option>TIPO DE USUARIO</option>
