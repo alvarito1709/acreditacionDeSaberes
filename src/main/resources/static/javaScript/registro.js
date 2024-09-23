@@ -102,3 +102,30 @@ function registrarPostulante(){
         }
     }).catch(error => alert("Hubo un error al crear tu usuario, verifica los datos ingresados. Cod:" + error))
 }
+
+
+function verificarUsuario(){
+
+    const dniUsuarioNuevo = document.getElementById("dniUsuarioNuevo");
+
+    const urlVerificar = urlBase + "user/verificarUsuario";
+
+    $.ajax({
+        type:'POST',
+        url: urlVerificar,
+        data:{
+            username:dniUsuarioNuevo.value,
+        },
+        success: [function (respuesta){
+
+            if (respuesta === true){
+                document.getElementById("alertaUsuarioExistente").style.display = "block";
+            }
+            else {
+                document.getElementById("alertaUsuarioExistente").style.display = "none";
+                validarDatosPostulantes()
+            }
+        }]
+
+    })
+}

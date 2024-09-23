@@ -9,6 +9,8 @@
     <link rel="stylesheet" th:href="@{/css/header.css}">
     <link rel="stylesheet" th:href="@{/css/footer.css}">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </head>
 <body>
@@ -60,6 +62,7 @@
         </div>
 
         <p class="alertaRoja" id="alertaDNI" hidden>DNI invalido</p>
+        <p class="alertaRoja" id="alertaUsuarioExistente" hidden>El DNI pertenece a un usuario registrado</p>
 
 
         <label for="passwordUsuarioNuevo">Contraseña</label>
@@ -86,7 +89,7 @@
         <p class="alertaRoja" id="alertaTerminos" hidden >Debes aceptar los términos y condiciones</p>
 
 
-        <button type="submit" id="registro" onclick="validarDatosPostulantes()">REGISTRARME</button>
+        <button type="submit" id="registro" onclick="verificarUsuario()">REGISTRARME</button>
     </div>
 </div>
 
