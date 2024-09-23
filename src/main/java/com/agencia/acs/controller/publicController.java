@@ -190,6 +190,13 @@ public class publicController {
 
     }
 
+    @GetMapping("/recuperarContrasena")
+    public String recuperarContrasena(){
+
+
+        return "recuperarContraseña";
+    }
+
     @GetMapping("/iniciarProyecto")
     public void iniciarProyecto(){
 

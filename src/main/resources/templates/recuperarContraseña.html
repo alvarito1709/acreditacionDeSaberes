@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recuperar Contraseña</title>
+
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/recuperarContrasena.css}">
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<th:block th:replace="common :: header"></th:block>
+
+<div class="bodyContainer">
+
+    <div class="formContainer">
+        <div id="verificarUsuario">
+            <h2>Restablecer Contraseña</h2>
+            <p>Ingresa tu DNI para verificar tu cuenta y restablecer tu contraseña.</p>
+            <div class="icono-inputContainer">
+                <iconify-icon icon="mdi:id-card-outline" width="28" height="28"  style="color: #655f5f"></iconify-icon>
+                <input type="text" id="verificarDNI" class="inputSinBorde" placeholder="DNI Ejemplo. 33222111">
+
+            </div>
+            <p class="advertenciaRoja" id="usuarioNoExiste" hidden>El usuario no existe</p>
+
+            <button onclick="verificarUsuarioPerdido()" class="botonRecuperarContrasena">Verificar y restablecer</button>
+        </div>
+    </div>
+
+</div>
+
+<th:block th:replace="common :: footer"></th:block>
+<th:block th:replace="common :: footer-mobile"></th:block>
+
+<script th:src="@{/javaScript/recuperarContrasena.js}"></script>
+
+</body>
+</html>
