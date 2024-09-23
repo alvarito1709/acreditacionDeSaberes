@@ -72,6 +72,20 @@ public class InscripcionController {
 
             return new ModelAndView("inscripcionATrayectos::datosIncompletos");
         }
+        if (Objects.isNull(postulanteLogueado.getGenero()) ||
+                Objects.isNull(postulanteLogueado.getTelefono()) ||
+                Objects.isNull(postulanteLogueado.getCelular()) ||
+                Objects.isNull(postulanteLogueado.getCuil()) ||
+                Objects.isNull(postulanteLogueado.getNacionalidad()) ||
+                Objects.isNull(postulanteLogueado.getProvincia())||
+                Objects.isNull(postulanteLogueado.getLocalidad()) ||
+                Objects.isNull(postulanteLogueado.getCalle()) ||
+                Objects.isNull(postulanteLogueado.getNumeroDeCalle()) ||
+                Objects.isNull(postulanteLogueado.getPiso()) ){
+
+
+            return new ModelAndView("inscripcionATrayectos::datosIncompletos");
+        }
         else {
             return new ModelAndView("inscripcionATrayectos::inscripcion");
         }
