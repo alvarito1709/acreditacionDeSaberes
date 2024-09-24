@@ -6,6 +6,7 @@ function verificarUsuarioPerdido(){
 
     const dniUsuarioNuevo = document.getElementById("verificarDNI");
 
+
     $.ajax({
         type:'POST',
         url: urlVerificar,
@@ -15,8 +16,25 @@ function verificarUsuarioPerdido(){
         success: [function (respuesta){
 
             if (respuesta === true){
-                document.getElementById("usuarioNoExiste").style.display = "none";
-                console.log("el usuario existe")
+
+                $.ajax({
+                    type:'POST',
+                    url: url+"user/enviarCorreoRecuperarContrasena",
+                    data:{
+                        username:dniUsuarioNuevo.value,
+                    },
+
+                    success: function (respuesta){
+                        document.getElementById("usuarioNoExiste").style.display = "none";
+                        document.getElementById("verificarUsuario").style.display = "none";
+                        document.getElementById("mailEnviado").style.display = "flex";
+                        console.log("el usuario existe");
+                    },
+                    catch: function (err){
+                        alert("Hubo un error al enviar mail");
+                    }
+                })
+
             }
             else {
                 document.getElementById("usuarioNoExiste").style.display = "block";

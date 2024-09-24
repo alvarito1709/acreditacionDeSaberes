@@ -23,11 +23,18 @@
 
 .formContainer h2{
     color: #153244;
+    display: flex;
+    align-items: center
 }
 
 .formContainer p{
     color: rgb(0 0 0 / 65%);
     font-size: .9rem;
+}
+
+.textoMail{
+    font-size: 1.1rem !important;
+    text-align: center !important;
 }
 
 #verificarUsuario{
@@ -68,4 +75,12 @@
     color: red !important;
     font-size: .88rem !important;
     text-align: center;
+}
+
+#mailEnviado{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }

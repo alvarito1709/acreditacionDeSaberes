@@ -51,6 +51,9 @@ public class UserController {
     @Autowired
     SectorService sectorService;
 
+    @Autowired
+    MailService mailService;
+
     @GetMapping("")
     public ModelAndView formularioUsuario(){
 
@@ -502,6 +505,17 @@ public class UserController {
             return false;
         }
 
+    }
+
+    @PostMapping("/enviarCorreoRecuperarContrasena")
+    @ResponseBody
+    public void enviarCorreoContrasena(@RequestParam(value = "username") String username){
+
+
+        System.out.println(username);
+        User user = userService.buscarUsuarioPorUsername(username);
+
+        mailService.recuperarContrasena(user.getMail(), "Recuperación de Cuenta.", "Prueba Sistemas");
     }
 
 }
