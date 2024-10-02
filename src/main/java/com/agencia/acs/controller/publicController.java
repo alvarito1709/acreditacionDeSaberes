@@ -197,6 +197,11 @@ public class publicController {
         return "recuperarContraseña";
     }
 
+    @GetMapping("/mail")
+    public String mail(){
+        return "mail";
+    }
+
     @GetMapping("/iniciarProyecto")
     public void iniciarProyecto(){
 

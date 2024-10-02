@@ -1,0 +1,58 @@
+
+
+.mailContainer{
+    width: 100%;
+    background-color: whitesmoke;
+    padding: 20px;
+}
+
+.bodyMail{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: center;
+    padding: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.mailHeaderContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.logoAgencia{
+    width: 200px;
+}
+
+
+.letrasAzules{
+    color: #153244;
+}
+
+.botonRestablecerContraseña{
+    padding: 15px;
+    color: white;
+    background-color: #4f1177;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    margin: auto;
+    font-weight: 700;
+}
+
+.letrasAzulApagado{
+    color: rgba(21, 50, 68, 0.65);
+}
+
+.mailFooter{
+    background-color: #153244;
+    padding: 30px;
+    color: white;
+    text-align: center;
+}

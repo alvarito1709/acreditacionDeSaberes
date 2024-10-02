@@ -84,3 +84,11 @@
     flex-direction: column;
     justify-content: space-evenly;
 }
+
+.passwordCambiada{
+    text-align: center !important;
+}
+
+.passwordCambiada h2{
+    align-items: unset !important;
+}

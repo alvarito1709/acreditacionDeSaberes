@@ -507,15 +507,12 @@ public class UserController {
 
     }
 
-    @PostMapping("/enviarCorreoRecuperarContrasena")
-    @ResponseBody
-    public void enviarCorreoContrasena(@RequestParam(value = "username") String username){
 
 
-        System.out.println(username);
-        User user = userService.buscarUsuarioPorUsername(username);
+    public String generarTokenRecuperoContrasena(){
 
-        mailService.recuperarContrasena(user.getMail(), "Recuperación de Cuenta.", "Prueba Sistemas");
+
+        return "https://tudominio.com/recuperar-contrasena";
     }
 
 }

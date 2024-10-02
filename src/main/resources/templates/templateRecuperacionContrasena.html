@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recuperar Contraseña</title>
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/recuperarContrasena.css}">
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<th:block th:replace="common :: header"></th:block>
+
+<div class="bodyContainer">
+
+    <div class="formContainer" th:fragment="formCambiarPassword(${usuario})">
+        <div id="verificarUsuario" >
+            <h2>Restablecer Contraseña</h2>
+            <p>Ingresa una nueva contraseña</p>
+
+            <input th:value="${usuario.id}" id="idUsuario" hidden>
+            <div class="icono-inputContainer">
+                <iconify-icon icon="material-symbols:password" width="28" height="28"  style="color: #655f5f"></iconify-icon>
+                <input type="password" id="cambiarContrasena1" class="inputSinBorde" placeholder="Contraseña">
+            </div>
+            <p class="advertenciaRoja" id="passwordIncorrecta" hidden>La contraseña debe tener al menos 8 dígitos y ser alfanumerica</p>
+            <div class="icono-inputContainer">
+                <iconify-icon icon="material-symbols:password" width="28" height="28"  style="color: #655f5f"></iconify-icon>
+                <input type="password" id="cambiarContrasena2" class="inputSinBorde" placeholder="Repetir contraseña">
+            </div>
+            <p class="advertenciaRoja" id="passwordNoCoincide" hidden>La contraseña no coincide</p>
+
+            <button onclick="verificarContrasena()" class="botonRecuperarContrasena">Verificar y restablecer</button>
+        </div>
+
+        <div id="mailEnviado" class="passwordCambiada" style="display: none">
+            <h2><iconify-icon icon="ep:success-filled" width="28" height="28" ></iconify-icon>¡Contraseña cambiada con éxito!</h2>
+        </div>
+    </div>
+
+</div>
+
+<th:block th:replace="common :: footer"></th:block>
+<th:block th:replace="common :: footer-mobile"></th:block>
+
+<script th:src="@{/javaScript/recuperarContrasena.js}"></script>
+</body>
+</html>

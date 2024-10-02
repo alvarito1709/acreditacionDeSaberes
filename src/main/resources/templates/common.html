@@ -23,9 +23,9 @@
         </div>
 
         <div class="contenedorBotonesDeSeccion"  sec:authorize="isAnonymous()">
-            <a href="index" class="botonRegistro">Inicio</a>
-            <a href="registro" class="botonRegistro">Registrarme</a>
-            <a href="login"><button class="botonIniciarSesion">  Ingresar</button></a>
+            <a th:href="@{/index}" class="botonRegistro">Inicio</a>
+            <a th:href="@{/registro}" class="botonRegistro">Registrarme</a>
+            <a th:href="@{/login}"><button class="botonIniciarSesion">  Ingresar</button></a>
         </div>
 
         <div id="loguearse" sec:authorize="isAuthenticated()">

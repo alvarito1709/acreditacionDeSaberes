@@ -59,6 +59,10 @@ dependencies {
 // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
 	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.17.2'
 
+	// encriptacion de contraseña para mailing
+	implementation group: 'org.jasypt', name: 'jasypt', version: '1.9.2'
+
+
 
 
 

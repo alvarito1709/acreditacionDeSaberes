@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mail</title>
+
+    <!--<link rel="stylesheet" th:href="@{/css/mail.css}"> -->
+
+    <style>
+
+
+        .mailContainer{
+            width: 100%;
+            background-color: whitesmoke;
+            padding: 20px;
+        }
+
+        .bodyMail{
+            flex-direction: column;
+            width: 100%;
+            flex-wrap: wrap;
+            align-content: center;
+            padding: 30px;
+            border: none;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        .mailHeaderContainer{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-evenly;
+        }
+
+        .logoAgencia{
+            width: 200px;
+        }
+
+
+        .letrasAzules{
+            color: #153244;
+        }
+
+        .botonRestablecerContraseña{
+            padding: 15px;
+            color: white;
+            background-color: #4f1177;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+            margin: auto;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .letrasAzulApagado{
+            color: rgba(21, 50, 68, 0.65);
+        }
+
+        .mailFooter{
+            background-color: #153244;
+            padding: 30px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="mailContainer" th:fragment="recuperarContraseña(${usuario}, ${token})">
+    <div class="bodyMail">
+
+        <div class="mailHeaderContainer">
+            <img class="logoAgencia" src="https://i.ibb.co/8z3zxZy/logo-Agencia-Negro.png" alt="logo-Agencia-Negro" border="0">
+            <img class="logoAgencia" src="https://i.ibb.co/DVS9fsN/logo-ACS.png" alt="logo-ACS" border="0">
+        </div>
+
+        <h2 class="letrasAzules">Restablecimiento de Contraseña</h2>
+
+        <p class="letrasAzules"> hemos recibido una solicitud para restablecer la contraseña de tu cuenta en Acreditación de Saberes.
+            Si no has solicitado este cambio, puedes ignorar este correo electrónico.
+        </p>
+
+        <br>
+
+        <p class="letrasAzules">Para restablecer tu contraseña, haz clic en el botón a continuación:</p>
+
+        <button class="botonRestablecerContraseña" th:href="${token}">Restablecer Contraseña</button>
+
+        <br>
+
+        <p class="letrasAzules">Si el botón no funciona, copia y pega el siguiente enlace en tu navegador:</p>
+           <a th:href="${token}" target="_blank" th:text="${token}"> https://acreditaciondesaberes.com/reset-password?token=UNIQUE_TOKEN </a>
+
+
+        <p class="letrasAzulApagado">Este enlace expirará en 24 horas por razones de seguridad.</p>
+
+    </div>
+
+    <footer class="mailFooter">
+    <p>©2024 Acreditación de Saberes. Todos los derechos reservados.</p>
+    </footer>
+</div>
+
+</body>
+</html>

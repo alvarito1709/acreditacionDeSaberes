@@ -253,20 +253,18 @@ p a {
     flex-wrap: wrap;
 }
 
-@media(max-width: 480px) {
+@media(max-width:990px) {
 
-    #bannerInfoContainer{
-        width: unset;
-        height: 70vh;
+
+
+    #bannerInfoContainer h1{
+        font-size: 2.5rem;
     }
 
-    #subtituloBanner{
-        flex-direction: column;
+    #subtituloBanner h3{
+        font-size: 2rem;
     }
 
-    .contenedorBlanco{
-        width: unset;
-    }
 
     .tituloInfoAzul{
         text-align: center;
@@ -275,13 +273,11 @@ p a {
     .oficiosContainer{
         flex-direction: column;
         align-content: unset;
+        height: 50vh;
     }
 
     .sectoresContainer{
         width: unset;
     }
 
-    .tituloInfo{
-        font-size: large;
-    }
 }
