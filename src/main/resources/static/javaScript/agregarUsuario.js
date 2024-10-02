@@ -51,10 +51,6 @@ function crearUsuario(){
                 break;
         }
 
-
-
-
-
         var data = {
             nombre: nombreUsuario.value,
             mail: correoUsuario.value,
@@ -116,5 +112,58 @@ function verificarUsuario(){
 
     })
 
+
+}
+
+
+function validarDatosUsuarioNuevo(){
+
+
+    const nombreUsuarioNuevo = document.getElementById("nombreUsuarioNuevo");
+    const correoUsuarioNuevo = document.getElementById("correoUsuarioNuevo");
+    const dniNuevo = document.getElementById("dniNuevo");
+    const passwordUsuarioNuevo = document.getElementById("passwordUsuarioNuevo");
+    const tipoDeUsuario = document.getElementById("tipoDeUsuario");
+
+    const validacionNombre = new RegExp('^[A-Za-z]+$');
+    const validacionEmail = new RegExp('^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$');
+    const validacionDNI = new RegExp('^\\d{7,11}$');
+    const validacionPassword = new RegExp('^[A-Za-z0-9.?¿¡!_-]{8,}$')
+
+
+    const alertaNombre = document.getElementById("alertaNombre");
+    const alertaEmail = document.getElementById("alertaEmail");
+    const alertaDNI = document.getElementById("alertaDNI");
+    const alertaPassword = document.getElementById("alertaPassword");
+
+    if(validacionNombre.test(nombreUsuarioNuevo.value.replace(/\s/g, '')) === false){
+        alertaNombre.style.display = "block";
+    }else {
+        alertaNombre.style.display = "none";
+    }
+    if (validacionEmail.test(correoUsuarioNuevo.value) === false){
+        alertaEmail.style.display = "block";
+    }else {
+        alertaEmail.style.display = "none";
+    }
+    if (validacionDNI.test(dniNuevo.value) === false){
+        alertaDNI.style.display = "block";
+    }else {
+        alertaDNI.style.display = "none";
+    }
+    if (validacionPassword.test(passwordUsuarioNuevo.value) === false){
+        alertaPassword.style.display = "block";
+    }else {
+        alertaPassword.style.display = "none"
+    }
+
+
+    if (validacionNombre.test(nombreUsuarioNuevo.value.replace(/\s/g, '')) === true && validacionEmail.test(correoUsuarioNuevo.value) === true &&
+        validacionDNI.test(dniNuevo.value) === true && validacionPassword.test(passwordUsuarioNuevo.value) === true){
+
+
+        crearUsuario()
+
+    }
 
 }

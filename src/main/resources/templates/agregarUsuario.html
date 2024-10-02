@@ -26,12 +26,15 @@
 
             <label for="nombreUsuarioNuevo" class="labelUsuario">Nombre</label>
             <input id="nombreUsuarioNuevo" class="inputUsuario" type="text" placeholder="NOMBRE">
+            <p id="alertaNombre" class="advertenciaUsuarioExistente" hidden>No debe estar en blanco, y solo debe contener caracteres alfabéticos</p>
 
             <label for="correoUsuarioNuevo" class="labelUsuario">Correo</label>
             <input id="correoUsuarioNuevo" class="inputUsuario" type="email" placeholder="EMAIL">
+            <p id="alertaEmail" class="advertenciaUsuarioExistente" hidden>Debe respetar el formato de mail</p>
 
             <label for="dniNuevo" class="labelUsuario">DNI</label>
             <input id="dniNuevo" type="text" class="inputUsuario" PLACEHOLDER="DNI"  th:onchange="verificarUsuario()">
+            <p id="alertaDNI" class="advertenciaUsuarioExistente" hidden>Debe tener entre 8 y 11 caracteres numéricos</p>
 
 
             <input id="usernameUsuarioNuevo" type="text" placeholder="USERNAME" style="display: none">
@@ -39,6 +42,7 @@
 
             <label for="passwordUsuarioNuevo" class="labelUsuario">Contraseña</label>
             <input id="passwordUsuarioNuevo" class="inputUsuario" type="password" placeholder="PASSWORD">
+            <p id="alertaPassword" class="advertenciaUsuarioExistente" hidden>Debe tener más de 8 caracteres alfanuméricos</p>
 
             <label for="tipoDeUsuario" class="labelUsuario">Tipo</label>
             <select id="tipoDeUsuario" class="inputUsuario">
@@ -52,7 +56,7 @@
                 <option value="ROLE_REFERENTE">REFERENTE</option>
             </select>
 
-            <button class="botonCrearUsuario" onclick="crearUsuario()">
+            <button class="botonCrearUsuario" onclick="validarDatosUsuarioNuevo()">
                 CREAR USUARIO</button>
         </div>
 
