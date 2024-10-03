@@ -168,7 +168,22 @@ public class UserController {
            new ResponseEntity<>("Error al buscar usuario", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        return new ModelAndView("editarUsuario");
+        return new ModelAndView("editarUsuario :: editar");
+    }
+
+    @GetMapping("/editar/postulante/{id}")
+    public ModelAndView formularioEditarPostulante(@PathVariable Long id, Model model){
+
+        try{
+          Optional<Postulante> usuario = postulanteService.buscarPostulantePorId(id);
+            if (!(usuario.isEmpty())){
+                model.addAttribute("usuario",usuario.get());
+            }
+        }catch (Exception e){
+           new ResponseEntity<>("Error al buscar usuario", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ModelAndView("editarUsuario :: editarPostulante");
     }
 
     @PostMapping("/guardarUsuario/{id}")
@@ -179,6 +194,7 @@ public class UserController {
 
         Optional<User> usuarioOptional = Optional.ofNullable(userService.buscarUsuario(id));
 
+
         if (!usuarioOptional.isPresent()){
              ResponseEntity.unprocessableEntity().build();
 
@@ -186,10 +202,13 @@ public class UserController {
 
             return new ModelAndView("tablas :: tablaQueCargo");
         }else {
-            user.setPassword(passwordEncoder.passwordEncrypt(user.getPassword()));
-            user.setId(id);
 
-            userService.guardarUsuario(user);
+            User usuarioEditado = usuarioOptional.get();
+
+            usuarioEditado.setPassword(passwordEncoder.passwordEncrypt(user.getPassword()));
+            usuarioEditado.setId(id);
+
+            userService.guardarUsuario(usuarioEditado);
 
             ResponseEntity.noContent().build();
 
@@ -487,6 +506,21 @@ public class UserController {
         model.addAttribute("postulantes", postulante1.get());
 
         model.addAttribute("tabla", "Mis Datos");
+
+        return  new ModelAndView("tablas :: tablaQueCargo");
+    }
+
+    @PostMapping("/editarDatosPostulantesDesdeAdmin")
+    @Transactional
+    public ModelAndView editarDatosPostulantesDesdeAdmin(@RequestBody Postulante postulante, Model model){
+
+
+        postulanteService.guardarPostulante(postulante);
+
+        List<Postulante> postulante1 = postulanteService.listarPostulantes();
+        model.addAttribute("postulantes", postulante1);
+
+        model.addAttribute("tabla", "Usuarios Postulantes");
 
         return  new ModelAndView("tablas :: tablaQueCargo");
     }

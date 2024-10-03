@@ -283,6 +283,10 @@ function mostrarModalParaEditar(elemento, tabla){
             case 'Usuarios':
             urlEditar = url + "user/editar/" + elemento.id;
             break;
+
+            case 'Usuarios Postulantes':
+            urlEditar = url + "user/editar/postulante/" + elemento.id;
+            break;
     }
 
     $.ajax({

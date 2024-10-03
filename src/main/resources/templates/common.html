@@ -83,7 +83,7 @@
                     <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Probador de Modulos')"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Probador de Modulos</span></li>
                     <li th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Usuarios Postulantes')"><iconify-icon icon="solar:user-bold-duotone" width="19" height="20"  ></iconify-icon> <span>Usuarios Postulantes</span></li>
                     <li th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" id="mostrarDatosPostulante" th:data="${#authentication.principal.id}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Mis Datos'), buscarPaises(), obtenerProvincias()"><iconify-icon icon="tabler:edit" width="19" height="20"></iconify-icon> <span>Mis Datos</span></li>
-                    <li th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Mis Trayectos')"><iconify-icon class="iconify" icon="nimbus:university" width="19" height="20" ></iconify-icon> <span>Mis Cursos</span></li>
+                    <li th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTablas('Mis Trayectos')"><iconify-icon class="iconify" icon="nimbus:university" width="19" height="20" ></iconify-icon> <span>Mis Evaluaciones</span></li>
                     <li th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" class="hover listItem puedeSeleccionarse" onclick="mostrarTableroDeInscripcion()"><iconify-icon icon="mingcute:plus-line" width="20" height="20"  style="align-self: center"></iconify-icon> <span>Nueva Inscripción</span></li>
                 </ul>
             </div>
@@ -146,7 +146,7 @@
             </div>
             <div th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" class="itemContainer hover puedeSeleccionarse" onclick="mostrarTablas('Mis Trayectos')">
                 <iconify-icon icon="mdi:university-outline" width="30" height="30"  ></iconify-icon>
-                <span>Mis Cursos</span>
+                <span>Mis Evaluaciones</span>
             </div>
             <div th:if="${#authorization.expression('hasRole(''ROLE_POSTULANTE'')')}" class="itemContainer hover puedeSeleccionarse" onclick="mostrarTableroDeInscripcion()">
                 <iconify-icon icon="ei:plus" width="30" height="30" ></iconify-icon>

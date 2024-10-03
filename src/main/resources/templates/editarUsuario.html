@@ -59,6 +59,53 @@
 
     </div>
 
+
+    <div id="formContainer" th:fragment="editarPostulante(${usuario})">
+
+
+
+        <div id="form" class="editarUser" th:each="datosusuario : ${usuario}">
+
+
+
+            <span class="modalHeader"><h3>Editar Usuario</h3><i class="bi bi-x-lg" onclick="ocultarModalAgregar()"></i></span>
+
+            <input id="postulanteId" hidden type="number" th:value="${datosusuario.id}">
+
+            <label for="nombrePostulante" class="labelUsuario">Nombre</label>
+            <input id="nombrePostulante" class="inputUsuario" type="text" placeholder="NOMBRE" th:value="${datosusuario.nombre}" >
+
+            <label for="emailPostulante" class="labelUsuario">Correo</label>
+            <input id="emailPostulante" class="inputUsuario" type="email" placeholder="EMAIL" th:value="${datosusuario.mail}">
+
+            <label for="dniPostulante" class="labelUsuario">DNI</label>
+            <input id="dniPostulante" class="inputUsuario" type="text" PLACEHOLDER="DNI" th:value="${datosusuario.DNI}">
+
+
+            <input id="postulanteUsername"  type="text" placeholder="USERNAME" th:value="${datosusuario.DNI}" hidden>
+
+            <label for="postulantePassword" class="labelUsuario">Contraseña</label>
+            <input id="postulantePassword" class="inputUsuario" type="password" placeholder="PASSWORD" th:value="${datosusuario.password}">
+
+            <input id="generoPostulante" th:value="${datosusuario.genero}" hidden>
+            <input id="telefonoPostulante" th:value="${datosusuario.telefono}" hidden>
+            <input id="celularPostulante" th:value="${datosusuario.celular}" hidden>
+            <input id="cuilPostulante" th:value="${datosusuario.cuil}" hidden>
+            <input id="nacionalidadDelPostulante" th:value="${datosusuario.nacionalidad}" hidden>
+            <input id="provinciaPostulante" th:value="${datosusuario.provincia}" hidden>
+            <input id="localidadPostulante" th:value="${datosusuario.localidad}" hidden>
+            <input id="callePostulante" th:value="${datosusuario.calle}" hidden>
+            <input id="numeroDeCallePostulante" th:value="${datosusuario.numeroDeCalle}" hidden>
+            <input id="pisoPostulante" th:value="${datosusuario.piso}" hidden>
+            <input id="postulanteRol" th:value="${datosusuario.rol}" hidden>
+            <input id="postulanteEstado" th:value="${datosusuario.estado}" hidden>
+
+            <button class="botonCrearUsuario" onclick="editarPostulanteDesdeAdmin()">
+                EDITAR USUARIO</button>
+        </div>
+
+    </div>
+
     <script th:src="@{/javaScript/editarUsuario.js}"></script>
 </body>
 </html>
