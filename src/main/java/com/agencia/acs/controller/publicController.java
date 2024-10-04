@@ -6,8 +6,12 @@ import com.agencia.acs.entities.*;
 import com.agencia.acs.repository.UserRepository;
 import com.agencia.acs.service.*;
 import com.agencia.acs.web.CustomUserDetails;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -82,12 +87,20 @@ public class publicController {
     public String regitro(){ return "registro";}
 
     @GetMapping("/board")
-    public String board(HttpSession http, Model model){
+    public String board(HttpSession http, Model model,
+                        @AuthenticationPrincipal CustomUserDetails usuarioLogueado) {
 
-        User user = (User) http.getAttribute("usuariosession");
+        List<GrantedAuthority> autoridades = usuarioLogueado.getRol();
 
-        if (user != null) {
-            model.addAttribute("usuario", user);
+        boolean isPostulante = autoridades.stream()
+                .anyMatch(a -> a.getAuthority().equals("ROLE_POSTULANTE"));
+
+        if (isPostulante) {
+            Optional<Postulante> postulanteOptional = postulanteService.buscarPostulantePorId(usuarioLogueado.getId());
+
+            postulanteOptional.ifPresent(postulante -> {
+                model.addAttribute("postulante", postulante);
+            });
         }
 
         return "board";

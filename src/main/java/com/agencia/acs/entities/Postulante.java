@@ -175,5 +175,9 @@ public class Postulante extends User{
     }
 
 
+    public boolean tieneFechaDeAlta(){
+        return fechaDeAlta != null;
+    }
+
 
 }

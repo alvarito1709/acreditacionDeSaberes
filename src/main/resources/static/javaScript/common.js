@@ -437,3 +437,13 @@ async function obtenerProvincias() {
 
     }
 
+    function cerrarInfoDatos(){
+        const modal = document.getElementById("modalPrimerIngresoPostulanteContainer");
+
+        if (modal.style.display === "none"){
+            modal.style.display = "flex";
+        }else {
+            modal.style.display = "none";
+        }
+    }
+

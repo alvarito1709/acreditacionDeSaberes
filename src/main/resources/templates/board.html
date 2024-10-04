@@ -79,6 +79,20 @@
 
 </div>
 
+<div th:fragment="modalPrimerIngresoPostulante(${postulante})" th:unless="${postulante == null or postulante?.tieneFechaDeAlta()}" id="modalPrimerIngresoPostulanteContainer">
+
+    <div id="modalPrimerIngresoPostulante">
+
+        <h3 class="infoDatosModal">Para poder continuar tenés que completar todos tus datos</h3>
+        <p class="infoDatosModal">Podés completar tus datos en la sección "Mis Datos", una vez que se
+            complete podés empezar a acreditar tu oficio
+        </p>
+
+        <button class="botonAcreditacion" th:data="${#authentication.principal.id}" onclick="mostrarTablas('Mis Datos'),cerrarInfoDatos(), buscarPaises(), obtenerProvincias()">Continuar</button>
+    </div>
+
+</div>
+
 
 
 

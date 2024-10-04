@@ -20,4 +20,5 @@ public class PostulanteService {
     public List<Postulante> listarPostulantes(){return postulanteRepository.findAll();}
 
     public Optional<Postulante> buscarPostulantePorId(Long id){return postulanteRepository.findById(id);}
+
 }
