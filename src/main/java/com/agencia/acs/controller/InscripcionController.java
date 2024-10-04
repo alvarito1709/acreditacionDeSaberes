@@ -62,9 +62,6 @@ public class InscripcionController {
                 Objects.equals(postulanteLogueado.getTelefono(), "") ||
                 Objects.equals(postulanteLogueado.getCelular(), "") ||
                 Objects.equals(postulanteLogueado.getCuil(), "") ||
-                Objects.equals(postulanteLogueado.getNacionalidad(), "") ||
-                Objects.equals(postulanteLogueado.getProvincia(), "")||
-                Objects.equals(postulanteLogueado.getLocalidad(), "") ||
                 Objects.equals(postulanteLogueado.getCalle(), "") ||
                 Objects.equals(postulanteLogueado.getNumeroDeCalle(), "") ||
                 Objects.equals(postulanteLogueado.getPiso(), "") ){
@@ -76,9 +73,6 @@ public class InscripcionController {
                 Objects.isNull(postulanteLogueado.getTelefono()) ||
                 Objects.isNull(postulanteLogueado.getCelular()) ||
                 Objects.isNull(postulanteLogueado.getCuil()) ||
-                Objects.isNull(postulanteLogueado.getNacionalidad()) ||
-                Objects.isNull(postulanteLogueado.getProvincia())||
-                Objects.isNull(postulanteLogueado.getLocalidad()) ||
                 Objects.isNull(postulanteLogueado.getCalle()) ||
                 Objects.isNull(postulanteLogueado.getNumeroDeCalle()) ||
                 Objects.isNull(postulanteLogueado.getPiso()) ){
