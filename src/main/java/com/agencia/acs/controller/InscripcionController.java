@@ -110,6 +110,7 @@ public class InscripcionController {
                                            @RequestParam(value = "estado") String estado,
                                            @RequestParam(value = "puntajeMaximo")Long puntajeMaximo,
                                            @RequestParam(value = "trayectoId")Long trayectoId,
+                                           @RequestParam(value = "centroId")Long centroId,
                                            Model model){
 
         model.addAttribute("nota", nota);
@@ -125,11 +126,14 @@ public class InscripcionController {
 
         Optional<Trayecto> trayecto = trayectoService.buscarTrayectoPorId(trayectoId);
 
+        Centro centroOptional = centroService.buscarCentroPorId(centroId);
+
         inscripcion.setPostulante(postulante.get());
         inscripcion.setTrayecto(trayecto.get());
         inscripcion.setEstado(estado);
         inscripcion.setNota(String.valueOf(nota));
         inscripcion.setNotaMaximaDelExamen(String.valueOf(puntajeMaximo));
+        inscripcion.setCentro(centroOptional);
 
         inscripcionService.nuevaInscripcion(inscripcion);
 

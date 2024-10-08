@@ -32,7 +32,7 @@
                       <label for="trayectoSeleccionado">Oficio a postular</label>
                     </div>
                     <div class="selectContainer">
-                        <select id="trayectoSeleccionado" th:fragment="seleccionDeTrayecto(${trayectos}, ${inscripciones}, ${postulante})">
+                        <select id="trayectoSeleccionado" th:fragment="seleccionDeTrayecto(${trayectos}, ${inscripciones}, ${postulante})" th:onchange="filtrarCentros()">
                             <option value=""></option>
                             <option th:each="trayecto : ${trayectos}" th:text="${trayecto.nombre}" th:value="${trayecto.nombre}" th:data-id="${trayecto.id}"></option>
                  <!--           <option value="panadero" class="gastronomia" style="display: none">Panadero</option>
@@ -49,6 +49,18 @@
                             <option value="mecanicoDeBicicletas" class="mecanicaAutomotriz" style="display: none">Mecánico de Bicicletas</option>
                             <option value="instaladorYReparadorDeEquiposDeClimatizacion" class="reparacionYMantenimientoDeMáquinasYEquiposElectricosElectronicos" style="display: none">Instalador y Reparador de Equipos de Climatización</option>
                        --> </select>
+                    </div>
+                </div>
+
+                <div class="sectorContainer">
+                    <div class="labelContainer">
+                        <label for="centroSeleccionado">Centro donde se dicta</label>
+                    </div>
+                    <div class="selectContainer" th:fragment="seleccionDeCentro(${centros})">
+                        <select id="centroSeleccionado" >
+                            <option value=""></option>
+                            <option th:each=" centro : ${centros}" th:value="${centro.id}" th:text="${centro.nombre}"></option>
+                        </select>
                     </div>
                 </div>
 

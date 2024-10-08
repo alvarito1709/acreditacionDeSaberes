@@ -3,6 +3,7 @@
 
 let trayectoNombre = "";
 let trayectoId = 0;
+let centroId = 0;
 
 
 //ESTA FUNCION ESTA HARDCODEADA
@@ -236,6 +237,12 @@ function llevarAlCuestionario(){
 
     trayectoId = elementoSeleccionado.getAttribute("data-id");
 
+    let desplegableCentros = document.getElementById("centroSeleccionado");
+
+    centroId = desplegableCentros.selectedOptions[0].value;
+
+
+
 
     $.ajax({
         type:'GET',
@@ -264,6 +271,23 @@ function mostrarCuestionario(){
         }]
     })
 
+}
+
+function filtrarCentros(){
+
+
+    const elementoSeleccionado = document.getElementById("trayectoSeleccionado").selectedOptions[0];
+    const idTrayecto = elementoSeleccionado.getAttribute("data-id");
+
+
+    $.ajax({
+        type:'POST',
+        url: url + "centros/filtrarCentrosParaInscripcion",
+        data: {trayectoId: idTrayecto},
+        success: [function (response){
+            $("#centroSeleccionado").html(response);
+        }]
+    })
 }
 
 

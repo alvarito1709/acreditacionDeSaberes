@@ -30,7 +30,8 @@ function validarTrayecto(){
                nota:puntaje,
                estado: estado,
                puntajeMaximo:preguntas.length,
-               trayectoId:trayectoId
+               trayectoId:trayectoId,
+               centroId:centroId
 
            },
            success: [function (respuesta){

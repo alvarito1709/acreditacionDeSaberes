@@ -2,7 +2,9 @@ package com.agencia.acs.controller;
 
 import com.agencia.acs.DTO.CentroDTO;
 import com.agencia.acs.entities.Centro;
+import com.agencia.acs.entities.Trayecto;
 import com.agencia.acs.service.CentroService;
+import com.agencia.acs.service.TrayectoService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/centros")
@@ -25,6 +28,9 @@ public class CentroController {
 
     @Autowired
     CentroService centroService;
+
+    @Autowired
+    TrayectoService trayectoService;
 
     @GetMapping("")
     public ModelAndView modalCentros(Model model){
@@ -144,6 +150,20 @@ public class CentroController {
         model.addAttribute("tabla", "Centros");
 
         return new ModelAndView("tablas :: tablaQueCargo");
+    }
+
+    @PostMapping("/filtrarCentrosParaInscripcion")
+    public ModelAndView filtrarCentrosPorTrayecto(Model model,
+                                                  @RequestParam(value = "trayectoId") Long idTrayecto){
+
+        Optional<Trayecto> trayectoOptional = trayectoService.buscarTrayectoPorId(idTrayecto);
+
+        Set<Centro> centros = trayectoOptional.get().getCentros();
+
+        model.addAttribute("centros", centros);
+
+        return new ModelAndView("inscripcionATrayectos :: seleccionDeCentro");
+
     }
 
 }
