@@ -166,4 +166,17 @@ public class CentroController {
 
     }
 
+    @PostMapping("/direccionCentro")
+    @ResponseBody
+    public ModelAndView buscarDireccionDeCentro(@RequestParam(value = "idCentro") Long idCentro,
+                                        Model model){
+
+        Centro centro = centroService.buscarCentroDTO(idCentro);
+
+        model.addAttribute("direccion", centro.getDireccion());
+
+        return new ModelAndView("inscripcionATrayectos :: direccionDeCentro");
+
+    }
+
 }

@@ -290,6 +290,22 @@ function filtrarCentros(){
     })
 }
 
+function buscarDireccionCentro(){
+
+
+    const urlDireccion = url+"centros/direccionCentro";
+    const idCentroSeleccionado = document.getElementById("centroSeleccionado").selectedOptions[0].value;
+
+    $.ajax({
+        type:'POST',
+        url: urlDireccion,
+        data: {idCentro: idCentroSeleccionado},
+        success: [function (response){
+            $("#direccion").html(response);
+        }]
+    })
+}
+
 
 
 

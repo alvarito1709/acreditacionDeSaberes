@@ -57,11 +57,21 @@
                         <label for="centroSeleccionado">Centro donde se dicta</label>
                     </div>
                     <div class="selectContainer" th:fragment="seleccionDeCentro(${centros})">
-                        <select id="centroSeleccionado" >
+                        <select id="centroSeleccionado" th:onchange="buscarDireccionCentro()">
                             <option value=""></option>
                             <option th:each=" centro : ${centros}" th:value="${centro.id}" th:text="${centro.nombre}"></option>
                         </select>
                     </div>
+                </div>
+
+                <div class="sectorContainer" id="direccion" th:fragment="direccionDeCentro(${direccion})">
+                    <div class="labelContainer">
+                        <label for="direccionCentro">Dirección del centro: </label>
+                    </div>
+                    <div class="selectContainer">
+                        <div id="direccionCentro" class="direccionDeCentro noClick" th:text="${direccion}" ></div>
+                    </div>
+
                 </div>
 
             </div>
