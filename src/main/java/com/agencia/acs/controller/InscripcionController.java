@@ -137,6 +137,8 @@ public class InscripcionController {
 
         inscripcionService.nuevaInscripcion(inscripcion);
 
+        model.addAttribute("centro", centroOptional);
+
 
         if (Objects.equals(estado, "Aprobado sin turno")){
             return new ModelAndView("inscripcionATrayectos::aprobado");

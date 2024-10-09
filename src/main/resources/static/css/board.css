@@ -123,6 +123,15 @@
     color: #153244;
 }
 
+.infoCentro{
+    color: #153244;
+    text-align: center;
+}
+
+.infoCentro span{
+    color: black;
+}
+
 @media(max-width:990px){
 
 

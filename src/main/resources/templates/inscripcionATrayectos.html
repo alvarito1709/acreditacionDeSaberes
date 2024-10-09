@@ -127,12 +127,20 @@
 
     </div>
 
-    <div class="inscripcionContainer" th:fragment="aprobado(${nota}, ${puntajeMaximo})">
+    <div class="inscripcionContainer" th:fragment="aprobado(${nota}, ${puntajeMaximo}, ${centro})">
 
         <div class="tableroDeInscripcion">
             <h3 class="notas">¡Felicidades! aprobaste el test evaluativo.</h3>
             <h4 class="notas">Tu puntaje final fue <span th:text="${nota}" class="letrasVerdes">nota</span> de <span th:text="${puntajeMaximo}"></span></h4>
 
+            <div id="infoCentroContainer">
+                <h4 class="infoCentro">El centro que elegiste es: <span th:text="${centro.nombre}"> nombre </span></h4>
+                <h4 class="infoCentro"> direccion: <span th:text="${centro.direccion}"> direccion</span></h4>
+                <h4 class="infoCentro"> telefono: <span th:text="${centro.telefono}"></span></h4>
+                <h4 class="infoCentro"> Pronto el centro se pondrá en contacto con vos para asignarte un turno e informarte como seguir el recorrido.</h4>
+            </div>
+
+            <h3></h3>
             <div class="botonesCuestionarioContainer">
                 <button onclick="mostrarTablas('Mis Trayectos')">Continuar</button>
             </div>
