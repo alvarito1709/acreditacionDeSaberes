@@ -64,3 +64,22 @@
     cursor: pointer;
 }
 
+#timerContainer{
+    background-color: whitesmoke;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    border: none;
+    border-radius: 20px;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    position: fixed;
+}
+
+#timerContainer span{
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+

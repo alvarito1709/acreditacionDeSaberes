@@ -306,6 +306,19 @@ function buscarDireccionCentro(){
     })
 }
 
+function iniciarODetenerTimer(){
+
+    const timerContainer = document.getElementById("timerContainer");
+
+    if (timerContainer.style.display === "none"){
+        timerContainer.style.display = "flex";
+        iniciarCronometro();
+    }else {
+        timerContainer.style.display = "none";
+        detenerCronometro();
+    }
+}
+
 
 
 

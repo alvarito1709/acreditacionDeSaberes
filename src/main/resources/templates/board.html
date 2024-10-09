@@ -75,6 +75,11 @@
     </div>
 </div>
 
+<div id="timerContainer" style="display: none">
+    <span id="timer">10</span>
+
+</div>
+
 <div id="modalesParaAgregarContainer">
 
 </div>
@@ -112,6 +117,29 @@
 <script th:src="@{/javaScript/validacionesDeTest.js}"></script>
 
 <script th:src="@{/javaScript/agregarUsuario.js}"></script>
+
+<script th:src="@{/javaScript/timer.js}"></script>
+
+<script>
+    // WORKER PARA MANTENER EL CRONOMETRO FUNCIONANDO EN SEGUNDO PLANO
+
+    const worker = new Worker('../javascript/timer.js');
+
+
+    worker.onmessage = function(e) {
+        document.getElementById("timerSegundos").innerHTML = e.data.segundo;
+        document.getElementById("timerMinutos").innerHTML = e.data.minuto;
+
+    };
+
+
+    // FUNCION PARA INICIAR EL TIMER, ENVÍA COMO PARAMETRO 1000 MILISEGUNDOS
+    function setTimer(){
+        worker.postMessage(1000);
+    }
+
+
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 </body>
