@@ -290,6 +290,7 @@ public class UserController {
 
 
         orientadorOptional.ifPresent(value -> orientador.setId(value.getId()));
+        orientadorOptional.ifPresent(value -> orientador.setPassword(value.getPassword()));
 
         Set<Centro> centrosDelOrientador = orientadorService.buscarOrientadorPorId(orientador.getId()).get().getCentros();
         Set<Sector> sectoresDelOrientador = orientadorService.buscarOrientadorPorId(orientador.getId()).get().getSectores();
@@ -325,6 +326,7 @@ public class UserController {
 
 
         entrevistadorOptional.ifPresent(value -> entrevistador.setId(value.getId()));
+        entrevistadorOptional.ifPresent(value -> entrevistador.setPassword(value.getPassword()));
 
         Set<Centro> centrosDelEntrevistador = entrevistadorService.buscarEntrevistadorPorId(entrevistador.getId()).get().getCentros();
         Set<Sector> sectoresDelEntrevistador = entrevistadorService.buscarEntrevistadorPorId(entrevistador.getId()).get().getSectores();
