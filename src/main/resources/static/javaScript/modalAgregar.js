@@ -355,7 +355,6 @@ function agregarEntrevista(){
     const urlEntrevista = url + "inscripcion/agregarEntrevista";
 
     const idInscripcion = document.getElementById("inscripcionId");
-    const centrosParaEntrevista = document.getElementById("centrosParaEntrevista");
     const fechaDeEntrevista = document.getElementById("fechaDeEntrevista");
     const entrevistadorInscripcion = document.getElementById("entrevistador");
 
@@ -365,7 +364,6 @@ function agregarEntrevista(){
         url: urlEntrevista,
         data: {
             inscripcionId:idInscripcion.value,
-            centroId:centrosParaEntrevista.value,
             fechaEntrevista:fechaDeEntrevista.value,
             entrevistadorId: entrevistadorInscripcion.value
         },
