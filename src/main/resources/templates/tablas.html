@@ -905,6 +905,77 @@
 
             </div>
 
+            <div th:if="${tabla == 'Incripciones del Centro'}">
+
+                <h2 class="tituloTabla">Gestión de Entrevistas</h2>
+
+                <div class="backgroundTabla">
+                    <h4 class="tituloDentroDeTabla">Postulantes sin turno</h4>
+                    <table id="tablaGestionDeInscripcionesAlCentro" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Entrevistador<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Postulante<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Trayecto<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Turno</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="inscripcion : ${inscripciones}" th:if="${inscripcion.estado != 'Con Turno Entrevista'}">
+                            <td th:text="${inscripcion.id}">id/td>
+                            <td >centro</td>
+                            <td >Entrevistador</td>
+                            <td th:text="${inscripcion.postulante.nombre}">postulante</td>
+                            <td th:text="${inscripcion.trayecto.nombre}">trayecto</td>
+                            <td th:text="${inscripcion.estado}">estado</td>
+                            <td><i class="bi bi-calendar-plus" th:id="${inscripcion.id}" th:data="${inscripcion}" onclick="mostrarModalParaAgregarTurnoAPostulante(this.id)"></i></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="backgroundTabla">
+                    <h4 class="tituloDentroDeTabla">Postulantes con turno</h4>
+                    <table id="tablaPostulantesConEntrevista" >
+                        <thead class="headerTabla">
+                        <tr>
+                            <th class="itemTitulo">#</th>
+                            <th class="itemTitulo">Centro <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Fecha<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Postulante<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Trayecto<i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Estado <i class="bi bi-arrow-down-up"></i></th>
+                            <th class="itemTitulo">Turno</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:each="inscripcion : ${inscripciones}" th:if="${inscripcion.estado == 'Con Turno Entrevista'}">
+                            <td th:text="${inscripcion.id}">id/td>
+                            <td th:text="${inscripcion.centro.nombre}">CENTRO</td>
+                            <td th:text="${#dates.format(inscripcion.fechaEntrevista, 'dd/MM/yyyy-HH:MM')}">fecha</td>
+                            <td th:text="${inscripcion.postulante.nombre}">postulante</td>
+                            <td th:text="${inscripcion.trayecto.nombre}">trayecto</td>
+                            <td th:text="${inscripcion.estado}">estado</td>
+                            <td><i class="bi bi-calendar-plus"></i></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+
+
+            </div>
+
             </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
 

@@ -38,4 +38,8 @@ public class InscripcionService {
 
         return postulantes;
     }
+
+    public List<Inscripcion> buscarInscripcionesPorCentro(Long id){
+        return inscripcionRepository.findAllByCentroId(id);
+    }
 }

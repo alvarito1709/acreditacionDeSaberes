@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Acreditacion de Saberes</title>
@@ -197,7 +197,7 @@
                         <option th:each="centro : ${centros}" th:text="${centro.nombre}" th:value="${centro.id}">ACTIVO</option>
                     </select></label>
 
-                    <label for="sectoresParaUsuario">Sectores<select id="sectoresParaUsuario">
+                    <label th:if="${usuario.rol == 'ROLE_ENTREVISTADOR' || usuario.rol == 'ROLE_EVALUADOR'}" for="sectoresParaUsuario">Sectores<select id="sectoresParaUsuario">
                         <option th:each="sector : ${sectores}" th:text="${sector.nombre}" th:value="${sector.id}">ACTIVO</option>
 
                     </select></label>

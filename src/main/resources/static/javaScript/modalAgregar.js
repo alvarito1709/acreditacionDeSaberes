@@ -286,7 +286,7 @@ switch (rol){
                 .then(response => response.json()),
             fetch(urlBase+"centros/verCentro/"+centroNuevo.value)
                 .then(response =>response.json()),
-            fetch(urlBase+"sectores/verSector/"+sectorNuevo.value)
+            fetch(urlBase+"sectores/verSector/"+1)
                 .then(response =>response.json())
         ]
         break;

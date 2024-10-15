@@ -64,6 +64,10 @@
                 <iconify-icon icon="ion:calendar" width="20" height="20" class="menuIcon"></iconify-icon>
                 <span>Turno Acreditación</span>
             </div>
+            <div th:if="${#authorization.expression('hasRole(''ROLE_ORIENTADOR'')')}" class="itemContainer hover puedeSeleccionarse" onclick="mostrarTablas('Incripciones del Centro')">
+                <iconify-icon icon="ion:calendar" width="20" height="20" class="menuIcon"></iconify-icon>
+                <span>Incripciones del Centro</span>
+            </div>
             <div th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="itemContainer hover" id="desplegarEditables">
                 <iconify-icon icon="ic:sharp-school" width="21" height="21" class="menuIcon"></iconify-icon>
                 <span>Maestros</span>
@@ -116,6 +120,11 @@
             <div th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'', ''ROLE_ENTREVISTADOR'', ''ROLE_EVALUADOR'')')}" class="itemContainer hover puedeSeleccionarse" onclick="mostrarTablas('Acreditacion')">
                 <iconify-icon icon="ion:calendar" width="20" height="20" class="menuIcon"></iconify-icon>
                 <span>Turno Acreditación</span>
+            </div>
+
+            <div th:if="${#authorization.expression('hasRole(''ROLE_ORIENTADOR'')')}" class="itemContainer hover puedeSeleccionarse" onclick="mostrarTablas('Incripciones del Centro')">
+                <iconify-icon icon="ion:calendar" width="20" height="20" class="menuIcon"></iconify-icon>
+                <span>Incripciones del Centro</span>
             </div>
 
             <div th:if="${#authorization.expression('hasAnyRole(''ROLE_ADMIN'', ''ROLE_REFERENTE'')')}" class="itemContainer hover listaMaestros" id="listaDesplegablesMaestros">

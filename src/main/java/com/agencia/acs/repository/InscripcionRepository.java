@@ -14,4 +14,6 @@ public interface InscripcionRepository extends JpaRepository<Inscripcion, Long> 
     List<Inscripcion> findAllByPostulanteId(Long id);
 
     List<Inscripcion> findAllByEntrevistadorId(Long id);
+
+    List<Inscripcion> findAllByCentroId(Long id);
 }
