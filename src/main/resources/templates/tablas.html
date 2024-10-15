@@ -78,7 +78,7 @@
                             <td th:text="${inscripcion.postulante.nombre}">postulante</td>
                             <td th:text="${inscripcion.trayecto.nombre}">trayecto</td>
                             <td th:text="${inscripcion.estado}">estado</td>
-                            <td><i class="bi bi-calendar-plus" th:id="${inscripcion.id}" th:data="${inscripcion}" onclick="mostrarModalParaAgregarTurnoAPostulante(this.id)"></i></td>
+                            <td><i th:if="${inscripcion.estado == 'Aprobado sin turno'}" class="bi bi-calendar-plus" th:id="${inscripcion.id}" th:data="${inscripcion}" onclick="mostrarModalParaAgregarTurnoAPostulante(this.id), filtrarEntrevistadores(this.id)"></i></td>
                         </tr>
 
                         </tbody>
@@ -932,7 +932,7 @@
                             <td th:text="${inscripcion.postulante.nombre}">postulante</td>
                             <td th:text="${inscripcion.trayecto.nombre}">trayecto</td>
                             <td th:text="${inscripcion.estado}">estado</td>
-                            <td><i class="bi bi-calendar-plus" th:id="${inscripcion.id}" th:data="${inscripcion}" onclick="mostrarModalParaAgregarTurnoAPostulante(this.id)"></i></td>
+                            <td><i th:if="${inscripcion.estado == 'Aprobado sin turno'}" class="bi bi-calendar-plus" th:id="${inscripcion.id}" th:data="${inscripcion}" onclick="mostrarModalParaAgregarTurnoAPostulante(this.id), filtrarEntrevistadores(this.id)"></i></td>
                         </tr>
 
                         </tbody>

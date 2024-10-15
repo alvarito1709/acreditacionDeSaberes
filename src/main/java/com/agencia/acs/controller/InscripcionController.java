@@ -1,6 +1,7 @@
 package com.agencia.acs.controller;
 
 
+import com.agencia.acs.DTO.CentroDTO;
 import com.agencia.acs.entities.*;
 import com.agencia.acs.service.*;
 import com.agencia.acs.web.CustomUserDetails;
@@ -220,7 +221,11 @@ public class InscripcionController {
     }
 
     @GetMapping("/buscarEntrevistadores")
-    public ModelAndView buscarEntrevistadores(@RequestParam(value = "centroId")Long centroId, Model model){
+    public ModelAndView buscarEntrevistadores(@RequestParam(value = "inscripcionId")Long inscripcionId, Model model){
+
+        Optional<Inscripcion> inscripcion = inscripcionService.buscarInscripcionPorId(inscripcionId);
+
+        Long centroId = inscripcion.get().getCentro().getId();
 
         List<Entrevistador> entrevistadores = entrevistadorService.buscarEntrevistadoresPorCentro(centroId);
 

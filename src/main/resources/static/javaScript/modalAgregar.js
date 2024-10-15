@@ -376,7 +376,7 @@ function agregarEntrevista(){
     })
 }
 
-function filtrarEntrevistadores(){
+function filtrarEntrevistadores(inscripcionId){
 
     const urlFiltrarEntrevistadores = url+"inscripcion/buscarEntrevistadores"
 
@@ -387,7 +387,7 @@ function filtrarEntrevistadores(){
         type:'GET',
         url: urlFiltrarEntrevistadores,
         data: {
-            centroId:centrosParaEntrevista.value
+            inscripcionId:inscripcionId
         },
         success: [function (respuesta){
             $("#entrevistador").html(respuesta);

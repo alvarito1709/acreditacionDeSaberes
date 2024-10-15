@@ -242,11 +242,9 @@
                     <input type="datetime-local" id="fechaDeEntrevista">
                     </label>
 
-                    <label for="centrosParaEntrevista">CENTROS<select id="centrosParaEntrevista" th:onchange="filtrarEntrevistadores()">
-                        <option value=""></option>
-                        <option th:each="centro : ${centros}" th:text="${centro.nombre}" th:value="${centro.id}" >ACTIVO</option>
-
-                    </select></label>
+                    <label for="centrosParaEntrevista" th:text="${inscripcion.centro.nombre}">CENTROS
+                        <input id="centrosParaEntrevista"  th:value="${inscripcion.centro.id}" hidden >
+                    </label>
 
                 </div>
 
