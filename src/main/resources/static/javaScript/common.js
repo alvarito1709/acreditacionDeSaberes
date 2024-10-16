@@ -114,9 +114,9 @@ function mostrarAdvertencia(elemento){
     const modal = document.getElementById("modalContainer");
     modal.style.display = "flex";
     let tabla = elemento.getAttribute('data');
+    let idusuario;
 
     let  urlEliminar =''
-    console.log(tabla);
 
     switch (tabla){
         case 'Usuarios':
@@ -137,6 +137,21 @@ function mostrarAdvertencia(elemento){
             urlEliminar = url+"trayectos/buscarTrayectoPorId/" +elemento.id;
             break
 
+        case 'Entrevistadores':
+            urlEliminar = url+"centros/buscarCentroPorRelacionUser/" +elemento.id;
+            idusuario =  elemento.getAttribute('data-idusuario');
+            break
+
+        case 'Orientadores':
+            urlEliminar = url+"centros/buscarCentroPorRelacionUser/" +elemento.id;
+            idusuario =  elemento.getAttribute('data-idusuario');
+            break
+
+        case 'Evaluadores':
+            urlEliminar = url+"centros/buscarCentroPorRelacionUser/" +elemento.id;
+            idusuario =  elemento.getAttribute('data-idusuario');
+            break
+
     }
 
 
@@ -146,7 +161,8 @@ function mostrarAdvertencia(elemento){
         type:'POST',
         url: urlEliminar,
         data: {
-            tabla: tabla
+            tabla: tabla,
+            idusuario: idusuario
         },
 
         success: [function (respuesta){
@@ -174,31 +190,62 @@ function eliminarElemento(elemento){
     const tablas = elemento.getAttribute("data-value");
     let urlEliminar = "";
 
+    let usuarioId;
+
+    let alerta = "";
+
     switch (tablas){
             case 'Usuarios':
                 urlEliminar = url+"user/borrarUsuario/" + idElemento;
+                alerta = "No se pudo eliminar al usuario.";
                 break;
 
             case 'Centros':
                 urlEliminar = url+"centros/borrarCentro/" + idElemento;
+                alerta = "Verifique que no hayan usuarios o trayectos asociados.";
                 break;
 
             case 'Sectores':
                 urlEliminar = url+"sectores/borrarCentro/" + idElemento;
+                alerta = "Verifique que no haya trayectos o usuarios asociados.";
 
                 break;
 
             case 'Trayectos':
             urlEliminar = url+"trayectos/borrarTrayectos/" + idElemento;
+            alerta = "Verifique que no haya centros o módulos asociados.";
+
+            break;
+
+            case 'Entrevistadores':
+            urlEliminar = url+"user/eliminarCentroDeUsuario/" + idElemento;
+            alerta = "Hubo un problema al eliminar el centro asociado.";
+            usuarioId = elemento.getAttribute("data-idUsuario");
+
+            break;
+
+            case 'Orientadores':
+            urlEliminar = url+"user/eliminarCentroDeUsuario/" + idElemento;
+            alerta = "Hubo un problema al eliminar el centro asociado.";
+            usuarioId = elemento.getAttribute("data-idUsuario");
+
+            break;
+
+            case 'Evaluadores':
+            urlEliminar = url+"user/eliminarCentroDeUsuario/" + idElemento;
+            alerta = "Hubo un problema al eliminar el centro asociado.";
+            usuarioId = elemento.getAttribute("data-idUsuario");
 
             break;
     }
+
 
     $.ajax({
         type:'DELETE',
         url: urlEliminar,
         data:{
-            tabla:tablas
+            tabla:tablas,
+            usuarioId: usuarioId
         },
 
         success: function (respuesta){
@@ -206,7 +253,7 @@ function eliminarElemento(elemento){
         },
         error: function(jqXHR, textStatus, errorThrown) {
             if (jqXHR.status === 500) {
-                alert("Por favor verifique que no exista ningún trayecto asociado.")
+                alert(alerta);
             } else {
                 console.error('Ocurrió un error:', textStatus, errorThrown);
             }

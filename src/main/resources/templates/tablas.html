@@ -454,6 +454,7 @@
                         <tr  th:each="centro: ${centros}">
                             <td th:text="${centro.id}">125	</td>
                             <td th:text="${centro.nombre}">C.F.P. N° 02 (Barracas)</td>
+                            <td><i class="bi bi-trash iconoAcciones" th:id="${centro.id}" th:data-idusuario="${idUsuario}" th:data="${tabla}" onclick="mostrarAdvertencia(this)"></i></td>
                         </tr>
 
                         </tbody>
@@ -516,6 +517,7 @@
                             <tr  th:each="centro: ${centros}">
                                 <td th:text="${centro.id}">125	</td>
                                 <td th:text="${centro.nombre}">C.F.P. N° 02 (Barracas)</td>
+                                <td><i class="bi bi-trash iconoAcciones" th:id="${centro.id}" th:data-idusuario="${idUsuario}" th:data="${tabla}" onclick="mostrarAdvertencia(this)"></i></td>
                             </tr>
 
                             </tbody>
@@ -580,6 +582,7 @@
                             <tr  th:each="centro: ${centros}">
                                 <td th:text="${centro.id}">125	</td>
                                 <td th:text="${centro.nombre}">C.F.P. N° 02 (Barracas)</td>
+                                <td><i class="bi bi-trash iconoAcciones" th:id="${centro.id}" th:data-idusuario="${idUsuario}" th:data="${tabla}" onclick="mostrarAdvertencia(this)"></i></td>
                             </tr>
 
                             </tbody>

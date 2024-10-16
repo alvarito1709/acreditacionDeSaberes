@@ -45,4 +45,8 @@ public class Evaluador extends User{
     public void setSectores(Set<Sector> sectores) {
         this.sectores = sectores;
     }
+
+    public void borrarCentro(Centro centro){
+        centros.remove(centro);
+    }
 }

@@ -179,4 +179,20 @@ public class CentroController {
 
     }
 
+
+    @PostMapping("/buscarCentroPorRelacionUser/{centroId}")
+    public ModelAndView buscarCentroPorRelacionUser(@PathVariable Long centroId,
+                                                    @RequestParam String tabla,
+                                                    @RequestParam Long idusuario,
+                                                    Model model){
+
+
+        Centro centro = centroService.buscarCentroPorId(centroId);
+
+        model.addAttribute("tabla", tabla);
+        model.addAttribute("centroDeUsuario", centro);
+        model.addAttribute("usuario", idusuario);
+
+        return new ModelAndView("board :: modalEliminar");
+    }
 }

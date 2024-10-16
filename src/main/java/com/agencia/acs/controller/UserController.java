@@ -489,6 +489,7 @@ public class UserController {
 
 
         model.addAttribute("tabla", tabla);
+        model.addAttribute("idUsuario", idUsuario);
 
         return new ModelAndView("tablas :: tablaQueCargo");
 
@@ -540,6 +541,62 @@ public class UserController {
         }else {
             return false;
         }
+
+    }
+
+    @DeleteMapping("/eliminarCentroDeUsuario/{centroId}")
+    @Transactional
+    public ModelAndView eliminarCentroDeUsuario(@PathVariable Long centroId,
+                                                String tabla,
+                                                Long usuarioId,
+                                                Model model){
+
+        Centro centro = centroService.buscarCentroPorId(centroId);
+
+        model.addAttribute("tabla", tabla);
+
+        switch (tabla){
+
+            case "Entrevistadores":
+
+                Optional<Entrevistador> entrevistadorOptional = entrevistadorService.buscarEntrevistadorPorId(usuarioId);
+
+                entrevistadorOptional.ifPresent(value -> value.borrarCentro(centro));
+
+                List<Entrevistador> entrevistadores = entrevistadorService.listarEntrevistadores();
+
+                model.addAttribute("entrevistadores", entrevistadores);
+
+                break;
+
+            case "Orientadores":
+
+                Optional<Orientador> orientadorOptional = orientadorService.buscarOrientadorPorId(usuarioId);
+
+                orientadorOptional.ifPresent(value -> value.borrarCentro(centro));
+
+                List<Orientador> orientadores = orientadorService.listarOrientadores();
+
+                model.addAttribute("orientadores", orientadores);
+
+                break;
+
+            case "Evaluadores":
+
+                Optional<Evaluador> evaluadorOptional = evaluadorService.buscarEvaluadorPorId(usuarioId);
+
+                evaluadorOptional.ifPresent(value -> value.borrarCentro(centro));
+
+                List<Evaluador> evaluadores = evaluadorService.listarEvaluadores();
+
+                model.addAttribute("evaluadores", evaluadores);
+
+                break;
+
+        }
+
+        return new ModelAndView("tablas :: tablaQueCargo");
+
 
     }
 
